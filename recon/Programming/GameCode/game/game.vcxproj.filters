@@ -1,0 +1,948 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{ed1833b0-f3d9-478d-ae95-64d7b74ebc74}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;rc;def;r;odl;hpj;bat;for;f90</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{9f4bc3be-c40f-41af-b2e2-a5df772c6173}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;fi;fd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{11a3ad58-5acc-4377-916b-b2a97073cb0a}</UniqueIdentifier>
+      <Extensions>ico;cur;bmp;dlg;rc2;rct;bin;cnt;rtf;gif;jpg;jpeg;jpe</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="buoy.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="c_ai.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="c_corvus1.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="c_corvus1_anim.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="c_corvus2.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="c_corvus2_anim.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="c_corvus3.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="c_corvus3_anim.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="c_corvus4.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="c_corvus4_anim.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="c_corvus5.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="c_corvus5_anim.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="c_corvus6.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="c_corvus6_anim.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="c_corvus7.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="c_corvus7_anim.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="c_corvus8.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="c_corvus8_anim.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="c_corvus9.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="c_corvus9_anim.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="c_dranor.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="c_dranor_anim.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="c_elflord.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="c_elflord_anim.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="c_morcalavin.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="c_morcalavin_anim.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="c_priestess.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="c_priestess2.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="c_priestess2_anim.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="c_priestess_anim.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="c_siernan1.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="c_siernan1_anim.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="c_siernan2.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="c_siernan2_anim.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="c_ssithrascout.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="c_ssithrascout_anim.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="c_tome.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="c_tome_anim.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="c_victimSsithra.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="c_victimSsithra_anim.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="decals.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ds.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="g_ai.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="g_breakable.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="g_ClassStatics.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="g_cmds.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="g_combat.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="g_DefaultMessageHandler.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="g_env.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="g_field.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="g_flamethrow.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="g_func.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="g_HitLocation.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="g_items.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="g_light.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="g_main.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="g_Message.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="g_misc.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="g_monster.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="g_obj.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="g_phys.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="g_Physics.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="g_ResourceManagers.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="g_rope.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="g_save.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="g_shrine.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="g_Skeletons.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="g_spawn.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="g_spawnf.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="g_svcmds.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="g_target.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="g_trigger.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="g_utils.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="g_waterfx.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="g_weapon.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="m_assassin.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="m_assassin_anim.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="m_beast.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="m_beast_anim.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="m_bee.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="m_chicken.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="m_chicken_anim.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="m_elflord.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="m_elflord_anims.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="m_fish.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="m_fish_anim.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="m_FMtest.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="m_gkrokon.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="m_gkrokon_anim.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="m_gorgon.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="m_gorgon_anim.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="m_harpy.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="m_harpy_anim.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="m_imp.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="m_imp_anim.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="m_morcalavin.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="m_morcalavin_anim.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="m_mother.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="m_mother_anim.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="m_move.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="m_mssithra.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="m_mssithra_anim.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="m_ogle.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="m_ogle_anim.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="m_plagueElf.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="m_plagueElf_anim.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="m_plagueSsithra.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="m_plagueSsithra_anim.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="m_priestess.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="m_priestess_anim.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="m_rat.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="m_rat_anim.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="m_seraph.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="m_seraph_anim.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="m_seraph_guard.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="m_seraph_guard_anim.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="m_spreader.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="m_spreader_anim.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="m_spreadermist.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="m_stats.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="m_tcheckrik.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="m_tcheckrik_anim.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="m_tcheckrik_spells.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\qcommon\Message.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mg_ai.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mg_guide.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="p_client.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\qcommon\p_dll.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="p_funcs.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="p_hud.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="p_item.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="p_view.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Script.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\qcommon\Skeletons.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="spl_blast.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="spl_BlueRing.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="spl_flyingfist.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="spl_HellStaff.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="spl_maceballs.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="spl_magicmissile.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="spl_meteorbarrier.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="spl_morph.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="spl_Phoenix.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="spl_powerup.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="spl_RedRain.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="spl_ripper.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="spl_shield.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="spl_sphereofannihlation.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="spl_teleport.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="spl_tornado.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="spl_wall.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Utilities.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="decals.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\qcommon\Angles.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\qcommon\ArrayedList.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="buoy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="c_ai.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="c_corvus1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="c_corvus1_anim.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="c_corvus2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="c_corvus2_anim.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="c_corvus3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="c_corvus3_anim.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="c_corvus4.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="c_corvus4_anim.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="c_corvus5.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="c_corvus5_anim.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="c_corvus6.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="c_corvus6_anim.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="c_corvus7.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="c_corvus7_anim.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="c_corvus8.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="c_corvus8_anim.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="c_corvus9.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="c_corvus9_anim.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="c_Dranor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="c_dranor_anim.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="c_elflord.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="c_elflord_anim.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="c_morcalavin.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="c_morcalavin_anim.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="c_priestess.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="c_priestess2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="c_priestess2_anim.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="c_priestess_anim.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="c_siernan1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="c_siernan1_anim.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="c_siernan2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="c_siernan2_anim.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="c_ssithrascout.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="c_ssithrascout_anim.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="c_tome.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="c_tome_anim.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="c_victimSsithra.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="c_victimSsithra_anim.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\qcommon\cl_strings.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\qcommon\compfmod.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ds.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\qcommon\EffectFlags.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\qcommon\FX.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="g_BoundingForm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="g_ClassStatics.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="g_DefaultMessageHandler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="g_Edict.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="g_HitLocation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="g_items.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="g_itemstats.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="g_local.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="g_Message.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="g_misc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="g_monster.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="g_NewSystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="g_Physics.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="g_playstats.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="g_Skeleton.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="g_Skeletons.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="g_teleport.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="g_Typedef.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="g_volume_effect.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="g_weapon.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="game.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\qcommon\GenericUnions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\qcommon\H2Common.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ICScript.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="list.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="m_actor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="m_assassin.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="m_assassin_anim.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="m_beast.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="m_beast_anim.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="m_chicken.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="m_chicken_anim.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="m_elf.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="m_elflord.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="m_elflord_anims.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="m_fish.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="m_fish_anim.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="m_gkrokon.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="m_gkrokon_anim.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="m_gorgon.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="m_gorgon_anim.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="m_harpy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="m_harpy_anim.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="m_imp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="m_imp_anim.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="m_morcalavin.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="m_morcalavin_anim.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="m_mother.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="m_mother_anim.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="m_mssithra.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="m_mssithra_anim.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="m_ogle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="m_ogle_anim.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="m_plagueElf.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="m_plagueElf_anim.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="m_plagueSsithra.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="m_plagueSsithra_anim.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="m_player.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="m_priestess.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="m_priestess_anim.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="m_rat.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="m_rat_anim.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="m_seraph.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="m_seraph_anim.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="m_seraph_guard.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="m_seraph_guard_anim.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="m_spreader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="m_spreader_anim.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="m_spreaderbomb_anim.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="m_spreadermist.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="m_stats.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="m_tcheckrik.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="m_tcheckrik_anim.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\qcommon\Matrix.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\qcommon\Message.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mg_guide.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\qcommon\p_actions2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\qcommon\p_anim_branch2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\qcommon\p_anim_data2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\qcommon\p_animactor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\qcommon\p_anims2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\qcommon\p_chicken.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\qcommon\p_ctrl2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="p_funcs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="p_item.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\qcommon\p_main2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Player\P_NewMove.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="pcode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\qcommon\Placement.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\qcommon\PrimitiveDisplayHack.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\qcommon\q_ClientServer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\qcommon\q_Physics.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="q_shared.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\qcommon\q_Surface.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\qcommon\q_Typedef.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\qcommon\qcommon.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\qcommon\qfiles.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\qcommon\random.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\qcommon\Reference.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\qcommon\ResourceManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\qcommon\SinglyLinkedList.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\qcommon\Skeletons.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\qcommon\timing.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Utilities.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\qcommon\Vector.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="waypoint.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="..\Final\quake2.lib" />
+    <Library Include="..\Final\H2Common.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="game.def">
+      <Filter>Resource Files</Filter>
+    </CustomBuild>
+  </ItemGroup>
+</Project>
