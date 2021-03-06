@@ -40,6 +40,28 @@
 
 #endif
 
+
+#ifdef ENGINE_STATIC
+#define ENGINE_API
+#else
+#ifdef ENGINE
+#define ENGINE_API __declspec(dllexport)
+
+#ifdef __cplusplus
+#define ENGINE_API_CPLUSPLUS extern "C" __declspec(dllexport) 
+#else
+#define ENGINE_API_CPLUSPLUS __declspec(dllexport) 
+#endif
+#else
+#define ENGINE_API __declspec(dllimport)
+#ifdef __cplusplus
+#define ENGINE_API_CPLUSPLUS extern "C" __declspec(dllimport) 
+#else
+#define ENGINE_API_CPLUSPLUS __declspec(dllimport) 
+#endif
+#endif
+#endif
+
 //============================================================================
 
 typedef struct sizebuf_s
@@ -142,7 +164,7 @@ void Info_Print (char *s);
 void CRC_Init(unsigned short *crcvalue);
 void CRC_ProcessByte(unsigned short *crcvalue, byte data);
 unsigned short CRC_Value(unsigned short crcvalue);
-int CRC_Block (byte *start, int count);
+unsigned short CRC_Block (byte *start, int count);
 
 
 
@@ -524,9 +546,9 @@ char 	*Cmd_CompleteCommand (char *partial);
 char 	*Cmd_CompleteCommandNext (char *partial, char *last);
 // similar to above, but returns the next value after last
 
-int		Cmd_Argc (void);
-char	*Cmd_Argv (int arg);
-char	*Cmd_Args (void);
+ENGINE_API int		Cmd_Argc (void);
+ENGINE_API char	*Cmd_Argv (int arg);
+ENGINE_API char	*Cmd_Args (void);
 // The functions that execute commands get their parameters with these
 // functions. Cmd_Argv () will return an empty string, not a NULL
 // if arg > argc, so string operations are allways safe.
@@ -739,7 +761,7 @@ void Netchan_Init (void);
 void Netchan_Setup (netsrc_t sock, netchan_t *chan, netadr_t adr, int qport);
 
 qboolean Netchan_NeedReliable (netchan_t *chan);
-int Netchan_Transmit (netchan_t *chan, int length, byte *data);
+void Netchan_Transmit (netchan_t *chan, int length, byte *data);
 void Netchan_OutOfBand (int net_socket, netadr_t adr, int length, byte *data);
 void Netchan_OutOfBandPrint (int net_socket, netadr_t adr, char *format, ...);
 qboolean Netchan_Process (netchan_t *chan, sizebuf_t *msg);
@@ -773,13 +795,13 @@ int			CM_HeadnodeForBox (vec3_t mins, vec3_t maxs);
 int			CM_PointContents (vec3_t p, int headnode);
 int			CM_TransformedPointContents (vec3_t p, int headnode, vec3_t origin, vec3_t angles);
 
-void		CM_BoxTrace (vec3_t start, vec3_t end,
+trace_t		CM_BoxTrace (vec3_t start, vec3_t end,
 						  vec3_t mins, vec3_t maxs,
-						  int headnode, int brushmask, trace_t *return_trace);
-void		CM_TransformedBoxTrace (vec3_t start, vec3_t end,
+						  int headnode, int brushmask);
+trace_t		CM_TransformedBoxTrace (vec3_t start, vec3_t end,
 						  vec3_t mins, vec3_t maxs,
 						  int headnode, int brushmask,
-						  vec3_t origin, vec3_t angles, trace_t *return_trace);
+						  vec3_t origin, vec3_t angles);
 
 byte		*CM_ClusterPVS (int cluster);
 byte		*CM_ClusterPHS (int cluster);
@@ -814,7 +836,7 @@ Common between server and client so prediction matches
 ==============================================================
 */
 				  
-void Pmove(pmove_t *pmove, qboolean server);
+void Pmove(pmove_t *pmove);
 
 /*
 ==============================================================
@@ -925,8 +947,6 @@ void	Sys_Init (void);
 
 void	Sys_AppActivate (void);
 
-void	Sys_UnloadGame (void);
-void	*Sys_GetGameAPI (void *parms);
 // loads the game dll and calls the api init function
 
 char	*Sys_ConsoleInput (void);
@@ -954,5 +974,6 @@ void SCR_BeginLoadingPlaque (void);
 void SV_Init (void);
 void SV_Shutdown (char *finalmsg, qboolean reconnect);
 void SV_Frame (int msec);
+
 
 #endif // QCOMMON_H

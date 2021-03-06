@@ -27,7 +27,7 @@ void	VID_CheckChanges (void);
 
 void	VID_MenuInit( void );
 void	VID_PreMenuInit( void );
-void	__stdcall VID_MenuDraw();
-char	* __stdcall VID_MenuKey( int );
+void	 VID_MenuDraw();
+const char	* VID_MenuKey( int );
 
 // end

@@ -554,11 +554,11 @@ extern struct ResourceManager_s cl_FXBufMngr;
 extern	netadr_t	net_from;
 extern	sizebuf_t	net_message;
 
-void DrawString (int x, int y, char *s, unsigned int color, int maxlen);
+void DrawString (int x, int y, char *s);
 qboolean CL_CheckOrDownloadFile (char *filename);
 
 void CL_AddNetgraph (void);
-int CL_ParseEntityBits (unsigned char *bf,unsigned char* bfNonZero);
+int CL_ParseEntityBits (unsigned char *bf);
 void CL_ParseDelta (entity_state_t *from, entity_state_t *to, int number, unsigned char *bf);
 void CL_ParseFrame (void);
 
@@ -643,7 +643,7 @@ void CL_Record_f (void);
 extern	char *svc_strings[256];
 
 void CL_ParseServerMessage (void);
-void CL_LoadClientinfo (clientinfo_t *ci, char *s, int index);
+void CL_LoadClientinfo (clientinfo_t *ci, char *s);
 void SHOWNET(char *s);
 void CL_ParseClientinfo (int player);
 int COLOUR(cvar_t *cvar);
