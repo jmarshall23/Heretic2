@@ -458,16 +458,118 @@ void Mod_LoadFlexModel(struct model_s *mod, void *model_buffer, int filesize)
 	mod->maxs[1] = 32;
 	mod->maxs[2] = 32;
 }
+
 /*
 =============
 R_LerpFrameVertexes
 =============
 */
+
 void R_LerpFrameVertexes(vec3_t newPoint, vec3_t oldPoint, vec3_t interpolatedPoint, float backlerp)
 {
 	interpolatedPoint[0] = newPoint[0] + backlerp * (oldPoint[0] - newPoint[0]);
 	interpolatedPoint[1] = newPoint[1] + backlerp * (oldPoint[1] - newPoint[1]);
 	interpolatedPoint[2] = newPoint[2] + backlerp * (oldPoint[2] - newPoint[2]);
+}
+/*
+=============
+R_RenderFlexNode
+=============
+*/
+void R_RenderFlexNode(int startCmd, int numCmds, fmdl_t* model, vec3_t *frame_vertexes, vec3_t *old_frame_vertexes, fmaliasframe_t* frame, fmaliasframe_t* oldframe, int currentFrame, int oldframenum, float backlerp)
+{
+	long* command = model->glcmds;
+	int cur_glcmnd = model->header.num_glcmds;
+
+	int cmdId = 0;
+	if (command[0] == 0)
+	{
+		command = &command[1];
+	}
+
+	while (*command && cur_glcmnd)
+	{
+		cur_glcmnd--;
+
+		qboolean shouldRender = cmdId >= startCmd;
+
+		int num_verts;
+		if (*command > 0)
+		{
+			//triangle strip
+			num_verts = *command;
+
+			if (shouldRender)
+				glBegin(GL_TRIANGLE_STRIP);
+		}
+		else
+		{
+			//triangle fan
+			num_verts = -(*command);
+			if (shouldRender)
+				glBegin(GL_TRIANGLE_FAN);
+		}
+
+		command++;
+		cmdId++;
+
+		for (int i = 0; i < num_verts; i++)
+		{
+			vec3_t position;
+			vec3_t oldposition;
+			vec3_t finalposition;
+			vec2_t st;
+			int vert_index;
+
+			//grab the floating point s and t
+			st[0] = (*((float*)command)) * 1; command++; cmdId++;
+			st[1] = (*((float*)command)) * 1; command++; cmdId++;
+
+			vert_index = *command; command++; cmdId++;
+
+			if (oldframenum == currentFrame)
+			{
+				position[0] = (frame_vertexes[vert_index][0] * frame->scale[0]) + frame->translate[0];
+				position[1] = (frame_vertexes[vert_index][1] * frame->scale[1]) + frame->translate[1];
+				position[2] = (frame_vertexes[vert_index][2] * frame->scale[2]) + frame->translate[2];
+
+				if (shouldRender)
+				{
+					glTexCoord2f(st[0], st[1]);
+					glVertex3fv(position);
+				}
+			}
+			else
+			{
+				position[0] = (frame_vertexes[vert_index][0] * frame->scale[0]) + frame->translate[0];
+				position[1] = (frame_vertexes[vert_index][1] * frame->scale[1]) + frame->translate[1];
+				position[2] = (frame_vertexes[vert_index][2] * frame->scale[2]) + frame->translate[2];
+
+				oldposition[0] = (old_frame_vertexes[vert_index][0] * oldframe->scale[0]) + oldframe->translate[0];
+				oldposition[1] = (old_frame_vertexes[vert_index][1] * oldframe->scale[1]) + oldframe->translate[1];
+				oldposition[2] = (old_frame_vertexes[vert_index][2] * oldframe->scale[2]) + oldframe->translate[2];				
+
+				if (shouldRender)
+				{
+					R_LerpFrameVertexes(position, oldposition, finalposition, backlerp);
+					glTexCoord2f(st[0], st[1]);
+					glVertex3fv(finalposition);
+				}
+			}
+		}
+
+		if (shouldRender)
+			glEnd();		
+
+		if (command[0] == 0)
+		{
+			command++;
+			cmdId++;
+		}
+
+		if (cmdId >= startCmd + numCmds)
+			return;
+	}
 }
 
 /*
@@ -475,15 +577,13 @@ void R_LerpFrameVertexes(vec3_t newPoint, vec3_t oldPoint, vec3_t interpolatedPo
 R_RenderFlexModel
 =============
 */
-void R_RenderFlexModel(fmdl_t *model, int currentFrame, int oldframenum, vec3_t oldorigin, vec3_t origin, vec3_t angles, float backlerp)
+void R_RenderFlexModel(fmdl_t *model, fmnodeinfo_t *nodeinfo, int currentFrame, int oldframenum, vec3_t oldorigin, vec3_t origin, vec3_t angles, float backlerp)
 {
 	fmaliasframe_t *frame;
 	fmaliasframe_t *oldframe;
 	int i;
 	fmtrivertx_t	*v;
 	fmtrivertx_t	*ov;
-	long* command = model->glcmds;
-	int cur_glcmnd = model->header.num_glcmds;
 
 	static vec3_t frame_vertexes[65536];
 	static vec3_t old_frame_vertexes[65536];
@@ -513,78 +613,13 @@ void R_RenderFlexModel(fmdl_t *model, int currentFrame, int oldframenum, vec3_t 
 		RotateModelSegments(&model->skeletons[currentFrame], 0, model->rootCluster, rootJoint, frame_vertexes);
 	}
 
-	if (command[0] == 0)
+	for (int i = 0; i < model->header.num_mesh_nodes; i++)
 	{
-		command = &command[1];
-	}
-	
-	
+		if (nodeinfo && nodeinfo[i].flags & FMNI_NO_DRAW)
+			continue;
 
-	while (*command && cur_glcmnd)
-	{
-		cur_glcmnd--;
-
-		int num_verts;
-		if (*command > 0)
-		{
-			//triangle strip
-			num_verts = *command;
-			glBegin(GL_TRIANGLE_STRIP);
-		}
-		else
-		{
-			//triangle fan
-			num_verts = -(*command);
-			glBegin(GL_TRIANGLE_FAN);
-		}
-		command++;
-
-		for (i = 0; i < num_verts; i++)
-		{
-			vec3_t position;
-			vec3_t oldposition;
-			vec3_t finalposition;
-			vec2_t st;
-			int vert_index;
-
-			//grab the floating point s and t
-			st[0] = (*((float *)command)) * 1; command++;
-			st[1] = (*((float *)command)) * 1; command++;
-
-			vert_index = *command; command++;
-
-			if (oldframenum == currentFrame)
-			{
-				position[0] = (frame_vertexes[vert_index][0] * frame->scale[0]) + frame->translate[0];
-				position[1] = (frame_vertexes[vert_index][1] * frame->scale[1]) + frame->translate[1];
-				position[2] = (frame_vertexes[vert_index][2] * frame->scale[2]) + frame->translate[2];
-
-				glTexCoord2f(st[0], st[1]);
-				glVertex3fv(position);
-			}
-			else
-			{
-				position[0] = (frame_vertexes[vert_index][0] * frame->scale[0]) + frame->translate[0];
-				position[1] = (frame_vertexes[vert_index][1] * frame->scale[1]) + frame->translate[1];
-				position[2] = (frame_vertexes[vert_index][2] * frame->scale[2]) + frame->translate[2];
-
-				oldposition[0] = (old_frame_vertexes[vert_index][0] * oldframe->scale[0]) + oldframe->translate[0];
-				oldposition[1] = (old_frame_vertexes[vert_index][1] * oldframe->scale[1]) + oldframe->translate[1];
-				oldposition[2] = (old_frame_vertexes[vert_index][2] * oldframe->scale[2]) + oldframe->translate[2];
-
-				R_LerpFrameVertexes(position, oldposition, finalposition, backlerp);
-
-				glTexCoord2f(st[0], st[1]);
-				glVertex3fv(finalposition);
-			}
-		}
-		glEnd();
-
-		if (command[0] == 0)
-		{
-			command++;
-		}
-	}
+		R_RenderFlexNode(model->mesh_nodes[i].start_glcmds, model->mesh_nodes[i].num_glcmds, model, frame_vertexes, old_frame_vertexes, frame, oldframe, currentFrame, oldframenum, backlerp);
+	}	
 }
 
 /*
@@ -647,7 +682,7 @@ void R_DrawFlexModel(entity_t *e)
 	//GL_TexEnv(GL_MODULATE);
 
 	GL_Bind(e->model[0]->skins[0]->texnum);
-	R_RenderFlexModel(e->model[0]->fmodel, e->frame, e->oldframe, e->oldorigin, e->origin, e->angles, e->backlerp);
+	R_RenderFlexModel(e->model[0]->fmodel, e->fmnodeinfo, e->frame, e->oldframe, e->oldorigin, e->origin, e->angles, e->backlerp);
 
 	GL_EnableMultitexture(false);
 
