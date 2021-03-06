@@ -160,8 +160,6 @@
     <ResourceCompile Include="Resource.rc" />
   </ItemGroup>
   <ItemGroup>
-    <Library Include="..\Final\H2Common.lib" />
-    <Library Include="..\Final\quake2.lib" />
     <Library Include="MinHook.x86.lib" />
   </ItemGroup>
   <ItemGroup>
@@ -176,6 +174,9 @@
     </ProjectReference>
     <ProjectReference Include="..\Player\Player.vcxproj">
       <Project>{c3b6e450-960d-4cf6-8eb2-cfe928bf0ef1}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\quake2.vcxproj">
+      <Project>{16fcdefe-ec9b-42ab-8818-5baeea2bc792}</Project>
     </ProjectReference>
     <ProjectReference Include="..\ref_gl\ref_gl.vcxproj">
       <Project>{b21c65e1-7ae4-43dd-a648-f8920414b75d}</Project>

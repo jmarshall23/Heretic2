@@ -92,8 +92,4 @@
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
-  <ItemGroup>
-    <Library Include="..\Final\H2Common.lib" />
-    <Library Include="..\Final\quake2.lib" />
-  </ItemGroup>
 </Project>

@@ -17,13 +17,7 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <Library Include="..\Final\quake2.lib">
-      <Filter>Source Files</Filter>
-    </Library>
     <Library Include="MinHook.x86.lib">
-      <Filter>Source Files</Filter>
-    </Library>
-    <Library Include="..\Final\H2Common.lib">
       <Filter>Source Files</Filter>
     </Library>
   </ItemGroup>

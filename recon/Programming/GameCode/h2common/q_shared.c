@@ -994,8 +994,8 @@ H2COMMON_API void Com_sprintf(char *dest, int size, char *fmt, ...)
 	va_start(argptr, fmt);
 	len = vsprintf(bigbuffer, fmt, argptr);
 	va_end(argptr);
-	if (len >= size)
-		Com_Printf("Com_sprintf: overflow of %i in %i\n", len, size);
+	//if (len >= size)
+	//	Com_Printf("Com_sprintf: overflow of %i in %i\n", len, size);
 	strncpy(dest, bigbuffer, size - 1);
 }
 
@@ -1132,25 +1132,25 @@ H2COMMON_API void Info_SetValueForKey(char *s, char *key, char *value)
 
 	if (strstr(key, "\\") || strstr(value, "\\"))
 	{
-		Com_Printf("Can't use keys or values with a \\\n");
+	//	Com_Printf("Can't use keys or values with a \\\n");
 		return;
 	}
 
 	if (strstr(key, ";"))
 	{
-		Com_Printf("Can't use keys or values with a semicolon\n");
+		//Com_Printf("Can't use keys or values with a semicolon\n");
 		return;
 	}
 
 	if (strstr(key, "\"") || strstr(value, "\""))
 	{
-		Com_Printf("Can't use keys or values with a \"\n");
+		//Com_Printf("Can't use keys or values with a \"\n");
 		return;
 	}
 
 	if (strlen(key) > MAX_INFO_KEY - 1 || strlen(value) > MAX_INFO_KEY - 1)
 	{
-		Com_Printf("Keys and values must be < 64 characters.\n");
+		//Com_Printf("Keys and values must be < 64 characters.\n");
 		return;
 	}
 	Info_RemoveKey(s, key);
@@ -1161,7 +1161,7 @@ H2COMMON_API void Info_SetValueForKey(char *s, char *key, char *value)
 
 	if (strlen(newi) + strlen(s) > maxsize)
 	{
-		Com_Printf("Info string length exceeded\n");
+		//Com_Printf("Info string length exceeded\n");
 		return;
 	}
 

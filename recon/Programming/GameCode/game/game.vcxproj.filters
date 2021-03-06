@@ -937,10 +937,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Library Include="..\Final\quake2.lib" />
-    <Library Include="..\Final\H2Common.lib" />
-  </ItemGroup>
-  <ItemGroup>
     <CustomBuild Include="game.def">
       <Filter>Resource Files</Filter>
     </CustomBuild>

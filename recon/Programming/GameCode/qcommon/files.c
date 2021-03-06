@@ -146,7 +146,7 @@ For some reason, other dll's can't just cal fclose()
 on files returned by FS_FOpenFile...
 ==============
 */
-void FS_FCloseFile (FILE *f)
+QUAKE2_API void FS_FCloseFile (FILE *f)
 {
 	fclose (f);
 }
@@ -203,7 +203,7 @@ a seperate file.
 */
 int file_from_pak = 0;
 #ifndef NO_ADDONS
-int FS_FOpenFile (char *filename, FILE **file)
+QUAKE2_API int FS_FOpenFile (char *filename, FILE **file)
 {
 	searchpath_t	*search;
 	char			netpath[MAX_OSPATH];

@@ -363,6 +363,10 @@ void SV_NewTrace(vec3_t start, vec3_t mins, vec3_t maxs, vec3_t end, edict_t* pa
 	*tr = SV_Trace(start, mins, maxs, end, passent, contentmask);
 }
 
+char* FS_Userdir(void) {
+	return "";
+}
+
 void SV_InitGameProgs (void)
 {
 	game_import_t	import;

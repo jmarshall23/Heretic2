@@ -23,6 +23,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include <windows.h>
 #include "../qcommon/ResourceManager.h"
 
+client_fx_export_t fxe;
+
 float EffectEventIdTimeArray[1000];
 int cl_effectpredict[1000];
 
@@ -61,6 +63,47 @@ qboolean InCameraPVS(vec3_t point) {
 	return true;
 }
 
+// Screen flash set
+void Activate_Screen_Flash(int color) {
+
+}
+
+// Screen flash set
+void Activate_Screen_Shake(int color) {
+
+}
+
+// Screen flash unset
+void Deactivate_Screen_Flash(void) {
+
+}
+
+void Deactivate_Screen_Shake(void) {
+
+}
+
+void VectorNegate(vec3_t in, vec3_t out)
+{
+	assert(out != vec3_origin);
+
+	out[0] = -in[0];
+	out[1] = -in[1];
+	out[2] = -in[2];
+}
+
+void VectorClear(vec3_t in)
+{
+	assert(in != vec3_origin);
+
+	in[0] = 0;
+	in[1] = 0;
+	in[2] = 0;
+}
+
+qboolean Get_Crosshair(vec3_t origin, byte* type) {
+	return true;
+}
+
 int CL_InitClientEffects(const char* name)
 {
 	int result; // eax
@@ -70,7 +113,7 @@ int CL_InitClientEffects(const char* name)
 	if (clgame_module_handle)
 		CL_ShutdownClientEffects();
 
-	Com_ColourPrintf(29, "------ Loading %s ------\n", name);
+	Com_Printf("------ Loading %s ------\n", name);
 
 	Sys_LoadGameDll(name, &clgame_module_handle, &chkSum);
 	cl_game_import.cl_predict = cl_predict;

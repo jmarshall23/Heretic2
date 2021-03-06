@@ -123,10 +123,9 @@
     <ProjectReference Include="..\h2common\H2Common.vcxproj">
       <Project>{cdee41f3-79cb-4eb1-a54d-2585ceb49e7b}</Project>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Library Include="..\Final\H2Common.lib" />
-    <Library Include="..\Final\quake2.lib" />
+    <ProjectReference Include="..\quake2.vcxproj">
+      <Project>{16fcdefe-ec9b-42ab-8818-5baeea2bc792}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

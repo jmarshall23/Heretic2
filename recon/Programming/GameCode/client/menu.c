@@ -2747,7 +2747,7 @@ const char *DMOptions_MenuKey( int key )
 
 void M_Menu_DMOptions_f (void)
 {
-	DMOptions_MenuInit();
+	//DMOptions_MenuInit();
 	M_PushMenu( DMOptions_MenuDraw, DMOptions_MenuKey );
 }
 

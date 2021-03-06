@@ -104,13 +104,13 @@
       <Optimization>Disabled</Optimization>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>ENGINE;WIN32;_DEBUG;_WINDOWS;C_ONLY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>QUAKE2;WIN32;_DEBUG;_WINDOWS;C_ONLY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AssemblerListingLocation>.\DebugAxp\</AssemblerListingLocation>
       <PrecompiledHeaderOutputFile>.\DebugAxp\quake2.pch</PrecompiledHeaderOutputFile>
       <ObjectFileName>.\DebugAxp\</ObjectFileName>
       <ProgramDataBaseFileName>.\DebugAxp\</ProgramDataBaseFileName>
       <AdditionalOptions> /QA21164 /MTd /QAieee1 </AdditionalOptions>
-      <AdditionalIncludeDirectories>./client/;./qcommon/;./player/;./game/;./client effects/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./WinSnd/OpenAL/include;./client/;./qcommon/;./player/;./game/;./client effects/</AdditionalIncludeDirectories>
     </ClCompile>
     <Midl>
       <SuppressStartupBanner>true</SuppressStartupBanner>
@@ -146,13 +146,13 @@
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
-      <PreprocessorDefinitions>ENGINE;WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>QUAKE2;WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AssemblerListingLocation>.\debug\</AssemblerListingLocation>
       <BrowseInformation>true</BrowseInformation>
       <PrecompiledHeaderOutputFile>.\debug\quake2.pch</PrecompiledHeaderOutputFile>
       <ObjectFileName>.\debug\</ObjectFileName>
       <ProgramDataBaseFileName>.\debug\</ProgramDataBaseFileName>
-      <AdditionalIncludeDirectories>./client/;./qcommon/;./player/;./game/;./client effects/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./WinSnd/OpenAL/include;./client/;./qcommon/;./player/;./game/;./client effects/</AdditionalIncludeDirectories>
     </ClCompile>
     <Midl>
       <SuppressStartupBanner>true</SuppressStartupBanner>
@@ -189,12 +189,12 @@
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <WarningLevel>Level4</WarningLevel>
       <DebugInformationFormat>OldStyle</DebugInformationFormat>
-      <PreprocessorDefinitions>ENGINE;WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>QUAKE2;WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AssemblerListingLocation>.\release\</AssemblerListingLocation>
       <PrecompiledHeaderOutputFile>.\release\quake2.pch</PrecompiledHeaderOutputFile>
       <ObjectFileName>.\release\</ObjectFileName>
       <ProgramDataBaseFileName>.\release\</ProgramDataBaseFileName>
-      <AdditionalIncludeDirectories>./client/;./qcommon/;./player/;./game/;./client effects/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./WinSnd/OpenAL/include;./client/;./qcommon/;./player/;./game/;./client effects/</AdditionalIncludeDirectories>
     </ClCompile>
     <Midl>
       <SuppressStartupBanner>true</SuppressStartupBanner>
@@ -229,13 +229,13 @@
       <Optimization>MaxSpeed</Optimization>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>ENGINE;WIN32;NDEBUG;_WINDOWS;C_ONLY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>QUAKE2;WIN32;NDEBUG;_WINDOWS;C_ONLY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AssemblerListingLocation>.\ReleaseAXP\</AssemblerListingLocation>
       <PrecompiledHeaderOutputFile>.\ReleaseAXP\quake2.pch</PrecompiledHeaderOutputFile>
       <ObjectFileName>.\ReleaseAXP\</ObjectFileName>
       <ProgramDataBaseFileName>.\ReleaseAXP\</ProgramDataBaseFileName>
       <AdditionalOptions> /QA21164 /QAieee1 </AdditionalOptions>
-      <AdditionalIncludeDirectories>./client/;./qcommon/;./player/;./game/;./client effects/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./WinSnd/OpenAL/include;./client/;./qcommon/;./player/;./game/;./client effects/</AdditionalIncludeDirectories>
     </ClCompile>
     <Midl>
       <SuppressStartupBanner>true</SuppressStartupBanner>
@@ -267,11 +267,21 @@
       <OutputFile>../../../quake2.dll</OutputFile>
     </Link>
     <ClCompile>
-      <AdditionalIncludeDirectories>./client/;./qcommon/;./player/;./game/;./client effects/;</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>ENGINE;_WINDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>./WinSnd/OpenAL/include;./client/;./qcommon/;./player/;./game/;./client effects/</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>QUAKE2;_WINDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="WinSnd\ALut\alutBufferData.c" />
+    <ClCompile Include="WinSnd\ALut\alutCodec.c" />
+    <ClCompile Include="WinSnd\ALut\alutError.c" />
+    <ClCompile Include="WinSnd\ALut\alutInit.c" />
+    <ClCompile Include="WinSnd\ALut\alutInputStream.c" />
+    <ClCompile Include="WinSnd\ALut\alutLoader.c" />
+    <ClCompile Include="WinSnd\ALut\alutOutputStream.c" />
+    <ClCompile Include="WinSnd\ALut\alutUtil.c" />
+    <ClCompile Include="WinSnd\ALut\alutVersion.c" />
+    <ClCompile Include="WinSnd\ALut\alutWaveform.c" />
     <ClCompile Include="client\cl_cin.c">
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug Alpha|Win32'"> /QA21164 /MTd /QAieee1   /QA21164 /MTd /QAieee1 </AdditionalOptions>
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release Alpha|Win32'"> /QA21164 /QAieee1   /QA21164 /QAieee1 </AdditionalOptions>
@@ -436,8 +446,11 @@
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug Alpha|Win32'"> /QA21164 /MTd /QAieee1   /QA21164 /MTd /QAieee1 </AdditionalOptions>
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Release Alpha|Win32'"> /QA21164 /QAieee1   /QA21164 /QAieee1 </AdditionalOptions>
     </ClCompile>
+    <ClCompile Include="WinSnd\s_eax.cpp" />
+    <ClCompile Include="WinSnd\s_main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="WinSnd\ALut\alutInternal.h" />
     <ClInclude Include="client\anorms.h" />
     <ClInclude Include="client\cdaudio.h" />
     <ClInclude Include="client\client.h" />
@@ -447,7 +460,6 @@
     <ClInclude Include="client\qmenu.h" />
     <ClInclude Include="client\ref.h" />
     <ClInclude Include="client\screen.h" />
-    <ClInclude Include="client\snd_loc.h" />
     <ClInclude Include="client\sound.h" />
     <ClInclude Include="client\vid.h" />
     <ClInclude Include="game\game.h" />
@@ -458,15 +470,15 @@
     <ClInclude Include="server\server.h" />
     <ClInclude Include="win32\conproc.h" />
     <ClInclude Include="win32\winquake.h" />
+    <ClInclude Include="WinSnd\s_local.h" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\games\Heretic II\recon\Programming\GameCode\h2common\H2Common.vcxproj">
+    <ProjectReference Include="h2common\H2Common.vcxproj">
       <Project>{cdee41f3-79cb-4eb1-a54d-2585ceb49e7b}</Project>
     </ProjectReference>
-    <ProjectReference Include="ref_gl\ref_gl.vcxproj">
-      <Project>{75f130bc-7edb-45a0-a101-4b2905081e10}</Project>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="WinSnd\OpenAL\OpenAL32.lib" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

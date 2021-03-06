@@ -94,7 +94,4 @@
       <Filter>Source Files</Filter>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Library Include="..\Final\quake2.lib" />
-  </ItemGroup>
 </Project>

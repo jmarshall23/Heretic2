@@ -13,6 +13,9 @@
       <UniqueIdentifier>{2c515518-69cd-4a06-8c74-a75ceaec1e55}</UniqueIdentifier>
       <Extensions>ico;cur;bmp;dlg;rc2;rct;bin;cnt;rtf;gif;jpg;jpeg;jpe</Extensions>
     </Filter>
+    <Filter Include="Source Files\ALut">
+      <UniqueIdentifier>{c68f1120-1e06-44b1-9b44-c53757faadac}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="win32\cd_win.c">
@@ -138,6 +141,42 @@
     <ClCompile Include="client\x86.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\..\games\Heretic II\recon\Programming\GameCode\WinSnd\ALut\alutBufferData.c">
+      <Filter>Source Files\ALut</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\games\Heretic II\recon\Programming\GameCode\WinSnd\ALut\alutCodec.c">
+      <Filter>Source Files\ALut</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\games\Heretic II\recon\Programming\GameCode\WinSnd\ALut\alutError.c">
+      <Filter>Source Files\ALut</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\games\Heretic II\recon\Programming\GameCode\WinSnd\ALut\alutInit.c">
+      <Filter>Source Files\ALut</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\games\Heretic II\recon\Programming\GameCode\WinSnd\ALut\alutInputStream.c">
+      <Filter>Source Files\ALut</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\games\Heretic II\recon\Programming\GameCode\WinSnd\ALut\alutLoader.c">
+      <Filter>Source Files\ALut</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\games\Heretic II\recon\Programming\GameCode\WinSnd\ALut\alutOutputStream.c">
+      <Filter>Source Files\ALut</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\games\Heretic II\recon\Programming\GameCode\WinSnd\ALut\alutUtil.c">
+      <Filter>Source Files\ALut</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\games\Heretic II\recon\Programming\GameCode\WinSnd\ALut\alutVersion.c">
+      <Filter>Source Files\ALut</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\games\Heretic II\recon\Programming\GameCode\WinSnd\ALut\alutWaveform.c">
+      <Filter>Source Files\ALut</Filter>
+    </ClCompile>
+    <ClCompile Include="WinSnd\s_eax.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="WinSnd\s_main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="client\anorms.h">
@@ -188,9 +227,6 @@
     <ClInclude Include="server\server.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="client\snd_loc.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="client\sound.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -200,5 +236,19 @@
     <ClInclude Include="win32\winquake.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\..\games\Heretic II\recon\Programming\GameCode\WinSnd\ALut\alutInternal.h">
+      <Filter>Source Files\ALut</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\games\Heretic II\recon\Programming\GameCode\WinSnd\s_local.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="WinSnd\s_local.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="..\..\..\..\..\games\Heretic II\recon\Programming\GameCode\WinSnd\OpenAL\OpenAL32.lib">
+      <Filter>Resource Files</Filter>
+    </Library>
   </ItemGroup>
 </Project>

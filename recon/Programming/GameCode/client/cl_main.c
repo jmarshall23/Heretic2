@@ -87,12 +87,12 @@ cvar_t	*gender_auto;
 
 cvar_t	*cl_vwep;
 
-ENGINE_API client_static_t	cls;
-ENGINE_API client_state_t	cl;
+QUAKE2_API client_static_t	cls;
+QUAKE2_API client_state_t	cl;
 
-ENGINE_API centity_t		cl_entities[MAX_EDICTS];
+QUAKE2_API centity_t		cl_entities[MAX_EDICTS];
 
-ENGINE_API entity_state_t	cl_parse_entities[MAX_PARSE_ENTITIES];
+QUAKE2_API entity_state_t	cl_parse_entities[MAX_PARSE_ENTITIES];
 
 extern	cvar_t *allow_download;
 extern	cvar_t *allow_download_players;

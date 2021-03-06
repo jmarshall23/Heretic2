@@ -40,28 +40,6 @@
 
 #endif
 
-
-#ifdef ENGINE_STATIC
-#define ENGINE_API
-#else
-#ifdef ENGINE
-#define ENGINE_API __declspec(dllexport)
-
-#ifdef __cplusplus
-#define ENGINE_API_CPLUSPLUS extern "C" __declspec(dllexport) 
-#else
-#define ENGINE_API_CPLUSPLUS __declspec(dllexport) 
-#endif
-#else
-#define ENGINE_API __declspec(dllimport)
-#ifdef __cplusplus
-#define ENGINE_API_CPLUSPLUS extern "C" __declspec(dllimport) 
-#else
-#define ENGINE_API_CPLUSPLUS __declspec(dllimport) 
-#endif
-#endif
-#endif
-
 //============================================================================
 
 typedef struct sizebuf_s
@@ -546,9 +524,9 @@ char 	*Cmd_CompleteCommand (char *partial);
 char 	*Cmd_CompleteCommandNext (char *partial, char *last);
 // similar to above, but returns the next value after last
 
-ENGINE_API int		Cmd_Argc (void);
-ENGINE_API char	*Cmd_Argv (int arg);
-ENGINE_API char	*Cmd_Args (void);
+QUAKE2_API  int		Cmd_Argc (void);
+QUAKE2_API  char	*Cmd_Argv (int arg);
+QUAKE2_API  char	*Cmd_Args (void);
 // The functions that execute commands get their parameters with these
 // functions. Cmd_Argv () will return an empty string, not a NULL
 // if arg > argc, so string operations are allways safe.
@@ -592,12 +570,12 @@ extern	cvar_t	*cvar_vars;
 
 float ClampCvar( float min, float max, float value );
 
-cvar_t *Cvar_Get (char *var_name, char *value, int flags);
+QUAKE2_API cvar_t *Cvar_Get (char *var_name, char *value, int flags);
 // creates the variable if it doesn't exist, or returns the existing one
 // if it exists, the value will not be changed, but flags will be ORed in
 // that allows variables to be unarchived without needing bitflags
 
-cvar_t 	*Cvar_Set (char *var_name, char *value);
+QUAKE2_API cvar_t 	*Cvar_Set (char *var_name, char *value);
 // will create the variable if it doesn't exist
 
 cvar_t *Cvar_ForceSet (char *var_name, char *value);
@@ -605,7 +583,7 @@ cvar_t *Cvar_ForceSet (char *var_name, char *value);
 
 cvar_t 	*Cvar_FullSet (char *var_name, char *value, int flags);
 
-void	Cvar_SetValue (char *var_name, float value);
+QUAKE2_API void	Cvar_SetValue (char *var_name, float value);
 // expands value to a string and calls Cvar_Set
 
 float	Cvar_VariableValue (char *var_name);
@@ -854,8 +832,8 @@ char		*FS_Userdir (void);
 char		*FS_NextPath (char *prevpath);
 void		FS_ExecAutoexec (void);
 
-int			FS_FOpenFile (char *filename, FILE **file);
-void		FS_FCloseFile (FILE *f);
+QUAKE2_API int			FS_FOpenFile (char *filename, FILE **file);
+QUAKE2_API void		FS_FCloseFile (FILE *f);
 // note: this can't be called from another DLL, due to MS libc issues
 
 int			FS_LoadFile (char *path, void **buffer);
@@ -892,9 +870,9 @@ MISC
 
 void		Com_BeginRedirect (int target, char *buffer, int buffersize, void (*flush));
 void		Com_EndRedirect (void);
-void 		Com_Printf (char *fmt, ...);
-void 		Com_DPrintf (char *fmt, ...);
-void 		Com_Error (int code, char *fmt, ...);
+QUAKE2_API void 		Com_Printf (char *fmt, ...);
+QUAKE2_API void 		Com_DPrintf (char *fmt, ...);
+QUAKE2_API void 		Com_Error (int code, char *fmt, ...);
 void 		Com_Quit (void);
 int			Com_ServerState (void);
 void		Com_SetServerState (int state);
@@ -952,7 +930,7 @@ void	Sys_AppActivate (void);
 char	*Sys_ConsoleInput (void);
 void	Sys_ConsoleOutput (char *string);
 void	Sys_SendKeyEvents (void);
-void	Sys_Error (char *error, ...);
+QUAKE2_API void	Sys_Error (char *error, ...);
 void	Sys_Quit (void);
 char	*Sys_GetClipboardData( void );
 void	Sys_CopyProtect (void);

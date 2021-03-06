@@ -81,19 +81,22 @@ static qboolean FXAssSkinUpdaterThink(client_entity_t *assskinupdater, centity_t
 	vec3_t sight_vec, endpos;
 	char string[MAX_QPATH];
 	trace_t trace;
+// jmarshall - linker error.
+	//if(owner->entity->skinnum!=100)
+	//	return (false);
+	//
+	//VectorSubtract(owner->origin, cl.camera_vieworigin, sight_vec);
+	//VectorNormalize(sight_vec);
+	//VectorMA(owner->origin, 1024, sight_vec, endpos);
+	////now look along that vector for first surface and take that texture
+	//fxi.Trace(owner->origin, vec3_origin, vec3_origin, endpos, MASK_SHOT, CEF_CLIP_TO_WORLD, &trace);
+	//strcpy(string, "textures/");
+ 	//strcat(string, trace.surface->name);
+	//strcpy(owner->entity->skinname, string);
+	//return(true);
 
-	if(owner->entity->skinnum!=100)
-		return (false);
-
-	VectorSubtract(owner->origin, cl.camera_vieworigin, sight_vec);
-	VectorNormalize(sight_vec);
-	VectorMA(owner->origin, 1024, sight_vec, endpos);
-	//now look along that vector for first surface and take that texture
-	fxi.Trace(owner->origin, vec3_origin, vec3_origin, endpos, MASK_SHOT, CEF_CLIP_TO_WORLD, &trace);
-	strcpy(string, "textures/");
- 	strcat(string, trace.surface->name);
-	strcpy(owner->entity->skinname, string);
-	return(true);
+	return false;
+// jmarshall end
 }
 
 void FXAssassinUseWallSkin(centity_t *Owner, int Type, int Flags, vec3_t Origin)

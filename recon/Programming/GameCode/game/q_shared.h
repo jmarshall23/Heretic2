@@ -243,8 +243,8 @@ void	Sys_FindClose (void);
 
 
 // this is only here so the functions in q_shared.c and q_shwin.c can link
-void Sys_Error (char *error, ...);
-void Com_Printf (char *msg, ...);
+QUAKE2_API void Sys_Error (char *error, ...);
+QUAKE2_API void Com_Printf (char *msg, ...);
 void Com_ColourPrintf (PalIdx_t colour, char *msg, ...);
 
 #ifdef __cplusplus
@@ -283,7 +283,7 @@ typedef struct cvar_s
 
 #endif		// CVAR
 
-cvar_t *Cvar_Get (char *var_name, char *value, int flags);
+QUAKE2_API cvar_t *Cvar_Get (char *var_name, char *value, int flags);
 
 /**************************************************************
  * palette info

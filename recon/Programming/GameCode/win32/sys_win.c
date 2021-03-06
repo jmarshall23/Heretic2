@@ -538,7 +538,7 @@ WinMain
 */
 HINSTANCE	global_hInstance;
 
-ENGINE_API int WINAPI QuakeMain (HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
+QUAKE2_API int __cdecl Quake2Main(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine)
 {
     MSG				msg;
 	int				time, oldtime, newtime;

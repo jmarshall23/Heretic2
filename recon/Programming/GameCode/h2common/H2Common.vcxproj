@@ -189,9 +189,6 @@
   <ItemGroup>
     <None Include="H2Common.def" />
   </ItemGroup>
-  <ItemGroup>
-    <Library Include="..\Final\quake2.lib" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
