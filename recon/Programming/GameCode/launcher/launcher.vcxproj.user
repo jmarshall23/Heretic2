@@ -4,5 +4,6 @@
     <LocalDebuggerCommand>D:\games\Heretic II\Heretic2Portals.exe</LocalDebuggerCommand>
     <LocalDebuggerWorkingDirectory>D:\games\Heretic II</LocalDebuggerWorkingDirectory>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+    <LocalDebuggerCommandArguments>+map ssdocks</LocalDebuggerCommandArguments>
   </PropertyGroup>
 </Project>

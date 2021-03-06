@@ -1,0 +1,19 @@
+LIBRARY
+EXPORTS
+	S_LoadReverbEffect
+	SNDEAX_SetEnvironment
+	S_Init
+	S_FindName
+	S_RegisterSound
+	S_Activate
+	S_BeginRegistration
+	S_EndRegistration
+	S_Shutdown
+	S_FindFreeVoice
+	S_PlayNoPositionSound
+	S_StartLocalSound
+	S_StartSound
+	S_StopAllSounds
+	S_StopAllSounds_Sounding
+	S_Update
+	S_PlayMusic
