@@ -20,6 +20,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 // sv_game.c -- interface to the game dll
 
 #include "server.h"
+#include "../qcommon/SinglyLinkedList.h"
+#include "../game/g_physics.h"
 
 game_export_t	*ge;
 
@@ -346,10 +348,7 @@ void	SV_MsgDualCenterPrintf(edict_t* ent, short msg1, short msg2) { }
 void	SV_CaptionPrintf(edict_t* ent, short msg) { }
 void	SV_ChangeCDTrack(edict_t* ent, int track, int loop) { }
 void	SV_CLPrintf(edict_t* ent, edict_t* from, int color, char* fmt, ...) { }
-int		 SV_FindEntitiesInBounds(vec3_t mins, vec3_t maxs, struct SinglyLinkedList_s* list, int areatype) { return 0; }
-void	 SV_TraceBoundingForm (struct FormMove_s* formMove) { }
 qboolean SV_ResizeBoundingForm (edict_t* self, struct FormMove_s* formMove) { return false; }
-int		 SV_GetContentsAtPoint(vec3_t point) { }
 qboolean SV_CheckDistances(vec3_t origin, float dist) { return false; }
 qboolean SV_RemovePersistantEffect(int toRemove, int call_from) { return false; }
 void SV_SoundEvent(byte EventId, float leveltime, edict_t* ent, int channel, int soundindex, float volume, float attenuation, float timeofs) { }
@@ -359,8 +358,33 @@ void SV_CleanLevel(void) { };
 
 void SV_ClearPersistantEffects(void) { }
 
+int		 SV_GetContentsAtPoint(vec3_t point) {
+	return SV_PointContents(point); // Not correct.
+}
+
+int		 SV_FindEntitiesInBounds(vec3_t mins, vec3_t maxs, struct SinglyLinkedList_s* list, int areatype) { 
+	edict_t* idlist[1024];
+	int numEnts;
+	
+	numEnts = SV_AreaEdicts(mins, maxs, idlist, 1024, areatype);
+
+	for (int i = 0; i < numEnts; i++)
+	{
+		GenericUnion4_t temp;
+
+		temp.t_void_p = idlist[i];
+		SLList_Push(list, temp);
+	}
+
+	return numEnts; 
+}
+
 void SV_NewTrace(vec3_t start, vec3_t mins, vec3_t maxs, vec3_t end, edict_t* passent, int contentmask, trace_t* tr) {	
 	*tr = SV_Trace(start, mins, maxs, end, passent, contentmask);
+}
+
+void	 SV_TraceBoundingForm(FormMove_t* formMove) {
+	SV_NewTrace(formMove->start, formMove->mins, formMove->maxs, formMove->end, formMove->passEntity, formMove->clipMask, &formMove->trace);
 }
 
 char* FS_Userdir(void) {
