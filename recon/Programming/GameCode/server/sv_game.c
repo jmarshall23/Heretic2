@@ -385,6 +385,8 @@ void SV_NewTrace(vec3_t start, vec3_t mins, vec3_t maxs, vec3_t end, edict_t* pa
 
 void	 SV_TraceBoundingForm(FormMove_t* formMove) {
 	SV_NewTrace(formMove->start, formMove->mins, formMove->maxs, formMove->end, formMove->passEntity, formMove->clipMask, &formMove->trace);
+
+	//formMove->trace = CM_BoxTrace(formMove->start, formMove->end, formMove->mins, formMove->maxs, 0, formMove->clipMask);
 }
 
 char* FS_Userdir(void) {

@@ -282,7 +282,7 @@ void SV_WritePlayerstateToClient (client_frame_t *from, client_frame_t *to, size
 	// write it
 	//
 	MSG_WriteByte (msg, svc_playerinfo);
-	MSG_WriteShort (msg, pflags);
+	MSG_WriteLong (msg, pflags);
 
 	//
 	// write the pmove_state_t
