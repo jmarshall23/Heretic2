@@ -21,6 +21,10 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "client.h"
 
+extern cvar_t* cl_upspeed;
+extern cvar_t* cl_forwardspeed;
+extern cvar_t* cl_sidespeed;
+
 cvar_t	*freelook;
 
 cvar_t	*adr0;
@@ -1439,9 +1443,9 @@ void CL_InitLocal (void)
 //	cl_minfps = Cvar_Get ("cl_minfps", "5", 0);
 	cl_maxfps = Cvar_Get ("cl_maxfps", "90", 0);
 
-	//cl_upspeed = Cvar_Get ("cl_upspeed", "200", 0);
-	//cl_forwardspeed = Cvar_Get ("cl_forwardspeed", "200", 0);
-	//cl_sidespeed = Cvar_Get ("cl_sidespeed", "200", 0);
+	cl_upspeed = Cvar_Get ("cl_upspeed", "200", 0);
+	cl_forwardspeed = Cvar_Get ("cl_forwardspeed", "200", 0);
+	cl_sidespeed = Cvar_Get ("cl_sidespeed", "200", 0);
 	cl_yawspeed = Cvar_Get ("cl_yawspeed", "140", 0);
 	cl_pitchspeed = Cvar_Get ("cl_pitchspeed", "150", 0);
 	cl_anglespeedkey = Cvar_Get ("cl_anglespeedkey", "1.5", 0);

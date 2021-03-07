@@ -141,41 +141,41 @@
     <ClCompile Include="client\x86.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\games\Heretic II\recon\Programming\GameCode\WinSnd\ALut\alutBufferData.c">
-      <Filter>Source Files\ALut</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\games\Heretic II\recon\Programming\GameCode\WinSnd\ALut\alutCodec.c">
-      <Filter>Source Files\ALut</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\games\Heretic II\recon\Programming\GameCode\WinSnd\ALut\alutError.c">
-      <Filter>Source Files\ALut</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\games\Heretic II\recon\Programming\GameCode\WinSnd\ALut\alutInit.c">
-      <Filter>Source Files\ALut</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\games\Heretic II\recon\Programming\GameCode\WinSnd\ALut\alutInputStream.c">
-      <Filter>Source Files\ALut</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\games\Heretic II\recon\Programming\GameCode\WinSnd\ALut\alutLoader.c">
-      <Filter>Source Files\ALut</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\games\Heretic II\recon\Programming\GameCode\WinSnd\ALut\alutOutputStream.c">
-      <Filter>Source Files\ALut</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\games\Heretic II\recon\Programming\GameCode\WinSnd\ALut\alutUtil.c">
-      <Filter>Source Files\ALut</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\games\Heretic II\recon\Programming\GameCode\WinSnd\ALut\alutVersion.c">
-      <Filter>Source Files\ALut</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\games\Heretic II\recon\Programming\GameCode\WinSnd\ALut\alutWaveform.c">
-      <Filter>Source Files\ALut</Filter>
-    </ClCompile>
     <ClCompile Include="WinSnd\s_eax.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="WinSnd\s_main.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="WinSnd\ALut\alutWaveform.c">
+      <Filter>Source Files\ALut</Filter>
+    </ClCompile>
+    <ClCompile Include="WinSnd\ALut\alutBufferData.c">
+      <Filter>Source Files\ALut</Filter>
+    </ClCompile>
+    <ClCompile Include="WinSnd\ALut\alutCodec.c">
+      <Filter>Source Files\ALut</Filter>
+    </ClCompile>
+    <ClCompile Include="WinSnd\ALut\alutError.c">
+      <Filter>Source Files\ALut</Filter>
+    </ClCompile>
+    <ClCompile Include="WinSnd\ALut\alutInit.c">
+      <Filter>Source Files\ALut</Filter>
+    </ClCompile>
+    <ClCompile Include="WinSnd\ALut\alutInputStream.c">
+      <Filter>Source Files\ALut</Filter>
+    </ClCompile>
+    <ClCompile Include="WinSnd\ALut\alutLoader.c">
+      <Filter>Source Files\ALut</Filter>
+    </ClCompile>
+    <ClCompile Include="WinSnd\ALut\alutOutputStream.c">
+      <Filter>Source Files\ALut</Filter>
+    </ClCompile>
+    <ClCompile Include="WinSnd\ALut\alutUtil.c">
+      <Filter>Source Files\ALut</Filter>
+    </ClCompile>
+    <ClCompile Include="WinSnd\ALut\alutVersion.c">
+      <Filter>Source Files\ALut</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -236,19 +236,14 @@
     <ClInclude Include="win32\winquake.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\games\Heretic II\recon\Programming\GameCode\WinSnd\ALut\alutInternal.h">
-      <Filter>Source Files\ALut</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\games\Heretic II\recon\Programming\GameCode\WinSnd\s_local.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="WinSnd\s_local.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="WinSnd\ALut\alutInternal.h">
+      <Filter>Source Files\ALut</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Library Include="..\..\..\..\..\games\Heretic II\recon\Programming\GameCode\WinSnd\OpenAL\OpenAL32.lib">
-      <Filter>Resource Files</Filter>
-    </Library>
+    <Library Include="WinSnd\OpenAL\OpenAL32.lib" />
   </ItemGroup>
 </Project>

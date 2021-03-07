@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <LocalDebuggerCommand>D:\games\Heretic II\Heretic2Portals.exe</LocalDebuggerCommand>
-    <LocalDebuggerWorkingDirectory>D:\games\Heretic II</LocalDebuggerWorkingDirectory>
+    <LocalDebuggerCommand>D:\projects\Heretic2\Heretic2Portals.exe</LocalDebuggerCommand>
+    <LocalDebuggerWorkingDirectory>D:\projects\Heretic2</LocalDebuggerWorkingDirectory>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
-    <LocalDebuggerCommandArguments>+map ssdocks</LocalDebuggerCommandArguments>
+    <LocalDebuggerCommandArguments>+set vid_fullscreen 0</LocalDebuggerCommandArguments>
   </PropertyGroup>
 </Project>
