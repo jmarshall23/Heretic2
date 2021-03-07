@@ -42,9 +42,6 @@ cvar_t		*cl_stats;
 int			r_numdlights;
 dlight_t	r_dlights[MAX_DLIGHTS];
 
-int			r_numentities;
-entity_t	r_entities[MAX_ENTITIES];
-
 int			r_numparticles;
 particle_t	r_particles[MAX_PARTICLES];
 
@@ -63,23 +60,10 @@ Specifies the model that will be used as the world
 void V_ClearScene (void)
 {
 	r_numdlights = 0;
-	r_numentities = 0;
+	cls.r_numentities = 0;
 	r_numparticles = 0;
 }
 
-
-/*
-=====================
-V_AddEntity
-
-=====================
-*/
-void V_AddEntity (entity_t *ent)
-{
-	if (r_numentities >= MAX_ENTITIES)
-		return;
-	r_entities[r_numentities++] = *ent;
-}
 
 /*
 =====================
@@ -135,12 +119,12 @@ void V_TestEntities (void)
 	float		f, r;
 	entity_t	*ent;
 
-	r_numentities = 32;
-	memset (r_entities, 0, sizeof(r_entities));
+	cls.r_numentities = 32;
+	memset (cls.r_entities, 0, sizeof(cls.r_entities));
 
-	for (i=0 ; i<r_numentities ; i++)
+	for (i=0 ; i<cls.r_numentities ; i++)
 	{
-		ent = &r_entities[i];
+		ent = &cls.r_entities[i];
 
 		r = 64 * ( (i%4) - 1.5 );
 		f = 64 * (i/4) + 128;
@@ -394,7 +378,7 @@ void V_RenderView( float stereo_separation )
 
 	// an invalid frame will just use the exact previous refdef
 	// we can't use the old frame if the video mode has changed, though...
-	if ( cl.frame.valid && (cl.force_refdef || !cl_paused->value) )
+	//if ( cl.frame.valid && (cl.force_refdef || !cl_paused->value) )
 	{
 		cl.force_refdef = false;
 
@@ -443,7 +427,7 @@ void V_RenderView( float stereo_separation )
 		cl.refdef.areabits = cl.frame.areabits;
 
 		if (!cl_add_entities->value)
-			r_numentities = 0;
+			cls.r_numentities = 0;
 		if (!cl_add_particles->value)
 			r_numparticles = 0;
 		if (!cl_add_lights->value)
@@ -453,8 +437,8 @@ void V_RenderView( float stereo_separation )
 			VectorClear (cl.refdef.blend);
 		}
 
-		cl.refdef.num_entities = r_numentities;
-		cl.refdef.entities = r_entities;
+		cl.refdef.num_entities = cls.r_numentities;
+		cl.refdef.entities = cls.r_entities;
 		cl.refdef.num_particles = r_numparticles;
 		cl.refdef.particles = r_particles;
 		cl.refdef.num_dlights = r_numdlights;
@@ -469,9 +453,9 @@ void V_RenderView( float stereo_separation )
 
 	re.RenderFrame (&cl.refdef);
 	if (cl_stats->value)
-		Com_Printf ("ent:%i  lt:%i  part:%i\n", r_numentities, r_numdlights, r_numparticles);
+		Com_Printf ("ent:%i  lt:%i  part:%i\n", cls.r_numentities, r_numdlights, r_numparticles);
 	if ( log_stats->value && ( log_stats_file != 0 ) )
-		fprintf( log_stats_file, "%i,%i,%i,",r_numentities, r_numdlights, r_numparticles);
+		fprintf( log_stats_file, "%i,%i,%i,",cls.r_numentities, r_numdlights, r_numparticles);
 
 
 	SCR_AddDirtyPoint (scr_vrect.x, scr_vrect.y);

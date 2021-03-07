@@ -325,6 +325,11 @@ void R_DrawEntitiesOnList (void)
 	for (i=0 ; i<r_newrefdef.num_entities ; i++)
 	{
 		currententity = r_newrefdef.entities[i];
+// jmarshall
+		if (VectorLength(currententity->origin) == 0)
+			continue;
+// jmarshall end
+
 		if (currententity->flags & RF_TRANSLUCENT)
 			continue;	// solid
 
