@@ -82,24 +82,6 @@ void Deactivate_Screen_Shake(void) {
 
 }
 
-void VectorNegate(vec3_t in, vec3_t out)
-{
-	assert(out != vec3_origin);
-
-	out[0] = -in[0];
-	out[1] = -in[1];
-	out[2] = -in[2];
-}
-
-void VectorClear(vec3_t in)
-{
-	assert(in != vec3_origin);
-
-	in[0] = 0;
-	in[1] = 0;
-	in[2] = 0;
-}
-
 qboolean Get_Crosshair(vec3_t origin, byte* type) {
 	return true;
 }
