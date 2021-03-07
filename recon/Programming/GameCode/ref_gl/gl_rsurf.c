@@ -1246,7 +1246,9 @@ void R_DrawWorld(void)
 	** if multitexture is enabled
 	*/
 	DrawTextureChains();
-	R_BlendLightmaps();
+// jmarshall - broken lightmaps
+//	R_BlendLightmaps();
+// jmarshall end
 
 	R_DrawSkyBox();
 
