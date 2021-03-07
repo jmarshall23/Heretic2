@@ -165,8 +165,11 @@ int CL_InitClientEffects(const char* name)
 		Com_Error(0, "%s has incompatible api_version", name);
 	}
 	ResMngr_Con(&FXBufMgnr, 192, 256);
-	Com_Printf(29, "------------------------------------");
+	Com_Printf("------------------------------------");
 	result = 1;
+
+	fxe.Init();
+
 	return result;
 }
 

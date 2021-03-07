@@ -588,7 +588,7 @@ void Con_DrawConsole (float frac)
 	SCR_AddDirtyPoint (0,0);
 	SCR_AddDirtyPoint (viddef.width-1,lines-1);
 
-	Com_sprintf (version, sizeof(version), "Heretic II v%d.%d", VERSION_MAJOR, VERSION_MINOR);
+	Com_sprintf (version, sizeof(version), "Heretic II v%s.%s", VERSION_MAJOR, VERSION_MINOR);
 	for (x=0 ; x<5 ; x++)
 		re.DrawChar (viddef.width-44+x*8, lines-12, 128 + version[x], TextPalette[P_WHITE]);
 

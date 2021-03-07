@@ -1450,7 +1450,7 @@ void Qcommon_Init (int argc, char **argv)
 	dedicated = Cvar_Get ("dedicated", "0", CVAR_NOSET);
 #endif
 
-	s = va("Heretic II %d.%d", VERSION_MAJOR, VERSION_MINOR);
+	s = va("Heretic II %s.%s", VERSION_MAJOR, VERSION_MINOR);
 	Cvar_Get ("version", s, CVAR_SERVERINFO|CVAR_NOSET);
 
 

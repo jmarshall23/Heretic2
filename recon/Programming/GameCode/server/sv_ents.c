@@ -386,7 +386,7 @@ void SV_WriteFrameToClient (client_t *client, sizebuf_t *msg)
 	MSG_WriteByte (msg, svc_frame);
 	MSG_WriteLong (msg, sv.framenum);
 	MSG_WriteLong (msg, lastframe);	// what we are delta'ing from
-	MSG_WriteByte (msg, client->surpressCount);	// rate dropped packets
+	//MSG_WriteByte (msg, client->surpressCount);	// rate dropped packets
 	client->surpressCount = 0;
 
 	// send over the areabits

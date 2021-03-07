@@ -379,6 +379,7 @@ void CL_ParsePacketEntities (frame_t *oldframe, frame_t *newframe)
 	entity_state_t	*oldstate;
 	int			oldindex, oldnum;
 
+
 	newframe->parse_entities = cl.parse_entities;
 	newframe->num_entities = 0;
 
@@ -435,12 +436,15 @@ void CL_ParsePacketEntities (frame_t *oldframe, frame_t *newframe)
 
 			oldindex++;
 
-			if (oldindex >= oldframe->num_entities)
-				oldnum = 99999;
-			else
+			if (oldframe)
 			{
-				oldstate = &cl_parse_entities[(oldframe->parse_entities+oldindex) & (MAX_PARSE_ENTITIES-1)];
-				oldnum = oldstate->number;
+				if (oldindex >= oldframe->num_entities)
+					oldnum = 99999;
+				else
+				{
+					oldstate = &cl_parse_entities[(oldframe->parse_entities + oldindex) & (MAX_PARSE_ENTITIES - 1)];
+					oldnum = oldstate->number;
+				}
 			}
 			continue;
 		}
