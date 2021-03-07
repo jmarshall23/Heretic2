@@ -1240,6 +1240,8 @@ void Pmove (pmove_t *pmove)
 
 	PM_ClampAngles ();
 
+	return;
+
 	if (pm->s.pm_type == PM_SPECTATOR)
 	{
 		PM_FlyMove (false);

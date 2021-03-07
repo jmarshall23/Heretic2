@@ -619,10 +619,10 @@ void CL_ParsePlayerstate (frame_t *oldframe, frame_t *newframe)
 		state->rdflags = MSG_ReadByte (&net_message);
 
 	// parse stats
-	statbits = MSG_ReadLong (&net_message);
-	for (i=0 ; i<MAX_STATS ; i++)
-		if (statbits & (1<<i) )
-			state->stats[i] = MSG_ReadShort(&net_message);
+	//statbits = MSG_ReadLong (&net_message);
+	//for (i=0 ; i<MAX_STATS ; i++)
+	//	if (statbits & (1<<i) )
+	//		state->stats[i] = MSG_ReadShort(&net_message);
 }
 
 

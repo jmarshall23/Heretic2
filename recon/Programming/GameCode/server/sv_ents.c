@@ -293,15 +293,23 @@ void SV_WritePlayerstateToClient (client_frame_t *from, client_frame_t *to, size
 	if (pflags & PS_M_ORIGIN_XY)
 	{
 		MSG_WriteShort (msg, ps->pmove.origin[0]);
-		MSG_WriteShort (msg, ps->pmove.origin[1]);
-		MSG_WriteShort (msg, ps->pmove.origin[2]);
+		MSG_WriteShort (msg, ps->pmove.origin[1]);		
+	}
+
+	if (pflags & PS_M_ORIGIN_Z)
+	{
+		MSG_WriteShort(msg, ps->pmove.origin[2]);
 	}
 
 	if (pflags & PS_M_VELOCITY_XY)
 	{
 		MSG_WriteShort (msg, ps->pmove.velocity[0]);
-		MSG_WriteShort (msg, ps->pmove.velocity[1]);
-		MSG_WriteShort (msg, ps->pmove.velocity[2]);
+		MSG_WriteShort (msg, ps->pmove.velocity[1]);		
+	}
+
+	if (pflags & PS_M_VELOCITY_Z)
+	{
+		MSG_WriteShort(msg, ps->pmove.velocity[2]);
 	}
 
 	if (pflags & PS_M_TIME)
@@ -336,14 +344,14 @@ void SV_WritePlayerstateToClient (client_frame_t *from, client_frame_t *to, size
 		MSG_WriteByte (msg, ps->rdflags);
 
 	// send stats
-	statbits = 0;
-	for (i=0 ; i<MAX_STATS ; i++)
-		if (ps->stats[i] != ops->stats[i])
-			statbits |= 1<<i;
-	MSG_WriteLong (msg, statbits);
-	for (i=0 ; i<MAX_STATS ; i++)
-		if (statbits & (1<<i) )
-			MSG_WriteShort (msg, ps->stats[i]);
+	//statbits = 0;
+	//for (i=0 ; i<MAX_STATS ; i++)
+	//	if (ps->stats[i] != ops->stats[i])
+	//		statbits |= 1<<i;
+	//MSG_WriteLong (msg, statbits);
+	//for (i=0 ; i<MAX_STATS ; i++)
+	//	if (statbits & (1<<i) )
+	//		MSG_WriteShort (msg, ps->stats[i]);
 }
 
 
