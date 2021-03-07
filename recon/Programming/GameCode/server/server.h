@@ -339,3 +339,4 @@ trace_t SV_Trace (vec3_t start, vec3_t mins, vec3_t maxs, vec3_t end, edict_t *p
 
 // passedict is explicitly excluded from clipping checks (normally NULL)
 
+extern byte SV_Persistant_Effects_Array[0x1B000];

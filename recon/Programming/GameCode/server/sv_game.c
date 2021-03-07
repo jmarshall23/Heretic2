@@ -23,7 +23,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 game_export_t	*ge;
 
-void *SV_Persistant_Effects_Array = NULL;
+byte SV_Persistant_Effects_Array[0x1B000];
 
 HINSTANCE game_module_handle;
 

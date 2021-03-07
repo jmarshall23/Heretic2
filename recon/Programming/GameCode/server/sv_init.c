@@ -224,6 +224,8 @@ void SV_SpawnServer (char *server, char *spawnpoint, server_state_t serverstate,
 	strcpy (sv.name, server);
 	strcpy (sv.configstrings[CS_NAME], server);
 
+	memset(SV_Persistant_Effects_Array, 0, sizeof(SV_Persistant_Effects_Array));
+
 	if (serverstate != ss_game)
 	{
 		sv.models[1] = CM_LoadMap ("", false, &checksum);	// no real map
@@ -261,12 +263,6 @@ void SV_SpawnServer (char *server, char *spawnpoint, server_state_t serverstate,
 	// load and spawn all other entities
 	ge->SpawnEntities ( sv.name, CM_EntityString(), spawnpoint, loadgame );
 
-	ge->ConstructEntities();
-
-	// run two frames to allow everything to settle
-	ge->RunFrame ();
-	ge->RunFrame ();
-
 	// all precaches are complete
 	sv.state = serverstate;
 	Com_SetServerState (sv.state);
@@ -276,6 +272,22 @@ void SV_SpawnServer (char *server, char *spawnpoint, server_state_t serverstate,
 
 	// check for a savegame
 	SV_CheckForSavegame ();
+
+	ge->ConstructEntities();
+
+	// run two frames to allow everything to settle
+	if (!loadgame)
+	{
+		ge->RunFrame();
+		ge->RunFrame();
+	}
+
+	// Inside of Quake2.dll SpawnServer they have this loop, not sure what its for; looks like they were really paranoid about the simulation?
+	// Seems to only execute when loading a game maybe?
+	//for (int i = 0; i < 100; i++)
+	//{
+	//	ge->RunFrame();
+	//}
 
 	// set serverinfo variable
 	Cvar_FullSet ("mapname", sv.name, CVAR_SERVERINFO | CVAR_NOSET);
