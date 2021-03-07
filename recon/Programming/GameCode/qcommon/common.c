@@ -575,30 +575,27 @@ void MSG_WriteDeltaEntity (entity_state_t *from, entity_state_t *to, sizebuf_t *
 	//else if (bits & 0x0000ff00)
 	//	bits |= U_MOREBITS1;
 
-	MSG_WriteByte (msg,	bits&255 );
+	MSG_WriteLong (msg,	bits );
 
-	if (bits & 0xff000000)
-	{
-		MSG_WriteByte (msg,	(bits>>8)&255 );
-		MSG_WriteByte (msg,	(bits>>16)&255 );
-		MSG_WriteByte (msg,	(bits>>24)&255 );
-	}
-	else if (bits & 0x00ff0000)
-	{
-		MSG_WriteByte (msg,	(bits>>8)&255 );
-		MSG_WriteByte (msg,	(bits>>16)&255 );
-	}
-	else if (bits & 0x0000ff00)
-	{
-		MSG_WriteByte (msg,	(bits>>8)&255 );
-	}
+	//if (bits & 0xff000000)
+	//{
+	//	MSG_WriteByte (msg,	(bits>>8)&255 );
+	//	MSG_WriteByte (msg,	(bits>>16)&255 );
+	//	MSG_WriteByte (msg,	(bits>>24)&255 );
+	//}
+	//else if (bits & 0x00ff0000)
+	//{
+	//	MSG_WriteByte (msg,	(bits>>8)&255 );
+	//	MSG_WriteByte (msg,	(bits>>16)&255 );
+	//}
+	//else if (bits & 0x0000ff00)
+	//{
+	//	MSG_WriteByte (msg,	(bits>>8)&255 );
+	//}
 
 	//----------
 
-	if (bits & U_NUMBER16)
-		MSG_WriteShort (msg, to->number);
-	else
-		MSG_WriteByte (msg,	to->number);
+	MSG_WriteShort(msg, to->number);
 
 	if (bits & U_MODEL)
 		MSG_WriteByte (msg,	to->modelindex);

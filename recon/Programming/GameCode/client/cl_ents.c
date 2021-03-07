@@ -205,7 +205,7 @@ int CL_ParseEntityBits (unsigned *bits)
 	int			i;
 	int			number;
 
-	total = MSG_ReadByte (&net_message);
+	total = MSG_ReadLong (&net_message);
 	//if (total & U_MOREBITS1)
 	//{
 	//	b = MSG_ReadByte (&net_message);
@@ -223,14 +223,11 @@ int CL_ParseEntityBits (unsigned *bits)
 	//}
 
 	// count the bits for net profiling
-	for (i=0 ; i<32 ; i++)
-		if (total&(1<<i))
-			bitcounts[i]++;
+	//for (i=0 ; i<32 ; i++)
+	//	if (total&(1<<i))
+	//		bitcounts[i]++;
 
-	if (total & U_NUMBER16)
-		number = MSG_ReadShort (&net_message);
-	else
-		number = MSG_ReadByte (&net_message);
+	number = MSG_ReadShort(&net_message);
 
 	*bits = total;
 
