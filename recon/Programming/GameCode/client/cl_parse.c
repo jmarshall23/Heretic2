@@ -25,27 +25,37 @@ char *svc_strings[256] =
 {
 	"svc_bad",
 
-	"svc_muzzleflash",
-	"svc_muzzlflash2",
-	"svc_temp_entity",
 	"svc_layout",
 	"svc_inventory",
-
+	"svc_client_effect",	
 	"svc_nop",
 	"svc_disconnect",
 	"svc_reconnect",
-	"svc_sound",
-	"svc_print",
-	"svc_stufftext",
-	"svc_serverdata",
-	"svc_configstring",
-	"svc_spawnbaseline",	
-	"svc_centerprint",
-	"svc_download",
-	"svc_playerinfo",
-	"svc_packetentities",
-	"svc_deltapacketentities",
-	"svc_frame"
+	"svc_sound",					// <see code>
+	"svc_print",					// [byte] id [string] null terminated string
+	"svc_gamemsg_print", 			// [short] id (top 3 bits flags)
+	"svc_stufftext",				// [string] stuffed into client's console buffer, should be \n terminated
+	"svc_serverdata",				// [long] protocol ...
+	"svc_configstring",			// [short] [string]
+	"svc_spawnbaseline",
+	"svc_centerprint",			// [string] to put in center of the screen
+	"svc_gamemsg_centerprint",  	// line number of [string] in strings.txt file
+	"svc_gamemsgvar_centerprint",	// line number of [string] in strings.txt file, along with var to insert
+	"svc_levelmsg_centerprint", 	// line number of [string] in strings.txt file
+	"svc_captionprint",			// line number of [string] in strings.txt file
+	"svc_obituary",			// line number of [string] in strings.txt file
+	"svc_download",				// [short] size [size bytes]
+	"svc_playerinfo",				// variable
+	"svc_packetentities",			// [...]
+	"svc_deltapacketentities",	// [...]
+	"svc_frame",
+	"svc_removeentities",
+	"svc_changeCDtrack",
+	"svc_framenum",				//only sent on world spawn, before client effects get through, so we can ensure client time is right
+	"svc_demo_client_effect",		//only used to send down persistant effects at the start of a demo
+	"svc_special_client_effect",	//almost the same as svc_client_effect, except its got an extra size short at the top.
+	"svc_gamemsgdual_centerprint", //send down two message numbers, to combine into one text string
+	"svc_nameprint",
 };
 
 //=============================================================================
