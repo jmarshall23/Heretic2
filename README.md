@@ -13,4 +13,4 @@ I have got the foundation on its feet, just a few big things are left:
 5) Some server side support functions.
 
 To run:
-Simply copy over the base data to the root folder here, you don't need any of the original binaries. 
+Simply copy over the base data to the root folder here, you don't need any of the original binaries. Once compiled and ran, you will be greeted with a grey screen on startup, simply hit the console key. Then type map ssdocks to see were the project is currently at. 
