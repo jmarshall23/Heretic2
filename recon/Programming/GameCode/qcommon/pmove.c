@@ -1240,8 +1240,6 @@ void Pmove (pmove_t *pmove)
 
 	PM_ClampAngles ();
 
-	return;
-
 	if (pm->s.pm_type == PM_SPECTATOR)
 	{
 		PM_FlyMove (false);
@@ -1322,7 +1320,7 @@ void Pmove (pmove_t *pmove)
 
 			AngleVectors (angles, pml.forward, pml.right, pml.up);
 
-			PM_AirMove ();
+		//	PM_AirMove ();
 		}
 	}
 

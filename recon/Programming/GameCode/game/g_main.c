@@ -664,7 +664,7 @@ void G_RunFrame (void)
 		if(ent->msgHandler)	// eventually this check wont be needed
 #endif // G_TRANSITION
 		{
-			//ProcessMessages(ent);
+			ProcessMessages(ent);
 		}
 
 		if(ent->flags & FL_SUSPENDED)
