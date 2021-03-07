@@ -187,20 +187,15 @@ void SV_EmitPacketEntities (client_frame_t *from, client_frame_t *to, sizebuf_t 
 			if (oldnum >= 256)
 				bits |= U_NUMBER16;
 
-			MSG_WriteByte (msg,	bits&255 );
-			if (bits & 0x0000ff00)
-				MSG_WriteByte (msg,	(bits>>8)&255 );
-
-			if (bits & U_NUMBER16)
-				MSG_WriteShort (msg, oldnum);
-			else
-				MSG_WriteByte (msg, oldnum);
+			MSG_WriteLong (msg,	bits );
+			MSG_WriteShort (msg, oldnum);			
 
 			oldindex++;
 			continue;
 		}
 	}
 
+	MSG_WriteLong(msg, 0);
 	MSG_WriteShort (msg, 0);	// end of packetentities
 
 #if 0
