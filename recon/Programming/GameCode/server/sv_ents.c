@@ -535,9 +535,17 @@ void SV_BuildClientFrame (client_t *client)
 
 	frame->senttime = svs.realtime; // save it for ping calc later
 
-	// find the client's PVS
-	for (i=0 ; i<3 ; i++)
-		org[i] = clent->client->ps.pmove.origin[i]*0.125;
+	// find the client's PVS	
+	for (i = 0; i < 3; i++) {
+		if (clent->client->ps.remote_id == -1)
+		{
+			org[i] = clent->client->ps.pmove.origin[i] * 0.125;
+		}
+		else
+		{
+			org[i] = clent->client->ps.remote_vieworigin[i];
+		}
+	}
 
 	leafnum = CM_PointLeafnum (org);
 	clientarea = CM_LeafArea (leafnum);
