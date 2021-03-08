@@ -55,6 +55,7 @@
 #define VectorClear(a)			(a[0]=a[1]=a[2]=0)
 #define VectorNegate(a,b)		(b[0]=-a[0],b[1]=-a[1],b[2]=-a[2])
 #define VectorSet(v, x, y, z)	(v[0]=(x), v[1]=(y), v[2]=(z))
+#define	VectorMA2(v, s, b, o)	((o)[0]=(v)[0]+(b)[0]*(s),(o)[1]=(v)[1]+(b)[1]*(s),(o)[2]=(v)[2]+(b)[2]*(s))
 void AngleVectors(vec3_t angles, vec3_t forward, vec3_t right, vec3_t up);
 #endif
 // jmarshall end

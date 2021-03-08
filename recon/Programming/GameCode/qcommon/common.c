@@ -557,6 +557,12 @@ void MSG_WriteDeltaEntity (entity_state_t *from, entity_state_t *to, sizebuf_t *
 	if ( to->sound != from->sound )
 		bits |= U_SOUND;
 
+	if (to->fmnodeinfo->frame != from->fmnodeinfo->frame)
+		bits |= U_FM_FRAME;
+
+	if (to->fmnodeinfo->flags != from->fmnodeinfo->flags)
+		bits |= U_FM_FLAGS;
+
 	//if (newentity || (to->renderfx & RF_BEAM))
 	//	bits |= U_OLDORIGIN;
 
@@ -596,6 +602,12 @@ void MSG_WriteDeltaEntity (entity_state_t *from, entity_state_t *to, sizebuf_t *
 	//----------
 
 	MSG_WriteShort(msg, to->number);
+
+	if (bits & U_FM_FRAME)
+		MSG_WriteShort(msg, to->fmnodeinfo->frame);
+
+	if(bits & U_FM_FLAGS)
+		MSG_WriteShort(msg, to->fmnodeinfo->flags);
 
 	if (bits & U_MODEL)
 		MSG_WriteByte (msg,	to->modelindex);

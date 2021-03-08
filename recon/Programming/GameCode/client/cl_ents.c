@@ -249,6 +249,12 @@ void CL_ParseDelta (entity_state_t *from, entity_state_t *to, int number, int bi
 	VectorCopy (from->origin, to->old_origin);
 	to->number = number;
 
+	if (bits & U_FM_FRAME)
+		to->fmnodeinfo->frame = MSG_ReadShort(&net_message);
+
+	if (bits & U_FM_FLAGS)
+		to->fmnodeinfo->flags = MSG_ReadShort(&net_message);
+
 	if (bits & U_MODEL)
 		to->modelindex = MSG_ReadByte (&net_message);
 	//if (bits & U_MODEL2)
@@ -257,6 +263,8 @@ void CL_ParseDelta (entity_state_t *from, entity_state_t *to, int number, int bi
 	//	to->modelindex3 = MSG_ReadByte (&net_message);
 	//if (bits & U_MODEL4)
 	//	to->modelindex4 = MSG_ReadByte (&net_message);
+
+
 		
 	if (bits & U_FRAME8)
 		to->frame = MSG_ReadByte (&net_message);
@@ -844,6 +852,90 @@ struct model_s *S_RegisterSexedModel (entity_state_t *ent, char *base)
 
 /*
 ===============
+CL_OffsetThirdPersonView
+
+===============
+*/
+#define FOCUS_DISTANCE  512
+#define 	VectorMA2(v, s, b, o)   ((o)[0]=(v)[0]+(b)[0]*(s),(o)[1]=(v)[1]+(b)[1]*(s),(o)[2]=(v)[2]+(b)[2]*(s))
+void CL_OffsetThirdPersonView(void) {
+	vec3_t forward, right, up;
+	vec3_t view;
+	vec3_t focusAngles;
+	trace_t trace;
+	static vec3_t mins = { -4, -4, -4 };
+	static vec3_t maxs = { 4, 4, 4 };
+	vec3_t focusPoint;
+	float focusDist;
+	float forwardScale, sideScale;
+
+	//cl.refdef.vieworg[2] += cg.predictedPlayerState.viewheight;
+
+	VectorCopy(cl.refdef.viewangles, focusAngles);
+
+	// if dead, look at killer
+	//if (cg.predictedPlayerState.stats[STAT_HEALTH] <= 0) {
+	//	focusAngles[YAW] = cg.predictedPlayerState.stats[STAT_DEAD_YAW];
+	//	cg.refdefViewAngles[YAW] = cg.predictedPlayerState.stats[STAT_DEAD_YAW];
+	//}
+
+	if (focusAngles[PITCH] > 45) {
+		focusAngles[PITCH] = 45;        // don't go too far overhead
+	}
+	AngleVectors(focusAngles, forward, NULL, NULL);
+
+	VectorMA2(cl.refdef.vieworg, FOCUS_DISTANCE, forward, focusPoint);
+
+	VectorCopy(cl.refdef.vieworg, view);
+
+	view[2] += 8;
+
+	cl.refdef.viewangles[PITCH] *= 0.5;
+
+	AngleVectors(cl.refdef.viewangles, forward, right, up);
+
+	float cg_thirdPersonAngle = 0.0f;
+	float cg_thirdPersonRange = 50.0f;
+
+	forwardScale = cos(cg_thirdPersonAngle / 180 * M_PI);
+	sideScale = sin(cg_thirdPersonAngle / 180 * M_PI);
+
+	VectorMA2(view, -cg_thirdPersonRange * forwardScale, forward, view);
+	VectorMA2(view, -cg_thirdPersonRange * sideScale, right, view);
+
+	// trace a ray from the origin to the viewpoint to make sure the view isn't
+	// in a solid block.  Use an 8 by 8 block to prevent the view from near clipping anything
+
+	
+
+	trace = CM_BoxTrace( cl.refdef.vieworg, mins, maxs, view, 0, MASK_SOLID);
+
+	//if (trace.fraction != 1.0) {
+	//	VectorCopy(trace.endpos, view);
+	//	view[2] += (1.0 - trace.fraction) * 32;
+	//	// try another trace to this position, because a tunnel may have the ceiling
+	//	// close enogh that this is poking out
+	//
+	//	CG_Trace(&trace, cl.refdef.vieworg, mins, maxs, view, cg.predictedPlayerState.clientNum, MASK_SOLID);
+	//	VectorCopy(trace.endpos, view);
+	//}
+
+
+	VectorCopy(view, cl.refdef.vieworg);
+
+	// select pitch to look at focus point from vieword
+	VectorSubtract(focusPoint, cl.refdef.vieworg, focusPoint);
+	focusDist = sqrt(focusPoint[0] * focusPoint[0] + focusPoint[1] * focusPoint[1]);
+	if (focusDist < 1) {
+		focusDist = 1;  // should never happen
+	}
+	cl.refdef.viewangles[PITCH] = -180 / M_PI * atan2(focusPoint[2], focusDist);
+	cl.refdef.viewangles[YAW] -= cg_thirdPersonAngle;
+}
+
+
+/*
+===============
 CL_CalcViewValues
 
 Sets cl.refdef view values
@@ -917,7 +1009,8 @@ void CL_CalcViewValues(void)
 			cl.refdef.vieworg[i] = ops->pmove.origin[i] * 0.125
 			+ lerp * (ps->pmove.origin[i] * 0.125
 				- (ops->pmove.origin[i] * 0.125));
-		// jmarshall end
+		
+
 
 			// if not running a demo or on a locked frame, add the local angle movement
 		if (cl.frame.playerstate.pmove.pm_type < PM_DEAD)
@@ -930,6 +1023,8 @@ void CL_CalcViewValues(void)
 			for (i = 0; i < 3; i++)
 				cl.refdef.viewangles[i] = LerpAngle(ops->viewangles[i], ps->viewangles[i], lerp);
 		}		
+
+		CL_OffsetThirdPersonView();
 	}
 
 	AngleVectors(cl.refdef.viewangles, cl.v_forward, cl.v_right, cl.v_up);
