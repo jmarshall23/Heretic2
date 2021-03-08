@@ -523,6 +523,25 @@ void CL_ParsePlayerstate (frame_t *oldframe, frame_t *newframe)
 	if (flags & PS_M_TYPE)
 		state->pmove.pm_type = MSG_ReadByte (&net_message);
 
+	if (flags & PS_REMOTE_ID)
+	{
+		state->remote_id = MSG_ReadShort(&net_message);
+	}
+
+	if (flags & PS_REMOTE_VIEWORIGIN)
+	{
+		state->remote_vieworigin[0] = MSG_ReadShort(&net_message);
+		state->remote_vieworigin[1] = MSG_ReadShort(&net_message);
+		state->remote_vieworigin[2] = MSG_ReadShort(&net_message);
+	}
+
+	if (flags & PS_REMOTE_VIEWANGLES)
+	{
+		state->remote_viewangles[0] = MSG_ReadShort(&net_message);
+		state->remote_viewangles[1] = MSG_ReadShort(&net_message);
+		state->remote_viewangles[2] = MSG_ReadShort(&net_message);
+	}
+
 	if (flags & PS_M_ORIGIN_XY)
 	{
 		state->pmove.origin[0] = MSG_ReadShort (&net_message);
@@ -876,27 +895,44 @@ void CL_CalcViewValues(void)
 	//{	
 	//}
 // jmarshall
-	// just use interpolated values
-	for (i = 0; i < 3; i++)
-		cl.refdef.vieworg[i] = ops->pmove.origin[i] * 0.125
-		+ lerp * (ps->pmove.origin[i] * 0.125
-			- (ops->pmove.origin[i] * 0.125));
-	// jmarshall end
-
-		// if not running a demo or on a locked frame, add the local angle movement
-	if (cl.frame.playerstate.pmove.pm_type < PM_DEAD)
-	{	// use predicted values
+	if (ps->remote_id != -1)
+	{
+		// just use interpolated values
 		for (i = 0; i < 3; i++)
-			cl.refdef.viewangles[i] = cl.predicted_angles[i];
+			cl.refdef.vieworg[i] = ops->remote_vieworigin[i] * 0.125
+			+ lerp * (ps->remote_vieworigin[i] * 0.125
+				- (ops->remote_vieworigin[i] * 0.125));
+
+		// just use interpolated values
+		for (i = 0; i < 3; i++)
+			cl.refdef.viewangles[i] = LerpAngle(ops->remote_viewangles[i], ps->remote_viewangles[i], lerp);
+
+		//for (i=0 ; i<3 ; i++)
+		//	cl.refdef.viewangles[i] += LerpAngle (ops->kick_angles[i], ps->kick_angles[i], lerp);
+
+		
 	}
 	else
-	{	// just use interpolated values
+	{
+		// just use interpolated values
 		for (i = 0; i < 3; i++)
-			cl.refdef.viewangles[i] = LerpAngle(ops->viewangles[i], ps->viewangles[i], lerp);
-	}
+			cl.refdef.vieworg[i] = ops->pmove.origin[i] * 0.125
+			+ lerp * (ps->pmove.origin[i] * 0.125
+				- (ops->pmove.origin[i] * 0.125));
+		// jmarshall end
 
-	//for (i=0 ; i<3 ; i++)
-	//	cl.refdef.viewangles[i] += LerpAngle (ops->kick_angles[i], ps->kick_angles[i], lerp);
+			// if not running a demo or on a locked frame, add the local angle movement
+		if (cl.frame.playerstate.pmove.pm_type < PM_DEAD)
+		{	// use predicted values
+			for (i = 0; i < 3; i++)
+				cl.refdef.viewangles[i] = cl.predicted_angles[i];
+		}
+		else
+		{	// just use interpolated values
+			for (i = 0; i < 3; i++)
+				cl.refdef.viewangles[i] = LerpAngle(ops->viewangles[i], ps->viewangles[i], lerp);
+		}		
+	}
 
 	AngleVectors(cl.refdef.viewangles, cl.v_forward, cl.v_right, cl.v_up);
 

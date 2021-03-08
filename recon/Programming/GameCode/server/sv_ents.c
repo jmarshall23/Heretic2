@@ -278,6 +278,25 @@ void SV_WritePlayerstateToClient (client_frame_t *from, client_frame_t *to, size
 	if (ps->rdflags != ops->rdflags)
 		pflags |= PS_RDFLAGS;
 
+	if (ps->remote_vieworigin[0] != ops->remote_vieworigin[0] ||
+		ps->remote_vieworigin[1] != ops->remote_vieworigin[1] ||
+		ps->remote_vieworigin[2] != ops->remote_vieworigin[2]) {
+
+		pflags |= PS_REMOTE_VIEWORIGIN;
+	}
+
+	if (ps->remote_viewangles[0] != ops->remote_viewangles[0] ||
+		ps->remote_viewangles[1] != ops->remote_viewangles[1] ||
+		ps->remote_viewangles[2] != ops->remote_viewangles[2]) {
+
+		pflags |= PS_REMOTE_VIEWANGLES;
+	}
+
+	if (ps->remote_id != ops->remote_id)
+	{
+		pflags |= PS_REMOTE_ID;
+	}
+
 	//
 	// write it
 	//
@@ -289,6 +308,25 @@ void SV_WritePlayerstateToClient (client_frame_t *from, client_frame_t *to, size
 	//
 	if (pflags & PS_M_TYPE)
 		MSG_WriteByte (msg, ps->pmove.pm_type);
+
+	if (pflags & PS_REMOTE_ID)
+	{
+		MSG_WriteShort(msg, ps->remote_id);
+	}
+
+	if (pflags & PS_REMOTE_VIEWORIGIN)
+	{
+		MSG_WriteShort(msg, ps->remote_vieworigin[0]);
+		MSG_WriteShort(msg, ps->remote_vieworigin[1]);
+		MSG_WriteShort(msg, ps->remote_vieworigin[2]);
+	}
+
+	if (pflags & PS_REMOTE_VIEWANGLES)
+	{
+		MSG_WriteShort(msg, ps->remote_viewangles[0]);
+		MSG_WriteShort(msg, ps->remote_viewangles[1]);
+		MSG_WriteShort(msg, ps->remote_viewangles[2]);
+	}
 
 	if (pflags & PS_M_ORIGIN_XY)
 	{

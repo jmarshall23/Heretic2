@@ -1841,7 +1841,7 @@ void misc_remote_camera_think(edict_t *Self)
 				int	i;
 
 				for(i=0;i<3;i++)
-					Self->activator->client->ps.remote_vieworigin[i]=Self->s.origin[i]*8.0;
+					Self->activator->client->ps.remote_vieworigin[i]=Self->s.origin[i];
 			}
 		}	
 		else
@@ -1863,7 +1863,7 @@ void misc_remote_camera_think(edict_t *Self)
 					int j;
 
 					for(j=0;j<3;j++)
-						cl_ent->client->ps.remote_vieworigin[j]=Self->s.origin[j]*8.0;
+						cl_ent->client->ps.remote_vieworigin[j]=Self->s.origin[j];
 				}
 			}
 		}
@@ -2019,7 +2019,7 @@ void Use_misc_remote_camera(edict_t *Self,edict_t *Other,edict_t *Activator)
 			Self->enemy=NULL;
 
 			for(i=0;i<3;i++)
-				Self->activator->client->ps.remote_vieworigin[i]=Self->s.origin[i]*8.0;
+				Self->activator->client->ps.remote_vieworigin[i]=Self->s.origin[i];
 		}
 		else
 		{
@@ -2038,7 +2038,7 @@ void Use_misc_remote_camera(edict_t *Self,edict_t *Other,edict_t *Activator)
 					continue;
 		
 				for(j=0;j<3;j++)
-					cl_ent->client->ps.remote_vieworigin[j]=Self->s.origin[j]*8.0;
+					cl_ent->client->ps.remote_vieworigin[j]=Self->s.origin[j];
 			}
 		}
 	}
@@ -2066,7 +2066,7 @@ void Use_misc_remote_camera(edict_t *Self,edict_t *Other,edict_t *Activator)
 					int	i;
 
 					for(i=0;i<3;i++)
-						Self->activator->client->ps.remote_vieworigin[i]=Self->s.origin[i]*8.0;
+						Self->activator->client->ps.remote_vieworigin[i]=Self->s.origin[i];
 				}
 			}	
 			else
@@ -2088,7 +2088,7 @@ void Use_misc_remote_camera(edict_t *Self,edict_t *Other,edict_t *Activator)
 						int j;
 
 						for(j=0;j<3;j++)
-							cl_ent->client->ps.remote_vieworigin[j]=Self->s.origin[j]*8.0;
+							cl_ent->client->ps.remote_vieworigin[j]=Self->s.origin[j];
 					}
 				}
 			}
