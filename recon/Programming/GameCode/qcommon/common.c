@@ -645,8 +645,10 @@ void MSG_WriteDeltaEntity (entity_state_t *from, entity_state_t *to, sizebuf_t *
 	else if (bits & U_RENDERFX16)
 		MSG_WriteShort (msg, to->renderfx);
 
-	if (bits & U_ORIGIN12)
-		MSG_WriteCoord (msg, to->origin[0]);		
+	if (bits & U_ORIGIN12) {
+		MSG_WriteCoord(msg, 333.0f); // jmarshall: hack! padding, for some reason without this origin[0] can be nan
+		MSG_WriteCoord(msg, to->origin[0]);
+	}
 	if (bits & U_ORIGIN12)
 		MSG_WriteCoord (msg, to->origin[1]);
 	if (bits & U_ORIGIN3)

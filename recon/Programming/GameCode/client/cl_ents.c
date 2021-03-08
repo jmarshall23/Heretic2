@@ -292,8 +292,10 @@ void CL_ParseDelta (entity_state_t *from, entity_state_t *to, int number, int bi
 	else if (bits & U_RENDERFX16)
 		to->renderfx = MSG_ReadShort(&net_message);
 
-	if (bits & U_ORIGIN12)
-		to->origin[0] = MSG_ReadCoord (&net_message);
+	if (bits & U_ORIGIN12) {
+		MSG_ReadCoord(&net_message); // jmarshall: hack! padding, for some reason without this origin[0] can be nan
+		to->origin[0] = MSG_ReadCoord(&net_message);
+	}
 	if (bits & U_ORIGIN12)
 		to->origin[1] = MSG_ReadCoord (&net_message);
 	if (bits & U_ORIGIN3)
