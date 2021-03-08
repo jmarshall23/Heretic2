@@ -899,9 +899,7 @@ void CL_CalcViewValues(void)
 	{
 		// just use interpolated values
 		for (i = 0; i < 3; i++)
-			cl.refdef.vieworg[i] = ops->remote_vieworigin[i] * 0.125
-			+ lerp * (ps->remote_vieworigin[i] * 0.125
-				- (ops->remote_vieworigin[i] * 0.125));
+			cl.refdef.vieworg[i] = ops->remote_vieworigin[i];
 
 		// just use interpolated values
 		for (i = 0; i < 3; i++)
