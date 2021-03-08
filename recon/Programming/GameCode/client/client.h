@@ -106,13 +106,15 @@ typedef struct
 // clientinfo_t
 // ------------
 // ********************************************************************************************
-
+// jmarshall: clean up some memory issues
+#define CL_MAXMODELS  16
+// jmarshall: clean up some memory issues
 typedef struct
 {
 	char	name[MAX_QPATH];
 	struct	image_s	*skin[SKIN_MAX];
 	char	iconname[MAX_QPATH];
-	struct	model_s	**model;
+	struct	model_s	*model[CL_MAXMODELS]; // jmarshall: clean up some memory issues
 	char	skin_name[MAX_QPATH];
 	char	model_name[MAX_QPATH];
 	vec3_t	origin;
