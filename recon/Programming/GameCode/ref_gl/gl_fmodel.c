@@ -607,11 +607,11 @@ void R_RenderFlexModel(fmdl_t *model, fmnodeinfo_t *nodeinfo, int currentFrame, 
 		}
 	}
 
-	if (model->skeletons != NULL)
-	{
-		int rootJoint = -1;
-		RotateModelSegments(&model->skeletons[currentFrame], 0, model->rootCluster, rootJoint, frame_vertexes);
-	}
+	//if (model->skeletons != NULL)
+	//{
+	//	int rootJoint = -1;
+	//	RotateModelSegments(&model->skeletons[currentFrame], 0, model->rootCluster, rootJoint, frame_vertexes);
+	//}
 
 	for (int i = 0; i < model->header.num_mesh_nodes; i++)
 	{

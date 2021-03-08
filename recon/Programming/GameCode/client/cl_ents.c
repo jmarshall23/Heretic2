@@ -1004,11 +1004,11 @@ void CL_CalcViewValues(void)
 
 		
 	}
-	else
+	else if(cl.refdef.entities)
 	{
 		// just use interpolated values
 		for (i = 0; i < 3; i++)
-			cl.refdef.vieworg[i] = ops->pmove.origin[i] * 0.125
+			cl.refdef.entities[0]->origin[i] = cl.refdef.vieworg[i] = ops->pmove.origin[i] * 0.125
 			+ lerp * (ps->pmove.origin[i] * 0.125
 				- (ops->pmove.origin[i] * 0.125));
 		
@@ -1023,7 +1023,7 @@ void CL_CalcViewValues(void)
 		else
 		{	// just use interpolated values
 			for (i = 0; i < 3; i++)
-				cl.refdef.viewangles[i] = LerpAngle(ops->viewangles[i], ps->viewangles[i], lerp);
+				cl.refdef.entities[0]->angles[i] = cl.refdef.viewangles[i] = LerpAngle(ops->viewangles[i], ps->viewangles[i], lerp);
 		}		
 
 		CL_OffsetThirdPersonView();
@@ -1033,6 +1033,8 @@ void CL_CalcViewValues(void)
 
 	// interpolate field of view
 	cl.refdef.fov_x = ops->fov + lerp * (ps->fov - ops->fov);
+
+	
 
 	// don't interpolate blend color
 	//for (i=0 ; i<4 ; i++)
@@ -1076,11 +1078,12 @@ void CL_AddEntities (void)
 //	CL_AddParticles ();
 //	CL_AddDLights ();
 //	CL_AddLightStyles ();
-
-	CL_CalcViewValues ();		
+		
 // jmarshall - this is in client effects.dll
 	fxe.AddPacketEntities(&cl.frame); // CL_AddPacketEntities (&cl.frame);
 	fxe.AddEffects(false);
+
+	CL_CalcViewValues();
 // jmarshall end
 	//CL_AddParticles ();
 	//CL_AddDLights ();
