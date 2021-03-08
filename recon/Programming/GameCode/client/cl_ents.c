@@ -897,7 +897,7 @@ void CL_OffsetThirdPersonView(void) {
 	AngleVectors(cl.refdef.viewangles, forward, right, up);
 
 	float cg_thirdPersonAngle = 0.0f;
-	float cg_thirdPersonRange = 50.0f;
+	float cg_thirdPersonRange = 128.0f;
 
 	forwardScale = cos(cg_thirdPersonAngle / 180 * M_PI);
 	sideScale = sin(cg_thirdPersonAngle / 180 * M_PI);
