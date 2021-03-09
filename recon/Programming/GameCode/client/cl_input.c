@@ -275,7 +275,7 @@ Send the intended movement message to the server
 */
 void CL_BaseMove (usercmd_t *cmd)
 {	
-	CL_AdjustAngles ();
+	//CL_AdjustAngles ();
 	
 	memset (cmd, 0, sizeof(*cmd));
 	

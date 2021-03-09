@@ -311,19 +311,10 @@ void IN_MouseMove (usercmd_t *cmd)
 	mouse_y *= sensitivity->value;
 
 // add mouse X/Y movement to cmd
-	if ( (in_strafe.state & 1) || (lookstrafe->value && mlooking ))
-		cmd->sidemove += m_side->value * mouse_x;
-	else
-		cl.viewangles[YAW] -= m_yaw->value * mouse_x;
+	cl.viewangles[YAW] -= m_yaw->value * mouse_x;
+	cl.viewangles[PITCH] += m_pitch->value * mouse_y;
 
-	if ( (mlooking || freelook->value) && !(in_strafe.state & 1))
-	{
-		cl.viewangles[PITCH] += m_pitch->value * mouse_y;
-	}
-	else
-	{
-		cmd->forwardmove -= m_forward->value * mouse_y;
-	}
+	cl.viewangles[PITCH] = Clamp(cl.viewangles[PITCH], -45, 45);
 
 	// force the mouse to the center, so there's room to move
 	if (mx || my)

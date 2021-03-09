@@ -654,10 +654,14 @@ void MSG_WriteDeltaEntity (entity_state_t *from, entity_state_t *to, sizebuf_t *
 	if (bits & U_ORIGIN3)
 		MSG_WriteCoord (msg, to->origin[2]);
 
-	if (bits & U_ANGLE1)
+	if (bits & U_ANGLE1) {
+		MSG_WriteCoord(msg, 333.0f); // jmarshall: hack! padding, for some reason without this origin[0] can be nan
 		MSG_WriteAngle(msg, to->angles[0]);
-	if (bits & U_ANGLE2)
+	}
+	if (bits & U_ANGLE2) {
+		MSG_WriteCoord(msg, 333.0f); // jmarshall: hack! padding, for some reason without this origin[0] can be nan
 		MSG_WriteAngle(msg, to->angles[1]);
+	}
 	if (bits & U_ANGLE3)
 		MSG_WriteAngle(msg, to->angles[2]);
 

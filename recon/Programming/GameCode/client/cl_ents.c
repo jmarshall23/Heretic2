@@ -301,10 +301,14 @@ void CL_ParseDelta (entity_state_t *from, entity_state_t *to, int number, int bi
 	if (bits & U_ORIGIN3)
 		to->origin[2] = MSG_ReadCoord (&net_message);
 		
-	if (bits & U_ANGLE1)
+	if (bits & U_ANGLE1) {
+		MSG_ReadCoord(&net_message); // jmarshall: hack! padding, for some reason without this origin[0] can be nan
 		to->angles[0] = MSG_ReadAngle(&net_message);
-	if (bits & U_ANGLE2)
+	}
+	if (bits & U_ANGLE2) {
+		MSG_ReadCoord(&net_message); // jmarshall: hack! padding, for some reason without this origin[0] can be nan
 		to->angles[1] = MSG_ReadAngle(&net_message);
+	}
 	if (bits & U_ANGLE3)
 		to->angles[2] = MSG_ReadAngle(&net_message);
 

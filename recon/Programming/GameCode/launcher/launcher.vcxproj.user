@@ -4,6 +4,6 @@
     <LocalDebuggerCommand>D:\projects\Heretic2\Heretic2Portals.exe</LocalDebuggerCommand>
     <LocalDebuggerWorkingDirectory>D:\projects\Heretic2</LocalDebuggerWorkingDirectory>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
-    <LocalDebuggerCommandArguments>+set vid_fullscreen 0 +map ssdocks</LocalDebuggerCommandArguments>
+    <LocalDebuggerCommandArguments>+set vid_fullscreen 0 +map tutorial</LocalDebuggerCommandArguments>
   </PropertyGroup>
 </Project>
