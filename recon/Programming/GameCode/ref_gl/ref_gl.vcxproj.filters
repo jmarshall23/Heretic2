@@ -72,6 +72,9 @@
     <ClCompile Include="..\qcommon\skeletons.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="glew.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="ref_gl.def">

@@ -678,7 +678,7 @@ void R_DrawFlexModel(entity_t *e)
 	GL_EnableMultitexture(false);
 	GL_SelectTexture(0);
 	GL_TexEnv(GL_REPLACE);
-	//GL_SelectTexture(GL_TEXTURE1_SGIS);
+	//GL_SelectTexture(GL_TEXTURE1_ARB);
 	//GL_TexEnv(GL_MODULATE);
 
 	GL_Bind(e->model[0]->skins[0]->texnum);

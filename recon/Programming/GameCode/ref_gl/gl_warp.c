@@ -225,7 +225,7 @@ void EmitWaterPolys (msurface_t *fa)
 	{
 		p = bp;
 
-		qglBegin (GL_TRIANGLE_FAN);
+		glBegin (GL_TRIANGLE_FAN);
 		for (i=0,v=p->verts[0] ; i<p->numverts ; i++, v+=VERTEXSIZE)
 		{
 			os = v[3];
@@ -246,10 +246,10 @@ void EmitWaterPolys (msurface_t *fa)
 #endif
 			t *= (1.0/64);
 
-			qglTexCoord2f (s, t);
-			qglVertex3fv (v);
+			glTexCoord2f (s, t);
+			glVertex3fv (v);
 		}
-		qglEnd ();
+		glEnd ();
 	}
 }
 
@@ -316,7 +316,7 @@ glBegin (GL_POLYGON);
 for (i=0 ; i<nump ; i++, vecs+=3)
 {
 	VectorAdd(vecs, r_origin, v);
-	qglVertex3fv (v);
+	glVertex3fv (v);
 }
 glEnd();
 return;
@@ -549,8 +549,8 @@ void MakeSkyVec (float s, float t, int axis)
 		t = sky_max;
 
 	t = 1.0 - t;
-	qglTexCoord2f (s, t);
-	qglVertex3fv (v);
+	glTexCoord2f (s, t);
+	glVertex3fv (v);
 }
 
 /*
@@ -564,10 +564,10 @@ void R_DrawSkyBox (void)
 	int		i;
 
 #if 0
-qglEnable (GL_BLEND);
+glEnable (GL_BLEND);
 GL_TexEnv( GL_MODULATE );
-qglColor4f (1,1,1,0.5);
-qglDisable (GL_DEPTH_TEST);
+glColor4f (1,1,1,0.5);
+glDisable (GL_DEPTH_TEST);
 #endif
 	if (skyrotate)
 	{	// check for no sky at all
@@ -579,9 +579,9 @@ qglDisable (GL_DEPTH_TEST);
 			return;		// nothing visible
 	}
 
-qglPushMatrix ();
-qglTranslatef (r_origin[0], r_origin[1], r_origin[2]);
-qglRotatef (r_newrefdef.time * skyrotate, skyaxis[0], skyaxis[1], skyaxis[2]);
+glPushMatrix ();
+glTranslatef (r_origin[0], r_origin[1], r_origin[2]);
+glRotatef (r_newrefdef.time * skyrotate, skyaxis[0], skyaxis[1], skyaxis[2]);
 
 	for (i=0 ; i<6 ; i++)
 	{
@@ -599,14 +599,14 @@ qglRotatef (r_newrefdef.time * skyrotate, skyaxis[0], skyaxis[1], skyaxis[2]);
 
 		GL_Bind (sky_images[skytexorder[i]]->texnum);
 
-		qglBegin (GL_QUADS);
+		glBegin (GL_QUADS);
 		MakeSkyVec (skymins[0][i], skymins[1][i], i);
 		MakeSkyVec (skymins[0][i], skymaxs[1][i], i);
 		MakeSkyVec (skymaxs[0][i], skymaxs[1][i], i);
 		MakeSkyVec (skymaxs[0][i], skymins[1][i], i);
-		qglEnd ();
+		glEnd ();
 	}
-qglPopMatrix ();
+glPopMatrix ();
 #if 0
 glDisable (GL_BLEND);
 glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_REPLACE);
