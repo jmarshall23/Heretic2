@@ -568,7 +568,7 @@ void SV_ExecuteClientMessage (client_t *cl)
 		{
 		default:
 			Com_Printf ("SV_ReadClientMessage: unknown command char\n");
-			SV_DropClient (cl);
+		//	SV_DropClient (cl);
 			return;
 						
 		case clc_nop:

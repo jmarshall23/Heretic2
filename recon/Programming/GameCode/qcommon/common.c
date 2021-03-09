@@ -400,7 +400,7 @@ void MSG_WriteDeltaUsercmd (sizebuf_t *buf, usercmd_t *from, usercmd_t *cmd)
 	//if (cmd->impulse != from->impulse)
 	//	bits |= CM_IMPULSE;
 
-    MSG_WriteByte (buf, bits);
+    MSG_WriteLong (buf, bits);
 
 	if (bits & CM_ANGLE1)
 		MSG_WriteShort (buf, cmd->angles[0]);
@@ -844,7 +844,7 @@ void MSG_ReadDeltaUsercmd (sizebuf_t *msg_read, usercmd_t *from, usercmd_t *move
 
 	memcpy (move, from, sizeof(*move));
 
-	bits = MSG_ReadByte (msg_read);
+	bits = MSG_ReadLong (msg_read);
 		
 // read current angles
 	if (bits & CM_ANGLE1)
