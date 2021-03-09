@@ -46,13 +46,6 @@ extern cvar_t *vid_ref;
 
 static qboolean VerifyDriver( void )
 {
-	char buffer[1024];
-
-	strcpy( buffer, qglGetString( GL_RENDERER ) );
-	strlwr( buffer );
-	if ( strcmp( buffer, "gdi generic" ) == 0 )
-		if ( !glw_state.mcd_accelerated )
-			return false;
 	return true;
 }
 
@@ -170,8 +163,8 @@ rserr_t GLimp_SetMode( int *pwidth, int *pheight, int mode, qboolean fullscreen 
 	//	ri.Con_Printf( PRINT_ALL, " invalid mode\n" );
 	//	return rserr_invalid_mode;
 	//}
-	width = 1024;
-	height = 768;
+	width = 1920;
+	height = 1080;
 
 	ri.Con_Printf( PRINT_ALL, " %d %d %s\n", width, height, win_fs[fullscreen] );
 
@@ -567,15 +560,15 @@ void GLimp_BeginFrame( float camera_separation )
 
 	if ( camera_separation < 0 && gl_state.stereo_enabled )
 	{
-		qglDrawBuffer( GL_BACK_LEFT );
+		glDrawBuffer( GL_BACK_LEFT );
 	}
 	else if ( camera_separation > 0 && gl_state.stereo_enabled )
 	{
-		qglDrawBuffer( GL_BACK_RIGHT );
+		glDrawBuffer( GL_BACK_RIGHT );
 	}
 	else
 	{
-		qglDrawBuffer( GL_BACK );
+		glDrawBuffer( GL_BACK );
 	}
 }
 
@@ -590,7 +583,7 @@ void GLimp_EndFrame (void)
 {
 	int		err;
 
-	err = qglGetError();
+	err = glGetError();
 	//assert( err == GL_NO_ERROR );
 
 	if ( stricmp( gl_drawbuffer->string, "GL_BACK" ) == 0 )

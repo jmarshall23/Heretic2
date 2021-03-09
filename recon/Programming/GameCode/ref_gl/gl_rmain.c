@@ -565,7 +565,6 @@ void R_SetFrustum (void)
 {
 	int		i;
 
-#if 0
 	/*
 	** this code is wrong, since it presume a 90 degree FOV both in the
 	** horizontal and vertical plane
@@ -582,16 +581,7 @@ void R_SetFrustum (void)
 	VectorNormalize( frustum[1].normal );
 	VectorNormalize( frustum[2].normal );
 	VectorNormalize( frustum[3].normal );
-#else
-	// rotate VPN right by FOV_X/2 degrees
-	RotatePointAroundVector( frustum[0].normal, vup, vpn, -(90-r_newrefdef.fov_x / 2 ) );
-	// rotate VPN left by FOV_X/2 degrees
-	RotatePointAroundVector( frustum[1].normal, vup, vpn, 90-r_newrefdef.fov_x / 2 );
-	// rotate VPN up by FOV_X/2 degrees
-	RotatePointAroundVector( frustum[2].normal, vright, vpn, 90-r_newrefdef.fov_y / 2 );
-	// rotate VPN down by FOV_X/2 degrees
-	RotatePointAroundVector( frustum[3].normal, vright, vpn, -( 90 - r_newrefdef.fov_y / 2 ) );
-#endif
+
 
 	for (i=0 ; i<4 ; i++)
 	{
