@@ -284,7 +284,7 @@ void DrawGLPolyChain(glpoly_t* p, float soffset, float toffset)
 			v = p->verts[0];
 			for (j = 0; j < p->numverts; j++, v += VERTEXSIZE)
 			{
-				glTexCoord2f(v[3], v[4]);
+				glTexCoord2f(v[5], v[6]);
 				glVertex3fv(v);
 			}
 			glEnd();
@@ -1247,7 +1247,7 @@ void R_DrawWorld(void)
 	*/
 	DrawTextureChains();
 
-	//R_BlendLightmaps();
+	R_BlendLightmaps();
 
 
 	R_DrawSkyBox();
