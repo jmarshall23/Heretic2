@@ -20,8 +20,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "qcommon.h"
 
-
-
 #define	STEPSIZE	18
 
 // all of the locals will be zeroed before each
@@ -606,11 +604,11 @@ void PM_AirMove (void)
 //
 	maxspeed = pm_maxspeed;
 
-	if (wishspeed > maxspeed)
-	{
-		VectorScale (wishvel, maxspeed/wishspeed, wishvel);
-		wishspeed = maxspeed;
-	}
+	//if (wishspeed > maxspeed)
+	//{
+	//	VectorScale (wishvel, maxspeed/wishspeed, wishvel);
+	//	wishspeed = maxspeed;
+	//}
 	
 	if ( pml.ladder )
 	{
@@ -1209,7 +1207,7 @@ Pmove
 Can be called by either the server or the client
 ================
 */
-void Pmove (pmove_t *pmove)
+void Pmove (pmove_t *pmove, qboolean isServer)
 {
 	pm = pmove;
 
@@ -1234,7 +1232,15 @@ void Pmove (pmove_t *pmove)
 	pml.velocity[2] = pm->s.velocity[2]*0.125;
 
 	// save old org in case we get stuck
-	VectorCopy (pm->s.origin, pml.previous_origin);
+	//VectorCopy (pm->s.origin, pml.previous_origin);
+	pml.previous_origin[0] = pm->s.origin[0];
+	pml.previous_origin[1] = pm->s.origin[1];
+	pml.previous_origin[2] = pm->s.origin[2];
+
+	if (isServer && pm->cmd.forwardmove > 0)
+	{
+		Com_Printf("Forward Move Server: %d\n", pm->cmd.forwardmove);
+	}
 
 	pml.frametime = pm->cmd.msec * 0.001;
 
@@ -1247,12 +1253,45 @@ void Pmove (pmove_t *pmove)
 		return;
 	}
 
+	AngleVectors(pm->viewangles, pml.forward, pml.right, pml.up);
+
+
+
 	if (pm->s.pm_type >= PM_DEAD)
 	{
 		pm->cmd.forwardmove = 0;
 		pm->cmd.sidemove = 0;
 		pm->cmd.upmove = 0;
 	}
+
+	vec3_t startpos;
+	vec3_t endpos;
+
+	
+
+	//pm->s.origin[0] += pml.forward[0] * pm->cmd.forwardmove * (1.0 / 8.0);
+	//pm->s.origin[1] += pml.forward[1] * pm->cmd.forwardmove * (1.0 / 8.0);
+	//pm->s.origin[2] += pml.forward[2] * pm->cmd.forwardmove * (1.0 / 8.0);
+	
+	PM_AirMove();
+
+	// set groundentity, watertype, and waterlevel for final spot
+	PM_CatagorizePosition();
+	//
+	//PM_SnapPosition();
+
+	pm->s.origin[0] += pml.velocity[0] * 8;// * (1.0 / 8.0);
+	pm->s.origin[1] += pml.velocity[1] * 8;// * (1.0 / 8.0);
+	pm->s.origin[2] += pml.velocity[2] * 8;// * (1.0 / 8.0);
+
+	if (isServer)
+	{
+		Com_Printf("%d %d %d -> %d %d %d\n", (int)pml.previous_origin[0], (int)pml.previous_origin[1], (int)pml.previous_origin[2],
+			(int)pm->s.origin[0], (int)pm->s.origin[1], (int)pm->s.origin[2]);
+	}	
+
+#if 0
+	return;
 
 	if (pm->s.pm_type == PM_FREEZE)
 		return;		// no movement at all
@@ -1328,5 +1367,6 @@ void Pmove (pmove_t *pmove)
 	PM_CatagorizePosition ();
 
 	PM_SnapPosition ();
+#endif
 }
 

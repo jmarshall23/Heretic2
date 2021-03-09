@@ -57,6 +57,10 @@
 #define VectorSet(v, x, y, z)	(v[0]=(x), v[1]=(y), v[2]=(z))
 #define	VectorMA2(v, s, b, o)	((o)[0]=(v)[0]+(b)[0]*(s),(o)[1]=(v)[1]+(b)[1]*(s),(o)[2]=(v)[2]+(b)[2]*(s))
 void AngleVectors(vec3_t angles, vec3_t forward, vec3_t right, vec3_t up);
+void VectorScale(vec3_t in, vec_t scale, vec3_t out);
+vec_t VectorNormalize(vec3_t v);
+void VectorMA(vec3_t veca, float scale, vec3_t vecb, vec3_t vecc);
+void CrossProduct(vec3_t v1, vec3_t v2, vec3_t cross);
 #endif
 // jmarshall end
 

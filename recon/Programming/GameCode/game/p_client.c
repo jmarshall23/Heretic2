@@ -3272,6 +3272,11 @@ void ClientThink (edict_t *ent, usercmd_t *ucmd)
 
 	client->ps.pmove = pm.s;
 	client->old_pmove = pm.s;
+// jmarshall - this used to be done in the engine with the client prediction.
+	client->playerinfo.origin[0] = ent->s.origin[0] = pm.s.origin[0] * 0.125;
+	client->playerinfo.origin[1] = ent->s.origin[1] = pm.s.origin[1] * 0.125;
+	client->playerinfo.origin[2] = ent->s.origin[2] = pm.s.origin[2] * 0.125;
+// jmarshall end
 
 	client->playerinfo.GroundSurface=pm.GroundSurface;
 	memcpy(&client->playerinfo.GroundPlane,&pm.GroundPlane,sizeof(cplane_t));

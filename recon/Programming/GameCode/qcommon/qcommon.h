@@ -814,7 +814,7 @@ Common between server and client so prediction matches
 ==============================================================
 */
 				  
-void Pmove(pmove_t *pmove);
+void Pmove(pmove_t *pmove, qboolean isServer);
 
 /*
 ==============================================================
