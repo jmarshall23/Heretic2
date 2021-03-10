@@ -20,6 +20,14 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 // r_main.c
 #include "gl_local.h"
 
+typedef struct {
+	vec3_t start;
+	vec3_t end;
+} debugLine_t;
+
+debugLine_t debug_lines[256];
+int numDebugLines = 0;
+
 void R_Clear (void);
 
 viddef_t	vid;
@@ -953,8 +961,23 @@ R_RenderFrame
 void R_RenderFrame (refdef_t *fd)
 {
 	R_RenderView( fd );
-	R_SetLightLevel ();
-	R_SetGL2D ();
+	R_SetLightLevel ();	
+	glLineWidth(10.0);
+
+	glDisable(GL_DEPTH_TEST);
+	for (int i = 0; i < numDebugLines; i++)
+	{
+		glBegin(GL_LINES);		
+		glVertex3f(debug_lines[i].start[0], debug_lines[i].start[1], debug_lines[i].start[2]);
+		glVertex3f(debug_lines[i].end[0], debug_lines[i].end[1], debug_lines[i].end[2]);
+		glEnd();
+		
+	}
+	glEnable(GL_DEPTH_TEST);
+
+	numDebugLines = 0;
+
+	R_SetGL2D();
 }
 
 
@@ -1539,6 +1562,18 @@ void Draw_Name (vec3_t origin, char *Name, paletteRGBA_t color)
 
 }
 
+void DrawLine(vec3_t start, vec3_t end) {
+	debug_lines[numDebugLines].start[0] = start[0];
+	debug_lines[numDebugLines].start[1] = start[1];
+	debug_lines[numDebugLines].start[2] = start[2];
+
+	debug_lines[numDebugLines].end[0] = end[0];
+	debug_lines[numDebugLines].end[1] = end[1];
+	debug_lines[numDebugLines].end[2] = end[2];
+
+	numDebugLines++;
+}
+
 
 /*
 ================
@@ -1549,6 +1584,11 @@ void Swap_Init(void)
 {
 
 
+}
+
+void R_EndFrame(void)
+{
+	GLimp_EndFrame();
 }
 
 /*
@@ -1575,6 +1615,7 @@ refexport_t GetRefAPI (refimport_t rimp )
 	re.SetSky = R_SetSky;
 	re.EndRegistration = R_EndRegistration;
 	re.Draw_Name = Draw_Name;
+	re.DrawLine = DrawLine;
 	re.GetReferencedID = GetReferencedID;
 	re.RenderFrame = R_RenderFrame;
 	re.DrawGetPicSize = Draw_GetPicSize;
@@ -1592,7 +1633,7 @@ refexport_t GetRefAPI (refimport_t rimp )
 	re.DrawCinematic = R_DrawCinematic;
 	
 	re.BeginFrame = R_BeginFrame;
-	re.EndFrame = GLimp_EndFrame;
+	re.EndFrame = R_EndFrame;
 
 	re.AppActivate = GLimp_AppActivate;
 

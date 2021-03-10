@@ -197,6 +197,8 @@ typedef struct
 
 	int		(*RenderFrame) (refdef_t *fd);
 
+	void	(*DrawLine)(vec3_t start, vec3_t end);
+
 	void	(*DrawGetPicSize) (int *w, int *h, char *name);
 	void	(*DrawPic) (int x, int y, char *name, float alpha);
 	void	(*DrawStretchPic) (int x, int y, int w, int h, char *name, float alpha, qboolean scale);

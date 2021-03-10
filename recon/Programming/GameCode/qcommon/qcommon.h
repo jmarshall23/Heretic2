@@ -280,10 +280,10 @@ enum clc_ops_e
 #define	PS_RDFLAGS				(1 << 28)
 #define PS_FOG_DENSITY			(1 << 29)
 #define PS_MAP_PERCENTAGE		(1 << 30)
-#define PS_MISSION1				(1 << 31)
+#define PS_MINSMAXS				(1 << 31)
 
 #define PS_MISSION2				(1 << 32)
-#define PS_MINSMAXS				(1 << 33)
+#define PS_MISSION1				(1 << 33)
 #define PS_INVENTORY			(1 << 34)
 #define PS_GROUNDBITS_NNGE		(1 << 35)
 #define PS_GROUNDBITS_GC		(1 << 36)

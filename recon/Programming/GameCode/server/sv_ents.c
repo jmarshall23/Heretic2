@@ -258,6 +258,9 @@ void SV_WritePlayerstateToClient (client_frame_t *from, client_frame_t *to, size
 	if (ps->pmove.pm_flags != ops->pmove.pm_flags)
 		pflags |= PS_M_FLAGS;
 
+	if (ps->viewheight != ops->viewheight)
+		pflags |= PS_VIEWHEIGHT;
+
 	if (ps->pmove.gravity != ops->pmove.gravity)
 		pflags |= PS_M_GRAVITY;
 
@@ -292,6 +295,12 @@ void SV_WritePlayerstateToClient (client_frame_t *from, client_frame_t *to, size
 		pflags |= PS_REMOTE_VIEWANGLES;
 	}
 
+	if (ps->mins[0] != ops->mins[0] || ps->mins[1] != ops->mins[1] || ps->mins[2] != ops->mins[2])
+		pflags |= PS_MINSMAXS;
+
+	if (ps->maxs[0] != ops->maxs[0] || ps->maxs[1] != ops->maxs[1] || ps->maxs[2] != ops->maxs[2])
+		pflags |= PS_MINSMAXS;
+
 	if (ps->remote_id != ops->remote_id)
 	{
 		pflags |= PS_REMOTE_ID;
@@ -302,6 +311,16 @@ void SV_WritePlayerstateToClient (client_frame_t *from, client_frame_t *to, size
 	//
 	MSG_WriteByte (msg, svc_playerinfo);
 	MSG_WriteLong (msg, pflags);
+
+	if (pflags & PS_MINSMAXS) {
+		MSG_WriteFloat(msg, ps->mins[0]);
+		MSG_WriteFloat(msg, ps->mins[1]);
+		MSG_WriteFloat(msg, ps->mins[2]);
+
+		MSG_WriteFloat(msg, ps->maxs[0]);
+		MSG_WriteFloat(msg, ps->maxs[1]);
+		MSG_WriteFloat(msg, ps->maxs[2]);
+	}
 
 	//
 	// write the pmove_state_t
@@ -332,6 +351,11 @@ void SV_WritePlayerstateToClient (client_frame_t *from, client_frame_t *to, size
 	{
 		MSG_WriteShort (msg, ps->pmove.origin[0]);
 		MSG_WriteShort (msg, ps->pmove.origin[1]);		
+	}
+
+	if (pflags & PS_VIEWHEIGHT)
+	{
+		MSG_WriteShort(msg, ps->viewheight);
 	}
 
 	if (pflags & PS_M_ORIGIN_Z)

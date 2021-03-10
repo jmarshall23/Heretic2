@@ -3276,6 +3276,10 @@ void ClientThink (edict_t *ent, usercmd_t *ucmd)
 	client->playerinfo.origin[0] = ent->s.origin[0] = pm.s.origin[0] * 0.125;
 	client->playerinfo.origin[1] = ent->s.origin[1] = pm.s.origin[1] * 0.125;
 	client->playerinfo.origin[2] = ent->s.origin[2] = pm.s.origin[2] * 0.125;
+
+	client->playerinfo.velocity[0] = ent->velocity[0] = pm.velocity[0] * 0.125;
+	client->playerinfo.velocity[1] = ent->velocity[1] = pm.velocity[1] * 0.125;
+	client->playerinfo.velocity[2] = ent->velocity[2] = pm.velocity[2] * 0.125;
 // jmarshall end
 
 	client->playerinfo.GroundSurface=pm.GroundSurface;

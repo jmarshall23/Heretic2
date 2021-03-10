@@ -244,6 +244,9 @@ void CL_PredictMovement (void)
 	//pm_airaccelerate = atof(cl.configstrings[CS_AIRACCEL]);
 
 	pm.s = cl.frame.playerstate.pmove;
+	pm.viewheight = cl.frame.playerstate.viewheight;
+	VectorCopy(cl.frame.playerstate.mins, pm.mins);
+	VectorCopy(cl.frame.playerstate.maxs, pm.maxs);
 
 //	SCR_DebugGraph (current - ack - 1, 0);
 

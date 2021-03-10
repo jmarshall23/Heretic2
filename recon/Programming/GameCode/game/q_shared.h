@@ -61,6 +61,8 @@ void VectorScale(vec3_t in, vec_t scale, vec3_t out);
 vec_t VectorNormalize(vec3_t v);
 void VectorMA(vec3_t veca, float scale, vec3_t vecb, vec3_t vecc);
 void CrossProduct(vec3_t v1, vec3_t v2, vec3_t cross);
+vec_t VectorLength(vec3_t v);
+vec_t VectorNormalize2(vec3_t v, vec3_t out);
 #endif
 // jmarshall end
 

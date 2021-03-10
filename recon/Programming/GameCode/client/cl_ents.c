@@ -531,6 +531,16 @@ void CL_ParsePlayerstate (frame_t *oldframe, frame_t *newframe)
 
 	flags = MSG_ReadLong (&net_message);
 
+	if (flags & PS_MINSMAXS) {
+		state->mins[0] = MSG_ReadFloat(&net_message);
+		state->mins[1] = MSG_ReadFloat(&net_message);
+		state->mins[2] = MSG_ReadFloat(&net_message);
+
+		state->maxs[0] = MSG_ReadFloat(&net_message);
+		state->maxs[1] = MSG_ReadFloat(&net_message);
+		state->maxs[2] = MSG_ReadFloat(&net_message);
+	}
+
 	//
 	// parse the pmove_state_t
 	//
@@ -560,6 +570,11 @@ void CL_ParsePlayerstate (frame_t *oldframe, frame_t *newframe)
 	{
 		state->pmove.origin[0] = MSG_ReadShort (&net_message);
 		state->pmove.origin[1] = MSG_ReadShort (&net_message);		
+	}
+
+	if (flags & PS_VIEWHEIGHT)
+	{
+		state->viewheight = MSG_ReadShort(&net_message);
 	}
 
 	if (flags & PS_M_ORIGIN_Z)
