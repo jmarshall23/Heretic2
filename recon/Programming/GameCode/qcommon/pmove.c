@@ -179,12 +179,19 @@ static void PM_GroundTrace(void) {
 
 	point[0] = pml.origin[0];
 	point[1] = pml.origin[1];
-	point[2] = pml.origin[2] - 100.0f;
+	point[2] = pml.origin[2] - 0.5f;
 
-	//re.DrawLine(start, point);
-
-	pm->trace(pml.origin, pm->mins, pm->maxs, point, &trace);
+	pm->trace(start, pm->mins, pm->maxs, point, &trace);
 	pml.groundTrace = trace;
+
+	if (trace.fraction == 1.0f)
+	{
+		re.DrawLine(start, point);
+	}
+	else
+	{
+		re.DrawLine(start, trace.endpos);
+	}
 
 	pm->groundentity = trace.ent;
 
@@ -203,8 +210,6 @@ static void PM_GroundTrace(void) {
 
 	pml.groundPlane = true;
 	pml.walking = true;
-
-	pml.origin[2] = trace.endpos[2] + 2.0f;
 }
 
 /*
@@ -701,7 +706,7 @@ void Pmove(pmove_t* pmove, qboolean isServer)
 	// Convert it back into nonsense Quake 2 compression.
 	pm->s.origin[0] = pml.origin[0] * 8.0f;
 	pm->s.origin[1] = pml.origin[1] * 8.0f;
-	pm->s.origin[2] = pml.origin[2]  * 8.0f;
+	pm->s.origin[2] = pml.origin[2] * 8.0f;
 
 	pm->s.velocity[0] = pml.velocity[0] * 8.0f;
 	pm->s.velocity[1] = pml.velocity[1] * 8.0f;

@@ -511,6 +511,9 @@ typedef struct trace_s
 	csurface_t	*surface;		// surface hit
 	int			contents;		// contents on other side of surface hit
 	struct edict_s	*ent;		// not set by CM_*() functions
+
+	// N&C: Custom added.
+	vec3_t		offsets[8];	// [signbits][x] = either size[0][x] or size[1][x]
 } trace_t;
 
 // ************************************************************************************************

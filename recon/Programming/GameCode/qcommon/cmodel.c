@@ -977,7 +977,9 @@ BOX TRACING
 */
 
 // 1/32 epsilon to keep floating point happy
-#define	DIST_EPSILON	(0.03125)
+// N&C: FF Precision.
+//#define DIST_EPSILON    (0.03125)
+#define DIST_EPSILON    0.125
 
 vec3_t	trace_start, trace_end;
 vec3_t	trace_mins, trace_maxs;
@@ -1119,34 +1121,61 @@ void CM_TestBoxInBrush (vec3_t mins, vec3_t maxs, vec3_t p1,
 	if (!brush->numsides)
 		return;
 
-	for (i=0 ; i<brush->numsides ; i++)
-	{
-		side = &map_brushsides[brush->firstbrushside+i];
-		plane = side->plane;
+	//for (i=0 ; i<brush->numsides ; i++)
+	//{
+	//	side = &map_brushsides[brush->firstbrushside+i];
+	//	plane = side->plane;
+	//
+	//	// FIXME: special case for axial
+	//
+	//	// general box case
+	//
+	//	// push the plane out apropriately for mins/maxs
+	//
+	//	// FIXME: use signbits into 8 way lookup for each mins/maxs
+	//	for (j=0 ; j<3 ; j++)
+	//	{
+	//		if (plane->normal[j] < 0)
+	//			ofs[j] = maxs[j];
+	//		else
+	//			ofs[j] = mins[j];
+	//	}
+	//	dist = DotProduct (ofs, plane->normal);
+	//	dist = plane->dist - dist;
+	//
+	//	d1 = DotProduct (p1, plane->normal) - dist;
+	//
+	//	// if completely in front of face, no intersection
+	//	if (d1 > 0)
+	//		return;
+	//
+	//}
+	// N&C: FF Precision. Fixes (hopefully) float movement from blocking in brushes..
+	// special test for axial
+	//if (trace->[0] > trace->bounds[1][0]
+	//	|| trace->bounds[0][1] > trace->bounds[1][1]
+	//	|| trace->bounds[0][2] > trace->bounds[1][2]
+	//	|| trace->bounds[1][0] < trace->bounds[0][0]
+	//	|| trace->bounds[1][1] < trace->bounds[0][1]
+	//	|| trace->bounds[1][2] < trace->bounds[0][2]
+	//	) {
+	//	return;
+	//}
+	// The first six planes are the axial planes, so we only
+	// need to test the remainder
+	for (i = 6; i < brush->numsides; i++) {
+	    side = brush->firstbrushside + i;
+	    plane = side->plane;
 
-		// FIXME: special case for axial
+	    // adjust the plane distance appropriately for mins/maxs
+	    dist = plane->dist - DotProduct(trace->offsets[plane->signbits], plane->normal);
 
-		// general box case
+	    d1 = DotProduct(p1, plane->normal) - dist;
 
-		// push the plane out apropriately for mins/maxs
-
-		// FIXME: use signbits into 8 way lookup for each mins/maxs
-		for (j=0 ; j<3 ; j++)
-		{
-			if (plane->normal[j] < 0)
-				ofs[j] = maxs[j];
-			else
-				ofs[j] = mins[j];
-		}
-		dist = DotProduct (ofs, plane->normal);
-		dist = plane->dist - dist;
-
-		d1 = DotProduct (p1, plane->normal) - dist;
-
-		// if completely in front of face, no intersection
-		if (d1 > 0)
-			return;
-
+	    // if completely in front of face, no intersection
+	    if (d1 > 0) {
+	        return;
+	    }
 	}
 
 	// inside this brush
@@ -1421,6 +1450,36 @@ trace_t		CM_BoxTrace (vec3_t start, vec3_t end,
 		trace_extents[0] = -mins[0] > maxs[0] ? -mins[0] : maxs[0];
 		trace_extents[1] = -mins[1] > maxs[1] ? -mins[1] : maxs[1];
 		trace_extents[2] = -mins[2] > maxs[2] ? -mins[2] : maxs[2];
+
+		// N&C: Q3 - FF Precision. Hopefully...
+		VectorCopy(maxs, trace_trace.offsets[0]);
+
+		trace_trace.offsets[1][0] = maxs[0];
+		trace_trace.offsets[1][1] = mins[1];
+		trace_trace.offsets[1][2] = mins[2];
+
+		trace_trace.offsets[2][0] = mins[0];
+		trace_trace.offsets[2][1] = maxs[1];
+		trace_trace.offsets[2][2] = mins[2];
+
+		trace_trace.offsets[3][0] = maxs[0];
+		trace_trace.offsets[3][1] = maxs[1];
+		trace_trace.offsets[3][2] = mins[2];
+
+		trace_trace.offsets[4][0] = mins[0];
+		trace_trace.offsets[4][1] = mins[1];
+		trace_trace.offsets[4][2] = maxs[2];
+
+		trace_trace.offsets[5][0] = maxs[0];
+		trace_trace.offsets[5][1] = mins[1];
+		trace_trace.offsets[5][2] = maxs[2];
+
+		trace_trace.offsets[6][0] = mins[0];
+		trace_trace.offsets[6][1] = maxs[1];
+		trace_trace.offsets[6][2] = maxs[2];
+
+		VectorCopy(maxs, trace_trace.offsets[7]);
+		//        trace_trace->offsets[7] = maxs0;
 	}
 
 	//
