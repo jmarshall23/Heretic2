@@ -250,10 +250,20 @@ void CL_ParseDelta (entity_state_t *from, entity_state_t *to, int number, int bi
 	to->number = number;
 
 	if (bits & U_FM_FRAME)
-		to->fmnodeinfo->frame = MSG_ReadShort(&net_message);
+	{
+		for (int i = 0; i < MAX_FM_MESH_NODES; i++)
+		{
+			to->fmnodeinfo[i].frame = MSG_ReadShort(&net_message);
+		}
+	}
 
 	if (bits & U_FM_FLAGS)
-		to->fmnodeinfo->flags = MSG_ReadShort(&net_message);
+	{
+		for (int i = 0; i < MAX_FM_MESH_NODES; i++)
+		{
+			to->fmnodeinfo[i].flags = MSG_ReadShort(&net_message);
+		}
+	}
 
 	if (bits & U_MODEL)
 		to->modelindex = MSG_ReadByte (&net_message);

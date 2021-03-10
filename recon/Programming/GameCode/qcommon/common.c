@@ -557,11 +557,14 @@ void MSG_WriteDeltaEntity (entity_state_t *from, entity_state_t *to, sizebuf_t *
 	if ( to->sound != from->sound )
 		bits |= U_SOUND;
 
-	if (to->fmnodeinfo->frame != from->fmnodeinfo->frame)
-		bits |= U_FM_FRAME;
+	for (int i = 0; i < MAX_FM_MESH_NODES; i++)
+	{
+		if (to->fmnodeinfo[i].frame != from->fmnodeinfo[i].frame)
+			bits |= U_FM_FRAME;
 
-	if (to->fmnodeinfo->flags != from->fmnodeinfo->flags)
-		bits |= U_FM_FLAGS;
+		if (to->fmnodeinfo[i].flags != from->fmnodeinfo[i].flags)
+			bits |= U_FM_FLAGS;
+	}
 
 	//if (newentity || (to->renderfx & RF_BEAM))
 	//	bits |= U_OLDORIGIN;
@@ -604,10 +607,20 @@ void MSG_WriteDeltaEntity (entity_state_t *from, entity_state_t *to, sizebuf_t *
 	MSG_WriteShort(msg, to->number);
 
 	if (bits & U_FM_FRAME)
-		MSG_WriteShort(msg, to->fmnodeinfo->frame);
+	{
+		for (int i = 0; i < MAX_FM_MESH_NODES; i++)
+		{
+			MSG_WriteShort(msg, to->fmnodeinfo[i].frame);
+		}
+	}
 
-	if(bits & U_FM_FLAGS)
-		MSG_WriteShort(msg, to->fmnodeinfo->flags);
+	if (bits & U_FM_FLAGS)
+	{
+		for (int i = 0; i < MAX_FM_MESH_NODES; i++)
+		{
+			MSG_WriteShort(msg, to->fmnodeinfo[i].flags);
+		}
+	}
 
 	if (bits & U_MODEL)
 		MSG_WriteByte (msg,	to->modelindex);
