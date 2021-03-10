@@ -1164,7 +1164,7 @@ void CM_TestBoxInBrush (vec3_t mins, vec3_t maxs, vec3_t p1,
 	// The first six planes are the axial planes, so we only
 	// need to test the remainder
 	for (i = 6; i < brush->numsides; i++) {
-	    side = brush->firstbrushside + i;
+	    side = &map_brushsides[brush->firstbrushside + i];
 	    plane = side->plane;
 
 	    // adjust the plane distance appropriately for mins/maxs

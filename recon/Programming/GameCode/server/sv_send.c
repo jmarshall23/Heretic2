@@ -280,8 +280,8 @@ void SV_StartSound (vec3_t origin, edict_t *entity, int channel,
 	vec3_t		origin_v;
 	qboolean	use_phs;
 
-	if (volume < 0 || volume > 1.0)
-		Com_Error (ERR_FATAL, "SV_StartSound: volume = %f", volume);
+	//if (volume < 0 || volume > 1.0)
+	//	Com_Error (ERR_FATAL, "SV_StartSound: volume = %f", volume);
 
 	if (attenuation < 0 || attenuation > 4)
 		Com_Error (ERR_FATAL, "SV_StartSound: attenuation = %f", attenuation);

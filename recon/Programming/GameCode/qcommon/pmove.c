@@ -70,6 +70,45 @@ float	pm_waterspeed = 400;
 */
 
 /*
+=============
+PM_CorrectAllSolid
+=============
+*/
+static int PM_CorrectAllSolid(trace_t* trace) {
+	int			i, j, k;
+	vec3_t		point;
+
+	// jitter around
+	for (i = -1; i <= 1; i++) {
+		for (j = -1; j <= 1; j++) {
+			for (k = -1; k <= 1; k++) {
+				VectorCopy(pml.origin, point);
+				point[0] += (float)i;
+				point[1] += (float)j;
+				point[2] += (float)k;
+				pm->trace(point, pm->mins, pm->maxs, point, trace);
+				if (!trace->allsolid) {
+					point[0] = pml.origin[0];
+					point[1] = pml.origin[1];
+					point[2] = pml.origin[2] - 0.25;
+
+					pm->trace(pml.origin, pm->mins, pm->maxs, point, trace);
+					pml.groundTrace = *trace;
+					return true;
+				}
+			}
+		}
+	}
+
+	pm->groundentity = NULL;
+	pml.groundPlane = false;
+	pml.walking = false;
+
+	return false;
+}
+
+
+/*
 ==================
 PM_Friction
 Handles both ground friction and water friction
@@ -183,6 +222,12 @@ static void PM_GroundTrace(void) {
 
 	pm->trace(start, pm->mins, pm->maxs, point, &trace);
 	pml.groundTrace = trace;
+
+	// do something corrective if the trace starts in a solid...
+	if (trace.allsolid) {
+		if (!PM_CorrectAllSolid(&trace))
+			return;
+	}
 
 	if (trace.fraction == 1.0f)
 	{
@@ -318,7 +363,7 @@ qboolean	PM_SlideMove(qboolean gravity) {
 
 	if (gravity) {
 		VectorCopy(pml.velocity, endVelocity);
-		endVelocity[2] -= GRAVITY * pml.frametime;
+		endVelocity[2] -= (GRAVITY * 50) * pml.frametime;
 		pml.velocity[2] = (pml.velocity[2] + endVelocity[2]) * 0.5;
 		primal_velocity[2] = endVelocity[2];
 		if (pml.groundPlane) {
