@@ -19,8 +19,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 // cl_ents.c -- entity parsing and management
 
-#include "client.h"
-
+#include "../client effects/Client Effects.h"
+#include "../qcommon/ResourceManager.h"
 
 extern	struct model_s	*cl_mod_powerscreen;
 
@@ -248,6 +248,15 @@ void CL_ParseDelta (entity_state_t *from, entity_state_t *to, int number, int bi
 
 	VectorCopy (from->origin, to->old_origin);
 	to->number = number;
+
+	if (bits & U_CLIENT_EFFECTS)
+	{
+		extern ResourceManager_t FXBufMgnr;
+		to->clientEffects.numEffects = MSG_ReadShort(&net_message);
+		to->clientEffects.buf = ResMngr_AllocateResource(&FXBufMgnr, ENTITY_FX_BUF_SIZE);
+		to->clientEffects.bufSize = ENTITY_FX_BUF_SIZE;
+		MSG_ReadData(&net_message, to->clientEffects.buf, ENTITY_FX_BUF_SIZE);
+	}
 
 	if (bits & U_FM_FRAME)
 	{
@@ -794,6 +803,11 @@ void CL_ParseFrame (void)
 		Com_Error (ERR_DROP, "CL_ParseFrame: not packetentities");
 	CL_ParsePacketEntities (old, &cl.frame);
 
+	cmd = MSG_ReadByte(&net_message);
+	if (cmd != svc_client_effect) {
+		Com_Error(ERR_DROP, "CL_ParseFrame: not client effects");
+	}
+	fxe.ParseClientEffects(NULL);
 #if 0
 	if (cmd == svc_packetentities2)
 		CL_ParseProjectiles();

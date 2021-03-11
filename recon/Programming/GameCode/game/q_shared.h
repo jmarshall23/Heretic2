@@ -854,6 +854,13 @@ typedef struct PerEffectsBuffer_s
 	int		send_mask;
 	int		demo_send_mask;
 	int		fx_num;
+// jmarshall
+	qboolean inUse;
+	qboolean needsUpdate;
+
+	void* entity;
+	int data_size;
+// jmarshall end
 } PerEffectsBuffer_t;
 
 // ************************************************************************************************

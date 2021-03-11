@@ -1732,6 +1732,8 @@ void CL_Frame (int msec)
 	if (!cl.refresh_prepped && cls.state == ca_active)
 		CL_PrepRefresh ();
 
+	fxe.UpdateEffects();
+
 	// update the screen
 	//if (host_speeds->value)
 	//	time_before_ref = Sys_Milliseconds ();

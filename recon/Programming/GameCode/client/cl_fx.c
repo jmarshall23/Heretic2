@@ -86,6 +86,11 @@ qboolean Get_Crosshair(vec3_t origin, byte* type) {
 	return true;
 }
 
+trace_t		CL_PMTrace(vec3_t start, vec3_t mins, vec3_t maxs, vec3_t end);
+void CL_NewTrace(vec3_t start, vec3_t mins, vec3_t maxs, vec3_t end, int brushmask, int flags, trace_t* t) {
+	*t = CL_PMTrace(start, mins, maxs, end); // jmarshall: incomplete
+}
+
 int CL_InitClientEffects(const char* name)
 {
 	int result; // eax
@@ -131,7 +136,7 @@ int CL_InitClientEffects(const char* name)
 	cl_game_import.TagMalloc = Z_TagMalloc;
 	cl_game_import.TagFree = Z_Free;
 	cl_game_import.FreeTags = Z_FreeTags;
-	cl_game_import.Trace = SV_NewTrace;
+	cl_game_import.Trace = CL_NewTrace;
 	cl_game_import.InCameraPVS = InCameraPVS;
 	cl_game_import.FindSurface = re.FindSurface;
 	cl_game_import.GetReferencedID = re.GetReferencedID;
@@ -218,20 +223,6 @@ void CL_RunLightStyles (void)
 void CL_SetLightstyle (int i)
 {
 	fxe.SetLightstyle(i);
-}
-
-/*
-================
-CL_AddLightStyles
-================
-*/
-void CL_AddLightStyles (void)
-{
-	int		i;
-	clightstyle_t	*ls;
-
-	for (i=0,ls=cl_lightstyle ; i<MAX_LIGHTSTYLES ; i++, ls++)
-		V_AddLightStyle (i, ls->value[0], ls->value[1], ls->value[2]);
 }
 
 /*
@@ -341,36 +332,5 @@ void CL_RunDLights (void)
 		dl->radius -= cls.frametime*dl->decay;
 		if (dl->radius < 0)
 			dl->radius = 0;
-	}
-}
-
-/*
-===============
-CL_AddDLights
-
-===============
-*/
-void CL_AddDLights (void)
-{
-	int			i;
-	cdlight_t	*dl;
-
-	dl = cl_dlights;
-
-	for (i = 0; i < MAX_DLIGHTS; i++, dl++)
-	{
-		if (!dl->radius)
-			continue;
-
-		// negative light in software. only black allowed
-		if ((dl->color[0] < 0) || (dl->color[1] < 0) || (dl->color[2] < 0))
-		{
-			dl->radius = -(dl->radius);
-			dl->color[0] = 1;
-			dl->color[1] = 1;
-			dl->color[2] = 1;
-		}
-		V_AddLight(dl->origin, dl->radius,
-			dl->color[0], dl->color[1], dl->color[2]);
 	}
 }

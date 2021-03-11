@@ -20,6 +20,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "server.h"
 
+void SV_WriteClientEffectsToClient(client_frame_t* from, client_frame_t* to, sizebuf_t* msg);
+
 /*
 =============================================================================
 
@@ -463,6 +465,9 @@ void SV_WriteFrameToClient (client_t *client, sizebuf_t *msg)
 
 	// delta encode the entities
 	SV_EmitPacketEntities (oldframe, frame, msg);
+
+	// Write our global effects to the client.
+	SV_WriteClientEffectsToClient(oldframe, frame, msg);
 }
 
 

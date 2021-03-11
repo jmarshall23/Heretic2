@@ -224,7 +224,7 @@ void SV_SpawnServer (char *server, char *spawnpoint, server_state_t serverstate,
 	strcpy (sv.name, server);
 	strcpy (sv.configstrings[CS_NAME], server);
 
-	memset(SV_Persistant_Effects_Array, 0, sizeof(SV_Persistant_Effects_Array));
+	SV_ClearPersistantEffects();
 
 	if (serverstate != ss_game)
 	{

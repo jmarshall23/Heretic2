@@ -22,15 +22,18 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "server.h"
 #include "../qcommon/SinglyLinkedList.h"
 #include "../game/g_physics.h"
+#include "EffectFlags.h"
 
 game_export_t	*ge;
 
-byte SV_Persistant_Effects_Array[0x1B000];
+int sv_numeffects = 0;
+PerEffectsBuffer_t SV_Persistant_Effects[MAX_PERSISTANT_EFFECTS];
 
 HINSTANCE game_module_handle;
 
 void Sys_LoadGameDll(const char* gamename, HINSTANCE* hinst, DWORD* chkSum);
 void Sys_UnloadGameDll(const char* name, HINSTANCE* hinst);
+void MSG_WriteData(sizebuf_t* sb, byte* data, int len);
 
 /*
 ===============
@@ -340,7 +343,6 @@ void	SV_CreateEffect (entity_state_t* ent, int type, int flags, vec3_t origin, c
 void	SV_RemoveEffects(entity_state_t* ent, int type) { }
 void	SV_CreateEffectEvent (byte EventId, entity_state_t* ent, int type, int flags, vec3_t origin, char* format, ...) { }
 void	SV_RemoveEffectsEvent(byte EventId, entity_state_t* ent, int type) { }
-int		SV_CreatePersistantEffect(entity_state_t* ent, int type, int flags, vec3_t origin, char* format, ...) { return 0; }
 void	SV_GameMsgCenterPrintf(edict_t* ent, short msg) { }
 void	SV_LevelMsgCenterPrintf(edict_t* ent, short msg) { }
 void	SV_MsgVarCenterPrintf(edict_t* ent, short msg, int vari) { }
@@ -356,7 +358,163 @@ void SV_ModelRemove (char* name) { };
 void SV_SoundRemove(char* name) { };
 void SV_CleanLevel(void) { };
 
-void SV_ClearPersistantEffects(void) { }
+void SV_WriteEffectToBuffer(sizebuf_t* msg, char* format, va_list args)
+{
+	int len = strlen(format);
+	for (int i = 0; i < len; i++)
+	{
+		switch (format[i])
+		{
+		case 'b':
+			MSG_WriteByte(msg, va_arg(args, byte));
+			break;
+		case 'd':
+			MSG_WriteDir(msg, va_arg(args, float *));
+			break;
+		case 'f':
+			MSG_WriteFloat(msg, va_arg(args, float));
+			break;
+		case 'i':
+			MSG_WriteLong(msg, va_arg(args, long));
+			break;
+		case 'p':
+		case 'v':
+			MSG_WritePos(msg, va_arg(args, float*));
+			break;
+		case 's':
+			MSG_WriteShort(msg, va_arg(args, short));
+			break;
+		case 't':
+			MSG_WritePos(msg, va_arg(args, float*));
+			break;
+		case 'u':
+			MSG_WritePos(msg, va_arg(args, float*));
+			break;
+		case 'x':
+			MSG_WritePos(msg, va_arg(args, float*));
+			break;
+		default:
+			break;
+		}
+	}
+}
+
+void SV_WriteClientEffectsToClient(client_frame_t* from, client_frame_t* to, sizebuf_t* msg) {
+	int numUpdatedEffects = 0;
+
+	MSG_WriteByte(msg, svc_client_effect);
+
+	for (int i = 0; i < MAX_PERSISTANT_EFFECTS; i++)
+	{
+		if (SV_Persistant_Effects[i].inUse && SV_Persistant_Effects[i].needsUpdate && SV_Persistant_Effects[i].entity == NULL)
+		{
+			numUpdatedEffects++;
+		}
+	}
+
+	MSG_WriteByte(msg, numUpdatedEffects);
+
+	for (int i = 0; i < MAX_PERSISTANT_EFFECTS; i++)
+	{
+		if (SV_Persistant_Effects[i].inUse && SV_Persistant_Effects[i].needsUpdate && SV_Persistant_Effects[i].entity == NULL)
+		{			
+			MSG_WriteData(msg, SV_Persistant_Effects[i].buf, SV_Persistant_Effects[i].data_size);
+			SV_Persistant_Effects[i].needsUpdate = false;
+		}
+	}	
+}
+
+int	SV_CreatePersistantEffect(entity_state_t* ent, int type, int flags, vec3_t origin, char* format, ...) { 
+	int enta;
+	int effectID = -1;
+	va_list args;
+	sizebuf_t msg;
+	int testflags;
+
+	va_start(args, format);
+
+	if (ent) {
+		enta = ent->number;
+	}
+	else {
+		enta = 0;
+	}
+
+	if (sv_numeffects >= 512) {
+		Com_Printf("Warning : Unable to create persistant effect\n");
+		return -1;
+	}	
+
+	for (int i = 0; i < MAX_PERSISTANT_EFFECTS; i++)
+	{
+		if (SV_Persistant_Effects[i].inUse == false)
+		{
+			effectID = i;
+			break;
+		}
+	}
+
+	if (effectID == -1)
+	{
+		return -1;
+	}	
+
+	PerEffectsBuffer_t* effect = &SV_Persistant_Effects[effectID];
+	effect->freeBlock = 0;
+	effect->bufSize = 192;
+	effect->numEffects = 1;
+	effect->fx_num = type;
+	effect->demo_send_mask = -1;
+	effect->send_mask = 0;
+	effect->needsUpdate = true;
+	effect->entity = ent;
+	effect->inUse = true;
+	
+	SZ_Init(&msg, effect->buf, sizeof(effect->buf));
+	MSG_WriteShort(&msg, type);
+
+	if (ent != NULL)
+	{
+		ent->clientEffects.buf = &effect->buf;
+		ent->clientEffects.bufSize = sizeof(effect->buf);
+		ent->clientEffects.numEffects = 1;
+	}
+
+	testflags = flags;
+
+	//if ((flags & 0xA) != 0 && enta > 255)
+	//	testflags = flags | CEF_ENTNUM16;
+
+	MSG_WriteShort(&msg, testflags);
+
+	if ((testflags & CEF_BROADCAST) != 0 && enta >= 0)
+	{
+		//if (enta <= 255)
+		//	MSG_WriteByte(&msg, enta);
+		//else
+		MSG_WriteShort(&msg, enta);
+	}
+
+	if ((testflags & CEF_OWNERS_ORIGIN) == 0) {
+		MSG_WritePos(&msg, origin);
+	}
+
+	MSG_WriteByte(&msg, 0x3a);
+
+	if (format && format[0]) {
+		SV_WriteEffectToBuffer(&msg, format, args);
+	}
+
+	effect->data_size = msg.cursize;
+
+	return effectID;
+}
+
+void SV_ClearPersistantEffects(void) { 
+	sv_numeffects = 0;
+	memset(&SV_Persistant_Effects, 0, sizeof(SV_Persistant_Effects));
+}
+
 
 int		 SV_GetContentsAtPoint(vec3_t point) {
 	return SV_PointContents(point); // Not correct.
@@ -480,11 +638,13 @@ void SV_InitGameProgs (void)
 	import.Sys_LoadGameDll = Sys_LoadGameDll;
 	import.Sys_UnloadGameDll = Sys_UnloadGameDll;
 	import.ClearPersistantEffects = SV_ClearPersistantEffects;
-	import.Persistant_Effects_Array = &SV_Persistant_Effects_Array;
+	import.Persistant_Effects_Array = &SV_Persistant_Effects;
 
 	Sys_LoadGameDll("gamex86.dll", &game_module_handle, NULL);
 	GetGameApi = (game_export_t * (__cdecl*)(game_import_t*))GetProcAddress(game_module_handle, "GetGameAPI");
 	ge = (game_export_t *)GetGameApi(&import);
+
+	SV_ClearPersistantEffects();
 
 	if (!ge)
 		Com_Error (ERR_DROP, "failed to load game DLL");

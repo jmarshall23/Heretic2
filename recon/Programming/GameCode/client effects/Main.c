@@ -485,43 +485,36 @@ void ParseEffects(centity_t *owner)
 		}
 
 		effect = MSG_ReadShort(msg_read);
-
-		if(effect&EFFECT_PRED_INFO)
-		{
-			// EFFECT_PRED_INFO bit if set (only on effects sent by server, never on predicted
-			// effects) indicates we should read a byte that uniquely identifies the client effect
-			// int the player code.
-
-			eventId=MSG_ReadByte(msg_read);
-			effect&=~EFFECT_PRED_INFO;
-			EffectIsFromServer=true;
-		}
+// jmarshall
+		//if(effect&EFFECT_PRED_INFO)
+		//{
+		//	// EFFECT_PRED_INFO bit if set (only on effects sent by server, never on predicted
+		//	// effects) indicates we should read a byte that uniquely identifies the client effect
+		//	// int the player code.
+		//
+		//	eventId=MSG_ReadByte(msg_read);
+		//	effect&=~EFFECT_PRED_INFO;
+		//	EffectIsFromServer=true;
+		//}
+// jmarshall end
 
 //#if	_DEVEL
 #if 0
 		Cvar_Set("cfxpl", MSG_ReadString(msg_read));
 #endif
-		if(effect & 0x8000)
-		{
-			effect &= ~0x8000;
-
-			flags = MSG_ReadByte(msg_read);
-		}
-		else
-		{
-			flags = 0;
-		}
+		flags = MSG_ReadShort(msg_read);
 
 		if(flags & (CEF_BROADCAST|CEF_MULTICAST))
 		{
-			if(flags & CEF_ENTNUM16)
-			{
-				index = MSG_ReadShort(msg_read);
-			}
-			else
-			{
-				index = MSG_ReadByte(msg_read);
-			}
+			//if(flags & CEF_ENTNUM16)
+			//{
+			//	index = MSG_ReadShort(msg_read);
+			//}
+			//else
+			//{
+			//	index = MSG_ReadByte(msg_read);
+			//}
+			index = MSG_ReadShort(msg_read);
 
 			if(index)	// 0 should indicate the world
 			{
@@ -553,6 +546,12 @@ void ParseEffects(centity_t *owner)
 				position[1] += tempOwner->origin[1];
 				position[2] += tempOwner->origin[2];
 			}
+		}
+
+		if (MSG_ReadByte(msg_read) != 0x3a)
+		{
+			fxi.Com_Error(ERR_DROP, "Invalid effect header\n");
+			return;
 		}
 
 		assert(effect < NUM_FX);

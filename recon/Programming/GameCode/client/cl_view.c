@@ -38,15 +38,6 @@ cvar_t		*cl_testblend;
 
 cvar_t		*cl_stats;
 
-
-int			r_numdlights;
-dlight_t	r_dlights[MAX_DLIGHTS];
-
-int			r_numparticles;
-particle_t	r_particles[MAX_PARTICLES];
-
-lightstyle_t	r_lightstyles[MAX_LIGHTSTYLES];
-
 //char cl_weaponmodels[MAX_CLIENTWEAPONMODELS][MAX_QPATH];
 //int num_cl_weaponmodels;
 
@@ -59,52 +50,15 @@ Specifies the model that will be used as the world
 */
 void V_ClearScene (void)
 {
-	r_numdlights = 0;
+	cls.r_numdlights = 0;
 	cls.r_numentities = 0;
-	r_numparticles = 0;
+	cls.r_numparticles = 0;
+	cls.r_num_alpha_entities = 0;
+	cls.r_anumparticles = 0;
 }
 
 
-/*
-=====================
-V_AddLight
 
-=====================
-*/
-void V_AddLight (vec3_t org, float intensity, float r, float g, float b)
-{
-	dlight_t	*dl;
-
-	if (r_numdlights >= MAX_DLIGHTS)
-		return;
-	dl = &r_dlights[r_numdlights++];
-	VectorCopy (org, dl->origin);
-	dl->intensity = intensity;
-	dl->color.r = r;
-	dl->color.g = g;
-	dl->color.b = b;
-}
-
-
-/*
-=====================
-V_AddLightStyle
-
-=====================
-*/
-void V_AddLightStyle (int style, float r, float g, float b)
-{
-	lightstyle_t	*ls;
-
-	if (style < 0 || style > MAX_LIGHTSTYLES)
-		Com_Error (ERR_DROP, "Bad light style %i", style);
-	ls = &r_lightstyles[style];
-
-	ls->white = r+g+b;
-	ls->rgb[0] = r;
-	ls->rgb[1] = g;
-	ls->rgb[2] = b;
-}
 
 /*
 ================
@@ -151,12 +105,12 @@ void V_TestLights (void)
 	float		f, r;
 	dlight_t	*dl;
 
-	r_numdlights = 32;
-	memset (r_dlights, 0, sizeof(r_dlights));
+	cls.r_numdlights = 32;
+	memset (cls.r_dlights, 0, sizeof(cls.r_dlights));
 
-	for (i=0 ; i<r_numdlights ; i++)
+	for (i=0 ; i< cls.r_numdlights ; i++)
 	{
-		dl = &r_dlights[i];
+		dl = &cls.r_dlights[i];
 
 		r = 64 * ( (i%4) - 1.5 );
 		f = 64 * (i/4) + 128;
@@ -422,9 +376,9 @@ void V_RenderView( float stereo_separation )
 		if (!cl_add_entities->value)
 			cls.r_numentities = 0;
 		if (!cl_add_particles->value)
-			r_numparticles = 0;
+			cls.r_numparticles = 0;
 		if (!cl_add_lights->value)
-			r_numdlights = 0;
+			cls.r_numdlights = 0;
 		if (!cl_add_blend->value)
 		{
 			VectorClear (cl.refdef.blend);
@@ -432,11 +386,14 @@ void V_RenderView( float stereo_separation )
 
 		cl.refdef.num_entities = cls.r_numentities;
 		cl.refdef.entities = cls.r_entities;
-		cl.refdef.num_particles = r_numparticles;
-		cl.refdef.particles = r_particles;
-		cl.refdef.num_dlights = r_numdlights;
-		cl.refdef.dlights = r_dlights;
-		cl.refdef.lightstyles = r_lightstyles;
+		cl.refdef.num_particles = cls.r_numparticles;
+		cl.refdef.num_alpha_entities = cls.r_num_alpha_entities;
+		cl.refdef.anum_particles = cls.r_anumparticles;
+		cl.refdef.aparticles = cls.r_aparticles;
+		cl.refdef.particles = cls.r_particles;
+		cl.refdef.num_dlights = cls.r_numdlights;
+		cl.refdef.dlights = cls.r_dlights;
+		cl.refdef.lightstyles = cls.r_lightstyles;
 
 		cl.refdef.rdflags = cl.frame.playerstate.rdflags;
 
@@ -446,9 +403,9 @@ void V_RenderView( float stereo_separation )
 
 	re.RenderFrame (&cl.refdef);
 	if (cl_stats->value)
-		Com_Printf ("ent:%i  lt:%i  part:%i\n", cls.r_numentities, r_numdlights, r_numparticles);
+		Com_Printf ("ent:%i  lt:%i  part:%i\n", cls.r_numentities, cls.r_numdlights, cls.r_numparticles);
 	if ( log_stats->value && ( log_stats_file != 0 ) )
-		fprintf( log_stats_file, "%i,%i,%i,",cls.r_numentities, r_numdlights, r_numparticles);
+		fprintf( log_stats_file, "%i,%i,%i,",cls.r_numentities, cls.r_numdlights, cls.r_numparticles);
 
 
 	SCR_AddDirtyPoint (scr_vrect.x, scr_vrect.y);
