@@ -630,7 +630,7 @@ void Mod_LoadFaces (lump_t *l)
 		if (!(out->texinfo->flags & (SURF_SKY | SURF_TRANS33 | SURF_TRANS66 | SURF_WARP)))
 			GL_CreateSurfaceLightmap (out);
 
-		if (! (out->texinfo->flags & SURF_WARP) ) 
+		//if (! (out->texinfo->flags & SURF_WARP) ) 
 			GL_BuildPolygonFromSurface(out);
 
 	}
