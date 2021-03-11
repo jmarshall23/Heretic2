@@ -1095,8 +1095,9 @@ void Mod_LoadSpriteModel (model_t *mod, void *buffer)
 		sprout->frames[i].origin_x = LittleLong (sprin->frames[i].origin_x);
 		sprout->frames[i].origin_y = LittleLong (sprin->frames[i].origin_y);
 		memcpy (sprout->frames[i].name, sprin->frames[i].name, MAX_SKINNAME);
-		mod->skins[i] = GL_FindImage (sprout->frames[i].name,
-			it_sprite);
+		char name[512];
+		sprintf(name, "sprites/%s", sprout->frames[i].name);
+		mod->skins[i] = GL_FindImage (name, it_sprite);
 	}
 
 	mod->type = mod_sprite;
@@ -1153,9 +1154,9 @@ struct model_s *R_RegisterModel (char *name)
 		// register any images used by the models
 		if (mod->type == mod_sprite)
 		{
-			sprout = (dsprite_t *)mod->extradata;
-			for (i=0 ; i<sprout->numframes ; i++)
-				mod->skins[i] = GL_FindImage (sprout->frames[i].name, it_sprite);
+			//sprout = (dsprite_t *)mod->extradata;
+			//for (i=0 ; i<sprout->numframes ; i++)
+			//	mod->skins[i] = GL_FindImage (sprout->frames[i].name, it_sprite);
 		}
 		else if (mod->type == mod_alias)
 		{

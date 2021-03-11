@@ -197,46 +197,28 @@ void R_DrawSpriteModel (entity_t *e)
 	float		*up, *right;
 	dsprite_t		*psprite;
 
-	return;
-
 	// don't even bother culling, because it's just a single
 	// polygon without a surface cache
 
 	psprite = (dsprite_t *)currentmodel->extradata;
 
-#if 0
-	if (e->frame < 0 || e->frame >= psprite->numframes)
-	{
-		ri.Con_Printf (PRINT_ALL, "no such sprite frame %i\n", e->frame);
-		e->frame = 0;
-	}
-#endif
 	e->frame %= psprite->numframes;
 
 	frame = &psprite->frames[e->frame];
 
-#if 0
-	if (psprite->type == SPR_ORIENTED)
-	{	// bullet marks on walls
-	vec3_t		v_forward, v_right, v_up;
+	GL_Bind(currentmodel->skins[e->frame]->texnum);
 
-	AngleVectors (currententity->angles, v_forward, v_right, v_up);
-		up = v_up;
-		right = v_right;
-	}
-	else
-#endif
-	{	// normal sprite
-		up = vup;
-		right = vright;
-	}
+	// normal sprite
+	up = vup;
+	right = vright;
+
 
 	if ( alpha != 1.0F )
 		glEnable( GL_BLEND );
 
 	glColor4f( 1, 1, 1, alpha );
 
-    GL_Bind(currentmodel->skins[e->frame]->texnum);
+    
 
 	GL_TexEnv( GL_MODULATE );
 
@@ -245,29 +227,36 @@ void R_DrawSpriteModel (entity_t *e)
 	else
 		glDisable( GL_ALPHA_TEST );
 
-	glBegin (GL_QUADS);
+	switch (e->spriteType)
+	{
+		case 0xFFFFFFFF:
+		case 0:
+			glBegin(GL_QUADS);
 
-	glTexCoord2f (0, 1);
-	VectorMA (e->origin, -frame->origin_y, up, point);
-	VectorMA (point, -frame->origin_x, right, point);
-	glVertex3fv (point);
+			glTexCoord2f(0, 1);
+			VectorMA(e->origin, -frame->origin_y, up, point);
+			VectorMA(point, -frame->origin_x, right, point);
+			glVertex3fv(point);
 
-	glTexCoord2f (0, 0);
-	VectorMA (e->origin, frame->height - frame->origin_y, up, point);
-	VectorMA (point, -frame->origin_x, right, point);
-	glVertex3fv (point);
+			glTexCoord2f(0, 0);
+			VectorMA(e->origin, frame->height - frame->origin_y, up, point);
+			VectorMA(point, -frame->origin_x, right, point);
+			glVertex3fv(point);
 
-	glTexCoord2f (1, 0);
-	VectorMA (e->origin, frame->height - frame->origin_y, up, point);
-	VectorMA (point, frame->width - frame->origin_x, right, point);
-	glVertex3fv (point);
+			glTexCoord2f(1, 0);
+			VectorMA(e->origin, frame->height - frame->origin_y, up, point);
+			VectorMA(point, frame->width - frame->origin_x, right, point);
+			glVertex3fv(point);
 
-	glTexCoord2f (1, 1);
-	VectorMA (e->origin, -frame->origin_y, up, point);
-	VectorMA (point, frame->width - frame->origin_x, right, point);
-	glVertex3fv (point);
+			glTexCoord2f(1, 1);
+			VectorMA(e->origin, -frame->origin_y, up, point);
+			VectorMA(point, frame->width - frame->origin_x, right, point);
+			glVertex3fv(point);
+
+			glEnd();
+			break;
+	}
 	
-	glEnd ();
 
 	glDisable (GL_ALPHA_TEST);
 	GL_TexEnv( GL_REPLACE );
@@ -373,9 +362,9 @@ void R_DrawEntitiesOnList (void)
 	// draw transparent entities
 	// we could sort these if it ever becomes a problem...
 	glDepthMask (0);		// no z writes
-	for (i=0 ; i<r_newrefdef.num_entities ; i++)
+	for (i=0 ; i<r_newrefdef.num_alpha_entities ; i++)
 	{
-		currententity = r_newrefdef.entities[i];
+		currententity = r_newrefdef.alpha_entities[i];
 		if (!(currententity->flags & RF_TRANSLUCENT))
 			continue;	// solid
 		{

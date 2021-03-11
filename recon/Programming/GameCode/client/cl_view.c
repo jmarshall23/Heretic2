@@ -384,6 +384,7 @@ void V_RenderView( float stereo_separation )
 			VectorClear (cl.refdef.blend);
 		}
 
+		cl.refdef.alpha_entities = cls.r_alpha_entities;
 		cl.refdef.num_entities = cls.r_numentities;
 		cl.refdef.entities = cls.r_entities;
 		cl.refdef.num_particles = cls.r_numparticles;

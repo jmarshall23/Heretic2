@@ -724,16 +724,17 @@ qboolean monster_start (edict_t *self)
 
 	if(self->classID!=CID_TBEAST)
 		self->s.effects|=EF_CAMERA_NO_CLIP;
-
-	if (G_MonsterShadow[self->classID].useShadow)
-	{
-		gi.CreateEffect(&self->s,
-						FX_SHADOW,
-						CEF_OWNERS_ORIGIN,
-						self->s.origin,
-						"f",
-						G_MonsterShadow[self->classID].scale);	
-	}
+// jmarshall - we will add real shadows, this is clogging up the effects system.
+	//if (G_MonsterShadow[self->classID].useShadow)
+	//{
+	//	gi.CreateEffect(&self->s,
+	//					FX_SHADOW,
+	//					CEF_OWNERS_ORIGIN,
+	//					self->s.origin,
+	//					"f",
+	//					G_MonsterShadow[self->classID].scale);	
+	//}
+// jmarshall end
 
 	
 	self->s.skinnum = 0;
