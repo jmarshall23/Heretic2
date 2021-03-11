@@ -464,3 +464,5 @@ void		GLimp_AppActivate( qboolean active );
 void		GLimp_EnableLogging( qboolean enable );
 void		GLimp_LogNewFrame( void );
 
+extern image_t* atlas_particle;
+extern image_t* atlas_aparticle;
