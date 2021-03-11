@@ -23,7 +23,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "gl_local.h"
 
 image_t		*draw_chars;
-
+image_t* atlas_particle;
+image_t* atlas_aparticle;
 extern	qboolean	scrap_dirty;
 void Scrap_Upload (void);
 
@@ -39,6 +40,8 @@ void Draw_InitLocal (void)
 // jmarshall
 //	draw_chars = GL_FindImage ("pics/conchars.pcx", it_pic);
 	draw_chars = GL_FindImage("pics/misc/conchars.m32", it_pic);
+	atlas_particle = GL_FindImage("pics/misc/particle.m32", it_pic);
+	atlas_aparticle = GL_FindImage("pics/misc/aparticle.m8", it_pic);
 // jmarshall end
 	GL_Bind(draw_chars->texnum);
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);

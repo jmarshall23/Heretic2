@@ -19,6 +19,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 // r_main.c
 #include "gl_local.h"
+#include "../ref_common/part_uvs.h"
 
 void R_Clear (void);
 
@@ -455,47 +456,105 @@ void GL_DrawParticles( int num_particles, const particle_t particles[], const un
 	GL_TexEnv( GL_REPLACE );
 }
 
+
+/*
+==============
+RB_RenderQuad
+==============
+*/
+void RB_RenderQuad(vec3_t origin, vec3_t left, vec3_t up, byte* color, float s1, float t1, float s2, float t2) {
+	vec3_t vertexes[4];
+	vec3_t st[4];
+	int indexes[6] = { 0, 1, 3, 3, 1, 2 };
+
+	VectorSet(vertexes[0], origin[0] + left[0] + up[0], origin[1] + left[1] + up[1], origin[2] + left[2] + up[2]);
+	VectorSet(vertexes[1], origin[0] - left[0] + up[0], origin[1] - left[1] + up[1], origin[2] - left[2] + up[2]);
+	VectorSet(vertexes[2], origin[0] - left[0] - up[0], origin[1] - left[1] - up[1], origin[2] - left[2] - up[2]);
+	VectorSet(vertexes[3], origin[0] + left[0] - up[0], origin[1] + left[1] - up[1], origin[2] + left[2] - up[2]);
+
+	st[0][0] = s1;
+	st[0][1] = t1;
+
+	st[1][0] = s2;
+	st[1][1] = t1;
+
+	st[2][0] = s2;
+	st[2][1] = t2;
+
+	st[3][0] = s1;
+	st[3][1] = t2;
+
+	glColor4ubv(color);
+
+	for (int i = 0; i < 6; i++)
+	{
+		glVertex3fv(vertexes[indexes[i]]);
+		glTexCoord2f(st[indexes[i]][0], st[indexes[i]][1]);
+	}
+}
+
+
 /*
 ===============
 R_DrawParticles
 ===============
 */
-void R_DrawParticles (void)
+void R_DrawParticles(int num_particles, particle_t* particles, int type)
 {
-	if ( gl_ext_pointparameters->value && qglPointParameterfEXT )
+	const particle_t* p;
+	int				i;
+	vec3_t			up, right;
+	float			scale;
+	byte			color[4];
+
+	glEnable(GL_TEXTURE_2D);
+
+	if (type)
 	{
-		int i;
-		unsigned char color[4];
-		const particle_t *p;
-
-		qglDepthMask( GL_FALSE );
-		qglEnable( GL_BLEND );
-		qglDisable( GL_TEXTURE_2D );
-
-		qglPointSize( gl_particle_size->value );
-
-		qglBegin( GL_POINTS );
-		for ( i = 0, p = r_newrefdef.particles; i < r_newrefdef.num_particles; i++, p++ )
-		{
-			*(int *)color = d_8to24table[0];
-			color[3] = p->color.a*255;
-
-			qglColor4ubv( color );
-
-			qglVertex3fv( p->origin );
-		}
-		qglEnd();
-
-		qglDisable( GL_BLEND );
-		qglColor4f( 1.0F, 1.0F, 1.0F, 1.0F );
-		qglDepthMask( GL_TRUE );
-		qglEnable( GL_TEXTURE_2D );
-
+		GL_Bind(atlas_aparticle->texnum);
+		glBlendFunc(GL_ONE, GL_ONE);
 	}
 	else
 	{
-		GL_DrawParticles( r_newrefdef.num_particles, r_newrefdef.particles, d_8to24table );
+		GL_Bind(atlas_particle->texnum);
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	}
+
+	glDepthMask(GL_FALSE);		// no z buffering
+	glEnable(GL_BLEND);
+	GL_TexEnv(GL_MODULATE);
+	glBegin(GL_TRIANGLES);
+
+	VectorScale(vup, 1.5, up);
+	VectorScale(vright, -1.5, right);
+
+	for (p = particles, i = 0; i < num_particles; i++, p++)
+	{
+		// hack a scale up to keep particles from disapearing
+		scale = (p->origin[0] - r_origin[0]) * vpn[0] +
+			(p->origin[1] - r_origin[1]) * vpn[1] +
+			(p->origin[2] - r_origin[2]) * vpn[2];
+
+		if (scale < 20)
+			scale = 1;
+		else
+			scale = 1 + scale * 0.004;
+
+		color[0] = p->color.r;
+		color[1] = p->color.g;
+		color[2] = p->color.b;
+		color[3] = p->color.a;
+
+		tex_coords_t* texCoord = &part_TexCoords[p->type];
+
+		RB_RenderQuad(p->origin, right, up, color, texCoord->lx, texCoord->ty, texCoord->rx, texCoord->by);
+	}
+
+	glEnd();
+	glDisable(GL_BLEND);
+	glColor4f(1, 1, 1, 1);
+	glDepthMask(1);		// back to normal Z buffering
+	GL_TexEnv(GL_REPLACE);
 }
 
 /*
@@ -838,7 +897,8 @@ void R_RenderView (refdef_t *fd)
 
 	R_RenderDlights ();
 
-	R_DrawParticles ();
+	R_DrawParticles(r_newrefdef.num_particles, r_newrefdef.particles, 0);
+	R_DrawParticles(r_newrefdef.anum_particles, r_newrefdef.aparticles, 1);
 
 	R_DrawAlphaSurfaces ();
 
