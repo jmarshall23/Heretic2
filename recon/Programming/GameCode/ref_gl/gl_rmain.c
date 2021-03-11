@@ -213,8 +213,6 @@ void R_DrawSpriteModel (entity_t *e)
 	right = vright;
 
 
-	if ( alpha != 1.0F )
-		glEnable( GL_BLEND );
 
 	glColor4f( 1, 1, 1, alpha );
 
@@ -226,6 +224,17 @@ void R_DrawSpriteModel (entity_t *e)
 		glEnable (GL_ALPHA_TEST);
 	else
 		glDisable( GL_ALPHA_TEST );
+
+	if(currententity->flags & RF_NODEPTHTEST)
+		glDisable(GL_DEPTH_TEST);
+
+	if (currententity->flags & RF_TRANS_ADD)
+	{
+		glEnable(GL_BLEND);
+		glBlendFunc(GL_ONE, GL_ONE);
+	}
+
+	glColor3f(currententity->color.r / 255.0f, currententity->color.g / 255.0f, currententity->color.b / 255.0f);
 
 	switch (e->spriteType)
 	{
@@ -256,13 +265,14 @@ void R_DrawSpriteModel (entity_t *e)
 			glEnd();
 			break;
 	}
-	
+	if (currententity->flags & RF_NODEPTHTEST)
+		glEnable(GL_DEPTH_TEST);
 
 	glDisable (GL_ALPHA_TEST);
 	GL_TexEnv( GL_REPLACE );
 
-	if ( alpha != 1.0F )
-		glDisable( GL_BLEND );
+	glDisable(GL_BLEND);
+		
 
 	glColor4f( 1, 1, 1, 1 );
 }
