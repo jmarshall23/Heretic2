@@ -536,7 +536,7 @@ void SCR_DrawConsole (void)
 	if (cls.state != ca_active || !cl.refresh_prepped)
 	{	// connected, but can't render
 		Con_DrawConsole (0.5);
-		re.DrawFill (0, viddef.height/2, viddef.width, viddef.height/2, 0, 0xff, 0xff, 0xff);
+		re.DrawFill (0, viddef.height/2, viddef.width, viddef.height/2, 0, 0, 0);
 		return;
 	}
 

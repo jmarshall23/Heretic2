@@ -7,11 +7,6 @@
 
 H2COMMON_API vec_t VectorNormalize(vec3_t v);
 
-H2COMMON_API vec_t VectorLengthSquared(vec3_t a1)
-{
-	return *a1 * *a1 + a1[1] * a1[1] + a1[2] * a1[2];
-}
-
 /*
 =================
 DistanceSquared

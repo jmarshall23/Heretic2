@@ -47,23 +47,7 @@
 #endif
 
 // jmarshall - this fixes some bugs on the engine side, don't know if the other game modules should have this or not.
-#ifdef QUAKE2
-#define DotProduct(x,y)			(x[0]*y[0]+x[1]*y[1]+x[2]*y[2])
-#define VectorSubtract(a,b,c)	(c[0]=a[0]-b[0],c[1]=a[1]-b[1],c[2]=a[2]-b[2])
-#define VectorAdd(a,b,c)		(c[0]=a[0]+b[0],c[1]=a[1]+b[1],c[2]=a[2]+b[2])
-#define VectorCopy(a,b)			(b[0]=a[0],b[1]=a[1],b[2]=a[2])
-#define VectorClear(a)			(a[0]=a[1]=a[2]=0)
-#define VectorNegate(a,b)		(b[0]=-a[0],b[1]=-a[1],b[2]=-a[2])
-#define VectorSet(v, x, y, z)	(v[0]=(x), v[1]=(y), v[2]=(z))
-#define	VectorMA2(v, s, b, o)	((o)[0]=(v)[0]+(b)[0]*(s),(o)[1]=(v)[1]+(b)[1]*(s),(o)[2]=(v)[2]+(b)[2]*(s))
-void AngleVectors(vec3_t angles, vec3_t forward, vec3_t right, vec3_t up);
-void VectorScale(vec3_t in, vec_t scale, vec3_t out);
-vec_t VectorNormalize(vec3_t v);
-void VectorMA(vec3_t veca, float scale, vec3_t vecb, vec3_t vecc);
-void CrossProduct(vec3_t v1, vec3_t v2, vec3_t cross);
-vec_t VectorLength(vec3_t v);
-vec_t VectorNormalize2(vec3_t v, vec3_t out);
-#endif
+#include "../qcommon/Vector.h"
 // jmarshall end
 
 // angle indexes
@@ -1121,14 +1105,6 @@ typedef struct
 // *************************************************************
 // Inlines
 // *************************************************************
-
-// microsoft's fabs seems to be ungodly slow...
-
-_inline float Q_fabs (float _X)
-{
-	*((long*)&_X) &= 0x7fffffff;
-	return (_X);
-}
 
 // Quick version of float to long (trunc/round undefined)
 

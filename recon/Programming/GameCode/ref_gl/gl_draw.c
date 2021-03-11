@@ -272,23 +272,14 @@ Draw_Fill
 Fills a box of pixels with a single color
 =============
 */
-void Draw_Fill (int x, int y, int w, int h, int c)
+void Draw_Fill (int x, int y, int w, int h, byte r, byte g, byte b)
 {
-	union
-	{
-		unsigned	c;
-		byte		v[4];
-	} color;
-
-	if ( (unsigned)c > 255)
-		ri.Sys_Error (ERR_FATAL, "Draw_Fill: bad color");
 
 	glDisable (GL_TEXTURE_2D);
 
-	color.c = d_8to24table[c];
-	glColor3f (color.v[0]/255.0,
-		color.v[1]/255.0,
-		color.v[2]/255.0);
+	glColor3f (r/255.0,
+		g/255.0,
+		b/255.0);
 
 	glBegin (GL_QUADS);
 

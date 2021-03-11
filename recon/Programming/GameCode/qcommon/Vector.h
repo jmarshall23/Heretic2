@@ -16,6 +16,8 @@
 
 #define FLOAT_ZERO_EPSILON 0.0005f
 
+#define Q_fabs fabs
+
 #ifdef __cplusplus
 extern "C"
 {
@@ -105,7 +107,7 @@ __inline int VectorCompare (vec3_t v1, vec3_t v2)
 
 __inline void VectorMA (vec3_t veca, float scale, vec3_t vecb, vec3_t vecc)
 {
-	assert(vecc != vec3_origin);
+	//assert(vecc != vec3_origin);
 
 	vecc[0] = veca[0] + scale*vecb[0];
 	vecc[1] = veca[1] + scale*vecb[1];
@@ -132,7 +134,7 @@ __inline vec_t VectorLengthSquared(vec3_t v)
 
 __inline void VectorSubtract (vec3_t veca, vec3_t vecb, vec3_t out)
 {
-	assert(out != vec3_origin);
+	//assert(out != vec3_origin);
 
 	out[0] = veca[0]-vecb[0];
 	out[1] = veca[1]-vecb[1];
@@ -151,7 +153,7 @@ __inline vec_t VectorSeparationSquared(vec3_t va, vec3_t vb)
 
 __inline void VectorAdd (vec3_t veca, vec3_t vecb, vec3_t out)
 {
-	assert(out != vec3_origin);
+	//assert(out != vec3_origin);
 
 	out[0] = veca[0] + vecb[0];
 	out[1] = veca[1] + vecb[1];
@@ -160,7 +162,7 @@ __inline void VectorAdd (vec3_t veca, vec3_t vecb, vec3_t out)
 
 __inline void VectorAbs(const vec3_t in, vec3_t out)
 {
-	assert(out != vec3_origin);
+	//assert(out != vec3_origin);
 
 	out[0] = (float)Q_fabs(in[0]);
 	out[1] = (float)Q_fabs(in[1]);
@@ -169,7 +171,7 @@ __inline void VectorAbs(const vec3_t in, vec3_t out)
 
 __inline void VectorRound(vec3_t v)
 {
-	assert(v != vec3_origin);
+	//assert(v != vec3_origin);
 
 	v[0] = (float)floor(v[0] + 0.5);
 	v[1] = (float)floor(v[1] + 0.5);
@@ -178,7 +180,7 @@ __inline void VectorRound(vec3_t v)
 
 __inline void VectorInc(vec3_t v)
 {
-	assert(v != vec3_origin);
+	//assert(v != vec3_origin);
 
 	v[0] += 1.0;
 	v[1] += 1.0;
@@ -187,7 +189,7 @@ __inline void VectorInc(vec3_t v)
 
 __inline void VectorDec(vec3_t v)
 {
-	assert(v != vec3_origin);
+	//assert(v != vec3_origin);
 
 	v[0] -= 1.0;
 	v[1] -= 1.0;
@@ -196,7 +198,7 @@ __inline void VectorDec(vec3_t v)
 
 _inline void VectorClear (vec3_t in)
 {
-	assert(in != vec3_origin);
+	//assert(in != vec3_origin);
 
 	in[0] = 0;
 	in[1] = 0;
@@ -205,7 +207,7 @@ _inline void VectorClear (vec3_t in)
 
 _inline void VectorSet (vec3_t in, vec_t x, vec_t y, vec_t z)
 {
-	assert(in != vec3_origin);
+	//assert(in != vec3_origin);
 
 	in[0] = x;
 	in[1] = y;
@@ -214,7 +216,7 @@ _inline void VectorSet (vec3_t in, vec_t x, vec_t y, vec_t z)
 
 _inline void VectorCopy(vec3_t in, vec3_t out)
 {
-	assert(out != vec3_origin);
+	//assert(out != vec3_origin);
 
 	out[0] = in[0];
 	out[1] = in[1];
@@ -223,7 +225,7 @@ _inline void VectorCopy(vec3_t in, vec3_t out)
 
 _inline void VectorInverse (vec3_t v)
 {
-	assert(v != vec3_origin);
+	//assert(v != vec3_origin);
 
 	v[0] = -v[0];
 	v[1] = -v[1];
@@ -232,7 +234,7 @@ _inline void VectorInverse (vec3_t v)
 
 _inline void VectorNegate (vec3_t in, vec3_t out)
 {
-	assert(out != vec3_origin);
+	//assert(out != vec3_origin);
 
 	out[0] = -in[0];
 	out[1] = -in[1];
@@ -241,7 +243,7 @@ _inline void VectorNegate (vec3_t in, vec3_t out)
 
 _inline void VectorScale (vec3_t in, vec_t scale, vec3_t out)
 {
-	assert(out != vec3_origin);
+	//assert(out != vec3_origin);
 
 	out[0] = in[0] * scale;
 	out[1] = in[1] * scale;
@@ -250,7 +252,7 @@ _inline void VectorScale (vec3_t in, vec_t scale, vec3_t out)
 
 _inline void VectorRadiansToDegrees (vec3_t in, vec3_t out)
 {
-	assert(out != vec3_origin);
+	//assert(out != vec3_origin);
 
 	out[0] = in[0] * RAD_TO_ANGLE;
 	out[1] = in[1] * RAD_TO_ANGLE;
@@ -259,7 +261,7 @@ _inline void VectorRadiansToDegrees (vec3_t in, vec3_t out)
 
 _inline void VectorDegreesToRadians (vec3_t in, vec3_t out)
 {
-	assert(out != vec3_origin);
+	//assert(out != vec3_origin);
 
 	out[0] = in[0] * ANGLE_TO_RAD;
 	out[1] = in[1] * ANGLE_TO_RAD;
@@ -268,7 +270,7 @@ _inline void VectorDegreesToRadians (vec3_t in, vec3_t out)
 
 _inline void VectorScaleByVector (vec3_t in, vec3_t scale, vec3_t out)
 {
-	assert(out != vec3_origin);
+	//assert(out != vec3_origin);
 
 	out[0] = in[0] * scale[0];
 	out[1] = in[1] * scale[1];
@@ -277,7 +279,7 @@ _inline void VectorScaleByVector (vec3_t in, vec3_t scale, vec3_t out)
 
 _inline void Vec3SubtractAssign(vec3_t value, vec3_t subFrom)
 {
-	assert(subFrom != vec3_origin);
+	//assert(subFrom != vec3_origin);
 
 	subFrom[0] -= value[0];
 	subFrom[1] -= value[1];
@@ -286,7 +288,7 @@ _inline void Vec3SubtractAssign(vec3_t value, vec3_t subFrom)
 
 _inline void Vec3AddAssign(vec3_t value, vec3_t addTo)
 {
-	assert(addTo != vec3_origin);
+	//assert(addTo != vec3_origin);
 
 	addTo[0] += value[0];
 	addTo[1] += value[1];
@@ -295,7 +297,7 @@ _inline void Vec3AddAssign(vec3_t value, vec3_t addTo)
 
 _inline void Vec3MultAssign(vec3_t value, vec3_t multBy)
 {
-	assert(multBy != vec3_origin);
+	//assert(multBy != vec3_origin);
 
 	multBy[0] *= value[0];
 	multBy[1] *= value[1];
@@ -304,7 +306,7 @@ _inline void Vec3MultAssign(vec3_t value, vec3_t multBy)
 
 _inline void Vec3ScaleAssign(vec_t value, vec3_t scaleBy)
 {
-	assert(scaleBy != vec3_origin);
+	//assert(scaleBy != vec3_origin);
 
 	scaleBy[0] *= value;
 	scaleBy[1] *= value;
