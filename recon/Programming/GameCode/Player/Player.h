@@ -1,15 +1,17 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
-#ifdef PLAYER_DLL
+//#ifdef PLAYER_DLL
+//
+//#define PLAYER_API __declspec(dllexport)
+//
+//#else
+//
+//#define PLAYER_API __declspec(dllimport)
+//
+//#endif	// PLAYER_DLL
 
-#define PLAYER_API __declspec(dllexport)
-
-#else
-
-#define PLAYER_API __declspec(dllimport)
-
-#endif	// PLAYER_DLL
+#define PLAYER_API
 
 #include "p_types.h"
 
@@ -73,60 +75,53 @@ typedef struct
 void P_Freelib(void);
 unsigned int P_Load(char *name);
 
-#ifdef PLAYER_DLL
-
 PLAYER_API void P_Init(void);
 PLAYER_API void P_Shutdown(void);
 
-#else
+void PlayerReleaseRope(playerinfo_t* playerinfo);
+void KnockDownPlayer(playerinfo_t* playerinfo);
+void PlayFly(playerinfo_t* playerinfo, float dist);
+void PlaySlap(playerinfo_t* playerinfo, float dist);
+void PlayScratch(playerinfo_t* playerinfo, float dist);
+void PlaySigh(playerinfo_t* playerinfo, float dist);
+void SpawnDustPuff(playerinfo_t* playerinfo, float dist);
+void PlayerInterruptAction(playerinfo_t* playerinfo);
 
-void (*P_Init)(void);
-void (*P_Shutdown)(void);
+qboolean BranchCheckDismemberAction(playerinfo_t* playerinfo, int weapon);
 
-void (*P_PlayerReleaseRope)(playerinfo_t *playerinfo);
-void (*P_KnockDownPlayer)(playerinfo_t *playerinfo);
-void (*P_PlayFly)(playerinfo_t *playerinfo, float dist);
-void (*P_PlaySlap)(playerinfo_t *playerinfo, float dist);
-void (*P_PlayScratch)(playerinfo_t *playerinfo, float dist);
-void (*P_PlaySigh)(playerinfo_t *playerinfo, float dist);
-void (*P_SpawnDustPuff)(playerinfo_t *playerinfo, float dist);
-void (*P_PlayerInterruptAction)(playerinfo_t *playerinfo);
+void TurnOffPlayerEffects(playerinfo_t* playerinfo);
+void AnimUpdateFrame(playerinfo_t* playerinfo);
+void PlayerFallingDamage(playerinfo_t* playerinfo);
 
-qboolean (*P_BranchCheckDismemberAction)(playerinfo_t *playerinfo, int weapon);
+void PlayerBasicAnimReset(playerinfo_t* playerinfo);
+void PlayerAnimReset(playerinfo_t* playerinfo);
+void PlayerAnimSetLowerSeq(playerinfo_t* playerinfo, int seq);
+void PlayerAnimSetUpperSeq(playerinfo_t* playerinfo, int seq);
+void PlayerAnimUpperIdle(playerinfo_t* playerinfo);
+void PlayerAnimLowerIdle(playerinfo_t* playerinfo);
+void PlayerAnimUpperUpdate(playerinfo_t* playerinfo);
+void PlayerAnimLowerUpdate(playerinfo_t* playerinfo);
+void PlayerAnimSetVault(playerinfo_t* playerinfo, int seq);
+void PlayerPlayPain(playerinfo_t* playerinfo, int type);
 
-void (*P_TurnOffPlayerEffects)(playerinfo_t *playerinfo);
-void (*P_AnimUpdateFrame)(playerinfo_t *playerinfo);
-void (*P_PlayerFallingDamage)(playerinfo_t *playerinfo);
+void PlayerIntLand(playerinfo_t* playerinfo_t, float landspeed);
 
-void (*P_PlayerBasicAnimReset)(playerinfo_t *playerinfo);
-void (*P_PlayerAnimReset)(playerinfo_t *playerinfo);
-void (*P_PlayerAnimSetLowerSeq)(playerinfo_t *playerinfo, int seq);
-void (*P_PlayerAnimSetUpperSeq)(playerinfo_t *playerinfo, int seq);
-void (*P_PlayerAnimUpperIdle)(playerinfo_t *playerinfo);
-void (*P_PlayerAnimLowerIdle)(playerinfo_t *playerinfo);
-void (*P_PlayerAnimUpperUpdate)(playerinfo_t *playerinfo);
-void (*P_PlayerAnimLowerUpdate)(playerinfo_t *playerinfo);
-void (*P_PlayerAnimSetVault)(playerinfo_t *playerinfo, int seq);
-void (*P_PlayerPlayPain)(playerinfo_t *playerinfo, int type);
+void PlayerInit(playerinfo_t* playerinfo, int complete_reset);
+void PlayerClearEffects(playerinfo_t* playerinfo);
+void PlayerUpdate(playerinfo_t* playerinfo);
+void PlayerUpdateCmdFlags(playerinfo_t* playerinfo);
+void PlayerUpdateModelAttributes(playerinfo_t* playerinfo);
 
-void (*P_PlayerIntLand)(playerinfo_t *playerinfo_t, float landspeed);
+void Weapon_Ready(playerinfo_t* playerinfo, gitem_t* Weapon);
+void Weapon_EquipSpell(playerinfo_t* playerinfo, gitem_t* Weapon);
+void Weapon_EquipSwordStaff(playerinfo_t* playerinfo, gitem_t* Weapon);
+void Weapon_EquipHellStaff(playerinfo_t* playerinfo, gitem_t* Weapon);
+void Weapon_EquipBow(playerinfo_t* playerinfo, gitem_t* Weapon);
+void Weapon_EquipArmor(playerinfo_t* playerinfo, gitem_t* Weapon);
+int Weapon_CurrentShotsLeft(playerinfo_t* playerinfo);
+int Defence_CurrentShotsLeft(playerinfo_t* playerinfo, int intent);
 
-void (*P_PlayerInit)(playerinfo_t *playerinfo, int complete_reset);
-void (*P_PlayerClearEffects)(playerinfo_t *playerinfo);
-void (*P_PlayerUpdate)(playerinfo_t *playerinfo);
-void (*P_PlayerUpdateCmdFlags)(playerinfo_t *playerinfo);
-void (*P_PlayerUpdateModelAttributes)(playerinfo_t *playerinfo);
 
-void (*P_Weapon_Ready)(playerinfo_t *playerinfo,gitem_t *Weapon);
-void (*P_Weapon_EquipSpell)(playerinfo_t *playerinfo,gitem_t *Weapon);
-void (*P_Weapon_EquipSwordStaff)(playerinfo_t *playerinfo,gitem_t *Weapon);
-void (*P_Weapon_EquipHellStaff)(playerinfo_t *playerinfo,gitem_t *Weapon);
-void (*P_Weapon_EquipBow)(playerinfo_t *playerinfo,gitem_t *Weapon);
-void (*P_Weapon_EquipArmor)(playerinfo_t *playerinfo, gitem_t *Weapon);
-int (*P_Weapon_CurrentShotsLeft)(playerinfo_t *playerinfo);
-int (*P_Defence_CurrentShotsLeft)(playerinfo_t *playerinfo, int intent);
-
-#endif	// PLAYER_DLL
 
 // This is the only function actually exported at the linker level.
 

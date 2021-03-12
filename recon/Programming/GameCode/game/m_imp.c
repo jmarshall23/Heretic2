@@ -95,7 +95,7 @@ void imp_blocked (edict_t *self, struct trace_s *trace)
 		if(!stricmp(trace->ent->classname, "player"))
 		{
 			if(!irand(0,4))
-				P_KnockDownPlayer(&trace->ent->client->playerinfo);
+				KnockDownPlayer(&trace->ent->client->playerinfo);
 		}
 		damage = irand(IMP_DMG_MIN, IMP_DMG_MAX);
 		T_Damage (trace->ent, self, self, vf, trace->ent->s.origin, trace->plane.normal, damage, damage*2, 0,MOD_DIED);
@@ -444,7 +444,7 @@ void imp_pain(edict_t *self, G_Message_t *msg)
 	int				temp, damage;
 	qboolean		force_pain;
 	
-	ParseMsgParms(msg, "eeiii", &temp, &temp, &force_pain, &damage, &temp);
+	G_ParseMsgParms(msg, "eeiii", &temp, &temp, &force_pain, &damage, &temp);
 
 	if (self->curAnimID == ANIM_PERCH)
 	{
@@ -525,7 +525,7 @@ void imp_hit(edict_t *self, float stop_swoop)
 void imp_pause (edict_t *self)
 {
 	if (M_ValidTarget(self, self->enemy))
-		QPostMessage(self, MSG_RUN, PRI_DIRECTIVE, NULL);
+		G_QPostMessage(self, MSG_RUN, PRI_DIRECTIVE, NULL);
 }
 
 
@@ -1453,7 +1453,7 @@ void SP_monster_imp(edict_t *self)
 	}
 	else
 	{
-		QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
+		G_QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
 	}
 
 	if(!self->melee_range)

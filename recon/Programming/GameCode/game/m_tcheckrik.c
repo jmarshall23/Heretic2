@@ -500,7 +500,7 @@ void insect_melee(edict_t *self, G_Message_t *msg)
 	{
 		if (!FindTarget(self))
 		{
-			QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
+			G_QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
 			return;
 		}
 	}
@@ -534,7 +534,7 @@ void insect_backpedal(edict_t *self, G_Message_t *msg)
 			SetAnim(self, ANIM_BACK);//not male?
 	}
 	else
-		QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
+		G_QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
 }
 
 void insect_sound(edict_t *self, float channel, float soundnum, float attn)
@@ -554,7 +554,7 @@ void insect_melee(edict_t *self, G_Message_t *msg)
 				{
 					self->monsterinfo.aiflags |= AI_FLEE;
 					self->monsterinfo.flee_finished = level.time + 3;
-					QPostMessage(self, MSG_RUN, PRI_DIRECTIVE, NULL);
+					G_QPostMessage(self, MSG_RUN, PRI_DIRECTIVE, NULL);
 					return;
 				}
 			}
@@ -569,7 +569,7 @@ void insect_melee(edict_t *self, G_Message_t *msg)
 		}
 	}
 	else
-		QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
+		G_QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
 }
 
 void insect_missile(edict_t *self, G_Message_t *msg)
@@ -589,7 +589,7 @@ void insect_missile(edict_t *self, G_Message_t *msg)
 					}
 					self->monsterinfo.aiflags |= AI_FLEE;
 					self->monsterinfo.flee_finished = level.time + 3;
-					QPostMessage(self, MSG_RUN, PRI_DIRECTIVE, NULL);
+					G_QPostMessage(self, MSG_RUN, PRI_DIRECTIVE, NULL);
 					return;
 				}
 			}
@@ -604,7 +604,7 @@ void insect_missile(edict_t *self, G_Message_t *msg)
 		}
 	}
 	else
-		QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
+		G_QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
 }
 
 extern void SpellCastInsectSpear(edict_t *Caster,vec3_t StartPos,vec3_t AimAngles,int offset);
@@ -1151,7 +1151,7 @@ void insect_pain(edict_t *self, G_Message_t *msg)
 	int				temp, damage;
 	int				force_damage;
 	
-	ParseMsgParms(msg, "eeiii", &temp, &temp, &force_damage, &damage, &temp);
+	G_ParseMsgParms(msg, "eeiii", &temp, &temp, &force_damage, &damage, &temp);
 
 	if(!force_damage&&flrand(0,self->health)>damage)
 		return;
@@ -1235,11 +1235,11 @@ void insect_pause (edict_t *self)
 
 			if ((len > 80) || (self->monsterinfo.aiflags & AI_FLEE))  // Far enough to run after
 			{
-				QPostMessage(self, MSG_RUN,PRI_DIRECTIVE, NULL);
+				G_QPostMessage(self, MSG_RUN,PRI_DIRECTIVE, NULL);
 			}
 			else	// Close enough to Attack 
 			{
-				QPostMessage(self, MSG_MELEE, PRI_DIRECTIVE, NULL);
+				G_QPostMessage(self, MSG_MELEE, PRI_DIRECTIVE, NULL);
 			}
 		}
 	}
@@ -1278,19 +1278,19 @@ void insect_pause (edict_t *self)
 		{
 		case AI_MOOD_ATTACK:
 			if(self->ai_mood_flags & AI_MOOD_FLAG_MISSILE)
-				QPostMessage(self, MSG_MISSILE, PRI_DIRECTIVE, NULL);
+				G_QPostMessage(self, MSG_MISSILE, PRI_DIRECTIVE, NULL);
 			else
-				QPostMessage(self, MSG_MELEE, PRI_DIRECTIVE, NULL);
+				G_QPostMessage(self, MSG_MELEE, PRI_DIRECTIVE, NULL);
 			break;
 
 		case AI_MOOD_PURSUE:
 		case AI_MOOD_NAVIGATE:
 		case AI_MOOD_FLEE:
-			QPostMessage(self, MSG_RUN, PRI_DIRECTIVE, NULL);
+			G_QPostMessage(self, MSG_RUN, PRI_DIRECTIVE, NULL);
 			break;
 
 		case AI_MOOD_STAND:
-			QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
+			G_QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
 			break;
 
 		case AI_MOOD_DELAY:
@@ -1299,15 +1299,15 @@ void insect_pause (edict_t *self)
 
 		
 		case AI_MOOD_WANDER:
-			QPostMessage(self, MSG_WALK, PRI_DIRECTIVE, NULL);
+			G_QPostMessage(self, MSG_WALK, PRI_DIRECTIVE, NULL);
 			break;
 		
 		case AI_MOOD_WALK:
-			QPostMessage(self, MSG_WALK, PRI_DIRECTIVE, NULL);
+			G_QPostMessage(self, MSG_WALK, PRI_DIRECTIVE, NULL);
 			break;
 
 		case AI_MOOD_BACKUP:
-			QPostMessage(self, MSG_FALLBACK, PRI_DIRECTIVE, NULL);
+			G_QPostMessage(self, MSG_FALLBACK, PRI_DIRECTIVE, NULL);
 			break;
 
 		case AI_MOOD_JUMP:
@@ -1328,7 +1328,7 @@ void insect_pause (edict_t *self)
 
 void insect_check_mood (edict_t *self, G_Message_t *msg)
 {
-	ParseMsgParms(msg, "i", &self->ai_mood);
+	G_ParseMsgParms(msg, "i", &self->ai_mood);
 
 	insect_pause(self);
 }
@@ -1358,7 +1358,7 @@ void insect_run(edict_t *self, G_Message_t *msg)
 	}
 	else
 	{
-		QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
+		G_QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
 	}
 }
 
@@ -1369,7 +1369,7 @@ void insect_run(edict_t *self, G_Message_t *msg)
 -----------------------------------------------------------------------*/
 void insect_runorder(edict_t *self)
 {
-	QPostMessage(self, MSG_RUN, PRI_DIRECTIVE, NULL);
+	G_QPostMessage(self, MSG_RUN, PRI_DIRECTIVE, NULL);
 }
 
 
@@ -1718,16 +1718,16 @@ void SP_monster_tcheckrik_male (edict_t *self)
 
 	if(self->spawnflags & MSF_WANDER)
 	{
-		QPostMessage(self, MSG_WALK, PRI_DIRECTIVE, NULL);
+		G_QPostMessage(self, MSG_WALK, PRI_DIRECTIVE, NULL);
 	}
 	else if(self->spawnflags & MSF_INSECT_CINEMATIC)
 	{
 		self->monsterinfo.c_mode = 1;
-		QPostMessage(self, MSG_C_IDLE1, PRI_DIRECTIVE, "iiige",0,0,0,NULL,NULL);
+		G_QPostMessage(self, MSG_C_IDLE1, PRI_DIRECTIVE, "iiige",0,0,0,NULL,NULL);
 	}
 	else
 	{
-		QPostMessage(self,MSG_STAND,PRI_DIRECTIVE, NULL);
+		G_QPostMessage(self,MSG_STAND,PRI_DIRECTIVE, NULL);
 	}
 
 	gi.CreateEffect(&self->s,
@@ -1867,11 +1867,11 @@ void SP_monster_tcheckrik_female (edict_t *self)
 
 	if(self->spawnflags & MSF_WANDER)
 	{
-		QPostMessage(self, MSG_WALK, PRI_DIRECTIVE, NULL);
+		G_QPostMessage(self, MSG_WALK, PRI_DIRECTIVE, NULL);
 	}
 	else
 	{
-		QPostMessage(self,MSG_STAND,PRI_DIRECTIVE, NULL);
+		G_QPostMessage(self,MSG_STAND,PRI_DIRECTIVE, NULL);
 	}
 
 	self->monsterinfo.aiflags |= AI_NO_MELEE;

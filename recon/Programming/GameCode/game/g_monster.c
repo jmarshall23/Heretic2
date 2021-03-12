@@ -437,7 +437,7 @@ void M_MoveFrame (edict_t *self)
 	if (self->monsterinfo.sound_pending && self->monsterinfo.sound_start <= level.time)
 	{
 		//Post a message and make the monster speak
-		QPostMessage(self, MSG_VOICE_PUPPET, PRI_DIRECTIVE, "i", self->monsterinfo.sound_pending);
+		G_QPostMessage(self, MSG_VOICE_PUPPET, PRI_DIRECTIVE, "i", self->monsterinfo.sound_pending);
 		
 		//Sound queue is free
 		self->monsterinfo.sound_pending = 0;
@@ -749,7 +749,7 @@ qboolean monster_start (edict_t *self)
 
 	if (st.item)
 	{
-		self->item = P_FindItemByClassname (st.item);
+		self->item = FindItemByClassname (st.item);
 		if (!self->item)
 			gi.dprintf("%s at %s has bad item: %s\n", self->classname, vtos(self->s.origin), st.item);
 	}
@@ -894,9 +894,9 @@ void monster_start_go (edict_t *self)
 				self->monsterinfo.pausetime = 100000000;
 
 				if (!self->monsterinfo.c_mode)	// Not in cinematic mode
-					QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
+					G_QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
 				else
-					QPostMessage(self, MSG_C_IDLE1, PRI_DIRECTIVE, "iiige",0,0,0,NULL,NULL);
+					G_QPostMessage(self, MSG_C_IDLE1, PRI_DIRECTIVE, "iiige",0,0,0,NULL,NULL);
 			}
 			else if (strcmp (self->movetarget->classname, "path_corner") == 0)
 			{
@@ -905,7 +905,7 @@ void monster_start_go (edict_t *self)
 					VectorSubtract (self->goalentity->s.origin, self->s.origin, v);
 					self->ideal_yaw = self->s.angles[YAW] = vectoyaw(v);
 					gi.dprintf("Monster start go to walk\n");
-					QPostMessage(self, MSG_WALK, PRI_DIRECTIVE, NULL);
+					G_QPostMessage(self, MSG_WALK, PRI_DIRECTIVE, NULL);
 					self->monsterinfo.pausetime = 0;
 				}
 				else
@@ -913,9 +913,9 @@ void monster_start_go (edict_t *self)
 					self->goalentity = self->movetarget = NULL;
 					self->monsterinfo.pausetime = 100000000;
 					if (!self->monsterinfo.c_mode)	// Not in cinematic mode
-						QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
+						G_QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
 					else
-						QPostMessage(self, MSG_C_IDLE1, PRI_DIRECTIVE, "iiige",0,0,0,NULL,NULL);
+						G_QPostMessage(self, MSG_C_IDLE1, PRI_DIRECTIVE, "iiige",0,0,0,NULL,NULL);
 				}
 				self->target = NULL;
 			}
@@ -924,9 +924,9 @@ void monster_start_go (edict_t *self)
 				self->goalentity = self->movetarget = NULL;
 				self->monsterinfo.pausetime = 100000000;
 				if (!self->monsterinfo.c_mode)	// Not in cinematic mode
-					QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
+					G_QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
 				else
-					QPostMessage(self, MSG_C_IDLE1, PRI_DIRECTIVE, "iiige",0,0,0,NULL,NULL);
+					G_QPostMessage(self, MSG_C_IDLE1, PRI_DIRECTIVE, "iiige",0,0,0,NULL,NULL);
 			}
 		}
 		else
@@ -934,14 +934,14 @@ void monster_start_go (edict_t *self)
 			self->monsterinfo.pausetime = 100000000;
 			if (self->monsterinfo.aiflags & AI_EATING) 
 			{
-				QPostMessage(self, MSG_EAT, PRI_DIRECTIVE, NULL);
+				G_QPostMessage(self, MSG_EAT, PRI_DIRECTIVE, NULL);
 			}
 			else
 			{
 				if (!self->monsterinfo.c_mode)	// Not in cinematic mode
-					QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
+					G_QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
 				else
-					QPostMessage(self, MSG_C_IDLE1, PRI_DIRECTIVE, "iiige",0,0,0,NULL,NULL);
+					G_QPostMessage(self, MSG_C_IDLE1, PRI_DIRECTIVE, "iiige",0,0,0,NULL,NULL);
 			}
 		}
 	}
@@ -1752,7 +1752,7 @@ void M_jump(edict_t *self, G_Message_t *msg)
 		self->ai_mood = AI_MOOD_JUMP;//don't technically need this line
 		self->mood_nextthink = level.time + 0.5;
 		//as an alternative, call self->forced_jump(self);
-		QPostMessage(self, MSG_CHECK_MOOD, PRI_DIRECTIVE, "i", AI_MOOD_JUMP);
+		G_QPostMessage(self, MSG_CHECK_MOOD, PRI_DIRECTIVE, "i", AI_MOOD_JUMP);
 	}
 	else
 		VectorCopy(jvec, self->velocity);
@@ -1773,7 +1773,7 @@ void MG_parse_dismember_msg(edict_t *self, G_Message_t *msg)
 		return;
 	}
 
-	ParseMsgParms(msg, "ii", &damage, &HitLocation);
+	G_ParseMsgParms(msg, "ii", &damage, &HitLocation);
 
 	self->monsterinfo.dismember(self, damage, HitLocation);
 }

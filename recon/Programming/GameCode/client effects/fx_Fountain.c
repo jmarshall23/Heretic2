@@ -98,7 +98,7 @@ qboolean FXWaterDropEnd(client_entity_t *waterdrop, centity_t *owner)
 
 static qboolean FXFountainParticleSpawner(client_entity_t *spawner, centity_t *owner)
 {
-	client_particle_t	*drop;
+	client_particle_t	*drop = NULL;
 	client_entity_t		*splash;
 	vec3_t				origin;
 	vec3_t				velocity;

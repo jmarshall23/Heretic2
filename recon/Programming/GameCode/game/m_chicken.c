@@ -139,7 +139,7 @@ void SP_monster_chicken (edict_t *self)
 //	self->guide = AI_SpawnGuide(self);
 	MG_InitMoods(self);
 
- 	QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
+ 	G_QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
 
 	gi.linkentity(self); 
 
@@ -295,11 +295,11 @@ void chicken_pause (edict_t *self)
 
 			if ((len > 60) || (self->monsterinfo.aiflags & AI_FLEE))  // Far enough to run after
 			{
-				QPostMessage(self, MSG_RUN,PRI_DIRECTIVE, NULL);
+				G_QPostMessage(self, MSG_RUN,PRI_DIRECTIVE, NULL);
 			}
 			else	// Close enough to Attack 
 			{
-				QPostMessage(self, MSG_MELEE, PRI_DIRECTIVE, NULL);
+				G_QPostMessage(self, MSG_MELEE, PRI_DIRECTIVE, NULL);
 			}
 		}
 	}
@@ -309,30 +309,30 @@ void chicken_pause (edict_t *self)
 		random_action = (irand(0,10));
 		// ok, if we can attack, then we do that, no question
 		if (self->ai_mood == AI_MOOD_ATTACK)
-			QPostMessage(self, MSG_MELEE, PRI_DIRECTIVE, NULL);
+			G_QPostMessage(self, MSG_MELEE, PRI_DIRECTIVE, NULL);
 		// else, one chance in a remote time, we will just go "cluck"
 		else if (!random_action)
 			// make us cluck
-			QPostMessage(self, MSG_WATCH, PRI_DIRECTIVE, NULL);
+			G_QPostMessage(self, MSG_WATCH, PRI_DIRECTIVE, NULL);
 		else
 		{
 			random_action--;
 			if (!random_action)
 				// make us peck
-				QPostMessage(self, MSG_EAT, PRI_DIRECTIVE, NULL);
+				G_QPostMessage(self, MSG_EAT, PRI_DIRECTIVE, NULL);
 			// otherwise run or track the player target
 			else
 			{
 				switch (self->ai_mood)
 				{
 				case AI_MOOD_PURSUE:
-					QPostMessage(self, MSG_RUN, PRI_DIRECTIVE, NULL);
+					G_QPostMessage(self, MSG_RUN, PRI_DIRECTIVE, NULL);
 					break;
 				case AI_MOOD_NAVIGATE:
-					QPostMessage(self, MSG_WALK, PRI_DIRECTIVE, NULL);
+					G_QPostMessage(self, MSG_WALK, PRI_DIRECTIVE, NULL);
 					break;
 				case AI_MOOD_STAND:
-					QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
+					G_QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
 					break;
 				case AI_MOOD_JUMP:
 					VectorCopy(self->movedir, self->velocity);
@@ -340,7 +340,7 @@ void chicken_pause (edict_t *self)
 					SetAnim(self, ANIM_JUMP);
 					break;
 				case AI_MOOD_EAT:
-					QPostMessage(self, MSG_EAT, PRI_DIRECTIVE, NULL);
+					G_QPostMessage(self, MSG_EAT, PRI_DIRECTIVE, NULL);
 					break;
 
 				default :
@@ -361,7 +361,7 @@ void chicken_eat_again (edict_t *self)
 {
 	// a one in three chance we will peck again :) 
 	if (irand(0,2))
-	 		QPostMessage(self, MSG_EAT, PRI_DIRECTIVE, NULL);
+	 		G_QPostMessage(self, MSG_EAT, PRI_DIRECTIVE, NULL);
 	else
 		chicken_pause(self);
 }

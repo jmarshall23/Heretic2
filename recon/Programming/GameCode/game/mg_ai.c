@@ -379,7 +379,7 @@ trace_t MG_MoveStep (edict_t *self, vec3_t move, qboolean relink)
 					contents = gi.pointcontents(test);
 					if (contents & MASK_WATER)
 					{
-						QPostMessage(self, MSG_BLOCKED, PRI_DIRECTIVE, NULL);
+						G_QPostMessage(self, MSG_BLOCKED, PRI_DIRECTIVE, NULL);
 						return trace;
 					}
 				}
@@ -396,7 +396,7 @@ trace_t MG_MoveStep (edict_t *self, vec3_t move, qboolean relink)
 					contents = gi.pointcontents(test);
 					if (!(contents & MASK_WATER))
 					{
-						QPostMessage(self, MSG_BLOCKED, PRI_DIRECTIVE, NULL);
+						G_QPostMessage(self, MSG_BLOCKED, PRI_DIRECTIVE, NULL);
 						return trace;
 					}
 				}
@@ -443,7 +443,7 @@ trace_t MG_MoveStep (edict_t *self, vec3_t move, qboolean relink)
 
 	if (trace.allsolid)
 	{//the step up/down is all solid in front
-		QPostMessage(self, MSG_BLOCKED, PRI_DIRECTIVE, NULL);
+		G_QPostMessage(self, MSG_BLOCKED, PRI_DIRECTIVE, NULL);
 		return trace;
 	}
 
@@ -463,7 +463,7 @@ trace_t MG_MoveStep (edict_t *self, vec3_t move, qboolean relink)
 			}
 			if(!slip_under)
 			{
-				QPostMessage(self, MSG_BLOCKED, PRI_DIRECTIVE, NULL);
+				G_QPostMessage(self, MSG_BLOCKED, PRI_DIRECTIVE, NULL);
 				return trace;
 			}
 		}
@@ -501,7 +501,7 @@ trace_t MG_MoveStep (edict_t *self, vec3_t move, qboolean relink)
 			trace.succeeded = true;	
 			return trace;//true!
 		}
-		QPostMessage(self, MSG_BLOCKED, PRI_DIRECTIVE, NULL);
+		G_QPostMessage(self, MSG_BLOCKED, PRI_DIRECTIVE, NULL);
 		return trace;		// walked off an edge
 	}
 
@@ -526,7 +526,7 @@ trace_t MG_MoveStep (edict_t *self, vec3_t move, qboolean relink)
 		}
 		//whoops, let's not make that move after all
 		VectorCopy (save_org, self->s.origin);
-		QPostMessage(self, MSG_BLOCKED, PRI_DIRECTIVE, NULL);
+		G_QPostMessage(self, MSG_BLOCKED, PRI_DIRECTIVE, NULL);
 		return trace;
 	}
 
@@ -983,7 +983,7 @@ qboolean MG_ExtraCheckJump (edict_t *self)
 							VectorCopy(self->velocity, self->movedir);
 							VectorClear(self->velocity);
 						}
-						QPostMessage(self, MSG_JUMP, PRI_DIRECTIVE, NULL);
+						G_QPostMessage(self, MSG_JUMP, PRI_DIRECTIVE, NULL);
 						self->nextthink = level.time + 0.01;
 					}
 					else
@@ -1037,7 +1037,7 @@ qboolean MG_ExtraCheckJump (edict_t *self)
 						VectorCopy(self->velocity, self->movedir);
 						VectorClear(self->velocity);
 					}
-					QPostMessage(self, MSG_JUMP, PRI_DIRECTIVE, NULL);
+					G_QPostMessage(self, MSG_JUMP, PRI_DIRECTIVE, NULL);
 					self->nextthink = level.time + 0.01;
 				}
 				else
@@ -1105,7 +1105,7 @@ qboolean MG_ExtraCheckJump (edict_t *self)
 								VectorCopy(self->velocity, self->movedir);
 								VectorClear(self->velocity);
 							}
-							QPostMessage(self, MSG_JUMP, PRI_DIRECTIVE, NULL);
+							G_QPostMessage(self, MSG_JUMP, PRI_DIRECTIVE, NULL);
 							self->nextthink = level.time + 0.01;
 						}
 						else
@@ -1387,7 +1387,7 @@ qboolean MG_CheckJump (edict_t *self)
 			VectorCopy(self->velocity, self->movedir);
 			VectorClear(self->velocity);
 		}
-		QPostMessage(self, MSG_JUMP, PRI_DIRECTIVE, NULL);
+		G_QPostMessage(self, MSG_JUMP, PRI_DIRECTIVE, NULL);
 		self->nextthink = level.time + 0.01;
 	}
 	else
@@ -1529,7 +1529,7 @@ void MG_CheckEvade (edict_t *self)
 					hl = T_GetHitLocation(self, ent, trace.endpos);
 					VectorSubtract(trace.endpos, ent->s.origin, total_dist);
 					eta = VectorLength(total_dist)/VectorLength(ent->velocity);
-					QPostMessage(self, MSG_EVADE, PRI_DIRECTIVE, "eif", ent, hl, eta);
+					G_QPostMessage(self, MSG_EVADE, PRI_DIRECTIVE, "eif", ent, hl, eta);
 				}
 				else if(!irand(0,2))
 				{
@@ -1553,7 +1553,7 @@ void MG_CheckEvade (edict_t *self)
 							hl = T_GetHitLocation(self, ent, trace.endpos);
 							VectorSubtract(trace.endpos, ent->s.origin, total_dist);
 							eta = VectorLength(total_dist)/VectorLength(ent->velocity);
-							QPostMessage(self, MSG_EVADE, PRI_DIRECTIVE, "eif", ent, hl, eta);
+							G_QPostMessage(self, MSG_EVADE, PRI_DIRECTIVE, "eif", ent, hl, eta);
 						}
 					}
 				}
@@ -2302,7 +2302,7 @@ qboolean MG_MoveToGoal (edict_t *self, float dist)
 					{
 						if(classStatics[self->classID].msgReceivers[MSG_MELEE] && infront(self, self->enemy))
 						{
-							QPostMessage(self, MSG_MELEE, PRI_DIRECTIVE, NULL);
+							G_QPostMessage(self, MSG_MELEE, PRI_DIRECTIVE, NULL);
 							return true;
 						}
 					}
@@ -2349,7 +2349,7 @@ qboolean MG_MoveToGoal (edict_t *self, float dist)
 							self->oldenemy_debounce_time = level.time + 7;//attack it for 7 seconds max
 							self->oldenemy = self->enemy;//remember who I was after
 							self->enemy = self->goalentity = trace.ent;//let's nail this sucker
-							QPostMessage(self, MSG_MELEE, PRI_DIRECTIVE, NULL);//SMACK!
+							G_QPostMessage(self, MSG_MELEE, PRI_DIRECTIVE, NULL);//SMACK!
 							return true;
 						}
 					}
@@ -2700,7 +2700,7 @@ qboolean MG_SwimFlyToGoal (edict_t *self, float dist)
 					{
 						if(classStatics[self->classID].msgReceivers[MSG_MELEE] && infront(self, self->enemy))
 						{
-							QPostMessage(self, MSG_MELEE, PRI_DIRECTIVE, NULL);
+							G_QPostMessage(self, MSG_MELEE, PRI_DIRECTIVE, NULL);
 							return true;
 						}
 					}

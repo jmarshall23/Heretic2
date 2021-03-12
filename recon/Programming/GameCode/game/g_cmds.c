@@ -208,78 +208,78 @@ void Cmd_Give_f (edict_t *ent)
 
 		if(level.offensive_weapons&4)
 		{	
-			it=P_FindItem("hell");
+			it=FindItem("hell");
 			AddWeaponToInventory(it,ent);
 		}
 
 		if(level.offensive_weapons&8)
 		{	
-			it=P_FindItem("array");
+			it=FindItem("array");
 			AddWeaponToInventory(it,ent);
 		}
 
 		if(level.offensive_weapons&16)
 		{	
-			it=P_FindItem("rain");
+			it=FindItem("rain");
 			AddWeaponToInventory(it,ent);
 		}
 
 		if(level.offensive_weapons&32)
 		{	
-			it=P_FindItem("sphere");
+			it=FindItem("sphere");
 			AddWeaponToInventory(it,ent);
 		}
 
 		if(level.offensive_weapons&64)
 		{	
-			it=P_FindItem("phoen");
+			it=FindItem("phoen");
 			AddWeaponToInventory(it,ent);
 		}
 
 		if(level.offensive_weapons&128)
 		{	
-			it=P_FindItem("mace");
+			it=FindItem("mace");
 			AddWeaponToInventory(it,ent);
 		}
 
 		if(level.offensive_weapons&256)
 		{	
-			it=P_FindItem("fwall");
+			it=FindItem("fwall");
 			AddWeaponToInventory(it,ent);
 		}
 
 		if(level.defensive_weapons&1)
 		{	
-			it=P_FindItem("ring");
+			it=FindItem("ring");
 			AddDefenseToInventory(it,ent);
 		}
 
 		if(level.defensive_weapons&2)
 		{
-			it=P_FindItem("lshield");
+			it=FindItem("lshield");
 			AddDefenseToInventory(it,ent);
 		}
 
 		if(level.defensive_weapons&4)
 		{	
-			it=P_FindItem("tele");
+			it=FindItem("tele");
 			AddDefenseToInventory(it,ent);
 		}
 
 		if(level.defensive_weapons&8)
 		{	
-			it=P_FindItem("morph");
+			it=FindItem("morph");
 			AddDefenseToInventory(it,ent);
 		}
 
 		if(level.defensive_weapons&16)
 		{	
-			it=P_FindItem("meteor");
+			it=FindItem("meteor");
 			AddDefenseToInventory(it,ent);	
 		}
 
 		SetupPlayerinfo_effects(ent);
-		P_PlayerUpdateModelAttributes(&ent->client->playerinfo);
+		PlayerUpdateModelAttributes(&ent->client->playerinfo);
 		WritePlayerinfo_effects(ent);
 		return;
 	}
@@ -332,7 +332,7 @@ void Cmd_Give_f (edict_t *ent)
 					ent->client->playerinfo.pers.bowtype = BOW_TYPE_REDRAIN;
 
 				SetupPlayerinfo_effects(ent);
-				P_PlayerUpdateModelAttributes(&ent->client->playerinfo);
+				PlayerUpdateModelAttributes(&ent->client->playerinfo);
 				WritePlayerinfo_effects(ent);
 			}
 		}
@@ -362,7 +362,7 @@ void Cmd_Give_f (edict_t *ent)
 
 		// if we don't already have a defence item, make the ring default
 		if (ent->client->playerinfo.pers.defence == NULL)
-			ent->client->playerinfo.pers.defence=P_FindItem("ring");
+			ent->client->playerinfo.pers.defence=FindItem("ring");
 
 		if (!give_all)
 			return;
@@ -398,7 +398,7 @@ void Cmd_Give_f (edict_t *ent)
 		}
 
 		SetupPlayerinfo_effects(ent);
-		P_PlayerUpdateModelAttributes(&ent->client->playerinfo);
+		PlayerUpdateModelAttributes(&ent->client->playerinfo);
 		WritePlayerinfo_effects(ent);
 
 		if (!give_all)
@@ -416,7 +416,7 @@ void Cmd_Give_f (edict_t *ent)
 		gi.dprintf("Setting staff level to %d\n", ent->client->playerinfo.pers.stafflevel);
 
 		SetupPlayerinfo_effects(ent);
-		P_PlayerUpdateModelAttributes(&ent->client->playerinfo);
+		PlayerUpdateModelAttributes(&ent->client->playerinfo);
 		WritePlayerinfo_effects(ent);
 		
 		return;
@@ -495,7 +495,7 @@ void Cmd_Give_f (edict_t *ent)
 		ClientUserinfoChanged (ent, userinfo);
 
 		SetupPlayerinfo_effects(ent);
-		P_PlayerUpdateModelAttributes(&ent->client->playerinfo);
+		PlayerUpdateModelAttributes(&ent->client->playerinfo);
 		WritePlayerinfo_effects(ent);
 	
 		return;
@@ -516,11 +516,11 @@ void Cmd_Give_f (edict_t *ent)
 		return;
 	}
 
-	it = P_FindItem (name);
+	it = FindItem (name);
 	if (!it)
 	{
 		name = gi.argv(1);
-		it = P_FindItem (name);
+		it = FindItem (name);
 		if (!it)
 		{
 			gi.dprintf ("unknown item\n");
@@ -719,7 +719,7 @@ void Cmd_Use_f (edict_t *ent, char *s)
 		castme=false;
 	}
 
-	it = P_FindItem (s);
+	it = FindItem (s);
 
 	if(sv_cinematicfreeze->value)
 		return;
@@ -755,12 +755,12 @@ void Cmd_Use_f (edict_t *ent, char *s)
 			playerinfo->pers.lastdefence = playerinfo->pers.defence;	
 			playerinfo->pers.defence=it;
 
-			if (P_Defence_CurrentShotsLeft(playerinfo, 1) > 0)
+			if (Defence_CurrentShotsLeft(playerinfo, 1) > 0)
 			{	// Only if there is ammo
 				it->weaponthink(ent,"");
 
 				if(playerinfo->pers.defence&&playerinfo->pers.defence->ammo)
-					playerinfo->def_ammo_index=ITEM_INDEX(P_FindItem(playerinfo->pers.defence->ammo));
+					playerinfo->def_ammo_index=ITEM_INDEX(FindItem(playerinfo->pers.defence->ammo));
 				else
 					playerinfo->def_ammo_index=0;
 
@@ -1367,7 +1367,7 @@ void Cmd_TestFX_f (edict_t *ent)
 	ent->client->playerinfo.pers.altparts |= 1<<i;
 
 	SetupPlayerinfo_effects(ent);
-	P_PlayerUpdateModelAttributes(&ent->client->playerinfo);
+	PlayerUpdateModelAttributes(&ent->client->playerinfo);
 	WritePlayerinfo_effects(ent);
 }
 

@@ -72,6 +72,9 @@ void CL_RunLightStyles (void)
 	int		i;
 	clightstyle_t	*ls;
 
+	if (fxi.cl == NULL)
+		return;
+
 	ofs = fxi.cl->time / 100;
 
 	if(ofs == lastofs)

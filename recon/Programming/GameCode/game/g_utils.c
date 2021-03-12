@@ -603,7 +603,7 @@ void G_UseTargets (edict_t *ent, edict_t *activator)
 		t = NULL;
 		while ((t = G_Find (t, FOFS(targetname), ent->killtarget)))
 		{
-			QPostMessage(t,MSG_DEATH,PRI_DIRECTIVE,"eeei",t,ent,activator,100000);
+			G_QPostMessage(t,MSG_DEATH,PRI_DIRECTIVE,"eeei",t,ent,activator,100000);
 
 			if (!ent->inuse)
 			{

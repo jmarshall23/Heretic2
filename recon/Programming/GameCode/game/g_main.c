@@ -129,7 +129,7 @@ void InitGame (void);
 void G_RunFrame (void);
 void ConstructEntities(void);
 void CheckCoopTimeout(qboolean BeenHereBefore);
-void ClearMessageQueues();
+void G_ClearMessageQueues();
 
 //===================================================================
 
@@ -151,7 +151,7 @@ void ShutdownGame (void)
 
 	if(game.entitiesSpawned)
 	{
-		ClearMessageQueues();
+		G_ClearMessageQueues();
 
 		for(i = 0, ent = g_edicts; i < game.maxentities ; ++i, ++ent)
 		{
@@ -387,7 +387,7 @@ void ExitLevel (void)
 
 	ClientEndServerFrames ();
 
-	ClearMessageQueues();
+	G_ClearMessageQueues();
 }
 
 void CheckContinuousAutomaticEffects(edict_t *self)
@@ -521,7 +521,7 @@ static void SetNumPlayers (void)
 
 static void UpdatePlayerBuoys (void)
 {
-	qboolean	dont_null;
+	qboolean	dont_null = true; // jmarshall: set this default, hope this is right
 	int			i, j;
 	edict_t		*ent;
 	vec3_t		v;
@@ -664,7 +664,7 @@ void G_RunFrame (void)
 		if(ent->msgHandler)	// eventually this check wont be needed
 #endif // G_TRANSITION
 		{
-			ProcessMessages(ent);
+			G_ProcessMessages(ent);
 		}
 
 		if(ent->flags & FL_SUSPENDED)

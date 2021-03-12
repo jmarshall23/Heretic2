@@ -557,7 +557,7 @@ void DefaultObjectDieHandler(edict_t *self, G_Message_t *msg)
 {
 	edict_t *inflictor;
 	
-	ParseMsgParms(msg, "ee", &inflictor, &inflictor);
+	G_ParseMsgParms(msg, "ee", &inflictor, &inflictor);
 
 	G_UseTargets(self, inflictor);
 
@@ -689,7 +689,7 @@ void path_corner_touch (edict_t *self, edict_t *other, cplane_t *plane, csurface
 	if (self->wait)
 	{
 		other->monsterinfo.pausetime = level.time + self->wait;
-		QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
+		G_QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
 //		M_GiveOrder(ORD_STAND,other,other,PR_LOW, 0,0,0,0,0,0);
 //		other->monsterinfo.stand (other);
 		return;
@@ -699,7 +699,7 @@ void path_corner_touch (edict_t *self, edict_t *other, cplane_t *plane, csurface
 	if (!other->movetarget)
 	{
 		other->monsterinfo.pausetime = level.time + 100000000;
-		QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
+		G_QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
 //		M_GiveOrder(ORD_STAND,other,other,PR_LOW, 0,0,0,0,0,0);
 //		other->monsterinfo.stand (other);
 	}
@@ -762,7 +762,7 @@ void point_combat_touch (edict_t *self, edict_t *other, cplane_t *plane, csurfac
 	else if ((self->spawnflags & 1) && !(other->flags & (FL_SWIM|FL_FLY)))
 	{//HOLD
 		other->spawnflags |= MSF_FIXED;//stay here forever now
-		QPostMessage(other, MSG_STAND, PRI_DIRECTIVE, NULL);
+		G_QPostMessage(other, MSG_STAND, PRI_DIRECTIVE, NULL);
 	}
 
 	if (other->movetarget == self)
@@ -1003,7 +1003,7 @@ void ItemSpitterSpit(edict_t *self,edict_t *owner,edict_t *attacker)
 
 	for (i1 = 0;i1 < self->count;++i1)
 	{
-		item = P_FindItemByClassname(self->target);
+		item = FindItemByClassname(self->target);
 
 		if (!item)	// Must be an object not an item
 		{

@@ -88,7 +88,7 @@ void mssithra_pain(edict_t *self, G_Message_t *msg)
 	if(self->deadflag == DEAD_DEAD) //Dead but still being hit	
 		return;
 
-	ParseMsgParms(msg, "eeiii", &temp, &temp, &force_pain, &damage, &temp);
+	G_ParseMsgParms(msg, "eeiii", &temp, &temp, &force_pain, &damage, &temp);
 
 	if(!force_pain)
 	{
@@ -229,7 +229,7 @@ void mssithra_melee(edict_t *self, G_Message_t *msg)
 		}
 	}
 	else
-		QPostMessage(self, MSG_STAND,PRI_DIRECTIVE, NULL);
+		G_QPostMessage(self, MSG_STAND,PRI_DIRECTIVE, NULL);
 }
 
 void mssithra_missile(edict_t *self, G_Message_t *msg)
@@ -254,7 +254,7 @@ void mssithra_missile(edict_t *self, G_Message_t *msg)
 		}
 	}
 	else
-		QPostMessage(self, MSG_STAND,PRI_DIRECTIVE, NULL);
+		G_QPostMessage(self, MSG_STAND,PRI_DIRECTIVE, NULL);
 }
 
 void mssithraSwipe (edict_t *self)
@@ -286,7 +286,7 @@ void mssithraSwipe (edict_t *self)
 				if(!irand(0,5))
 				{
 					if(!stricmp(self->enemy->classname, "player"))
-						P_KnockDownPlayer(&self->enemy->client->playerinfo);
+						KnockDownPlayer(&self->enemy->client->playerinfo);
 				}	
 			}
 			return;
@@ -572,23 +572,23 @@ qboolean mssithraCheckMood (edict_t *self)
 	{
 	case AI_MOOD_ATTACK:
 		if(self->ai_mood_flags & AI_MOOD_FLAG_MISSILE)
-			QPostMessage(self, MSG_MISSILE, PRI_DIRECTIVE, NULL);
+			G_QPostMessage(self, MSG_MISSILE, PRI_DIRECTIVE, NULL);
 		else
-			QPostMessage(self, MSG_MELEE, PRI_DIRECTIVE, NULL);
+			G_QPostMessage(self, MSG_MELEE, PRI_DIRECTIVE, NULL);
 		return true;
 		break;
 	case AI_MOOD_PURSUE:
 	case AI_MOOD_NAVIGATE:
-		QPostMessage(self, MSG_RUN, PRI_DIRECTIVE, NULL);
+		G_QPostMessage(self, MSG_RUN, PRI_DIRECTIVE, NULL);
 		return true;
 		break;
 	case AI_MOOD_WALK:
-		QPostMessage(self, MSG_WALK, PRI_DIRECTIVE, NULL);
+		G_QPostMessage(self, MSG_WALK, PRI_DIRECTIVE, NULL);
 		return true;
 		break;
 
 	case AI_MOOD_STAND:
-		QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
+		G_QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
 		return true;
 		break;
 	}
@@ -781,7 +781,7 @@ void SP_monster_mssithra (edict_t *self)
 	//set up my mood function
 	MG_InitMoods(self);
 
-	QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
+	G_QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
 
 	self->post_think = mssithra_postthink;
 	self->next_post_think = level.time + 0.1;

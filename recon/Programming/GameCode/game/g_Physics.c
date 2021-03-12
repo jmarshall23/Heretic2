@@ -243,12 +243,12 @@ static void Physics_StepMove(edict_t *self)
 
 		if(hasVel)
 		{	// stopped
-			QPostMessage(self, G_MSG_RESTSTATE, PRI_PHYSICS, "i", hasVel);
+			G_QPostMessage(self, G_MSG_RESTSTATE, PRI_PHYSICS, "i", hasVel);
 		}
 	}
 	else if(!hasVel)
 	{	// started
-		QPostMessage(self, G_MSG_RESTSTATE, PRI_PHYSICS, "i", hasVel);
+		G_QPostMessage(self, G_MSG_RESTSTATE, PRI_PHYSICS, "i", hasVel);
 	}
 
 	PhysicsCheckWaterTransition(self);
@@ -438,7 +438,7 @@ void DoImpactDamage(edict_t *self, trace_t *trace)
 							if(tr_dmg > irand(25, 40) - (5 * (skill->value)))
 							{
 								if(trace->ent->client->playerinfo.lowerseq != ASEQ_KNOCKDOWN)
-									P_KnockDownPlayer(&trace->ent->client->playerinfo);
+									KnockDownPlayer(&trace->ent->client->playerinfo);
 							}
 						}
 					}

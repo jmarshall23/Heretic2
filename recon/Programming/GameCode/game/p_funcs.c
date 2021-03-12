@@ -92,8 +92,8 @@ void G_PlayerActionCheckRopeMove(playerinfo_t *playerinfo)
 		((edict_t *)playerinfo->self)->targetEnt->enemy = NULL;
 		((edict_t *)playerinfo->self)->targetEnt = NULL;
 
-		P_PlayerAnimSetUpperSeq(playerinfo, ASEQ_NONE);
-		P_PlayerAnimSetLowerSeq(playerinfo, ASEQ_JUMPFWD);
+		PlayerAnimSetUpperSeq(playerinfo, ASEQ_NONE);
+		PlayerAnimSetLowerSeq(playerinfo, ASEQ_JUMPFWD);
 		
 		return;
 	}
@@ -469,7 +469,7 @@ int G_BranchLwrClimbing(playerinfo_t *playerinfo)
 		((edict_t *)playerinfo->self)->targetEnt->enemy = NULL;
 		((edict_t *)playerinfo->self)->targetEnt = NULL;
 		
-		P_PlayerAnimSetUpperSeq(playerinfo, ASEQ_NONE);
+		PlayerAnimSetUpperSeq(playerinfo, ASEQ_NONE);
 
 		return ASEQ_JUMPFWD;
 	}
@@ -1008,7 +1008,7 @@ void PlayerChickenDeath(edict_t *self)
 
 	// Reset our animations.
 
-	P_PlayerAnimReset(&self->client->playerinfo);
+	PlayerAnimReset(&self->client->playerinfo);
 }
 
 // ************************************************************************************************
@@ -1178,7 +1178,7 @@ void G_PlayerFallingDamage(playerinfo_t *playerinfo,float delta)
 				{
 					if(!irand(0, 1))
 					{
-						P_KnockDownPlayer(&ent->groundentity->client->playerinfo);
+						KnockDownPlayer(&ent->groundentity->client->playerinfo);
 					}
 				}
 			}
@@ -1232,7 +1232,7 @@ void G_PlayerVaultKick(playerinfo_t *playerinfo)
 				{
 					if(infront(trace.ent, self) && !irand(0, 2))
 					{
-						P_KnockDownPlayer(&trace.ent->client->playerinfo);
+						KnockDownPlayer(&trace.ent->client->playerinfo);
 					}
 				}
 			}
@@ -1386,9 +1386,9 @@ void G_PlayerActionSpellDefensive(playerinfo_t *playerinfo)
 		playerinfo->defensive_debounce = playerinfo->leveltime + DEFENSE_DEBOUNCE;
 
 		// if we've run out of defence shots, and we have the ring of repulsion - switch to that.
-		it = P_FindItem ("ring");
+		it = FindItem ("ring");
 		index = ITEM_INDEX(it);
-		if ((P_Defence_CurrentShotsLeft(playerinfo, 1) <=0) && playerinfo->pers.inventory.Items[index])
+		if ((Defence_CurrentShotsLeft(playerinfo, 1) <=0) && playerinfo->pers.inventory.Items[index])
 		{
 			playerinfo->G_UseItem(playerinfo->self,"ring");
 		}

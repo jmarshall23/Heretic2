@@ -55,7 +55,7 @@ void KillBrush(edict_t *targ,edict_t *inflictor,edict_t *attacker,int damage)
 		{
 			other = targ->enemy;
 
-			QPostMessage(targ,MSG_DEATH,PRI_DIRECTIVE,"eeei",targ,inflictor,attacker,damage);
+			G_QPostMessage(targ,MSG_DEATH,PRI_DIRECTIVE,"eeei",targ,inflictor,attacker,damage);
 
 			targ = other;
 		} while ( (targ != starte) );
@@ -67,7 +67,7 @@ void KillBrush(edict_t *targ,edict_t *inflictor,edict_t *attacker,int damage)
 //	}
 	else 
 	{
-		QPostMessage(targ,MSG_DEATH,PRI_DIRECTIVE,"eeei",targ,inflictor,attacker,damage);
+		G_QPostMessage(targ,MSG_DEATH,PRI_DIRECTIVE,"eeei",targ,inflictor,attacker,damage);
 	}
 
 //	this was firing off targets twice... fix it if this is not good,
@@ -78,7 +78,7 @@ void KillBrush(edict_t *targ,edict_t *inflictor,edict_t *attacker,int damage)
 
 void KillBrushUse(edict_t *targ,edict_t *inflictor,edict_t *attacker)
 {
-	QPostMessage(targ,MSG_DEATH,PRI_DIRECTIVE,"eeei",targ,inflictor,attacker,0);
+	G_QPostMessage(targ,MSG_DEATH,PRI_DIRECTIVE,"eeei",targ,inflictor,attacker,0);
 }
 
 void BBrushStaticsInit(void) 

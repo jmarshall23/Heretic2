@@ -296,35 +296,35 @@ void WeaponThink_SwordStaff(edict_t *Caster,char *Format,...)
 					switch((locid-1)>>2)
 					{
 					case SWORD_ATK_L:
-						P_PlayerAnimSetUpperSeq(playerinfo, ASEQ_WSWORD_BLOCKED_L);
+						PlayerAnimSetUpperSeq(playerinfo, ASEQ_WSWORD_BLOCKED_L);
 						// And of course the blocker must react too.
-						P_PlayerAnimSetUpperSeq(&trace.ent->client->playerinfo, ASEQ_WSWORD_BLOCK_L);
+						PlayerAnimSetUpperSeq(&trace.ent->client->playerinfo, ASEQ_WSWORD_BLOCK_L);
 						return;
 						break;
 					case SWORD_ATK_R:
-						P_PlayerAnimSetUpperSeq(playerinfo, ASEQ_WSWORD_BLOCKED_R);
+						PlayerAnimSetUpperSeq(playerinfo, ASEQ_WSWORD_BLOCKED_R);
 						// And of course the blocker must react too.
-						P_PlayerAnimSetUpperSeq(&trace.ent->client->playerinfo, ASEQ_WSWORD_BLOCK_R);
+						PlayerAnimSetUpperSeq(&trace.ent->client->playerinfo, ASEQ_WSWORD_BLOCK_R);
 						return;
 						break;
 					case SWORD_SPINATK_L:
-						P_PlayerAnimSetLowerSeq(playerinfo, ASEQ_WSWORD_SPINBLOCKED);
+						PlayerAnimSetLowerSeq(playerinfo, ASEQ_WSWORD_SPINBLOCKED);
 						// And of course the blocker must react too.
-						P_PlayerAnimSetUpperSeq(&trace.ent->client->playerinfo, ASEQ_WSWORD_BLOCK_L);
+						PlayerAnimSetUpperSeq(&trace.ent->client->playerinfo, ASEQ_WSWORD_BLOCK_L);
 						return;
 						break;
 					case SWORD_SPINATK_R:
-						P_PlayerAnimSetLowerSeq(playerinfo, ASEQ_WSWORD_SPINBLOCKED2);
+						PlayerAnimSetLowerSeq(playerinfo, ASEQ_WSWORD_SPINBLOCKED2);
 						// And of course the blocker must react too.
-						P_PlayerAnimSetUpperSeq(&trace.ent->client->playerinfo, ASEQ_WSWORD_BLOCK_R);
+						PlayerAnimSetUpperSeq(&trace.ent->client->playerinfo, ASEQ_WSWORD_BLOCK_R);
 						return;
 						break;
 					case SWORD_ATK_B:
-						P_PlayerAnimSetUpperSeq(&trace.ent->client->playerinfo, ASEQ_WSWORD_BLOCK_R);
+						PlayerAnimSetUpperSeq(&trace.ent->client->playerinfo, ASEQ_WSWORD_BLOCK_R);
 						return;
 						break;
 					case SWORD_ATK_STAB:
-						P_PlayerAnimSetUpperSeq(&trace.ent->client->playerinfo, ASEQ_WSWORD_BLOCK_L);
+						PlayerAnimSetUpperSeq(&trace.ent->client->playerinfo, ASEQ_WSWORD_BLOCK_L);
 						return;
 						break;
 					}
@@ -376,35 +376,35 @@ void WeaponThink_SwordStaff(edict_t *Caster,char *Format,...)
 					switch((locid-1)>>2)
 					{
 					case SWORD_ATK_L:
-						P_PlayerAnimSetUpperSeq(playerinfo, ASEQ_WSWORD_BLOCKED_L);
+						PlayerAnimSetUpperSeq(playerinfo, ASEQ_WSWORD_BLOCKED_L);
 						// And of course the blocker must react too.
-						P_PlayerAnimSetUpperSeq(&trace.ent->client->playerinfo, ASEQ_WSWORD_BLOCKED_L);
+						PlayerAnimSetUpperSeq(&trace.ent->client->playerinfo, ASEQ_WSWORD_BLOCKED_L);
 						return;
 						break;
 					case SWORD_ATK_R:
-						P_PlayerAnimSetUpperSeq(playerinfo, ASEQ_WSWORD_BLOCKED_R);
+						PlayerAnimSetUpperSeq(playerinfo, ASEQ_WSWORD_BLOCKED_R);
 						// And of course the blocker must react too.
-						P_PlayerAnimSetUpperSeq(&trace.ent->client->playerinfo, ASEQ_WSWORD_BLOCKED_R);
+						PlayerAnimSetUpperSeq(&trace.ent->client->playerinfo, ASEQ_WSWORD_BLOCKED_R);
 						return;
 						break;
 					case SWORD_SPINATK_L:
-						P_PlayerAnimSetLowerSeq(playerinfo, ASEQ_WSWORD_SPINBLOCKED);
+						PlayerAnimSetLowerSeq(playerinfo, ASEQ_WSWORD_SPINBLOCKED);
 						// And of course the blocker must react too.
-						P_PlayerAnimSetUpperSeq(&trace.ent->client->playerinfo, ASEQ_WSWORD_BLOCKED_L);
+						PlayerAnimSetUpperSeq(&trace.ent->client->playerinfo, ASEQ_WSWORD_BLOCKED_L);
 						return;
 						break;
 					case SWORD_SPINATK_R:
-						P_PlayerAnimSetLowerSeq(playerinfo, ASEQ_WSWORD_SPINBLOCKED2);
+						PlayerAnimSetLowerSeq(playerinfo, ASEQ_WSWORD_SPINBLOCKED2);
 						// And of course the blocker must react too.
-						P_PlayerAnimSetUpperSeq(&trace.ent->client->playerinfo, ASEQ_WSWORD_BLOCKED_R);
+						PlayerAnimSetUpperSeq(&trace.ent->client->playerinfo, ASEQ_WSWORD_BLOCKED_R);
 						return;
 						break;
 					case SWORD_ATK_B:
-						P_PlayerAnimSetUpperSeq(&trace.ent->client->playerinfo, ASEQ_WSWORD_BLOCKED_R);
+						PlayerAnimSetUpperSeq(&trace.ent->client->playerinfo, ASEQ_WSWORD_BLOCKED_R);
 						return;
 						break;
 					case SWORD_ATK_STAB:
-						P_PlayerAnimSetUpperSeq(&trace.ent->client->playerinfo, ASEQ_WSWORD_BLOCKED_L);
+						PlayerAnimSetUpperSeq(&trace.ent->client->playerinfo, ASEQ_WSWORD_BLOCKED_L);
 						return;
 						break;
 					}

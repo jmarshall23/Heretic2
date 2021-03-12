@@ -20,17 +20,11 @@
 #include "../qcommon/q_Typedef.h"
 //#include "player.h"
 
+#define PLAYER_DLL
+
 #define DEMO_CODE		0
 
-#ifdef QUAKE2_STATIC
 #define QUAKE2_API
-#else
-#ifdef QUAKE2
-#define QUAKE2_API __declspec(dllexport)
-#else
-#define QUAKE2_API __declspec(dllimport)
-#endif
-#endif
 
 // These are the only 2 references to C_ONLY
 // id386 could do with removing

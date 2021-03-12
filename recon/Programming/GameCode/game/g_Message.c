@@ -15,14 +15,14 @@
 
 static ResourceManager_t MsgMngr;
 
-void InitMsgMngr()
+void G_InitMsgMngr()
 {
 #define MESSAGE_BLOCK_SIZE 256
 
 	ResMngr_Con(&MsgMngr, sizeof(G_Message_t), MESSAGE_BLOCK_SIZE);
 }
 
-void ReleaseMsgMngr()
+void G_ReleaseMsgMngr()
 {
 	ResMngr_Des(&MsgMngr);
 }
@@ -64,7 +64,7 @@ void G_Message_delete(G_Message_t *this)
 	ResMngr_DeallocateResource(&MsgMngr, this, sizeof(G_Message_t));
 }
 
-void QPostMessage(edict_t *to, G_MsgID_t ID, G_MsgPriority_t priority, char *format, ...)
+void G_QPostMessage(edict_t *to, G_MsgID_t ID, G_MsgPriority_t priority, char *format, ...)
 {
 	G_Message_t *newMsg;
 	qboolean append = false;
@@ -136,7 +136,7 @@ void PostGameMessage(edict_t *to, G_MsgID_t ID, G_MsgPriority_t priority, char *
 	QueueMessage(&to->msgQ, newMsg);
 }
 
-int ParseMsgParms(G_Message_t *this, char *format, ...)
+int G_ParseMsgParms(G_Message_t *this, char *format, ...)
 {
 	SinglyLinkedList_t *parms;
 	va_list marker;
@@ -157,7 +157,7 @@ int ParseMsgParms(G_Message_t *this, char *format, ...)
 	return args_filled;
 }
 
-void ProcessMessages(edict_t *self)
+void G_ProcessMessages(edict_t *self)
 {
 	SinglyLinkedList_t *msgs;
 	SinglyLinkedList_t *parms;
@@ -192,7 +192,7 @@ void ProcessMessages(edict_t *self)
 	}
 }
 
-void ClearMessageQueue(edict_t *self)
+void G_ClearMessageQueue(edict_t *self)
 {
 	SinglyLinkedList_t *msgs;
 	SinglyLinkedList_t *parms;
@@ -218,13 +218,13 @@ void ClearMessageQueue(edict_t *self)
 	}
 }
 
-void ClearMessageQueues()
+void G_ClearMessageQueues()
 {
 	edict_t *ent;
 	int i;
 
 	for (i=0, ent = &g_edicts[0]; i<globals.num_edicts ; i++, ent++)
 	{
-		ClearMessageQueue(ent);
+		G_ClearMessageQueue(ent);
 	}
 }

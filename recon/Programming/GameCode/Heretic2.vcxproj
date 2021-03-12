@@ -1,0 +1,834 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{d385f821-6d49-4610-8609-722049ba9540}</ProjectGuid>
+    <RootNamespace>Heretic2</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>GLEW_STATIC;WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>false</ConformanceMode>
+      <DisableSpecificWarnings>4996</DisableSpecificWarnings>
+      <AdditionalIncludeDirectories>./client/;./game/;./player/;./qcommon/;./WinSnd/OpenAL/include</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <OutputFile>../../../Heretic2.exe</OutputFile>
+      <AdditionalDependencies>Ws2_32.lib;winmm.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalOptions>/force %(AdditionalOptions)</AdditionalOptions>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>GLEW_STATIC;WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>false</ConformanceMode>
+      <DisableSpecificWarnings>4996</DisableSpecificWarnings>
+      <AdditionalIncludeDirectories>./client/;./game/;./player/;./qcommon/;./WinSnd/OpenAL/include</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <OutputFile>../../../Heretic2.exe</OutputFile>
+      <AdditionalDependencies>Ws2_32.lib;winmm.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalOptions>/force %(AdditionalOptions)</AdditionalOptions>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="client effects\Ambient Effects.c" />
+    <ClCompile Include="client effects\ce_DefaultMessageHandler.c" />
+    <ClCompile Include="client effects\ce_DLight.c" />
+    <ClCompile Include="client effects\ce_Message.c" />
+    <ClCompile Include="client effects\Client Effects.c" />
+    <ClCompile Include="client effects\Client Entities.c" />
+    <ClCompile Include="client effects\cl_fx.c" />
+    <ClCompile Include="client effects\Font1.c" />
+    <ClCompile Include="client effects\Font2.c" />
+    <ClCompile Include="client effects\fx_AmmoPickup.c" />
+    <ClCompile Include="client effects\fx_animate.c" />
+    <ClCompile Include="client effects\fx_assassin.c" />
+    <ClCompile Include="client effects\fx_blood.c" />
+    <ClCompile Include="client effects\fx_BlueRing.c" />
+    <ClCompile Include="client effects\fx_bubbler.c" />
+    <ClCompile Include="client effects\fx_crosshair.c" />
+    <ClCompile Include="client effects\fx_cwatcher.c" />
+    <ClCompile Include="client effects\fx_debris.c" />
+    <ClCompile Include="client effects\fx_DefensePickup.c" />
+    <ClCompile Include="client effects\fx_Dripper.c" />
+    <ClCompile Include="client effects\fx_dust.c" />
+    <ClCompile Include="client effects\fx_dustpuff.c" />
+    <ClCompile Include="client effects\fx_fire.c" />
+    <ClCompile Include="client effects\fx_firehands.c" />
+    <ClCompile Include="client effects\fx_flamethrow.c" />
+    <ClCompile Include="client effects\fx_flyingfist.c" />
+    <ClCompile Include="client effects\fx_Fountain.c" />
+    <ClCompile Include="client effects\fx_halo.c" />
+    <ClCompile Include="client effects\fx_HealthPickup.c" />
+    <ClCompile Include="client effects\fx_HellStaff.c" />
+    <ClCompile Include="client effects\fx_hitpuff.c" />
+    <ClCompile Include="client effects\fx_hpproj.c" />
+    <ClCompile Include="client effects\fx_insectstaff.c" />
+    <ClCompile Include="client effects\fx_lensflare.c" />
+    <ClCompile Include="client effects\fx_lightning.c" />
+    <ClCompile Include="client effects\fx_Maceball.c" />
+    <ClCompile Include="client effects\fx_magicmissile.c" />
+    <ClCompile Include="client effects\fx_meteorbarrier.c" />
+    <ClCompile Include="client effects\fx_mist.c" />
+    <ClCompile Include="client effects\fx_mork.c" />
+    <ClCompile Include="client effects\fx_Morph.c" />
+    <ClCompile Include="client effects\fx_objects.c" />
+    <ClCompile Include="client effects\fx_pespell.c" />
+    <ClCompile Include="client effects\fx_Phoenix.c" />
+    <ClCompile Include="client effects\fx_pickup.c" />
+    <ClCompile Include="client effects\fx_pickuppuzzle.c" />
+    <ClCompile Include="client effects\fx_PlagueMist.c" />
+    <ClCompile Include="client effects\fx_PlagueMistExplode.c" />
+    <ClCompile Include="client effects\fx_portal.c" />
+    <ClCompile Include="client effects\fx_quake.c" />
+    <ClCompile Include="client effects\fx_RedRain.c" />
+    <ClCompile Include="client effects\fx_redrainglow.c" />
+    <ClCompile Include="client effects\fx_remotecamera.c" />
+    <ClCompile Include="client effects\fx_Ripples.c" />
+    <ClCompile Include="client effects\fx_rope.c" />
+    <ClCompile Include="client effects\fx_scorchmark.c" />
+    <ClCompile Include="client effects\fx_shadow.c" />
+    <ClCompile Include="client effects\fx_Shield.c" />
+    <ClCompile Include="client effects\fx_shrine.c" />
+    <ClCompile Include="client effects\fx_smoke.c" />
+    <ClCompile Include="client effects\fx_sound.c" />
+    <ClCompile Include="client effects\fx_sparks.c" />
+    <ClCompile Include="client effects\fx_spellchange.c" />
+    <ClCompile Include="client effects\fx_spellhands.c" />
+    <ClCompile Include="client effects\fx_sphereofannihlation.c" />
+    <ClCompile Include="client effects\fx_spoo.c" />
+    <ClCompile Include="client effects\fx_ssarrow.c" />
+    <ClCompile Include="client effects\fx_ssithra.c" />
+    <ClCompile Include="client effects\fx_staff.c" />
+    <ClCompile Include="client effects\fx_tbeast.c" />
+    <ClCompile Include="client effects\fx_teleport.c" />
+    <ClCompile Include="client effects\fx_tome.c" />
+    <ClCompile Include="client effects\fx_tornado.c" />
+    <ClCompile Include="client effects\fx_Wall.c" />
+    <ClCompile Include="client effects\fx_waterentrysplash.c" />
+    <ClCompile Include="client effects\fx_waterwake.c" />
+    <ClCompile Include="client effects\fx_WeaponPickup.c" />
+    <ClCompile Include="client effects\Generic Character Effects.c" />
+    <ClCompile Include="client effects\Generic Weapon Effects.c" />
+    <ClCompile Include="client effects\Item Effects.c" />
+    <ClCompile Include="client effects\LevelMaps.c" />
+    <ClCompile Include="client effects\LightStyles.c" />
+    <ClCompile Include="client effects\Main.c" />
+    <ClCompile Include="client effects\Monster Weapon Effects.c" />
+    <ClCompile Include="client effects\Particle.c" />
+    <ClCompile Include="client effects\Player Effects.c" />
+    <ClCompile Include="client effects\TestEffect.c" />
+    <ClCompile Include="client effects\Utilities.c" />
+    <ClCompile Include="client\cl_cin.c" />
+    <ClCompile Include="client\cl_ents.c" />
+    <ClCompile Include="client\cl_fx.c" />
+    <ClCompile Include="client\cl_input.c" />
+    <ClCompile Include="client\cl_inv.c" />
+    <ClCompile Include="client\cl_main.c" />
+    <ClCompile Include="client\cl_parse.c" />
+    <ClCompile Include="client\cl_pred.c" />
+    <ClCompile Include="client\cl_scrn.c" />
+    <ClCompile Include="client\cl_view.c" />
+    <ClCompile Include="client\console.c" />
+    <ClCompile Include="client\keys.c" />
+    <ClCompile Include="client\menu.c" />
+    <ClCompile Include="client\qmenu.c" />
+    <ClCompile Include="client\x86.c" />
+    <ClCompile Include="game\buoy.c" />
+    <ClCompile Include="game\c_ai.c" />
+    <ClCompile Include="game\c_corvus1.c" />
+    <ClCompile Include="game\c_corvus1_anim.c" />
+    <ClCompile Include="game\c_corvus2.c" />
+    <ClCompile Include="game\c_corvus2_anim.c" />
+    <ClCompile Include="game\c_corvus3.c" />
+    <ClCompile Include="game\c_corvus3_anim.c" />
+    <ClCompile Include="game\c_corvus4.c" />
+    <ClCompile Include="game\c_corvus4_anim.c" />
+    <ClCompile Include="game\c_corvus5.c" />
+    <ClCompile Include="game\c_corvus5_anim.c" />
+    <ClCompile Include="game\c_corvus6.c" />
+    <ClCompile Include="game\c_corvus6_anim.c" />
+    <ClCompile Include="game\c_corvus7.c" />
+    <ClCompile Include="game\c_corvus7_anim.c" />
+    <ClCompile Include="game\c_corvus8.c" />
+    <ClCompile Include="game\c_corvus8_anim.c" />
+    <ClCompile Include="game\c_corvus9.c" />
+    <ClCompile Include="game\c_corvus9_anim.c" />
+    <ClCompile Include="game\c_dranor.c" />
+    <ClCompile Include="game\c_dranor_anim.c" />
+    <ClCompile Include="game\c_elflord.c" />
+    <ClCompile Include="game\c_elflord_anim.c" />
+    <ClCompile Include="game\c_morcalavin.c" />
+    <ClCompile Include="game\c_morcalavin_anim.c" />
+    <ClCompile Include="game\c_priestess.c" />
+    <ClCompile Include="game\c_priestess2.c" />
+    <ClCompile Include="game\c_priestess2_anim.c" />
+    <ClCompile Include="game\c_priestess_anim.c" />
+    <ClCompile Include="game\c_siernan1.c" />
+    <ClCompile Include="game\c_siernan1_anim.c" />
+    <ClCompile Include="game\c_siernan2.c" />
+    <ClCompile Include="game\c_siernan2_anim.c" />
+    <ClCompile Include="game\c_ssithrascout.c" />
+    <ClCompile Include="game\c_ssithrascout_anim.c" />
+    <ClCompile Include="game\c_tome.c" />
+    <ClCompile Include="game\c_tome_anim.c" />
+    <ClCompile Include="game\c_victimSsithra.c" />
+    <ClCompile Include="game\c_victimSsithra_anim.c" />
+    <ClCompile Include="game\decals.c" />
+    <ClCompile Include="game\ds.cpp" />
+    <ClCompile Include="game\GameEntity.c" />
+    <ClCompile Include="game\game_utilities.c" />
+    <ClCompile Include="game\g_ai.c" />
+    <ClCompile Include="game\g_breakable.c" />
+    <ClCompile Include="game\g_ClassStatics.c" />
+    <ClCompile Include="game\g_cmds.c" />
+    <ClCompile Include="game\g_combat.c" />
+    <ClCompile Include="game\g_DefaultMessageHandler.c" />
+    <ClCompile Include="game\g_env.c" />
+    <ClCompile Include="game\g_field.c" />
+    <ClCompile Include="game\g_flamethrow.c" />
+    <ClCompile Include="game\g_func.c" />
+    <ClCompile Include="game\g_HitLocation.c" />
+    <ClCompile Include="game\g_items.c" />
+    <ClCompile Include="game\g_items_pickups.c" />
+    <ClCompile Include="game\g_light.c" />
+    <ClCompile Include="game\g_main.c" />
+    <ClCompile Include="game\g_Message.c" />
+    <ClCompile Include="game\g_misc.c" />
+    <ClCompile Include="game\g_monster.c" />
+    <ClCompile Include="game\g_MoveInfo.c" />
+    <ClCompile Include="game\g_obj.c" />
+    <ClCompile Include="game\g_phys.c" />
+    <ClCompile Include="game\g_Physics.c" />
+    <ClCompile Include="game\g_PhysicsInfo.c" />
+    <ClCompile Include="game\g_ResourceManagers.c" />
+    <ClCompile Include="game\g_rope.c" />
+    <ClCompile Include="game\g_save.c" />
+    <ClCompile Include="game\g_shrine.c" />
+    <ClCompile Include="game\g_Skeletons.c" />
+    <ClCompile Include="game\g_spawn.c" />
+    <ClCompile Include="game\g_spawnf.c" />
+    <ClCompile Include="game\g_StateInfo.c" />
+    <ClCompile Include="game\g_svcmds.c" />
+    <ClCompile Include="game\g_target.c" />
+    <ClCompile Include="game\g_trigger.c" />
+    <ClCompile Include="game\g_utils.c" />
+    <ClCompile Include="game\g_waterfx.c" />
+    <ClCompile Include="game\g_weapon.c" />
+    <ClCompile Include="game\mg_ai.c" />
+    <ClCompile Include="game\mg_guide.c" />
+    <ClCompile Include="game\m_assassin.c" />
+    <ClCompile Include="game\m_assassin_anim.c" />
+    <ClCompile Include="game\m_beast.c" />
+    <ClCompile Include="game\m_beast_anim.c" />
+    <ClCompile Include="game\m_bee.c" />
+    <ClCompile Include="game\m_chicken.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="game\m_chicken_anim.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="game\m_elflord.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="game\m_elflord_anims.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="game\m_fish.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="game\m_fish_anim.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="game\m_FMtest.c" />
+    <ClCompile Include="game\m_gkrokon.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="game\m_gkrokon_anim.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="game\m_gorgon.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="game\m_gorgon_anim.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="game\m_harpy.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="game\m_harpy_anim.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="game\m_imp.c" />
+    <ClCompile Include="game\m_imp_anim.c" />
+    <ClCompile Include="game\m_morcalavin.c" />
+    <ClCompile Include="game\m_morcalavin_anim.c" />
+    <ClCompile Include="game\m_mother.c" />
+    <ClCompile Include="game\m_mother_anim.c" />
+    <ClCompile Include="game\m_move.c" />
+    <ClCompile Include="game\m_mssithra.c" />
+    <ClCompile Include="game\m_mssithra_anim.c" />
+    <ClCompile Include="game\m_ogle.c" />
+    <ClCompile Include="game\m_ogle_anim.c" />
+    <ClCompile Include="game\m_plagueElf.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="game\m_plagueElf_anim.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="game\m_plagueSsithra.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="game\m_plagueSsithra_anim.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="game\m_priestess.c" />
+    <ClCompile Include="game\m_priestess_anim.c" />
+    <ClCompile Include="game\m_rat.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="game\m_rat_anim.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="game\m_seraph.c" />
+    <ClCompile Include="game\m_seraph_anim.c" />
+    <ClCompile Include="game\m_seraph_guard.c" />
+    <ClCompile Include="game\m_seraph_guard_anim.c" />
+    <ClCompile Include="game\m_spreader.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="game\m_spreadermist.c" />
+    <ClCompile Include="game\m_spreader_anim.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="game\m_stats.c" />
+    <ClCompile Include="game\m_tcheckrik.c" />
+    <ClCompile Include="game\m_tcheckrik_anim.c" />
+    <ClCompile Include="game\m_tcheckrik_spells.c" />
+    <ClCompile Include="game\p_client.c" />
+    <ClCompile Include="game\p_funcs.c" />
+    <ClCompile Include="game\p_hud.c" />
+    <ClCompile Include="game\p_item.c" />
+    <ClCompile Include="game\p_view.c" />
+    <ClCompile Include="game\q_shared.c" />
+    <ClCompile Include="game\Script.c" />
+    <ClCompile Include="game\spl_blast.c" />
+    <ClCompile Include="game\spl_BlueRing.c" />
+    <ClCompile Include="game\spl_flyingfist.c" />
+    <ClCompile Include="game\spl_HellStaff.c" />
+    <ClCompile Include="game\spl_maceballs.c" />
+    <ClCompile Include="game\spl_magicmissile.c" />
+    <ClCompile Include="game\spl_meteorbarrier.c" />
+    <ClCompile Include="game\spl_morph.c" />
+    <ClCompile Include="game\spl_Phoenix.c" />
+    <ClCompile Include="game\spl_powerup.c" />
+    <ClCompile Include="game\spl_RedRain.c" />
+    <ClCompile Include="game\spl_ripper.c" />
+    <ClCompile Include="game\spl_shield.c" />
+    <ClCompile Include="game\spl_sphereofannihlation.c" />
+    <ClCompile Include="game\spl_teleport.c" />
+    <ClCompile Include="game\spl_tornado.c" />
+    <ClCompile Include="game\spl_wall.c" />
+    <ClCompile Include="h2common\H2Console.c" />
+    <ClCompile Include="h2common\H2Math.c" />
+    <ClCompile Include="h2common\H2Matrix.cpp" />
+    <ClCompile Include="h2common\H2Motion.c" />
+    <ClCompile Include="h2common\H2Palette.c" />
+    <ClCompile Include="h2common\H2Physics.c" />
+    <ClCompile Include="h2common\H2Rand.c" />
+    <ClCompile Include="h2common\H2SinglyLinkedList.c" />
+    <ClCompile Include="h2common\H2Surfaces.c" />
+    <ClCompile Include="h2common\H2Vector.c" />
+    <ClCompile Include="h2common\Math\Martix.cpp" />
+    <ClCompile Include="Player\player_main.c" />
+    <ClCompile Include="Player\p_actions.c" />
+    <ClCompile Include="Player\p_animactor.c" />
+    <ClCompile Include="Player\p_anims.c" />
+    <ClCompile Include="Player\p_anim_branch.c" />
+    <ClCompile Include="Player\p_anim_data.c" />
+    <ClCompile Include="Player\p_chicken.c" />
+    <ClCompile Include="Player\p_chicken_anim.c" />
+    <ClCompile Include="Player\p_ctrl.c" />
+    <ClCompile Include="Player\p_items.c" />
+    <ClCompile Include="Player\p_main.c" />
+    <ClCompile Include="Player\p_weapon.c" />
+    <ClCompile Include="qcommon\cmd.c" />
+    <ClCompile Include="qcommon\cmodel.c" />
+    <ClCompile Include="qcommon\common.c" />
+    <ClCompile Include="qcommon\crc.c" />
+    <ClCompile Include="qcommon\cvar.c" />
+    <ClCompile Include="qcommon\files.c" />
+    <ClCompile Include="qcommon\md4.c" />
+    <ClCompile Include="qcommon\Message.c" />
+    <ClCompile Include="qcommon\NetMsg Read.c" />
+    <ClCompile Include="qcommon\net_chan.c" />
+    <ClCompile Include="qcommon\pmove.c" />
+    <ClCompile Include="qcommon\p_dll.c" />
+    <ClCompile Include="qcommon\Reference.c" />
+    <ClCompile Include="qcommon\ResourceManager.cpp" />
+    <ClCompile Include="qcommon\Skeletons.c" />
+    <ClCompile Include="ref_common\r_Skeletons.c" />
+    <ClCompile Include="ref_gl\glew.c" />
+    <ClCompile Include="ref_gl\gl_book.c" />
+    <ClCompile Include="ref_gl\gl_draw.c" />
+    <ClCompile Include="ref_gl\gl_fmodel.c" />
+    <ClCompile Include="ref_gl\gl_image.c" />
+    <ClCompile Include="ref_gl\gl_light.c" />
+    <ClCompile Include="ref_gl\gl_math.c" />
+    <ClCompile Include="ref_gl\gl_mesh.c" />
+    <ClCompile Include="ref_gl\gl_model.c" />
+    <ClCompile Include="ref_gl\gl_movie.c" />
+    <ClCompile Include="ref_gl\gl_rmain.c" />
+    <ClCompile Include="ref_gl\gl_rmisc.c" />
+    <ClCompile Include="ref_gl\gl_rsurf.c" />
+    <ClCompile Include="ref_gl\gl_warp.c" />
+    <ClCompile Include="server\sv_ccmds.c" />
+    <ClCompile Include="server\sv_ents.c" />
+    <ClCompile Include="server\sv_game.c" />
+    <ClCompile Include="server\sv_init.c" />
+    <ClCompile Include="server\sv_main.c" />
+    <ClCompile Include="server\sv_send.c" />
+    <ClCompile Include="server\sv_user.c" />
+    <ClCompile Include="server\sv_world.c" />
+    <ClCompile Include="win32\cd_win.c" />
+    <ClCompile Include="win32\conproc.c" />
+    <ClCompile Include="win32\glw_imp.c" />
+    <ClCompile Include="win32\in_win.c" />
+    <ClCompile Include="win32\net_wins.c" />
+    <ClCompile Include="win32\qgl_win.c" />
+    <ClCompile Include="win32\q_shwin.c" />
+    <ClCompile Include="win32\sys_win.c" />
+    <ClCompile Include="win32\vid_dll.c" />
+    <ClCompile Include="win32\vid_menu.c" />
+    <ClCompile Include="WinSnd\ALut\alutBufferData.c" />
+    <ClCompile Include="WinSnd\ALut\alutCodec.c" />
+    <ClCompile Include="WinSnd\ALut\alutError.c" />
+    <ClCompile Include="WinSnd\ALut\alutInit.c" />
+    <ClCompile Include="WinSnd\ALut\alutInputStream.c" />
+    <ClCompile Include="WinSnd\ALut\alutLoader.c" />
+    <ClCompile Include="WinSnd\ALut\alutOutputStream.c" />
+    <ClCompile Include="WinSnd\ALut\alutUtil.c" />
+    <ClCompile Include="WinSnd\ALut\alutVersion.c" />
+    <ClCompile Include="WinSnd\ALut\alutWaveform.c" />
+    <ClCompile Include="WinSnd\s_eax.cpp" />
+    <ClCompile Include="WinSnd\s_main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="client effects\ambient effects.h" />
+    <ClInclude Include="client effects\ce_DefaultMessageHandler.h" />
+    <ClInclude Include="client effects\ce_DLight.h" />
+    <ClInclude Include="client effects\ce_Message.h" />
+    <ClInclude Include="client effects\Client Effects.h" />
+    <ClInclude Include="client effects\Client Entities.h" />
+    <ClInclude Include="client effects\fx_debris.h" />
+    <ClInclude Include="client effects\fx_dustpuff.h" />
+    <ClInclude Include="client effects\Particle.h" />
+    <ClInclude Include="client effects\Utilities.h" />
+    <ClInclude Include="client\adivtab.h" />
+    <ClInclude Include="client\anorms.h" />
+    <ClInclude Include="client\asm_i386.h" />
+    <ClInclude Include="client\block16.h" />
+    <ClInclude Include="client\block8.h" />
+    <ClInclude Include="client\cdaudio.h" />
+    <ClInclude Include="client\client.h" />
+    <ClInclude Include="client\console.h" />
+    <ClInclude Include="client\input.h" />
+    <ClInclude Include="client\keys.h" />
+    <ClInclude Include="client\qmenu.h" />
+    <ClInclude Include="client\ref.h" />
+    <ClInclude Include="client\screen.h" />
+    <ClInclude Include="client\vid.h" />
+    <ClInclude Include="game\buoy.h" />
+    <ClInclude Include="game\c_ai.h" />
+    <ClInclude Include="game\c_corvus1.h" />
+    <ClInclude Include="game\c_corvus1_anim.h" />
+    <ClInclude Include="game\c_corvus2.h" />
+    <ClInclude Include="game\c_corvus2_anim.h" />
+    <ClInclude Include="game\c_corvus3.h" />
+    <ClInclude Include="game\c_corvus3_anim.h" />
+    <ClInclude Include="game\c_corvus4.h" />
+    <ClInclude Include="game\c_corvus4_anim.h" />
+    <ClInclude Include="game\c_corvus5.h" />
+    <ClInclude Include="game\c_corvus5_anim.h" />
+    <ClInclude Include="game\c_corvus6.h" />
+    <ClInclude Include="game\c_corvus6_anim.h" />
+    <ClInclude Include="game\c_corvus7.h" />
+    <ClInclude Include="game\c_corvus7_anim.h" />
+    <ClInclude Include="game\c_corvus8.h" />
+    <ClInclude Include="game\c_corvus8_anim.h" />
+    <ClInclude Include="game\c_corvus9.h" />
+    <ClInclude Include="game\c_corvus9_anim.h" />
+    <ClInclude Include="game\c_Dranor.h" />
+    <ClInclude Include="game\c_dranor_anim.h" />
+    <ClInclude Include="game\c_elflord.h" />
+    <ClInclude Include="game\c_elflord_anim.h" />
+    <ClInclude Include="game\c_morcalavin.h" />
+    <ClInclude Include="game\c_morcalavin_anim.h" />
+    <ClInclude Include="game\c_priestess.h" />
+    <ClInclude Include="game\c_priestess2.h" />
+    <ClInclude Include="game\c_priestess2_anim.h" />
+    <ClInclude Include="game\c_priestess_anim.h" />
+    <ClInclude Include="game\c_siernan1.h" />
+    <ClInclude Include="game\c_siernan1_anim.h" />
+    <ClInclude Include="game\c_siernan2.h" />
+    <ClInclude Include="game\c_siernan2_anim.h" />
+    <ClInclude Include="game\c_ssithrascout.h" />
+    <ClInclude Include="game\c_ssithrascout_anim.h" />
+    <ClInclude Include="game\c_tome.h" />
+    <ClInclude Include="game\c_tome_anim.h" />
+    <ClInclude Include="game\c_victimSsithra.h" />
+    <ClInclude Include="game\c_victimSsithra_anim.h" />
+    <ClInclude Include="game\decals.h" />
+    <ClInclude Include="game\ds.h" />
+    <ClInclude Include="game\game.h" />
+    <ClInclude Include="game\GameEntity.h" />
+    <ClInclude Include="game\g_BoundingForm.h" />
+    <ClInclude Include="game\g_ClassStatics.h" />
+    <ClInclude Include="game\g_DefaultMessageHandler.h" />
+    <ClInclude Include="game\g_Edict.h" />
+    <ClInclude Include="game\g_HitLocation.h" />
+    <ClInclude Include="game\g_items.h" />
+    <ClInclude Include="game\g_itemstats.h" />
+    <ClInclude Include="game\g_local.h" />
+    <ClInclude Include="game\g_Message.h" />
+    <ClInclude Include="game\g_misc.h" />
+    <ClInclude Include="game\g_monster.h" />
+    <ClInclude Include="game\g_Monster_State.h" />
+    <ClInclude Include="game\g_MoveInfo.h" />
+    <ClInclude Include="game\g_NewSystem.h" />
+    <ClInclude Include="game\g_Physics.h" />
+    <ClInclude Include="game\g_PhysicsInfo.h" />
+    <ClInclude Include="game\g_playstats.h" />
+    <ClInclude Include="game\g_Skeleton.h" />
+    <ClInclude Include="game\g_Skeletons.h" />
+    <ClInclude Include="game\g_StateInfo.h" />
+    <ClInclude Include="game\g_teleport.h" />
+    <ClInclude Include="game\g_Typedef.h" />
+    <ClInclude Include="game\g_volume_effect.h" />
+    <ClInclude Include="game\g_weapon.h" />
+    <ClInclude Include="game\ICScript.h" />
+    <ClInclude Include="game\list.h" />
+    <ClInclude Include="game\mg_guide.h" />
+    <ClInclude Include="game\m_actor.h" />
+    <ClInclude Include="game\m_assassin.h" />
+    <ClInclude Include="game\m_assassin_anim.h" />
+    <ClInclude Include="game\m_beast.h" />
+    <ClInclude Include="game\m_beast_anim.h" />
+    <ClInclude Include="game\m_chicken.h" />
+    <ClInclude Include="game\m_chicken_anim.h" />
+    <ClInclude Include="game\m_elf.h" />
+    <ClInclude Include="game\m_elflord.h" />
+    <ClInclude Include="game\m_elflord_anims.h" />
+    <ClInclude Include="game\m_fish.h" />
+    <ClInclude Include="game\m_fish_anim.h" />
+    <ClInclude Include="game\m_gkrokon.h" />
+    <ClInclude Include="game\m_gkrokon_anim.h" />
+    <ClInclude Include="game\m_gorgon.h" />
+    <ClInclude Include="game\m_gorgon_anim.h" />
+    <ClInclude Include="game\m_harpy.h" />
+    <ClInclude Include="game\m_harpy_anim.h" />
+    <ClInclude Include="game\m_imp.h" />
+    <ClInclude Include="game\m_imp_anim.h" />
+    <ClInclude Include="game\m_morcalavin.h" />
+    <ClInclude Include="game\m_morcalavin_anim.h" />
+    <ClInclude Include="game\m_mother.h" />
+    <ClInclude Include="game\m_mother_anim.h" />
+    <ClInclude Include="game\m_mssithra.h" />
+    <ClInclude Include="game\m_mssithra_anim.h" />
+    <ClInclude Include="game\m_ogle.h" />
+    <ClInclude Include="game\m_ogle_anim.h" />
+    <ClInclude Include="game\m_plagueElf.h" />
+    <ClInclude Include="game\m_plagueElf_anim.h" />
+    <ClInclude Include="game\m_plagueSsithra.h" />
+    <ClInclude Include="game\m_plagueSsithra_anim.h" />
+    <ClInclude Include="game\m_player.h" />
+    <ClInclude Include="game\m_priestess.h" />
+    <ClInclude Include="game\m_priestess_anim.h" />
+    <ClInclude Include="game\m_rat.h" />
+    <ClInclude Include="game\m_rat_anim.h" />
+    <ClInclude Include="game\m_seraph.h" />
+    <ClInclude Include="game\m_seraph_anim.h" />
+    <ClInclude Include="game\m_seraph_guard.h" />
+    <ClInclude Include="game\m_seraph_guard_anim.h" />
+    <ClInclude Include="game\m_spreader.h" />
+    <ClInclude Include="game\m_spreaderbomb_anim.h" />
+    <ClInclude Include="game\m_spreadermist.h" />
+    <ClInclude Include="game\m_spreader_anim.h" />
+    <ClInclude Include="game\m_stats.h" />
+    <ClInclude Include="game\m_tcheckrik.h" />
+    <ClInclude Include="game\m_tcheckrik_anim.h" />
+    <ClInclude Include="game\pcode.h" />
+    <ClInclude Include="game\p_funcs.h" />
+    <ClInclude Include="game\p_item.h" />
+    <ClInclude Include="game\q_shared.h" />
+    <ClInclude Include="game\Utilities.h" />
+    <ClInclude Include="h2common\Math\Angles.h" />
+    <ClInclude Include="h2common\Math\Matrix.h" />
+    <ClInclude Include="h2common\Math\Vector.h" />
+    <ClInclude Include="Player\Player.h" />
+    <ClInclude Include="Player\p_actions.h" />
+    <ClInclude Include="Player\p_animactor.h" />
+    <ClInclude Include="Player\p_anims.h" />
+    <ClInclude Include="Player\p_anim_branch.h" />
+    <ClInclude Include="Player\p_anim_data.h" />
+    <ClInclude Include="Player\p_chicken.h" />
+    <ClInclude Include="Player\p_ctrl.h" />
+    <ClInclude Include="Player\p_items.h" />
+    <ClInclude Include="Player\p_main.h" />
+    <ClInclude Include="Player\P_NewMove.h" />
+    <ClInclude Include="Player\p_types.h" />
+    <ClInclude Include="Player\p_weapon.h" />
+    <ClInclude Include="qcommon\Angles.h" />
+    <ClInclude Include="qcommon\anorms.h" />
+    <ClInclude Include="qcommon\ArrayedList.h" />
+    <ClInclude Include="qcommon\asm.h" />
+    <ClInclude Include="qcommon\cdaudio.h" />
+    <ClInclude Include="qcommon\cl_strings.h" />
+    <ClInclude Include="qcommon\cmodel.h" />
+    <ClInclude Include="qcommon\cmodel_private.h" />
+    <ClInclude Include="qcommon\compfmod.h" />
+    <ClInclude Include="qcommon\crc.h" />
+    <ClInclude Include="qcommon\EffectFlags.h" />
+    <ClInclude Include="qcommon\fc.h" />
+    <ClInclude Include="qcommon\flex.h" />
+    <ClInclude Include="qcommon\FX.h" />
+    <ClInclude Include="qcommon\GenericUnions.h" />
+    <ClInclude Include="qcommon\H2Common.h" />
+    <ClInclude Include="qcommon\items.h" />
+    <ClInclude Include="qcommon\LevelMaps.h" />
+    <ClInclude Include="qcommon\Matrix.h" />
+    <ClInclude Include="qcommon\Message.h" />
+    <ClInclude Include="qcommon\ModelJoints.h" />
+    <ClInclude Include="qcommon\motion.h" />
+    <ClInclude Include="qcommon\Placement.h" />
+    <ClInclude Include="qcommon\playeranim.h" />
+    <ClInclude Include="qcommon\PrimitiveDisplayHack.h" />
+    <ClInclude Include="qcommon\qcommon.h" />
+    <ClInclude Include="qcommon\qfiles.h" />
+    <ClInclude Include="qcommon\q_ClientServer.h" />
+    <ClInclude Include="qcommon\q_math.h" />
+    <ClInclude Include="qcommon\q_Physics.h" />
+    <ClInclude Include="qcommon\q_Sprite.h" />
+    <ClInclude Include="qcommon\q_Surface.h" />
+    <ClInclude Include="qcommon\q_Typedef.h" />
+    <ClInclude Include="qcommon\random.h" />
+    <ClInclude Include="qcommon\Reference.h" />
+    <ClInclude Include="qcommon\ResourceManager.h" />
+    <ClInclude Include="qcommon\SinglyLinkedList.h" />
+    <ClInclude Include="qcommon\Skeletons.h" />
+    <ClInclude Include="qcommon\surfaceprops.h" />
+    <ClInclude Include="qcommon\timing.h" />
+    <ClInclude Include="qcommon\tokens.h" />
+    <ClInclude Include="qcommon\Vector.h" />
+    <ClInclude Include="qcommon\VerifyA3D.h" />
+    <ClInclude Include="ref_common\fmodel.h" />
+    <ClInclude Include="ref_common\m_Reference.h" />
+    <ClInclude Include="ref_common\m_SkeletalCluster.h" />
+    <ClInclude Include="ref_common\m_Skeleton.h" />
+    <ClInclude Include="ref_common\part_uvs.h" />
+    <ClInclude Include="ref_common\qd_skeletons.h" />
+    <ClInclude Include="ref_common\q_fmodel.h" />
+    <ClInclude Include="ref_common\r_Skeletons.h" />
+    <ClInclude Include="ref_gl\anorms.h" />
+    <ClInclude Include="ref_gl\anormtab.h" />
+    <ClInclude Include="ref_gl\GL\eglew.h" />
+    <ClInclude Include="ref_gl\GL\glew.h" />
+    <ClInclude Include="ref_gl\GL\glxew.h" />
+    <ClInclude Include="ref_gl\GL\wglew.h" />
+    <ClInclude Include="ref_gl\gl_local.h" />
+    <ClInclude Include="ref_gl\gl_model.h" />
+    <ClInclude Include="ref_gl\qgl.h" />
+    <ClInclude Include="ref_gl\warpsin.h" />
+    <ClInclude Include="server\server.h" />
+    <ClInclude Include="win32\conproc.h" />
+    <ClInclude Include="win32\resource.h" />
+    <ClInclude Include="WinSnd\ALut\alutInternal.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="WinSnd\OpenAL\OpenAL32.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="win32\Resource.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

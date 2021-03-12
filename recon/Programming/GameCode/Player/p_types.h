@@ -247,8 +247,6 @@ typedef struct gitem_s
 	char		*icon;
 } gitem_t;
 
-#ifdef PLAYER_DLL
-
 extern PLAYER_API gitem_t *p_itemlist;
 extern PLAYER_API int p_num_items;
 
@@ -259,18 +257,6 @@ extern PLAYER_API gitem_t *FindItem(char *pickupname);
 extern PLAYER_API void InitItems(void);
 
 #define	ITEM_INDEX(x) GetItemIndex(x)
-
-#else
-
-extern int (*P_GetItemIndex)(gitem_t* x);
-extern gitem_t* (*P_GetItemByIndex)(int index);
-extern gitem_t* (*P_FindItemByClassname)(char *classname);
-extern gitem_t* (*P_FindItem)(char *pickupname);
-extern void (*P_InitItems)(void);
-
-#define	ITEM_INDEX(x) P_GetItemIndex(x)
-
-#endif	// PLAYER_DLL
 
 // ************************************************************************************************
 // inventory_t

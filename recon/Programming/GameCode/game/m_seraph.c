@@ -197,7 +197,7 @@ void seraph_startle(edict_t *self)
 void seraph_done_startle(edict_t *self)
 {
 	if (!FindTarget(self))
-		QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
+		G_QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
 }
 
 //Seraph has finished ANIM_GET2WORK, and must reset its enemy
@@ -247,16 +247,16 @@ void seraph_pause(edict_t *self)
 	switch (self->ai_mood)
 	{
 	case AI_MOOD_ATTACK:
-		QPostMessage(self, MSG_MELEE, PRI_DIRECTIVE, NULL);
+		G_QPostMessage(self, MSG_MELEE, PRI_DIRECTIVE, NULL);
 		break;
 	case AI_MOOD_PURSUE:
 	case AI_MOOD_NAVIGATE:
 	case AI_MOOD_WALK:
-		QPostMessage(self, MSG_RUN, PRI_DIRECTIVE, NULL);
+		G_QPostMessage(self, MSG_RUN, PRI_DIRECTIVE, NULL);
 		break;
 	case AI_MOOD_STAND:
 		if (!self->enemy)
-			QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
+			G_QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
 		break;//else what?
 
 	case AI_MOOD_DELAY:
@@ -284,7 +284,7 @@ void seraph_pause(edict_t *self)
 
 void seraph_check_mood (edict_t *self, G_Message_t *msg)
 {
-	ParseMsgParms(msg, "i", &self->ai_mood);
+	G_ParseMsgParms(msg, "i", &self->ai_mood);
 
 	seraph_pause(self);
 }
@@ -524,7 +524,7 @@ void seraph_death(edict_t *self, G_Message_t *msg)
 	float	damage;
 	int		soundID;
 
-	ParseMsgParms(msg, "eeei", &targ, &inflictor, &attacker, &damage);
+	G_ParseMsgParms(msg, "eeei", &targ, &inflictor, &attacker, &damage);
 
 	M_StartDeath(self, ANIM_DEATH1);
 
@@ -596,7 +596,7 @@ void seraph_run(edict_t *self, G_Message_t *msg)
 	}
 
 	//If our enemy is dead, we need to stand
-	QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
+	G_QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
 }
 
 //Classic melee attack function
@@ -643,7 +643,7 @@ void seraph_melee(edict_t *self, G_Message_t *msg)
 	}
 
 	//If our enemy is dead, we need to stand
-	QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
+	G_QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
 }
 
 //Take pain
@@ -653,7 +653,7 @@ void seraph_pain(edict_t *self, G_Message_t *msg)
 	int	temp, damage, soundID;
 	int	force_pain;
 
-	ParseMsgParms(msg, "eeiii", &temp, &attacker, &force_pain, &damage, &temp);
+	G_ParseMsgParms(msg, "eeiii", &temp, &attacker, &force_pain, &damage, &temp);
 
 	if(self->monsterinfo.awake)
 		self->ai_mood_flags &= ~AI_MOOD_FLAG_IGNORE;
@@ -1101,7 +1101,7 @@ void SP_monster_seraph_overlord(edict_t *self)
 
 	MG_InitMoods(self);
 
-	QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
+	G_QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
 
 	self->melee_range *= self->s.scale;
 }

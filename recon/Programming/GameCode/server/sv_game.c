@@ -29,10 +29,6 @@ game_export_t	*ge;
 int sv_numeffects = 0;
 PerEffectsBuffer_t SV_Persistant_Effects[MAX_PERSISTANT_EFFECTS];
 
-HINSTANCE game_module_handle;
-
-void Sys_LoadGameDll(const char* gamename, HINSTANCE* hinst, DWORD* chkSum);
-void Sys_UnloadGameDll(const char* name, HINSTANCE* hinst);
 void MSG_WriteData(sizebuf_t* sb, byte* data, int len);
 
 /*
@@ -318,7 +314,7 @@ void SV_ShutdownGameProgs (void)
 	if (!ge)
 		return;
 	ge->Shutdown ();
-	Sys_UnloadGameDll("game", &game_module_handle);
+	//Sys_UnloadGameDll("game", &game_module_handle);
 	ge = NULL;
 }
 
@@ -561,7 +557,6 @@ char* FS_Userdir(void) {
 void SV_InitGameProgs (void)
 {
 	game_import_t	import;
-	game_export_t* (*GetGameApi)(game_import_t * import);
 
 	// unload anything we have now
 	if (ge)
@@ -642,14 +637,12 @@ void SV_InitGameProgs (void)
 	import.FS_FreeFile = FS_FreeFile;
 	import.FS_Userdir = FS_Userdir;
 	import.FS_CreatePath = FS_CreatePath;
-	import.Sys_LoadGameDll = Sys_LoadGameDll;
-	import.Sys_UnloadGameDll = Sys_UnloadGameDll;
+	import.Sys_LoadGameDll = NULL;
+	import.Sys_UnloadGameDll = NULL;
 	import.ClearPersistantEffects = SV_ClearPersistantEffects;
 	import.Persistant_Effects_Array = &SV_Persistant_Effects;
 
-	Sys_LoadGameDll("gamex86.dll", &game_module_handle, NULL);
-	GetGameApi = (game_export_t * (__cdecl*)(game_import_t*))GetProcAddress(game_module_handle, "GetGameAPI");
-	ge = (game_export_t *)GetGameApi(&import);
+	ge = (game_export_t *)GetGameAPI(&import);
 
 	SV_ClearPersistantEffects();
 

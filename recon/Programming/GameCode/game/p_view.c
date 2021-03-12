@@ -393,7 +393,7 @@ void PlayerTimerUpdate(edict_t *ent)
 			
 			// Unset the skin.
 
-			P_PlayerUpdateModelAttributes(&ent->client->playerinfo);
+			PlayerUpdateModelAttributes(&ent->client->playerinfo);
 		}
 	}
 
@@ -437,19 +437,19 @@ void P_DamageFeedback (edict_t *player)
 	if (player->pain_debounce_time < level.time && client->damage_gas)
 	{
 		if ( client->playerinfo.loweridle && client->playerinfo.upperidle )
-			P_PlayerAnimSetLowerSeq(&client->playerinfo, ASEQ_PAIN_A);
+			PlayerAnimSetLowerSeq(&client->playerinfo, ASEQ_PAIN_A);
 
-		P_PlayerPlayPain(&client->playerinfo, 1);
+		PlayerPlayPain(&client->playerinfo, 1);
 	}
 	else if (((!irand(0, 4)) || count > 8) && (player->pain_debounce_time < level.time)) // Play pain animation.
 	{
 		if ( client->playerinfo.loweridle && client->playerinfo.upperidle )
-			P_PlayerAnimSetLowerSeq(&client->playerinfo, ASEQ_PAIN_A);
+			PlayerAnimSetLowerSeq(&client->playerinfo, ASEQ_PAIN_A);
 		
 		if (count <= 4)
-			P_PlayerPlayPain(&client->playerinfo, 2);
+			PlayerPlayPain(&client->playerinfo, 2);
 		else
-			P_PlayerPlayPain(&client->playerinfo, 0);
+			PlayerPlayPain(&client->playerinfo, 0);
 
 		player->pain_debounce_time = level.time + 0.5;
 	}
@@ -902,7 +902,7 @@ void ClientEndServerFrame (edict_t *ent)
 
 	SetupPlayerinfo(ent);
 	
-	P_PlayerFallingDamage(&ent->client->playerinfo);
+	PlayerFallingDamage(&ent->client->playerinfo);
 	P_DamageFeedback(ent);
 
 	WritePlayerinfo(ent);
@@ -920,7 +920,7 @@ void ClientEndServerFrame (edict_t *ent)
 
 	SetupPlayerinfo(ent);
 
-	P_PlayerUpdateCmdFlags(&ent->client->playerinfo);
+	PlayerUpdateCmdFlags(&ent->client->playerinfo);
 
 	if(BUOY_DEBUG) // Note this is a bit of a hack
 	{
@@ -930,8 +930,8 @@ void ClientEndServerFrame (edict_t *ent)
 		}
 	}
 	
-	P_PlayerUpdate(&ent->client->playerinfo);
-	P_AnimUpdateFrame(&ent->client->playerinfo);
+	PlayerUpdate(&ent->client->playerinfo);
+	AnimUpdateFrame(&ent->client->playerinfo);
 	PlayerTimerUpdate(ent);
 
 	WritePlayerinfo(ent);

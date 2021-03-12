@@ -652,21 +652,21 @@ void ogle_pause(edict_t *self)
 	switch (self->ai_mood)
 	{
 	case AI_MOOD_ATTACK:
-		QPostMessage(self, MSG_MELEE, PRI_DIRECTIVE, NULL);
+		G_QPostMessage(self, MSG_MELEE, PRI_DIRECTIVE, NULL);
 		break;
 	
 	case AI_MOOD_FLEE:
 	case AI_MOOD_PURSUE:
 	case AI_MOOD_NAVIGATE:
 		if (self->enemy)
-			QPostMessage(self, MSG_RUN, PRI_DIRECTIVE, NULL);
+			G_QPostMessage(self, MSG_RUN, PRI_DIRECTIVE, NULL);
 
 		break;
 	case AI_MOOD_WALK:
-		QPostMessage(self, MSG_WALK, PRI_DIRECTIVE, NULL);
+		G_QPostMessage(self, MSG_WALK, PRI_DIRECTIVE, NULL);
 		break;
 	case AI_MOOD_STAND:
-		QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
+		G_QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
 		break;
 
 	case AI_MOOD_DELAY:
@@ -956,7 +956,7 @@ void ogle_pain (edict_t *self, G_Message_t *msg)
 
 	chance = irand(0,100);
 	
-	ParseMsgParms(msg, "eeiii", &targ, &attacker, &force_pain, &damage, &temp);
+	G_ParseMsgParms(msg, "eeiii", &targ, &attacker, &force_pain, &damage, &temp);
 
 //	if (attacker->client)
 //	{
@@ -968,7 +968,7 @@ void ogle_pain (edict_t *self, G_Message_t *msg)
 			self->monsterinfo.aiflags |= AI_COWARD;
 			self->ai_mood = AI_MOOD_FLEE;
 			
-			QPostMessage(self, MSG_RUN, PRI_DIRECTIVE, NULL);
+			G_QPostMessage(self, MSG_RUN, PRI_DIRECTIVE, NULL);
 			return;
 		}
 		*/
@@ -1207,7 +1207,7 @@ void ogle_death(edict_t *self, G_Message_t *msg)
 	float	damage;
 	vec3_t	dVel, vf, yf;
 
-	ParseMsgParms(msg, "eeei", &targ, &inflictor, &attacker, &damage);
+	G_ParseMsgParms(msg, "eeei", &targ, &inflictor, &attacker, &damage);
 
 	M_StartDeath(self, ANIM_DEATH1);
 	
@@ -1489,7 +1489,7 @@ void ogle_run1(edict_t *self, G_Message_t *msg)
 		return;
 	}
 	
-	QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
+	G_QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
 }
 
 void ogle_check_leadsong (edict_t *self)

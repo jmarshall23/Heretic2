@@ -298,7 +298,7 @@ qboolean MG_GoToRandomBuoy(edict_t *self)
 	self->ai_mood_flags|=AI_MOOD_FLAG_FORCED_BUOY;
 	self->forced_buoy = found_buoy->id;
 
-	QPostMessage(self, MSG_RUN,PRI_DIRECTIVE, NULL);
+	G_QPostMessage(self, MSG_RUN,PRI_DIRECTIVE, NULL);
 
 	MG_RemoveBuoyEffects(self);
 	MG_MakeConnection(self, NULL, false);
@@ -1790,7 +1790,7 @@ void MG_Pathfind(edict_t *self, qboolean check_clear_path)
 					MG_MonsterFirePathTarget(self, current_buoy->pathtarget);
 					if (current_buoy->delay)
 					{
-						QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
+						G_QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
 						self->ai_mood = AI_MOOD_DELAY;
 						self->mood_nextthink = level.time + current_buoy->delay;
 						return;
@@ -1812,7 +1812,7 @@ void MG_Pathfind(edict_t *self, qboolean check_clear_path)
 					self->ai_mood_flags &= ~AI_MOOD_FLAG_GOTO_STAND;
 					self->enemy = NULL;
 					self->ai_mood = AI_MOOD_STAND;
-					QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, "");
+					G_QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, "");
 					return;
 				}
 
@@ -1863,7 +1863,7 @@ void MG_Pathfind(edict_t *self, qboolean check_clear_path)
 					else
 					{
 						self->ai_mood = AI_MOOD_STAND;
-						QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, "");
+						G_QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, "");
 					}
 					return;
 				}
@@ -1907,7 +1907,7 @@ void MG_Pathfind(edict_t *self, qboolean check_clear_path)
 							self->ai_mood = AI_MOOD_JUMP;//don't technically need this line
 							self->mood_nextthink = level.time + 0.5;
 							//as an alternative, call self->forced_jump(self);
-							QPostMessage(self, MSG_CHECK_MOOD, PRI_DIRECTIVE, "i", AI_MOOD_JUMP);
+							G_QPostMessage(self, MSG_CHECK_MOOD, PRI_DIRECTIVE, "i", AI_MOOD_JUMP);
 							return;
 						}
 					}
@@ -2147,7 +2147,7 @@ void MG_BuoyNavigate(edict_t *self)
 				{
 					self->ai_mood = AI_MOOD_NAVIGATE;
 
-					QPostMessage(self, MSG_WALK,PRI_DIRECTIVE, NULL);
+					G_QPostMessage(self, MSG_WALK,PRI_DIRECTIVE, NULL);
 
 					MG_RemoveBuoyEffects(self);
 				}
@@ -2209,7 +2209,7 @@ void MG_GenericMoodSet(edict_t *self)
 	qboolean	found = false;
 	qboolean	melee_go = false;
 	int			i;
-	buoy_t		*found_buoy;
+	buoy_t		*found_buoy = NULL;
 	qboolean	valid_enemy = false;
 
 	if(!level.active_buoys)
@@ -2348,7 +2348,7 @@ void MG_GenericMoodSet(edict_t *self)
 					{
 						self->ai_mood = AI_MOOD_NAVIGATE;
 
-						QPostMessage(self, MSG_WALK,PRI_DIRECTIVE, NULL);
+						G_QPostMessage(self, MSG_WALK,PRI_DIRECTIVE, NULL);
 
 						MG_RemoveBuoyEffects(self);
 					}

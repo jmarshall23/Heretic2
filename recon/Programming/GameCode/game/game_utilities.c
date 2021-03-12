@@ -226,7 +226,7 @@ void reinstate_non_cinematic_entites(edict_t *owner)
 
 			// since we messed around with model stuff, like armor nodes and the like, lets update the model.
 			SetupPlayerinfo_effects(ent);
-			P_PlayerUpdateModelAttributes(&ent->client->playerinfo);
+			PlayerUpdateModelAttributes(&ent->client->playerinfo);
 			WritePlayerinfo_effects(ent);
 
 		}
@@ -884,7 +884,7 @@ void PostKnockBack(edict_t *target, vec3_t dir, float knockback, int flags)
 
 	CalculateKnockBack(dir, knockback, flags, target->mass, vel);
 
-	QPostMessage(target, G_MSG_KNOCKEDBACK, PRI_PHYSICS, "fffi", vel[0], vel[1], vel[2], flags);
+	G_QPostMessage(target, G_MSG_KNOCKEDBACK, PRI_PHYSICS, "fffi", vel[0], vel[1], vel[2], flags);
 }
 
 

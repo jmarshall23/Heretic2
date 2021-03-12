@@ -175,7 +175,7 @@ void G_Message_DefaultCon(G_Message_t *this_ptr);
 G_Message_t *G_Message_new(G_MsgID_t ID, G_MsgPriority_t priority);
 void G_Message_delete(G_Message_t *this_ptr);
 
-void QPostMessage(struct edict_s *to, G_MsgID_t ID, G_MsgPriority_t priority, char *format, ...);
+void G_QPostMessage(struct edict_s *to, G_MsgID_t ID, G_MsgPriority_t priority, char *format, ...);
 
 #ifdef __cplusplus
 
@@ -186,8 +186,8 @@ extern "C"
 
 #endif
 
-int ParseMsgParms(G_Message_t *this_ptr, char *format, ...);
-void ProcessMessages(struct edict_s *this_ptr);
-void ClearMessageQueue(struct edict_s *this_ptr);
+int G_ParseMsgParms(G_Message_t *this_ptr, char *format, ...);
+void G_ProcessMessages(struct edict_s *this_ptr);
+void G_ClearMessageQueue(struct edict_s *this_ptr);
 
 #endif

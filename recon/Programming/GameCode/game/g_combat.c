@@ -251,7 +251,7 @@ void SpawnReward(edict_t *self, edict_t *attacker)
 	health_chance = (attacker->health < attacker->max_health) ? ( (float) attacker->health / (float) attacker->max_health) : 9999;
 
 	//Check the offensive mana amount on the attacker
-	lookup = P_FindItemByClassname("item_mana_offensive_half");
+	lookup = FindItemByClassname("item_mana_offensive_half");
 	index = ITEM_INDEX(lookup);
 	off_max = attacker->client->playerinfo.pers.max_offmana;
 	off_amount = attacker->client->playerinfo.pers.inventory.Items[index];
@@ -259,7 +259,7 @@ void SpawnReward(edict_t *self, edict_t *attacker)
 	off_chance = (off_amount < off_max) ? ( (float) off_amount / (float) off_max ) : 9999;
 
 	//Check the offensive mana amount on the attacker
-	lookup = P_FindItemByClassname("item_mana_defensive_half");
+	lookup = FindItemByClassname("item_mana_defensive_half");
 	index = ITEM_INDEX(lookup);
 	def_max = attacker->client->playerinfo.pers.max_defmana;
 	def_amount = attacker->client->playerinfo.pers.inventory.Items[index];
@@ -296,7 +296,7 @@ void SpawnReward(edict_t *self, edict_t *attacker)
 	}
 
 	//We know what we want to give them, so create it!
-	item = P_FindItemByClassname(item_name);
+	item = FindItemByClassname(item_name);
 
 	newitem = G_Spawn();
 
@@ -377,7 +377,7 @@ void Killed (edict_t *targ, edict_t *inflictor, edict_t *attacker, int damage, v
 			}
 			else
 			{
-				QPostMessage(targ,MSG_DEATH,PRI_DIRECTIVE,"eeei",targ,inflictor,attacker,damage);
+				G_QPostMessage(targ,MSG_DEATH,PRI_DIRECTIVE,"eeei",targ,inflictor,attacker,damage);
 			}
 		}
 		return;
@@ -409,7 +409,7 @@ void Killed (edict_t *targ, edict_t *inflictor, edict_t *attacker, int damage, v
 			targ->die(targ, inflictor, attacker, damage, vec3_origin);
 		}
 		else
-			QPostMessage(targ,MSG_DEATH,PRI_DIRECTIVE,"eeei",targ,inflictor,attacker,damage);
+			G_QPostMessage(targ,MSG_DEATH,PRI_DIRECTIVE,"eeei",targ,inflictor,attacker,damage);
 	}
 	
 	if(Vec3IsZero(targ->velocity) && (damage != 12345))
@@ -807,7 +807,7 @@ void T_Damage(edict_t *targ, edict_t *inflictor, edict_t *attacker, vec3_t pdir,
 				targ->client->playerinfo.pers.armor_count = 0;
 
 				SetupPlayerinfo_effects(targ);
-				P_PlayerUpdateModelAttributes(&targ->client->playerinfo);
+				PlayerUpdateModelAttributes(&targ->client->playerinfo);
 				WritePlayerinfo_effects(targ);
 
 				// Play the out-of-armor sound.
@@ -1087,7 +1087,7 @@ void T_Damage(edict_t *targ, edict_t *inflictor, edict_t *attacker, vec3_t pdir,
 				if(targ->client)
 					player_dismember(targ, attacker, dsm_dmg, hl);
 				else
-					QPostMessage(targ, MSG_DISMEMBER, PRI_DIRECTIVE, "ii", dsm_dmg, hl);
+					G_QPostMessage(targ, MSG_DISMEMBER, PRI_DIRECTIVE, "ii", dsm_dmg, hl);
 			}
 		}
 
@@ -1112,7 +1112,7 @@ void T_Damage(edict_t *targ, edict_t *inflictor, edict_t *attacker, vec3_t pdir,
 					else if(violence > VIOLENCE_BLOOD)
 					{
 						hl|=hl_MeleeHit;//force dismember
-						QPostMessage(targ, MSG_DEATH_PAIN, PRI_DIRECTIVE,"ii", take, hl);
+						G_QPostMessage(targ, MSG_DEATH_PAIN, PRI_DIRECTIVE,"ii", take, hl);
 					}
 				}
 				return;
@@ -1164,9 +1164,9 @@ void T_Damage(edict_t *targ, edict_t *inflictor, edict_t *attacker, vec3_t pdir,
 			(targ->pain_debounce_time  < level.time))
 		{
 			if(targ->classID == CID_ASSASSIN)
-				QPostMessage(targ,MSG_PAIN,PRI_DIRECTIVE,"eeiii", inflictor, attacker, force_pain, take, hl);
+				G_QPostMessage(targ,MSG_PAIN,PRI_DIRECTIVE,"eeiii", inflictor, attacker, force_pain, take, hl);
 			else
-				QPostMessage(targ,MSG_PAIN,PRI_DIRECTIVE,"eeiii", targ, attacker, force_pain, take, hl);
+				G_QPostMessage(targ,MSG_PAIN,PRI_DIRECTIVE,"eeiii", targ, attacker, force_pain, take, hl);
 			
 			// In Nightmare skill-level, monsters don't go into pain frames often.
 
@@ -1177,7 +1177,7 @@ void T_Damage(edict_t *targ, edict_t *inflictor, edict_t *attacker, vec3_t pdir,
 	else if (client)
 	{
 		if (!(targ->flags & FL_GODMODE) && (take))
-			QPostMessage(targ,MSG_PAIN,PRI_DIRECTIVE,"eeiii", targ, attacker, knockback, take, hl);
+			G_QPostMessage(targ,MSG_PAIN,PRI_DIRECTIVE,"eeiii", targ, attacker, knockback, take, hl);
 	}
 	else if (take)
 	{
@@ -1190,7 +1190,7 @@ void T_Damage(edict_t *targ, edict_t *inflictor, edict_t *attacker, vec3_t pdir,
 				targ->pain(targ, attacker, knockback, take);//pass spot too
 			}
 			else
-				QPostMessage(targ,MSG_PAIN,PRI_DIRECTIVE,"eeiii", targ, attacker, knockback, take, hl);
+				G_QPostMessage(targ,MSG_PAIN,PRI_DIRECTIVE,"eeiii", targ, attacker, knockback, take, hl);
 		}
 	}
 

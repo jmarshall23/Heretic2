@@ -19,7 +19,9 @@ template<class T> size_t tRead(T *ptr,FILE *FH,int n=1)
 	return fread(ptr,n,sizeof(T),FH);
 }
 
-
+extern "C" {
+	void Use_Multi(edict_t* self, edict_t* other, edict_t* activator);
+};
 
 
 
@@ -2554,7 +2556,7 @@ Variable *CScript::HandleBuiltinFunction(void)
 	int			Index;
 	edict_t		*Search;
 	Variable	*V1;
-	Variable	*Var;
+	Variable	*Var = NULL;
 
 	Index = ReadByte();
 	switch(Index)
@@ -2608,7 +2610,7 @@ Variable *CScript::HandleBuiltinFunction(void)
 void CScript::HandlePush(void)
 {
 	int			Type;
-	Variable	*Var;
+	Variable	*Var = NULL;
 
 	Type = ReadByte();
 	switch(Type)

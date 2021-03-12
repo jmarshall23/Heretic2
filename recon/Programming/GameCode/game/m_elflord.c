@@ -842,7 +842,7 @@ void SP_monster_elflord (edict_t *self)
 
 	self->s.scale = 2.0;
 
-	QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
+	G_QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
 
 	self->next_pre_think = level.time + 0.1;
 

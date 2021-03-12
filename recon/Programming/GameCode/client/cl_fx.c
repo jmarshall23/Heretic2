@@ -32,14 +32,14 @@ predictinfo_t predictInfo;
 EffectsBuffer_t clientPredEffects;
 float PlayerAlpha = 1.0f;
 
+client_fx_export_t GetfxAPI(client_fx_import_t import);
+
 typedef struct sfx_t;
 
 void CL_LogoutEffect (vec3_t org, int type);
 void CL_ItemRespawnParticles (vec3_t org);
 
 ResourceManager_t FXBufMgnr;
-
-HINSTANCE clgame_module_handle = NULL;
 
 static vec3_t avelocities [NUMVERTEXNORMALS];
 
@@ -52,11 +52,10 @@ void Sys_UnloadGameDll(const char* name, HINSTANCE* hinst);
 void S_StartSound(vec3_t origin, int entnum, int entchannel, void* sfx, float fvol, int attenuation, float timeofs);
 void* S_RegisterSound(char* name);
 int CL_GetEffect(centity_t* ent, int flags, char* format, ...) { return 0; }
-client_fx_export_t (*GetfxAPI)(client_fx_import_t import);
 
 void CL_ShutdownClientEffects()
 {
-	Sys_UnloadGameDll("client effects", &clgame_module_handle);
+	fxe.ShutDown();
 }
 
 qboolean InCameraPVS(vec3_t point) {
@@ -97,12 +96,9 @@ int CL_InitClientEffects(const char* name)
 	DWORD chkSum; // [esp+0h] [ebp-4h] BYREF
 	static client_fx_import_t cl_game_import;
 
-	if (clgame_module_handle)
-		CL_ShutdownClientEffects();
 
 	Com_Printf("------ Loading %s ------\n", name);
 
-	Sys_LoadGameDll(name, &clgame_module_handle, &chkSum);
 	cl_game_import.cl_predict = cl_predict;
 	cl_game_import.cl = &cl;
 	cl_game_import.cls = &cls;
@@ -141,10 +137,6 @@ int CL_InitClientEffects(const char* name)
 	cl_game_import.FindSurface = re.FindSurface;
 	cl_game_import.GetReferencedID = re.GetReferencedID;
 
-	GetfxAPI = (client_fx_export_t(__cdecl*)(client_fx_import_t))GetProcAddress(clgame_module_handle, "GetfxAPI");
-	if (!GetfxAPI)
-		Com_Error(0, "GetProcAddress failed on %s", name);
-
 	fxe = GetfxAPI(cl_game_import);
 	if (fxe.api_version != 3)
 	{
@@ -158,71 +150,6 @@ int CL_InitClientEffects(const char* name)
 	fxe.Init();
 
 	return result;
-}
-
-/*
-==============================================================
-
-LIGHT STYLE MANAGEMENT
-
-==============================================================
-*/
-
-typedef struct
-{
-	int		length;
-	float	value[3];
-	float	map[MAX_QPATH];
-} clightstyle_t;
-
-clightstyle_t	cl_lightstyle[MAX_LIGHTSTYLES];
-int			lastofs;
-
-/*
-================
-CL_ClearLightStyles
-================
-*/
-void CL_ClearLightStyles (void)
-{
-	memset (cl_lightstyle, 0, sizeof(cl_lightstyle));
-	lastofs = -1;
-}
-
-/*
-================
-CL_RunLightStyles
-================
-*/
-void CL_RunLightStyles (void)
-{
-	int		ofs;
-	int		i;
-	clightstyle_t	*ls;
-
-	ofs = cl.time / 100;
-	if (ofs == lastofs)
-		return;
-	lastofs = ofs;
-
-	for (i=0,ls=cl_lightstyle ; i<MAX_LIGHTSTYLES ; i++, ls++)
-	{
-		if (!ls->length)
-		{
-			ls->value[0] = ls->value[1] = ls->value[2] = 1.0;
-			continue;
-		}
-		if (ls->length == 1)
-			ls->value[0] = ls->value[1] = ls->value[2] = ls->map[0];
-		else
-			ls->value[0] = ls->value[1] = ls->value[2] = ls->map[ofs%ls->length];
-	}
-}
-
-
-void CL_SetLightstyle (int i)
-{
-	fxe.SetLightstyle(i);
 }
 
 /*

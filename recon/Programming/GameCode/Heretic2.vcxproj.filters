@@ -1,0 +1,1769 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Player">
+      <UniqueIdentifier>{bb3f875c-17f1-4c5c-bfc9-43b1f7dbbabe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game">
+      <UniqueIdentifier>{751c4b03-2970-4d93-9746-31b392792f1c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Client Effects">
+      <UniqueIdentifier>{e8e80c56-34ac-4b7b-9e54-d573cd5275c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="h2common">
+      <UniqueIdentifier>{f4779b92-a16b-484b-b4d0-6366d911a33a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="h2common\Math">
+      <UniqueIdentifier>{ebaf0956-e5b5-4b50-b024-e4dc3dfcd203}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ref_common">
+      <UniqueIdentifier>{aab82a6d-eb89-42e5-9381-c0023b1e0d5b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ref_gl">
+      <UniqueIdentifier>{85efc3da-4daf-4287-8bcd-8b8f6b0ff5c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ref_gl\GL">
+      <UniqueIdentifier>{873c876c-eb7a-4f15-a71b-75221799a67b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="server">
+      <UniqueIdentifier>{c2709b4a-35f9-4ef4-a29f-7cf4adc4a83e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WinSnd">
+      <UniqueIdentifier>{a767598c-0087-49a9-910c-97c409740b2c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WinSnd\ALut">
+      <UniqueIdentifier>{eab5c993-100c-4fb5-be97-294ccafa119a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="client">
+      <UniqueIdentifier>{3c219d86-d739-4f91-80b0-754963d54d36}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="qcommon">
+      <UniqueIdentifier>{9a2feb37-ce34-41a6-993d-fd0f5e1afeb0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="win32">
+      <UniqueIdentifier>{5f7c0a9b-8c64-4418-a458-c2bec47b0451}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Player\p_weapon.c">
+      <Filter>Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Player\p_actions.c">
+      <Filter>Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Player\p_anim_branch.c">
+      <Filter>Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Player\p_anim_data.c">
+      <Filter>Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Player\p_animactor.c">
+      <Filter>Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Player\p_anims.c">
+      <Filter>Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Player\p_chicken.c">
+      <Filter>Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Player\p_chicken_anim.c">
+      <Filter>Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Player\p_ctrl.c">
+      <Filter>Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Player\p_items.c">
+      <Filter>Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Player\p_main.c">
+      <Filter>Player</Filter>
+    </ClCompile>
+    <ClCompile Include="game\buoy.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\c_ai.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\c_corvus1.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\c_corvus1_anim.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\c_corvus2.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\c_corvus2_anim.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\c_corvus3.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\c_corvus3_anim.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\c_corvus4.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\c_corvus4_anim.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\c_corvus5.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\c_corvus5_anim.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\c_corvus6.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\c_corvus6_anim.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\c_corvus7.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\c_corvus7_anim.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\c_corvus8.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\c_corvus8_anim.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\c_corvus9.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\c_corvus9_anim.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\c_dranor.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\c_dranor_anim.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\c_elflord.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\c_elflord_anim.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\c_morcalavin.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\c_morcalavin_anim.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\c_priestess.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\c_priestess_anim.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\c_priestess2.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\c_priestess2_anim.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\c_siernan1.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\c_siernan1_anim.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\c_siernan2.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\c_siernan2_anim.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\c_ssithrascout.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\c_ssithrascout_anim.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\c_tome.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\c_tome_anim.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\c_victimSsithra.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\c_victimSsithra_anim.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\decals.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\ds.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\g_ai.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\g_breakable.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\g_ClassStatics.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\g_cmds.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\g_combat.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\g_DefaultMessageHandler.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\g_env.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\g_field.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\g_flamethrow.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\g_func.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\g_HitLocation.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\g_items.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\g_light.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\g_main.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\g_Message.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\g_misc.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\g_monster.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\g_obj.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\g_phys.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\g_Physics.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\g_ResourceManagers.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\g_rope.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\g_save.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\g_shrine.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\g_Skeletons.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\g_spawn.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\g_spawnf.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\g_svcmds.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\g_target.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\g_trigger.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\g_utils.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\g_waterfx.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\g_weapon.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\m_assassin.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\m_assassin_anim.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\m_beast.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\m_beast_anim.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\m_bee.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\m_chicken.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\m_chicken_anim.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\m_elflord.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\m_elflord_anims.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\m_fish.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\m_fish_anim.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\m_FMtest.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\m_gkrokon.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\m_gkrokon_anim.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\m_gorgon.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\m_gorgon_anim.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\m_harpy.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\m_harpy_anim.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\m_imp.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\m_imp_anim.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\m_morcalavin.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\m_morcalavin_anim.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\m_mother.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\m_mother_anim.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\m_move.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\m_mssithra.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\m_mssithra_anim.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\m_ogle.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\m_ogle_anim.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\m_plagueElf.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\m_plagueElf_anim.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\m_plagueSsithra.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\m_plagueSsithra_anim.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\m_priestess.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\m_priestess_anim.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\m_rat.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\m_rat_anim.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\m_seraph.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\m_seraph_anim.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\m_seraph_guard.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\m_seraph_guard_anim.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\m_spreader.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\m_spreader_anim.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\m_spreadermist.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\m_stats.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\m_tcheckrik.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\m_tcheckrik_anim.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\m_tcheckrik_spells.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="qcommon\Message.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\mg_ai.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\mg_guide.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\p_client.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="qcommon\p_dll.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\p_funcs.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\p_hud.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\p_item.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\p_view.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\Script.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="qcommon\Skeletons.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\spl_blast.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\spl_BlueRing.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\spl_flyingfist.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\spl_HellStaff.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\spl_maceballs.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\spl_magicmissile.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\spl_meteorbarrier.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\spl_morph.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\spl_Phoenix.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\spl_powerup.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\spl_RedRain.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\spl_ripper.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\spl_shield.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\spl_sphereofannihlation.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\spl_teleport.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\spl_tornado.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\spl_wall.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\q_shared.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\g_items_pickups.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\g_MoveInfo.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\g_PhysicsInfo.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\g_StateInfo.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\GameEntity.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\Ambient Effects.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\ce_DefaultMessageHandler.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\ce_DLight.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\ce_Message.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\cl_fx.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\Client Effects.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\Client Entities.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\Font1.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\Font2.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\fx_AmmoPickup.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\fx_animate.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\fx_assassin.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\fx_blood.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\fx_BlueRing.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\fx_bubbler.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\fx_crosshair.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\fx_cwatcher.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\fx_debris.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\fx_DefensePickup.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\fx_Dripper.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\fx_dust.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\fx_dustpuff.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\fx_fire.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\fx_firehands.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\fx_flamethrow.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\fx_flyingfist.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\fx_Fountain.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\fx_halo.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\fx_HealthPickup.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\fx_HellStaff.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\fx_hitpuff.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\fx_hpproj.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\fx_insectstaff.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\fx_lensflare.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\fx_lightning.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\fx_Maceball.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\fx_magicmissile.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\fx_meteorbarrier.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\fx_mist.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\fx_mork.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\fx_Morph.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\fx_objects.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\fx_pespell.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\fx_Phoenix.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\fx_pickup.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\fx_pickuppuzzle.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\fx_PlagueMist.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\fx_PlagueMistExplode.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\fx_portal.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\fx_quake.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\fx_RedRain.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\fx_redrainglow.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\fx_remotecamera.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\fx_Ripples.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\fx_rope.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\fx_scorchmark.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\fx_shadow.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\fx_Shield.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\fx_shrine.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\fx_smoke.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\fx_sound.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\fx_sparks.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\fx_spellchange.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\fx_spellhands.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\fx_sphereofannihlation.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\fx_spoo.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\fx_ssarrow.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\fx_ssithra.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\fx_staff.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\fx_tbeast.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\fx_teleport.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\fx_tome.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\fx_tornado.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\fx_Wall.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\fx_waterentrysplash.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\fx_waterwake.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\fx_WeaponPickup.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\Generic Character Effects.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\Generic Weapon Effects.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\Item Effects.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\LevelMaps.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\LightStyles.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\Main.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\Monster Weapon Effects.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\Particle.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\Player Effects.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\TestEffect.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="client effects\Utilities.c">
+      <Filter>Client Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="h2common\Math\Martix.cpp">
+      <Filter>h2common\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="h2common\H2Console.c">
+      <Filter>h2common</Filter>
+    </ClCompile>
+    <ClCompile Include="h2common\H2Math.c">
+      <Filter>h2common</Filter>
+    </ClCompile>
+    <ClCompile Include="h2common\H2Matrix.cpp">
+      <Filter>h2common</Filter>
+    </ClCompile>
+    <ClCompile Include="h2common\H2Motion.c">
+      <Filter>h2common</Filter>
+    </ClCompile>
+    <ClCompile Include="h2common\H2Palette.c">
+      <Filter>h2common</Filter>
+    </ClCompile>
+    <ClCompile Include="h2common\H2Physics.c">
+      <Filter>h2common</Filter>
+    </ClCompile>
+    <ClCompile Include="h2common\H2Rand.c">
+      <Filter>h2common</Filter>
+    </ClCompile>
+    <ClCompile Include="h2common\H2SinglyLinkedList.c">
+      <Filter>h2common</Filter>
+    </ClCompile>
+    <ClCompile Include="h2common\H2Surfaces.c">
+      <Filter>h2common</Filter>
+    </ClCompile>
+    <ClCompile Include="h2common\H2Vector.c">
+      <Filter>h2common</Filter>
+    </ClCompile>
+    <ClCompile Include="qcommon\ResourceManager.cpp">
+      <Filter>h2common</Filter>
+    </ClCompile>
+    <ClCompile Include="ref_common\r_Skeletons.c">
+      <Filter>ref_common</Filter>
+    </ClCompile>
+    <ClCompile Include="win32\qgl_win.c">
+      <Filter>ref_gl</Filter>
+    </ClCompile>
+    <ClCompile Include="ref_gl\gl_book.c">
+      <Filter>ref_gl</Filter>
+    </ClCompile>
+    <ClCompile Include="ref_gl\gl_draw.c">
+      <Filter>ref_gl</Filter>
+    </ClCompile>
+    <ClCompile Include="ref_gl\gl_fmodel.c">
+      <Filter>ref_gl</Filter>
+    </ClCompile>
+    <ClCompile Include="ref_gl\gl_image.c">
+      <Filter>ref_gl</Filter>
+    </ClCompile>
+    <ClCompile Include="ref_gl\gl_light.c">
+      <Filter>ref_gl</Filter>
+    </ClCompile>
+    <ClCompile Include="ref_gl\gl_math.c">
+      <Filter>ref_gl</Filter>
+    </ClCompile>
+    <ClCompile Include="ref_gl\gl_mesh.c">
+      <Filter>ref_gl</Filter>
+    </ClCompile>
+    <ClCompile Include="ref_gl\gl_model.c">
+      <Filter>ref_gl</Filter>
+    </ClCompile>
+    <ClCompile Include="ref_gl\gl_movie.c">
+      <Filter>ref_gl</Filter>
+    </ClCompile>
+    <ClCompile Include="ref_gl\gl_rmain.c">
+      <Filter>ref_gl</Filter>
+    </ClCompile>
+    <ClCompile Include="ref_gl\gl_rmisc.c">
+      <Filter>ref_gl</Filter>
+    </ClCompile>
+    <ClCompile Include="ref_gl\gl_rsurf.c">
+      <Filter>ref_gl</Filter>
+    </ClCompile>
+    <ClCompile Include="ref_gl\gl_warp.c">
+      <Filter>ref_gl</Filter>
+    </ClCompile>
+    <ClCompile Include="ref_gl\glew.c">
+      <Filter>ref_gl</Filter>
+    </ClCompile>
+    <ClCompile Include="win32\glw_imp.c">
+      <Filter>ref_gl</Filter>
+    </ClCompile>
+    <ClCompile Include="win32\q_shwin.c">
+      <Filter>ref_gl</Filter>
+    </ClCompile>
+    <ClCompile Include="server\sv_ccmds.c">
+      <Filter>server</Filter>
+    </ClCompile>
+    <ClCompile Include="server\sv_ents.c">
+      <Filter>server</Filter>
+    </ClCompile>
+    <ClCompile Include="server\sv_game.c">
+      <Filter>server</Filter>
+    </ClCompile>
+    <ClCompile Include="server\sv_init.c">
+      <Filter>server</Filter>
+    </ClCompile>
+    <ClCompile Include="server\sv_main.c">
+      <Filter>server</Filter>
+    </ClCompile>
+    <ClCompile Include="server\sv_send.c">
+      <Filter>server</Filter>
+    </ClCompile>
+    <ClCompile Include="server\sv_user.c">
+      <Filter>server</Filter>
+    </ClCompile>
+    <ClCompile Include="server\sv_world.c">
+      <Filter>server</Filter>
+    </ClCompile>
+    <ClCompile Include="WinSnd\s_eax.cpp">
+      <Filter>WinSnd</Filter>
+    </ClCompile>
+    <ClCompile Include="WinSnd\s_main.cpp">
+      <Filter>WinSnd</Filter>
+    </ClCompile>
+    <ClCompile Include="WinSnd\ALut\alutBufferData.c">
+      <Filter>WinSnd\ALut</Filter>
+    </ClCompile>
+    <ClCompile Include="WinSnd\ALut\alutCodec.c">
+      <Filter>WinSnd\ALut</Filter>
+    </ClCompile>
+    <ClCompile Include="WinSnd\ALut\alutError.c">
+      <Filter>WinSnd\ALut</Filter>
+    </ClCompile>
+    <ClCompile Include="WinSnd\ALut\alutInit.c">
+      <Filter>WinSnd\ALut</Filter>
+    </ClCompile>
+    <ClCompile Include="WinSnd\ALut\alutInputStream.c">
+      <Filter>WinSnd\ALut</Filter>
+    </ClCompile>
+    <ClCompile Include="WinSnd\ALut\alutLoader.c">
+      <Filter>WinSnd\ALut</Filter>
+    </ClCompile>
+    <ClCompile Include="WinSnd\ALut\alutOutputStream.c">
+      <Filter>WinSnd\ALut</Filter>
+    </ClCompile>
+    <ClCompile Include="WinSnd\ALut\alutUtil.c">
+      <Filter>WinSnd\ALut</Filter>
+    </ClCompile>
+    <ClCompile Include="WinSnd\ALut\alutVersion.c">
+      <Filter>WinSnd\ALut</Filter>
+    </ClCompile>
+    <ClCompile Include="WinSnd\ALut\alutWaveform.c">
+      <Filter>WinSnd\ALut</Filter>
+    </ClCompile>
+    <ClCompile Include="client\cl_cin.c">
+      <Filter>client</Filter>
+    </ClCompile>
+    <ClCompile Include="client\cl_ents.c">
+      <Filter>client</Filter>
+    </ClCompile>
+    <ClCompile Include="client\cl_fx.c">
+      <Filter>client</Filter>
+    </ClCompile>
+    <ClCompile Include="client\cl_input.c">
+      <Filter>client</Filter>
+    </ClCompile>
+    <ClCompile Include="client\cl_inv.c">
+      <Filter>client</Filter>
+    </ClCompile>
+    <ClCompile Include="client\cl_main.c">
+      <Filter>client</Filter>
+    </ClCompile>
+    <ClCompile Include="client\cl_parse.c">
+      <Filter>client</Filter>
+    </ClCompile>
+    <ClCompile Include="client\cl_pred.c">
+      <Filter>client</Filter>
+    </ClCompile>
+    <ClCompile Include="client\cl_scrn.c">
+      <Filter>client</Filter>
+    </ClCompile>
+    <ClCompile Include="client\cl_view.c">
+      <Filter>client</Filter>
+    </ClCompile>
+    <ClCompile Include="client\console.c">
+      <Filter>client</Filter>
+    </ClCompile>
+    <ClCompile Include="client\keys.c">
+      <Filter>client</Filter>
+    </ClCompile>
+    <ClCompile Include="client\menu.c">
+      <Filter>client</Filter>
+    </ClCompile>
+    <ClCompile Include="client\qmenu.c">
+      <Filter>client</Filter>
+    </ClCompile>
+    <ClCompile Include="client\x86.c">
+      <Filter>client</Filter>
+    </ClCompile>
+    <ClCompile Include="qcommon\cmd.c">
+      <Filter>qcommon</Filter>
+    </ClCompile>
+    <ClCompile Include="qcommon\cmodel.c">
+      <Filter>qcommon</Filter>
+    </ClCompile>
+    <ClCompile Include="qcommon\common.c">
+      <Filter>qcommon</Filter>
+    </ClCompile>
+    <ClCompile Include="qcommon\crc.c">
+      <Filter>qcommon</Filter>
+    </ClCompile>
+    <ClCompile Include="qcommon\cvar.c">
+      <Filter>qcommon</Filter>
+    </ClCompile>
+    <ClCompile Include="qcommon\files.c">
+      <Filter>qcommon</Filter>
+    </ClCompile>
+    <ClCompile Include="qcommon\md4.c">
+      <Filter>qcommon</Filter>
+    </ClCompile>
+    <ClCompile Include="qcommon\net_chan.c">
+      <Filter>qcommon</Filter>
+    </ClCompile>
+    <ClCompile Include="qcommon\NetMsg Read.c">
+      <Filter>qcommon</Filter>
+    </ClCompile>
+    <ClCompile Include="qcommon\pmove.c">
+      <Filter>qcommon</Filter>
+    </ClCompile>
+    <ClCompile Include="qcommon\Reference.c">
+      <Filter>qcommon</Filter>
+    </ClCompile>
+    <ClCompile Include="win32\sys_win.c">
+      <Filter>win32</Filter>
+    </ClCompile>
+    <ClCompile Include="win32\vid_dll.c">
+      <Filter>win32</Filter>
+    </ClCompile>
+    <ClCompile Include="win32\vid_menu.c">
+      <Filter>win32</Filter>
+    </ClCompile>
+    <ClCompile Include="game\game_utilities.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Player\player_main.c">
+      <Filter>Player</Filter>
+    </ClCompile>
+    <ClCompile Include="win32\cd_win.c">
+      <Filter>win32</Filter>
+    </ClCompile>
+    <ClCompile Include="win32\in_win.c">
+      <Filter>win32</Filter>
+    </ClCompile>
+    <ClCompile Include="win32\net_wins.c">
+      <Filter>win32</Filter>
+    </ClCompile>
+    <ClCompile Include="win32\conproc.c">
+      <Filter>win32</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Player\p_actions.h">
+      <Filter>Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Player\p_anim_branch.h">
+      <Filter>Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Player\p_anim_data.h">
+      <Filter>Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Player\p_animactor.h">
+      <Filter>Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Player\p_anims.h">
+      <Filter>Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Player\p_chicken.h">
+      <Filter>Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Player\p_ctrl.h">
+      <Filter>Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Player\p_items.h">
+      <Filter>Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Player\p_main.h">
+      <Filter>Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Player\P_NewMove.h">
+      <Filter>Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Player\p_types.h">
+      <Filter>Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Player\p_weapon.h">
+      <Filter>Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Player\Player.h">
+      <Filter>Player</Filter>
+    </ClInclude>
+    <ClInclude Include="game\decals.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\buoy.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\c_ai.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\c_corvus1.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\c_corvus1_anim.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\c_corvus2.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\c_corvus2_anim.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\c_corvus3.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\c_corvus3_anim.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\c_corvus4.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\c_corvus4_anim.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\c_corvus5.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\c_corvus5_anim.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\c_corvus6.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\c_corvus6_anim.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\c_corvus7.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\c_corvus7_anim.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\c_corvus8.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\c_corvus8_anim.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\c_corvus9.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\c_corvus9_anim.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\c_Dranor.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\c_dranor_anim.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\c_elflord.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\c_elflord_anim.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\c_morcalavin.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\c_morcalavin_anim.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\c_priestess.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\c_priestess_anim.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\c_priestess2.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\c_priestess2_anim.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\c_siernan1.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\c_siernan1_anim.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\c_siernan2.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\c_siernan2_anim.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\c_ssithrascout.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\c_ssithrascout_anim.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\c_tome.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\c_tome_anim.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\c_victimSsithra.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\c_victimSsithra_anim.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\ds.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\g_BoundingForm.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\g_ClassStatics.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\g_DefaultMessageHandler.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\g_Edict.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\g_HitLocation.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\g_items.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\g_itemstats.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\g_local.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\g_Message.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\g_misc.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\g_monster.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\g_Monster_State.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\g_MoveInfo.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\g_NewSystem.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\g_Physics.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\g_PhysicsInfo.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\g_playstats.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\g_Skeleton.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\g_Skeletons.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\g_StateInfo.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\g_teleport.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\g_Typedef.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\g_volume_effect.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\g_weapon.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\game.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\GameEntity.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\ICScript.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\list.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\m_actor.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\m_assassin.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\m_assassin_anim.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\m_beast.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\m_beast_anim.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\m_chicken.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\m_chicken_anim.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\m_elf.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\m_elflord.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\m_elflord_anims.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\m_fish.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\m_fish_anim.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\m_gkrokon.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\m_gkrokon_anim.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\m_gorgon.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\m_gorgon_anim.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\m_harpy.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\m_harpy_anim.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\m_imp.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\m_imp_anim.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\m_morcalavin.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\m_morcalavin_anim.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\m_mother.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\m_mother_anim.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\m_mssithra.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\m_mssithra_anim.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\m_ogle.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\m_ogle_anim.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\m_plagueElf.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\m_plagueElf_anim.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\m_plagueSsithra.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\m_plagueSsithra_anim.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\m_player.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\m_priestess.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\m_priestess_anim.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\m_rat.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\m_rat_anim.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\m_seraph.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\m_seraph_anim.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\m_seraph_guard.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\m_seraph_guard_anim.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\m_spreader.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\m_spreader_anim.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\m_spreaderbomb_anim.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\m_spreadermist.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\m_stats.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\m_tcheckrik.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\m_tcheckrik_anim.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\mg_guide.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\p_funcs.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\p_item.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\pcode.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\q_shared.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\Utilities.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="client effects\ambient effects.h">
+      <Filter>Client Effects</Filter>
+    </ClInclude>
+    <ClInclude Include="client effects\ce_DefaultMessageHandler.h">
+      <Filter>Client Effects</Filter>
+    </ClInclude>
+    <ClInclude Include="client effects\ce_DLight.h">
+      <Filter>Client Effects</Filter>
+    </ClInclude>
+    <ClInclude Include="client effects\ce_Message.h">
+      <Filter>Client Effects</Filter>
+    </ClInclude>
+    <ClInclude Include="client effects\Client Effects.h">
+      <Filter>Client Effects</Filter>
+    </ClInclude>
+    <ClInclude Include="client effects\Client Entities.h">
+      <Filter>Client Effects</Filter>
+    </ClInclude>
+    <ClInclude Include="client effects\fx_debris.h">
+      <Filter>Client Effects</Filter>
+    </ClInclude>
+    <ClInclude Include="client effects\fx_dustpuff.h">
+      <Filter>Client Effects</Filter>
+    </ClInclude>
+    <ClInclude Include="client effects\Particle.h">
+      <Filter>Client Effects</Filter>
+    </ClInclude>
+    <ClInclude Include="client effects\Utilities.h">
+      <Filter>Client Effects</Filter>
+    </ClInclude>
+    <ClInclude Include="h2common\Math\Angles.h">
+      <Filter>h2common\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="h2common\Math\Matrix.h">
+      <Filter>h2common\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="h2common\Math\Vector.h">
+      <Filter>h2common\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="ref_common\fmodel.h">
+      <Filter>ref_common</Filter>
+    </ClInclude>
+    <ClInclude Include="ref_common\m_Reference.h">
+      <Filter>ref_common</Filter>
+    </ClInclude>
+    <ClInclude Include="ref_common\m_SkeletalCluster.h">
+      <Filter>ref_common</Filter>
+    </ClInclude>
+    <ClInclude Include="ref_common\m_Skeleton.h">
+      <Filter>ref_common</Filter>
+    </ClInclude>
+    <ClInclude Include="ref_common\part_uvs.h">
+      <Filter>ref_common</Filter>
+    </ClInclude>
+    <ClInclude Include="ref_common\q_fmodel.h">
+      <Filter>ref_common</Filter>
+    </ClInclude>
+    <ClInclude Include="ref_common\qd_skeletons.h">
+      <Filter>ref_common</Filter>
+    </ClInclude>
+    <ClInclude Include="ref_common\r_Skeletons.h">
+      <Filter>ref_common</Filter>
+    </ClInclude>
+    <ClInclude Include="ref_gl\anorms.h">
+      <Filter>ref_gl</Filter>
+    </ClInclude>
+    <ClInclude Include="ref_gl\anormtab.h">
+      <Filter>ref_gl</Filter>
+    </ClInclude>
+    <ClInclude Include="ref_gl\gl_local.h">
+      <Filter>ref_gl</Filter>
+    </ClInclude>
+    <ClInclude Include="ref_gl\gl_model.h">
+      <Filter>ref_gl</Filter>
+    </ClInclude>
+    <ClInclude Include="ref_gl\qgl.h">
+      <Filter>ref_gl</Filter>
+    </ClInclude>
+    <ClInclude Include="ref_gl\warpsin.h">
+      <Filter>ref_gl</Filter>
+    </ClInclude>
+    <ClInclude Include="ref_gl\GL\eglew.h">
+      <Filter>ref_gl\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="ref_gl\GL\glew.h">
+      <Filter>ref_gl\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="ref_gl\GL\glxew.h">
+      <Filter>ref_gl\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="ref_gl\GL\wglew.h">
+      <Filter>ref_gl\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="server\server.h">
+      <Filter>server</Filter>
+    </ClInclude>
+    <ClInclude Include="WinSnd\ALut\alutInternal.h">
+      <Filter>WinSnd\ALut</Filter>
+    </ClInclude>
+    <ClInclude Include="client\adivtab.h">
+      <Filter>client</Filter>
+    </ClInclude>
+    <ClInclude Include="client\anorms.h">
+      <Filter>client</Filter>
+    </ClInclude>
+    <ClInclude Include="client\asm_i386.h">
+      <Filter>client</Filter>
+    </ClInclude>
+    <ClInclude Include="client\block8.h">
+      <Filter>client</Filter>
+    </ClInclude>
+    <ClInclude Include="client\block16.h">
+      <Filter>client</Filter>
+    </ClInclude>
+    <ClInclude Include="client\cdaudio.h">
+      <Filter>client</Filter>
+    </ClInclude>
+    <ClInclude Include="client\client.h">
+      <Filter>client</Filter>
+    </ClInclude>
+    <ClInclude Include="client\console.h">
+      <Filter>client</Filter>
+    </ClInclude>
+    <ClInclude Include="client\input.h">
+      <Filter>client</Filter>
+    </ClInclude>
+    <ClInclude Include="client\keys.h">
+      <Filter>client</Filter>
+    </ClInclude>
+    <ClInclude Include="client\qmenu.h">
+      <Filter>client</Filter>
+    </ClInclude>
+    <ClInclude Include="client\ref.h">
+      <Filter>client</Filter>
+    </ClInclude>
+    <ClInclude Include="client\screen.h">
+      <Filter>client</Filter>
+    </ClInclude>
+    <ClInclude Include="client\vid.h">
+      <Filter>client</Filter>
+    </ClInclude>
+    <ClInclude Include="qcommon\Angles.h">
+      <Filter>qcommon</Filter>
+    </ClInclude>
+    <ClInclude Include="qcommon\anorms.h">
+      <Filter>qcommon</Filter>
+    </ClInclude>
+    <ClInclude Include="qcommon\ArrayedList.h">
+      <Filter>qcommon</Filter>
+    </ClInclude>
+    <ClInclude Include="qcommon\asm.h">
+      <Filter>qcommon</Filter>
+    </ClInclude>
+    <ClInclude Include="qcommon\cdaudio.h">
+      <Filter>qcommon</Filter>
+    </ClInclude>
+    <ClInclude Include="qcommon\cl_strings.h">
+      <Filter>qcommon</Filter>
+    </ClInclude>
+    <ClInclude Include="qcommon\cmodel.h">
+      <Filter>qcommon</Filter>
+    </ClInclude>
+    <ClInclude Include="qcommon\cmodel_private.h">
+      <Filter>qcommon</Filter>
+    </ClInclude>
+    <ClInclude Include="qcommon\compfmod.h">
+      <Filter>qcommon</Filter>
+    </ClInclude>
+    <ClInclude Include="qcommon\crc.h">
+      <Filter>qcommon</Filter>
+    </ClInclude>
+    <ClInclude Include="qcommon\EffectFlags.h">
+      <Filter>qcommon</Filter>
+    </ClInclude>
+    <ClInclude Include="qcommon\fc.h">
+      <Filter>qcommon</Filter>
+    </ClInclude>
+    <ClInclude Include="qcommon\flex.h">
+      <Filter>qcommon</Filter>
+    </ClInclude>
+    <ClInclude Include="qcommon\FX.h">
+      <Filter>qcommon</Filter>
+    </ClInclude>
+    <ClInclude Include="qcommon\GenericUnions.h">
+      <Filter>qcommon</Filter>
+    </ClInclude>
+    <ClInclude Include="qcommon\H2Common.h">
+      <Filter>qcommon</Filter>
+    </ClInclude>
+    <ClInclude Include="qcommon\items.h">
+      <Filter>qcommon</Filter>
+    </ClInclude>
+    <ClInclude Include="qcommon\LevelMaps.h">
+      <Filter>qcommon</Filter>
+    </ClInclude>
+    <ClInclude Include="qcommon\Matrix.h">
+      <Filter>qcommon</Filter>
+    </ClInclude>
+    <ClInclude Include="qcommon\Message.h">
+      <Filter>qcommon</Filter>
+    </ClInclude>
+    <ClInclude Include="qcommon\ModelJoints.h">
+      <Filter>qcommon</Filter>
+    </ClInclude>
+    <ClInclude Include="qcommon\motion.h">
+      <Filter>qcommon</Filter>
+    </ClInclude>
+    <ClInclude Include="qcommon\Placement.h">
+      <Filter>qcommon</Filter>
+    </ClInclude>
+    <ClInclude Include="qcommon\playeranim.h">
+      <Filter>qcommon</Filter>
+    </ClInclude>
+    <ClInclude Include="qcommon\PrimitiveDisplayHack.h">
+      <Filter>qcommon</Filter>
+    </ClInclude>
+    <ClInclude Include="qcommon\q_ClientServer.h">
+      <Filter>qcommon</Filter>
+    </ClInclude>
+    <ClInclude Include="qcommon\q_math.h">
+      <Filter>qcommon</Filter>
+    </ClInclude>
+    <ClInclude Include="qcommon\q_Physics.h">
+      <Filter>qcommon</Filter>
+    </ClInclude>
+    <ClInclude Include="qcommon\q_Sprite.h">
+      <Filter>qcommon</Filter>
+    </ClInclude>
+    <ClInclude Include="qcommon\q_Surface.h">
+      <Filter>qcommon</Filter>
+    </ClInclude>
+    <ClInclude Include="qcommon\q_Typedef.h">
+      <Filter>qcommon</Filter>
+    </ClInclude>
+    <ClInclude Include="qcommon\qcommon.h">
+      <Filter>qcommon</Filter>
+    </ClInclude>
+    <ClInclude Include="qcommon\qfiles.h">
+      <Filter>qcommon</Filter>
+    </ClInclude>
+    <ClInclude Include="qcommon\random.h">
+      <Filter>qcommon</Filter>
+    </ClInclude>
+    <ClInclude Include="qcommon\Reference.h">
+      <Filter>qcommon</Filter>
+    </ClInclude>
+    <ClInclude Include="qcommon\ResourceManager.h">
+      <Filter>qcommon</Filter>
+    </ClInclude>
+    <ClInclude Include="qcommon\SinglyLinkedList.h">
+      <Filter>qcommon</Filter>
+    </ClInclude>
+    <ClInclude Include="qcommon\Skeletons.h">
+      <Filter>qcommon</Filter>
+    </ClInclude>
+    <ClInclude Include="qcommon\surfaceprops.h">
+      <Filter>qcommon</Filter>
+    </ClInclude>
+    <ClInclude Include="qcommon\timing.h">
+      <Filter>qcommon</Filter>
+    </ClInclude>
+    <ClInclude Include="qcommon\tokens.h">
+      <Filter>qcommon</Filter>
+    </ClInclude>
+    <ClInclude Include="qcommon\Vector.h">
+      <Filter>qcommon</Filter>
+    </ClInclude>
+    <ClInclude Include="qcommon\VerifyA3D.h">
+      <Filter>qcommon</Filter>
+    </ClInclude>
+    <ClInclude Include="win32\conproc.h">
+      <Filter>win32</Filter>
+    </ClInclude>
+    <ClInclude Include="win32\resource.h">
+      <Filter>win32</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="WinSnd\OpenAL\OpenAL32.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="win32\Resource.rc">
+      <Filter>win32</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

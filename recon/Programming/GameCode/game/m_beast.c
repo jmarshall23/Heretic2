@@ -365,7 +365,7 @@ void tbeast_stand(edict_t *self, G_Message_t *msg)
 		if (len < 200)
 		{
 			self->show_hostile = level.time + 1;		// wake up other monsters		
-			QPostMessage(self, MSG_MELEE, PRI_DIRECTIVE, NULL);
+			G_QPostMessage(self, MSG_MELEE, PRI_DIRECTIVE, NULL);
 
 			return;
 		}
@@ -465,7 +465,7 @@ void tbeast_melee(edict_t *self, G_Message_t *msg)
 
 	if(!M_ValidTarget(self, self->enemy))
 	{
-		QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
+		G_QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
 		return;
 	}
 
@@ -615,7 +615,7 @@ void tbeast_run(edict_t *self, G_Message_t *msg)
 
 int tbeast_foot_damaged(edict_t *self, edict_t *attacker, float knockback, int take)
 {
-	QPostMessage(self->owner, MSG_PAIN, PRI_DIRECTIVE, "eeiii", self->owner, attacker, knockback, take, 0);
+	G_QPostMessage(self->owner, MSG_PAIN, PRI_DIRECTIVE, "eeiii", self->owner, attacker, knockback, take, 0);
 	return false;
 }
 
@@ -634,7 +634,7 @@ void tbeast_pain(edict_t *self, G_Message_t *msg)
 	if(self->pain_debounce_time > level.time)
 		return;
 
-	ParseMsgParms(msg, "eeiii", &tempent, &tempent, &force_pain, &damage, &temp);
+	G_ParseMsgParms(msg, "eeiii", &tempent, &tempent, &force_pain, &damage, &temp);
 
 	if(damage < irand(100, 200))
 		return;
@@ -710,14 +710,14 @@ void tbeast_standorder (edict_t *self)
 {
 	if(tbeastCheckMood(self))
 		return;
-	QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
+	G_QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
 }
 
 void tbeast_walkorder (edict_t *self)
 {
 	if(tbeastCheckMood(self))
 		return;
-	QPostMessage(self, MSG_WALK, PRI_DIRECTIVE, NULL);
+	G_QPostMessage(self, MSG_WALK, PRI_DIRECTIVE, NULL);
 }
 
 void tbeast_footstep (edict_t *self)
@@ -862,14 +862,14 @@ qboolean tbeastCheckMood(edict_t *self)
 	{
 		case AI_MOOD_ATTACK:
 			if(self->ai_mood_flags&AI_MOOD_FLAG_MISSILE)
-				QPostMessage(self, MSG_MISSILE, PRI_DIRECTIVE, NULL);
+				G_QPostMessage(self, MSG_MISSILE, PRI_DIRECTIVE, NULL);
 			else
-				QPostMessage(self, MSG_MELEE, PRI_DIRECTIVE, NULL);
+				G_QPostMessage(self, MSG_MELEE, PRI_DIRECTIVE, NULL);
 			break;
 		
 		case AI_MOOD_PURSUE:
 			self->wait = 0;
-			QPostMessage(self, MSG_RUN, PRI_DIRECTIVE, NULL);
+			G_QPostMessage(self, MSG_RUN, PRI_DIRECTIVE, NULL);
 			break;
 		
 		case AI_MOOD_NAVIGATE:
@@ -878,17 +878,17 @@ qboolean tbeastCheckMood(edict_t *self)
 
 		case AI_MOOD_STAND:
 			if (self->monsterinfo.aiflags & AI_EATING)
-				QPostMessage(self, MSG_EAT, PRI_DIRECTIVE, NULL);
+				G_QPostMessage(self, MSG_EAT, PRI_DIRECTIVE, NULL);
 			else
-				QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
+				G_QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
 			break;
 		
 		case AI_MOOD_DELAY:
-			QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
+			G_QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
 			break;
 
 		case AI_MOOD_EAT:
-			QPostMessage(self, MSG_EAT, PRI_DIRECTIVE, NULL);
+			G_QPostMessage(self, MSG_EAT, PRI_DIRECTIVE, NULL);
 			break;
 
 		default :
@@ -931,11 +931,11 @@ void tbeast_pause (edict_t *self)
 	
 	if (len > 120)  // Far enough to run after
 	{
-		QPostMessage(self, MSG_RUN, PRI_DIRECTIVE, NULL);
+		G_QPostMessage(self, MSG_RUN, PRI_DIRECTIVE, NULL);
 	}
 	else	// Close enough to Attack or Hop
 	{
-		QPostMessage(self, MSG_MELEE, PRI_DIRECTIVE, NULL);
+		G_QPostMessage(self, MSG_MELEE, PRI_DIRECTIVE, NULL);
 	}
 }
 
@@ -945,7 +945,7 @@ void tbeast_runorder (edict_t *self)
 	if(tbeastCheckMood(self))
 		return;
 
-	QPostMessage(self, MSG_RUN, PRI_DIRECTIVE, NULL);
+	G_QPostMessage(self, MSG_RUN, PRI_DIRECTIVE, NULL);
 }
 
 void tbeastbite (edict_t *self, float ofsf, float ofsr, float ofsu)
@@ -1052,7 +1052,7 @@ void tbeast_land(edict_t *self)
 			{
 				if(found->client->playerinfo.lowerseq != ASEQ_KNOCKDOWN)
 				{
-					P_KnockDownPlayer(&found->client->playerinfo);
+					KnockDownPlayer(&found->client->playerinfo);
 				}
 			}
 		}
@@ -1075,7 +1075,7 @@ void tbeast_roar_knockdown(edict_t *self)
 			{
 				if(found->client->playerinfo.lowerseq != ASEQ_KNOCKDOWN)
 				{
-					P_KnockDownPlayer(&found->client->playerinfo);
+					KnockDownPlayer(&found->client->playerinfo);
 				}
 			}
 		}
@@ -1110,7 +1110,7 @@ void tbeast_eatorder (edict_t *self)
 	if(tbeastCheckMood(self))
 		return;
 
-	QPostMessage(self, MSG_EAT, PRI_DIRECTIVE, NULL);
+	G_QPostMessage(self, MSG_EAT, PRI_DIRECTIVE, NULL);
 }
 
 void tbeast_apply_jump (edict_t *self)
@@ -1316,7 +1316,7 @@ void tbeast_run_think (edict_t *self, float dist)
 
 	if(!M_ValidTarget(self, self->enemy))
 	{
-		QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
+		G_QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
 		return;
 	}
 
@@ -1391,7 +1391,7 @@ void tbeast_throw_toy(edict_t *self)
 	VectorRandomCopy(vec3_origin,self->targetEnt->avelocity,300);
 	
 	if(stricmp(self->targetEnt->classname,"player"))
-		QPostMessage(self->targetEnt, MSG_DEATH, PRI_DIRECTIVE, NULL);
+		G_QPostMessage(self->targetEnt, MSG_DEATH, PRI_DIRECTIVE, NULL);
 
 	if(self->targetEnt->client)
 		gi.sound(self->targetEnt, CHAN_VOICE, sounds[SND_CORVUS_DIE], 1, ATTN_NORM, 0);
@@ -1525,7 +1525,7 @@ void tbeast_check_snatch(edict_t *self, float ofsf, float ofsr, float ofsu)
 		{
 			if(found->client->playerinfo.lowerseq != ASEQ_KNOCKDOWN)
 			{
-				P_KnockDownPlayer(&found->client->playerinfo);
+				KnockDownPlayer(&found->client->playerinfo);
 			}
 		}
 		gi.sound(found, CHAN_VOICE, sounds[irand(SND_CORVUS_SCREAM1, SND_CORVUS_SCREAM3)], 1, ATTN_NORM, 0);
@@ -1629,8 +1629,8 @@ void tbeast_anger_sound (edict_t *self)
 		SprayDebris(self->targetEnt, self->targetEnt->s.origin, chance, 100);
 		if(!self->targetEnt->client)
 		{
-			QPostMessage(self->targetEnt, MSG_DISMEMBER, PRI_DIRECTIVE, "ii", self->targetEnt->health*0.5, irand(1,13));//do I need last three if not sending them?
-			QPostMessage(self->targetEnt, MSG_PAIN, PRI_DIRECTIVE, "eeiii", self, self, true, 200, 0);
+			G_QPostMessage(self->targetEnt, MSG_DISMEMBER, PRI_DIRECTIVE, "ii", self->targetEnt->health*0.5, irand(1,13));//do I need last three if not sending them?
+			G_QPostMessage(self->targetEnt, MSG_PAIN, PRI_DIRECTIVE, "eeiii", self, self, true, 200, 0);
 		}
 	}
 }
@@ -2136,7 +2136,7 @@ void tbeast_fake_impact(edict_t *self, trace_t *trace, qboolean crush)
 					{
 						if(trace->ent->client->playerinfo.lowerseq != ASEQ_KNOCKDOWN)
 						{
-							P_KnockDownPlayer(&trace->ent->client->playerinfo);
+							KnockDownPlayer(&trace->ent->client->playerinfo);
 						}
 					}
 				}
@@ -2157,7 +2157,7 @@ void tbeast_fake_impact(edict_t *self, trace_t *trace, qboolean crush)
 					if(!irand(0, 5) || (crush && !irand(0,1)))
 					{
 						if(trace->ent->client->playerinfo.lowerseq != ASEQ_KNOCKDOWN)
-							P_KnockDownPlayer(&trace->ent->client->playerinfo);
+							KnockDownPlayer(&trace->ent->client->playerinfo);
 					}
 					if(damage)
 						T_Damage(trace->ent, self, self, dir, trace->endpos, dir, 
@@ -2181,7 +2181,7 @@ void tbeast_fake_impact(edict_t *self, trace_t *trace, qboolean crush)
 				{
 					if(trace->ent->client->playerinfo.lowerseq != ASEQ_KNOCKDOWN)
 					{
-						P_KnockDownPlayer(&trace->ent->client->playerinfo);
+						KnockDownPlayer(&trace->ent->client->playerinfo);
 					}
 				}
 			}
@@ -2390,7 +2390,7 @@ void tbeast_fake_touch(edict_t *self)
 				{
 					self->oldenemy = self->enemy;
 					self->enemy = other;
-					QPostMessage(self, MSG_MELEE, PRI_DIRECTIVE, NULL);
+					G_QPostMessage(self, MSG_MELEE, PRI_DIRECTIVE, NULL);
 					goto finish;
 				}
 			}
@@ -2772,7 +2772,7 @@ void SP_monster_trial_beast (edict_t *self)
 
 	MG_InitMoods(self);
 
-	QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
+	G_QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
 	
 	self->dmg = false;
 

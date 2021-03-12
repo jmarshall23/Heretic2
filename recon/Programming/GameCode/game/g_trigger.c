@@ -282,7 +282,7 @@ void SP_trigger_puzzle(edict_t *self)
 		gi.dprintf("no key item for trigger_key at %s\n", vtos(self->s.origin));
 		return;
 	}
-	self->item = P_FindItemByClassname (st.item);
+	self->item = FindItemByClassname (st.item);
 
 	if (!self->item)
 	{
@@ -643,7 +643,7 @@ void SuspendTrigger_Activated(edict_t *self, edict_t *activator)
 	while ((t = G_Find (t, FOFS(targetname), self->target)))
 	{
 		if (t->msgHandler)
-			QPostMessage(t, G_MSG_SUSPEND, PRI_ORDER, "f", self->time);
+			G_QPostMessage(t, G_MSG_SUSPEND, PRI_ORDER, "f", self->time);
 	}
 }
 
@@ -686,7 +686,7 @@ void ActivateTrigger_Activated(edict_t *self, edict_t *activator)
 	while ((t = G_Find (t, FOFS(targetname), self->target)))
 	{
 		if (t->msgHandler)
-			QPostMessage(t, G_MSG_UNSUSPEND, PRI_ORDER, "f", self->time);
+			G_QPostMessage(t, G_MSG_UNSUSPEND, PRI_ORDER, "f", self->time);
 	}
 }
 

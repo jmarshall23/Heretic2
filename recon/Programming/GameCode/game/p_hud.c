@@ -321,7 +321,7 @@ void DeathmatchScoreboardMessage (edict_t *ent, edict_t *killer, qboolean log_fi
 	char		*p;
 	team_scores_t	team_scores[MAX_CLIENTS];
 	team_scores_t	temp_point;
-	FILE		*f;
+	FILE		*f = NULL;
 	cvar_t		*host_name;
 	char		*game_types[3] = 
 	{{"Cooperative"},
@@ -721,7 +721,7 @@ void G_SetStats (edict_t *ent)
 
 	if(pers->weapon->ammo&&pers->weapon->count_width)
 	{
-		item=P_FindItem(pers->weapon->ammo);
+		item=FindItem(pers->weapon->ammo);
 		ps->stats[STAT_AMMO_ICON]=gi.imageindex(item->icon);
 		ps->stats[STAT_AMMO] = pers->inventory.Items[ITEM_INDEX(item)];
 	}
@@ -736,7 +736,7 @@ void G_SetStats (edict_t *ent)
 
 	ps->stats[STAT_OFFMANA_ICON]=gi.imageindex("icons/green-mana.m8");
 	ps->stats[STAT_OFFMANA_BACK]=gi.imageindex("icons/green-mana2.m8");
-	item = P_FindItem("Off-mana");
+	item = FindItem("Off-mana");
 	ps->stats[STAT_OFFMANA] = (pers->inventory.Items[ITEM_INDEX(item)] * 100) / MAX_OFF_MANA;
 	if(ps->stats[STAT_OFFMANA] < 0)
 		ps->stats[STAT_OFFMANA] = 0;
@@ -747,7 +747,7 @@ void G_SetStats (edict_t *ent)
 	
 	ps->stats[STAT_DEFMANA_ICON]=gi.imageindex("icons/blue-mana.m8");
 	ps->stats[STAT_DEFMANA_BACK]=gi.imageindex("icons/blue-mana2.m8");
-	item = P_FindItem("Def-mana");
+	item = FindItem("Def-mana");
 	ps->stats[STAT_DEFMANA] = (pers->inventory.Items[ITEM_INDEX(item)] * 100) / MAX_DEF_MANA;
 	if(ps->stats[STAT_DEFMANA] < 0)
 		ps->stats[STAT_DEFMANA] = 0;

@@ -361,7 +361,7 @@ void ai_stand (edict_t *self, float dist)
 			if (self->s.angles[YAW] != self->ideal_yaw && self->monsterinfo.aiflags & AI_TEMP_STAND_GROUND)
 			{
 				self->monsterinfo.aiflags &= ~(AI_STAND_GROUND | AI_TEMP_STAND_GROUND);
-				QPostMessage(self, MSG_RUN, PRI_DIRECTIVE, NULL);
+				G_QPostMessage(self, MSG_RUN, PRI_DIRECTIVE, NULL);
 			}
 			M_ChangeYaw (self);
 			ai_checkattack (self, 0);
@@ -381,13 +381,13 @@ void ai_stand (edict_t *self, float dist)
 	{
 		self->spawnflags |= MSF_WANDER;
 		self->ai_mood = AI_MOOD_WANDER;
-		QPostMessage(self, MSG_CHECK_MOOD, PRI_DIRECTIVE, "i", AI_MOOD_WANDER);
+		G_QPostMessage(self, MSG_CHECK_MOOD, PRI_DIRECTIVE, "i", AI_MOOD_WANDER);
 		return;
 	}
 	else if (level.time > self->monsterinfo.pausetime)
 	{
 		self->ai_mood = AI_MOOD_WALK;
-		QPostMessage(self, MSG_WALK, PRI_DIRECTIVE, NULL);
+		G_QPostMessage(self, MSG_WALK, PRI_DIRECTIVE, NULL);
 		return;
 	}
 
@@ -418,7 +418,7 @@ void ai_walk (edict_t *self, float dist)
 {
 	if (FindTarget (self))
 	{
-		QPostMessage(self, MSG_RUN, PRI_DIRECTIVE, NULL);
+		G_QPostMessage(self, MSG_RUN, PRI_DIRECTIVE, NULL);
 		return;
 	}
 
@@ -440,14 +440,14 @@ void ai_walk (edict_t *self, float dist)
 				if(MG_ReachedBuoy(self, self->movetarget->s.origin))
 				{
 					self->movetarget = NULL;
-					QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
+					G_QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
 				}
 			}
 		}
 		else if(!irand(0, 30) || (Vec3NotZero(self->monsterinfo.nav_goal) && MG_ReachedBuoy(self, self->monsterinfo.nav_goal)))
 		{
 			self->monsterinfo.pausetime = 0;
-			QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
+			G_QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
 		}
 	}
 
@@ -918,18 +918,18 @@ void HuntTarget (edict_t *self)
 	self->goalentity = self->enemy;
 	if (self->monsterinfo.aiflags & AI_STAND_GROUND)
 	{
-		QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
+		G_QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
 	}
 	else
 	{
 		r = range(self,self->enemy);
 		if ((self->monsterinfo.aiflags & AI_EATING) && (r == RANGE_MID))
 		{
-			QPostMessage(self, MSG_WATCH, PRI_DIRECTIVE, NULL);
+			G_QPostMessage(self, MSG_WATCH, PRI_DIRECTIVE, NULL);
 		}
 		else
 		{
-			QPostMessage(self, MSG_RUN, PRI_DIRECTIVE, NULL);
+			G_QPostMessage(self, MSG_RUN, PRI_DIRECTIVE, NULL);
 		}
 	}
 	VectorSubtract (self->enemy->s.origin, self->s.origin, vec);
@@ -988,9 +988,9 @@ void FoundTarget (edict_t *self, qboolean setsightent)
 		if (!self->oldenemy)
 		{
 			if (!(self->monsterinfo.aiflags & AI_SOUND_TARGET) )
-				QPostMessage(self, MSG_VOICE_SIGHT, PRI_DIRECTIVE, "be", SIGHT_SOUND_TARGET, self->enemy);
+				G_QPostMessage(self, MSG_VOICE_SIGHT, PRI_DIRECTIVE, "be", SIGHT_SOUND_TARGET, self->enemy);
 			else
-				QPostMessage(self, MSG_VOICE_SIGHT, PRI_DIRECTIVE, "be", SIGHT_VISIBLE_TARGET, self->enemy);
+				G_QPostMessage(self, MSG_VOICE_SIGHT, PRI_DIRECTIVE, "be", SIGHT_VISIBLE_TARGET, self->enemy);
 		}
 
 		self->spawnflags &= ~MSF_AMBUSH;
@@ -1009,9 +1009,9 @@ void FoundTarget (edict_t *self, qboolean setsightent)
 		if (!self->oldenemy)
 		{
 			if (!(self->monsterinfo.aiflags & AI_SOUND_TARGET) )
-				QPostMessage(self, MSG_VOICE_SIGHT, PRI_DIRECTIVE, "be", SIGHT_SOUND_TARGET, self->enemy);
+				G_QPostMessage(self, MSG_VOICE_SIGHT, PRI_DIRECTIVE, "be", SIGHT_SOUND_TARGET, self->enemy);
 			else
-				QPostMessage(self, MSG_VOICE_SIGHT, PRI_DIRECTIVE, "be", SIGHT_VISIBLE_TARGET, self->enemy);
+				G_QPostMessage(self, MSG_VOICE_SIGHT, PRI_DIRECTIVE, "be", SIGHT_VISIBLE_TARGET, self->enemy);
 		}
 
 //		gi.dprintf("%s at %s, combattarget %s not found\n", self->classname, vtos(self->s.origin), self->combattarget);
@@ -1028,15 +1028,15 @@ void FoundTarget (edict_t *self, qboolean setsightent)
 
 	// run for it , assuming we aren't a fish
 	if (self->classID != CID_FISH)
-		QPostMessage(self, MSG_RUN, PRI_DIRECTIVE, NULL);
+		G_QPostMessage(self, MSG_RUN, PRI_DIRECTIVE, NULL);
 
 	//Make a sight sound
 	if (!self->oldenemy)
 	{
 		if (!(self->monsterinfo.aiflags & AI_SOUND_TARGET) )
-			QPostMessage(self, MSG_VOICE_SIGHT, PRI_DIRECTIVE, "be", SIGHT_SOUND_TARGET, self->enemy);
+			G_QPostMessage(self, MSG_VOICE_SIGHT, PRI_DIRECTIVE, "be", SIGHT_SOUND_TARGET, self->enemy);
 		else
-			QPostMessage(self, MSG_VOICE_SIGHT, PRI_DIRECTIVE, "be", SIGHT_VISIBLE_TARGET, self->enemy);
+			G_QPostMessage(self, MSG_VOICE_SIGHT, PRI_DIRECTIVE, "be", SIGHT_VISIBLE_TARGET, self->enemy);
 	}
 	
 	self->spawnflags &= ~MSF_AMBUSH;
@@ -1119,7 +1119,7 @@ it can find one other than the first one it checked.
 qboolean ogle_findtarget (edict_t *self);
 qboolean FindTarget (edict_t *self)
 {
-	edict_t		*client, *firstclient;
+	edict_t		*client, *firstclient = NULL;
 	qboolean	heardit = false;
 	int			r;
 	edict_t		*ent;
@@ -1296,7 +1296,7 @@ startcheck:
 				FoundTarget(self, true);//make me the sight entity
 
 			/*if (!(self->monsterinfo.aiflags & AI_SOUND_TARGET))
-				QPostMessage(self, MSG_VOICE_SIGHT, PRI_DIRECTIVE, "e", self->enemy);*/
+				G_QPostMessage(self, MSG_VOICE_SIGHT, PRI_DIRECTIVE, "e", self->enemy);*/
 				//self->monsterinfo.sight (self, self->enemy);
 
 			return true;
@@ -1562,7 +1562,7 @@ void ai_run_melee(edict_t *self)
 
 	if (FacingIdeal(self))
 	{
-		QPostMessage(self, MSG_MELEE, PRI_DIRECTIVE, NULL);
+		G_QPostMessage(self, MSG_MELEE, PRI_DIRECTIVE, NULL);
 		self->monsterinfo.attack_state = AS_STRAIGHT;
 	}
 }
@@ -1582,7 +1582,7 @@ void ai_run_missile(edict_t *self)
 
 	if (FacingIdeal(self))
 	{
-		QPostMessage(self, MSG_MISSILE, PRI_DIRECTIVE, NULL);
+		G_QPostMessage(self, MSG_MISSILE, PRI_DIRECTIVE, NULL);
 		self->monsterinfo.attack_state = AS_STRAIGHT;
 	}
 };
@@ -1670,7 +1670,7 @@ qboolean ai_checkattack (edict_t *self, float dist)
 			if (self->movetarget)
 			{
 				self->goalentity = self->movetarget;
-				QPostMessage(self, MSG_WALK, PRI_DIRECTIVE, NULL);
+				G_QPostMessage(self, MSG_WALK, PRI_DIRECTIVE, NULL);
 			}
 			else
 			{
@@ -1679,7 +1679,7 @@ qboolean ai_checkattack (edict_t *self, float dist)
 				// the monsters will wonder around aimlessly trying
 				// to hunt the world entity
 				self->monsterinfo.pausetime = level.time + 100000000;
-				QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
+				G_QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
 			}
 			return true;
 		}
@@ -1961,7 +1961,7 @@ void old_ai_run (edict_t *self, float dist)
 		if(irand(0,10<2))
 		{
 			self->enemy = NULL;
-			QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
+			G_QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
 		}
 		return;
 	}
@@ -1986,14 +1986,14 @@ void old_ai_run (edict_t *self, float dist)
 		self->monsterinfo.aiflags &= ~AI_SOUND_TARGET;
 		if (!FindTarget (self))
 		{
-			QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
+			G_QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
 			return;
 		}
 	}
 
 	if (!self->enemy)
 	{
-		QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
+		G_QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
 		return;
 	}
 	
@@ -2022,14 +2022,14 @@ void old_ai_run (edict_t *self, float dist)
 	{
 		if (trace.ent == self->enemy)
 		{
-			QPostMessage(self, MSG_MELEE, PRI_DIRECTIVE, NULL);
+			G_QPostMessage(self, MSG_MELEE, PRI_DIRECTIVE, NULL);
 			return;
 		}
 		else if(self->monsterinfo.otherenemyname)
 		{
 			if(!stricmp(trace.ent->classname, self->monsterinfo.otherenemyname))//&&irand(0,10)<3)
 			{
-				QPostMessage(self, MSG_MELEE, PRI_DIRECTIVE, NULL);
+				G_QPostMessage(self, MSG_MELEE, PRI_DIRECTIVE, NULL);
 				return;
 			}
 		}
@@ -2044,7 +2044,7 @@ void old_ai_run (edict_t *self, float dist)
 //				gi.dprintf("Chomp!\n");
 				self->oldenemy = self->enemy;
 				self->enemy = trace.ent;
-				QPostMessage(self, MSG_MELEE, PRI_DIRECTIVE, NULL);
+				G_QPostMessage(self, MSG_MELEE, PRI_DIRECTIVE, NULL);
 			}
 			else
 			{
@@ -2521,7 +2521,7 @@ qboolean ai_have_enemy (edict_t *self)
 		}
 	}
 	
-	QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
+	G_QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
 //	gi.dprintf("Lost enemies\n");
 	return false;
 }

@@ -1166,7 +1166,7 @@ void morcalavin_quake(edict_t *self, float pitch_ofs, float yaw_ofs, float roll_
 	if (self->enemy && self->enemy->groundentity && self->enemy->client)
 	{
 		//Knock the player down
-		P_KnockDownPlayer(&self->enemy->client->playerinfo);
+		KnockDownPlayer(&self->enemy->client->playerinfo);
 
 		//Denote we've done so to follow it with an attack		
 		self->monsterinfo.flee_finished = true;
@@ -1216,18 +1216,18 @@ void morcalavin_pause( edict_t *self )
 	{
 		case AI_MOOD_ATTACK:
 			if(self->ai_mood_flags & AI_MOOD_FLAG_MISSILE)
-				QPostMessage(self, MSG_MISSILE, PRI_DIRECTIVE, NULL);
+				G_QPostMessage(self, MSG_MISSILE, PRI_DIRECTIVE, NULL);
 			else
-				QPostMessage(self, MSG_MELEE, PRI_DIRECTIVE, NULL);
+				G_QPostMessage(self, MSG_MELEE, PRI_DIRECTIVE, NULL);
 			break;
 		case AI_MOOD_PURSUE:
 		case AI_MOOD_NAVIGATE:
-			QPostMessage(self, MSG_RUN, PRI_DIRECTIVE, NULL);
+			G_QPostMessage(self, MSG_RUN, PRI_DIRECTIVE, NULL);
 			break;
 
 		case AI_MOOD_DELAY:
 		case AI_MOOD_STAND:
-			QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
+			G_QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
 			break;
 
 		case AI_MOOD_WANDER:
@@ -1940,7 +1940,7 @@ void SP_monster_morcalavin (edict_t *self)
 
 	MG_InitMoods( self );
 
-	QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
+	G_QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
 
 	self->s.color.c = 0xFFFFFFFF;
 

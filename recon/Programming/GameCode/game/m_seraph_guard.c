@@ -258,7 +258,7 @@ void seraph_guard_checkpoke ( edict_t *self )
 		return;
 	}
 
-	QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
+	G_QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
 }
 
 /*--------------------------------------
@@ -406,7 +406,7 @@ void seraph_guard_strike( edict_t *self, float damage, float var2, float var3 )
 					{
 						if(victim->client->playerinfo.lowerseq != ASEQ_KNOCKDOWN && infront(self, victim))
 						{
-							P_KnockDownPlayer(&victim->client->playerinfo);
+							KnockDownPlayer(&victim->client->playerinfo);
 						}
 					}
 				}
@@ -445,19 +445,19 @@ void seraph_guard_pause( edict_t *self )
 	{
 	case AI_MOOD_ATTACK:
 		if(self->ai_mood_flags & AI_MOOD_FLAG_MISSILE)
-			QPostMessage(self, MSG_MISSILE, PRI_DIRECTIVE, NULL);
+			G_QPostMessage(self, MSG_MISSILE, PRI_DIRECTIVE, NULL);
 		else
-			QPostMessage(self, MSG_MELEE, PRI_DIRECTIVE, NULL);
+			G_QPostMessage(self, MSG_MELEE, PRI_DIRECTIVE, NULL);
 		break;
 	case AI_MOOD_PURSUE:
 	case AI_MOOD_NAVIGATE:
 	case AI_MOOD_WALK:
 	case AI_MOOD_FLEE:
-		QPostMessage(self, MSG_RUN, PRI_DIRECTIVE, NULL);
+		G_QPostMessage(self, MSG_RUN, PRI_DIRECTIVE, NULL);
 		break;
 	case AI_MOOD_STAND:
 		if (!self->enemy)
-			QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
+			G_QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
 		break;
 
 	case AI_MOOD_DELAY:
@@ -482,7 +482,7 @@ void seraph_guard_pause( edict_t *self )
 
 void seraph_guard_check_mood (edict_t *self, G_Message_t *msg)
 {
-	ParseMsgParms(msg, "i", &self->ai_mood);
+	G_ParseMsgParms(msg, "i", &self->ai_mood);
 
 	seraph_guard_pause(self);
 }
@@ -504,7 +504,7 @@ void seraph_guard_pain(edict_t *self, G_Message_t *msg)
 	int				temp, damage;
 	int				force_damage, soundID;
 	
-	ParseMsgParms(msg, "eeiii", &temp, &temp, &force_damage, &damage, &temp);
+	G_ParseMsgParms(msg, "eeiii", &temp, &temp, &force_damage, &damage, &temp);
 	//Weighted random based on health compared to the maximum it was at
 	if (force_damage || ((irand(0, self->max_health+50) > self->health) && irand(0,2)))
 	{
@@ -586,7 +586,7 @@ void seraph_guard_melee(edict_t *self, G_Message_t *msg)
 	}
 
 	//If our enemy is dead, we need to stand
-	QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
+	G_QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
 }
 
 void morcalavin_beam( edict_t *self);
@@ -638,7 +638,7 @@ void seraph_guard_fire (edict_t *self)
 					{
 						if(victim->client->playerinfo.lowerseq != ASEQ_KNOCKDOWN && infront(self, victim))
 						{
-							P_KnockDownPlayer(&victim->client->playerinfo);
+							KnockDownPlayer(&victim->client->playerinfo);
 						}
 					}
 				}
@@ -694,7 +694,7 @@ void seraph_guard_missile(edict_t *self, G_Message_t *msg)
 	}
 
 	//If our enemy is dead, we need to stand
-	QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
+	G_QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
 }
 
 /*--------------------------------------
@@ -718,7 +718,7 @@ void seraph_guard_death(edict_t *self, G_Message_t *msg)
 	float	damage;
 	int		soundID;
 
-	ParseMsgParms(msg, "eeei", &targ, &inflictor, &attacker, &damage);
+	G_ParseMsgParms(msg, "eeei", &targ, &inflictor, &attacker, &damage);
 
 	M_StartDeath(self, ANIM_DEATH1);
 
@@ -816,7 +816,7 @@ void seraph_guard_run(edict_t *self, G_Message_t *msg)
 	}
 
 	//If our enemy is dead, we need to stand
-	QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
+	G_QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
 }
 
 
@@ -1148,7 +1148,7 @@ void golem_awaken (edict_t *self, edict_t *other, edict_t *activator)
 	self->ai_mood_flags |= AI_MOOD_FLAG_PREDICT;
 	self->monsterinfo.dismember = seraph_guard_dismember;
 	MG_InitMoods(self);
-	QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
+	G_QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
 	self->melee_range *= self->s.scale;
 
 	self->enemy = activator;
@@ -1299,7 +1299,7 @@ void SP_monster_seraph_guard(edict_t *self)
 
 		MG_InitMoods(self);
 
-		QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
+		G_QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
 
 		self->melee_range *= self->s.scale;
 	}

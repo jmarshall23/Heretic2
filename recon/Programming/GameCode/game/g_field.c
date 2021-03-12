@@ -444,11 +444,11 @@ void trigger_goto_buoy_execute (edict_t *self, edict_t *monster, edict_t *activa
 
 	//make him check mood NOW and get going! Don't wait for current anim to finish!
 	if(classStatics[monster->classID].msgReceivers[MSG_CHECK_MOOD])
-		QPostMessage(monster, MSG_CHECK_MOOD,PRI_DIRECTIVE, "i", monster->ai_mood);
+		G_QPostMessage(monster, MSG_CHECK_MOOD,PRI_DIRECTIVE, "i", monster->ai_mood);
 	else
 	{//no check mood message handler, just send a run and let him wait, i guess!
 		monster->mood_nextthink = 0;
-		QPostMessage(monster, MSG_RUN,PRI_DIRECTIVE, NULL);
+		G_QPostMessage(monster, MSG_RUN,PRI_DIRECTIVE, NULL);
 	}
 
 }

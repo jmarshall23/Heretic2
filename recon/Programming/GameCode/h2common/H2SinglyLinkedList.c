@@ -8,6 +8,8 @@
 
 #include <stdint.h>
 
+ResourceManager_t globalResourceManager;
+
 H2COMMON_API void SLList_DefaultCon(SinglyLinkedList_t *this_ptr)
 {
 	this_ptr->rearSentinel = ResMngr_AllocateResource(&globalResourceManager, 0);

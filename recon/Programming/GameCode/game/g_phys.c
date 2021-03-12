@@ -84,7 +84,7 @@ qboolean SV_RunThink (edict_t *ent)
 
 	if(ent->msgHandler)
 	{
-		ProcessMessages(ent);
+		G_ProcessMessages(ent);
 	}
 
 	assert(ent->inuse);

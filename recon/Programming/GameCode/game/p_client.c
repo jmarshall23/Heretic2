@@ -110,7 +110,7 @@ void ClientSetSkinType(edict_t *ent, char *skinname)
 	playerinfo = &(ent->client->playerinfo);
 
 	SetupPlayerinfo_effects(ent);
- 	P_PlayerUpdateModelAttributes(playerinfo);
+ 	PlayerUpdateModelAttributes(playerinfo);
 	WritePlayerinfo_effects(ent);
 	
 }
@@ -237,7 +237,7 @@ void player_repair_skin (edict_t *self)
 			}
 		}
 		SetupPlayerinfo_effects(self);
-		P_PlayerUpdateModelAttributes(&self->client->playerinfo);
+		PlayerUpdateModelAttributes(&self->client->playerinfo);
 		WritePlayerinfo_effects(self);
 		return;
 	}
@@ -295,7 +295,7 @@ void player_repair_skin (edict_t *self)
 	}
 	
 	SetupPlayerinfo_effects(self);
-	P_PlayerUpdateModelAttributes(&self->client->playerinfo);
+	PlayerUpdateModelAttributes(&self->client->playerinfo);
 	WritePlayerinfo_effects(self);
 }
 
@@ -338,7 +338,7 @@ void ResetPlayerBaseNodes (edict_t *ent)
 	// FIXME: Turn hands back on too? But two pairs, which one? Shouldn't PlayerUpdateModelAttributes do that?
 
 	SetupPlayerinfo_effects(ent);
-	P_PlayerUpdateModelAttributes(&ent->client->playerinfo);
+	PlayerUpdateModelAttributes(&ent->client->playerinfo);
 	WritePlayerinfo_effects(ent);
 }
 
@@ -694,7 +694,7 @@ void player_dismember (edict_t *self, edict_t *other, int damage, int HitLocatio
 					SpawnBleeder(self, other, blood_dir, blood_spot);//, CORVUS_RARM);
 
 					if(inpolevault)//oops!  no staff! fall down!
-						P_KnockDownPlayer(&self->client->playerinfo);
+						KnockDownPlayer(&self->client->playerinfo);
 				}
 			}
 			else
@@ -764,21 +764,21 @@ void player_dismember (edict_t *self, edict_t *other, int damage, int HitLocatio
 	if(throw_nodes)
 	{
 		self->pain_debounce_time = 0;
-		if(!P_BranchCheckDismemberAction(&self->client->playerinfo, self->client->playerinfo.pers.weapon->tag))
+		if(!BranchCheckDismemberAction(&self->client->playerinfo, self->client->playerinfo.pers.weapon->tag))
 		{
-			P_PlayerInterruptAction(&self->client->playerinfo);
-			P_PlayerAnimSetUpperSeq(&self->client->playerinfo, ASEQ_NONE);
+			PlayerInterruptAction(&self->client->playerinfo);
+			PlayerAnimSetUpperSeq(&self->client->playerinfo, ASEQ_NONE);
 			if(irand(0, 1))
-				P_PlayerAnimSetLowerSeq(&self->client->playerinfo, ASEQ_PAIN_A);
+				PlayerAnimSetLowerSeq(&self->client->playerinfo, ASEQ_PAIN_A);
 			else
-				P_PlayerAnimSetLowerSeq(&self->client->playerinfo, ASEQ_PAIN_B);
+				PlayerAnimSetLowerSeq(&self->client->playerinfo, ASEQ_PAIN_B);
 		}
 	}
 
 finish:
 
 	SetupPlayerinfo_effects(self);
-	P_PlayerUpdateModelAttributes(&self->client->playerinfo);
+	PlayerUpdateModelAttributes(&self->client->playerinfo);
 	WritePlayerinfo_effects(self);
 }
 
@@ -813,7 +813,7 @@ void player_decap (edict_t *self, edict_t *other)
 	}
 
 	SetupPlayerinfo_effects(self);
-	P_PlayerUpdateModelAttributes(&self->client->playerinfo);
+	PlayerUpdateModelAttributes(&self->client->playerinfo);
 	WritePlayerinfo_effects(self);
 }
 
@@ -1219,17 +1219,17 @@ int player_die(edict_t *self, edict_t *inflictor, edict_t *attacker,int damage,v
    			}
 			else if ( (self->client->playerinfo.flags & PLAYER_FLAG_SURFSWIM) || (self->waterlevel >= 2) )
    			{
-   				P_PlayerAnimSetLowerSeq(&self->client->playerinfo, ASEQ_DROWN);
+   				PlayerAnimSetLowerSeq(&self->client->playerinfo, ASEQ_DROWN);
    				gi.sound(self,CHAN_BODY,gi.soundindex("*drowndeath.wav"),1,ATTN_NORM,0);
    			}
 			else if ( !stricmp(inflictor->classname, "plague_mist"))
 			{
-   				P_PlayerAnimSetLowerSeq(&self->client->playerinfo, ASEQ_DEATH_CHOKE);
+   				PlayerAnimSetLowerSeq(&self->client->playerinfo, ASEQ_DEATH_CHOKE);
 				gi.sound(self,CHAN_BODY,gi.soundindex("*chokedeath.wav"),1,ATTN_NORM,0);
 			}
 			else if ( self->fire_damage_time == -1 )
 			{
-   				P_PlayerAnimSetLowerSeq(&self->client->playerinfo, ASEQ_DEATH_B);
+   				PlayerAnimSetLowerSeq(&self->client->playerinfo, ASEQ_DEATH_B);
 				if (blood_level && (int)(blood_level->value) <= VIOLENCE_BLOOD)	// Don't scream bloody murder in Germany. 
 					gi.sound(self,CHAN_BODY,gi.soundindex("*death1.wav"),1,ATTN_NORM,0);
 				else
@@ -1247,15 +1247,15 @@ int player_die(edict_t *self, edict_t *inflictor, edict_t *attacker,int damage,v
 
 				if (speed > 16.0)
 				{	// Fly forward
-					P_PlayerAnimSetLowerSeq(&self->client->playerinfo, ASEQ_DEATH_FLYFWD);
+					PlayerAnimSetLowerSeq(&self->client->playerinfo, ASEQ_DEATH_FLYFWD);
 				}
 				else if (speed < -16.0)
 				{	// Fly backward
-					P_PlayerAnimSetLowerSeq(&self->client->playerinfo, ASEQ_DEATH_FLYBACK);
+					PlayerAnimSetLowerSeq(&self->client->playerinfo, ASEQ_DEATH_FLYBACK);
 				}
 				else
 				{	// Jes' flop to the ground.
-					P_PlayerAnimSetLowerSeq(&self->client->playerinfo, ASEQ_DEATH_A);
+					PlayerAnimSetLowerSeq(&self->client->playerinfo, ASEQ_DEATH_A);
 				}
 
    				if (irand(0,1))
@@ -1266,7 +1266,7 @@ int player_die(edict_t *self, edict_t *inflictor, edict_t *attacker,int damage,v
 
 			// Make sure it doesn't try and finish an animation.
 
-			P_PlayerAnimSetUpperSeq(&self->client->playerinfo, ASEQ_NONE);
+			PlayerAnimSetUpperSeq(&self->client->playerinfo, ASEQ_NONE);
 			self->client->playerinfo.upperidle = true;
 
 			// If we're not a chicken, don't set the dying flag.
@@ -1855,7 +1855,7 @@ void GiveLevelItems(edict_t *player)
 
 	if(level.offensive_weapons&1)
 	{	
-		item=P_FindItem("staff");
+		item=FindItem("staff");
 		if(AddWeaponToInventory(item,player))
 		{
 			if((ITEM_INDEX(item) > ITEM_INDEX(weapon))&&(client->playerinfo.pers.autoweapon))
@@ -1869,7 +1869,7 @@ void GiveLevelItems(edict_t *player)
 
 	if(level.offensive_weapons&2)
 	{	
-		item=P_FindItem("fball");
+		item=FindItem("fball");
 		if(AddWeaponToInventory(item,player))
 		{
 			if((ITEM_INDEX(item) > ITEM_INDEX(weapon))&&(client->playerinfo.pers.autoweapon))
@@ -1883,7 +1883,7 @@ void GiveLevelItems(edict_t *player)
 
 	if(level.offensive_weapons&4)
 	{	
-		item=P_FindItem("hell");
+		item=FindItem("hell");
 		if(AddWeaponToInventory(item,player))
 		{
 			if((ITEM_INDEX(item) > ITEM_INDEX(weapon))&&(client->playerinfo.pers.autoweapon))
@@ -1897,7 +1897,7 @@ void GiveLevelItems(edict_t *player)
 
 	if(level.offensive_weapons&8)
 	{	
-		item=P_FindItem("array");
+		item=FindItem("array");
 		if(AddWeaponToInventory(item,player))
 		{
 			if((ITEM_INDEX(item) > ITEM_INDEX(weapon))&&(client->playerinfo.pers.autoweapon))
@@ -1911,7 +1911,7 @@ void GiveLevelItems(edict_t *player)
 
 	if(level.offensive_weapons&16)
 	{	
-		item=P_FindItem("rain");
+		item=FindItem("rain");
 		if(AddWeaponToInventory(item,player))
 		{
 			if((ITEM_INDEX(item) > ITEM_INDEX(weapon))&&(client->playerinfo.pers.autoweapon))
@@ -1925,7 +1925,7 @@ void GiveLevelItems(edict_t *player)
 
 	if(level.offensive_weapons&32)
 	{	
-		item=P_FindItem("sphere");
+		item=FindItem("sphere");
 		if(AddWeaponToInventory(item,player))
 		{
 			if((ITEM_INDEX(item) > ITEM_INDEX(weapon))&&(client->playerinfo.pers.autoweapon))
@@ -1939,7 +1939,7 @@ void GiveLevelItems(edict_t *player)
 
 	if(level.offensive_weapons&64)
 	{	
-		item=P_FindItem("phoen");
+		item=FindItem("phoen");
 		if(AddWeaponToInventory(item,player))
 		{
 			if((ITEM_INDEX(item) > ITEM_INDEX(weapon))&&(client->playerinfo.pers.autoweapon))
@@ -1953,7 +1953,7 @@ void GiveLevelItems(edict_t *player)
 
 	if(level.offensive_weapons&128)
 	{	
-		item=P_FindItem("mace");
+		item=FindItem("mace");
 		if(AddWeaponToInventory(item,player))
 		{
 			if((ITEM_INDEX(item) > ITEM_INDEX(weapon))&&(client->playerinfo.pers.autoweapon))
@@ -1967,7 +1967,7 @@ void GiveLevelItems(edict_t *player)
 
 	if(level.offensive_weapons&256)
 	{	
-		item=P_FindItem("fwall");
+		item=FindItem("fwall");
 		if(AddWeaponToInventory(item,player))
 		{
 			if((ITEM_INDEX(item) > ITEM_INDEX(weapon))&&(client->playerinfo.pers.autoweapon))
@@ -1981,36 +1981,36 @@ void GiveLevelItems(edict_t *player)
 
 	if(level.defensive_weapons&1)
 	{	
-		item=P_FindItem("ring");
+		item=FindItem("ring");
 		AddDefenseToInventory(item,player);
 	}
 
 	if(level.defensive_weapons&2)
 	{
-		item=P_FindItem("lshield");
+		item=FindItem("lshield");
 		AddDefenseToInventory(item,player);
 	}
 
 	if(level.defensive_weapons&4)
 	{	
-		item=P_FindItem("tele");
+		item=FindItem("tele");
 		AddDefenseToInventory(item,player);
 	}
 
 	if(level.defensive_weapons&8)
 	{	
-		item=P_FindItem("morph");
+		item=FindItem("morph");
 		AddDefenseToInventory(item,player);
 	}
 
 	if(level.defensive_weapons&16)
 	{	
-		item=P_FindItem("meteor");
+		item=FindItem("meteor");
 		AddDefenseToInventory(item,player);	
 	}
 
 	SetupPlayerinfo_effects(player);
-	P_PlayerUpdateModelAttributes(&player->client->playerinfo);
+	PlayerUpdateModelAttributes(&player->client->playerinfo);
 	WritePlayerinfo_effects(player);
 }
 
@@ -2054,7 +2054,7 @@ void InitClientPersistant(edict_t *player)
 
 	// Give just the sword-staff and flying-fist to the player as starting weapons.
 
-	item = P_FindItem("staff");
+	item = FindItem("staff");
 	AddWeaponToInventory(item,player);
 	client->playerinfo.pers.selected_item = ITEM_INDEX(item);
 	client->playerinfo.pers.weapon = item;
@@ -2063,15 +2063,15 @@ void InitClientPersistant(edict_t *player)
 
 	if(!(((int)dmflags->value)&DF_NO_OFFENSIVE_SPELL))
 	{
-		item=P_FindItem("fball");
+		item=FindItem("fball");
 		AddWeaponToInventory(item,player);
 		client->playerinfo.pers.selected_item = ITEM_INDEX(item);
 		client->playerinfo.pers.weapon = item;
 		client->playerinfo.pers.lastweapon = item;
-		client->playerinfo.weap_ammo_index = ITEM_INDEX(P_FindItem(item->ammo));
+		client->playerinfo.weap_ammo_index = ITEM_INDEX(FindItem(item->ammo));
 	}
 
-	item=P_FindItem("powerup");
+	item=FindItem("powerup");
 	AddDefenseToInventory(item,player);
 	client->playerinfo.pers.defence = item;
 
@@ -2079,10 +2079,10 @@ void InitClientPersistant(edict_t *player)
 	// Start player with half offensive and defensive mana - as instructed by Brian P.
 	// ********************************************************************************************
 
-	item = P_FindItem("Off-mana");
+	item = FindItem("Off-mana");
 	client->playerinfo.pers.inventory.Items[ITEM_INDEX(item)] = client->playerinfo.pers.max_offmana / 2;
 
-	item = P_FindItem("Def-mana");
+	item = FindItem("Def-mana");
 	client->playerinfo.pers.inventory.Items[ITEM_INDEX(item)] = client->playerinfo.pers.max_defmana / 2;
 
 #ifdef G_NOAMMO
@@ -2091,31 +2091,31 @@ void InitClientPersistant(edict_t *player)
 
 	gi.dprintf("Starting with unlimited ammo.\n");
 
-	item = P_FindItem("hell");
+	item = FindItem("hell");
 	client->playerinfo.pers.inventory.Items[ITEM_INDEX(item)] = 1;
 
-	item = P_FindItem("array");
+	item = FindItem("array");
 	client->playerinfo.pers.inventory.Items[ITEM_INDEX(item)] = 1;
 
-	item = P_FindItem("rain");
+	item = FindItem("rain");
 	client->playerinfo.pers.inventory.Items[ITEM_INDEX(item)] = 1;
 
-	item = P_FindItem("sphere");
+	item = FindItem("sphere");
 	client->playerinfo.pers.inventory.Items[ITEM_INDEX(item)] = 1;
 
-	item = P_FindItem("phoen");
+	item = FindItem("phoen");
 	client->playerinfo.pers.inventory.Items[ITEM_INDEX(item)] = 1;
 
-	item = P_FindItem("mace");
+	item = FindItem("mace");
 	client->playerinfo.pers.inventory.Items[ITEM_INDEX(item)] = 1;
 
-	item = P_FindItem("fwall");
+	item = FindItem("fwall");
 	client->playerinfo.pers.inventory.Items[ITEM_INDEX(item)] = 1;
 
-	item = P_FindItem("meteor");
+	item = FindItem("meteor");
 	client->playerinfo.pers.inventory.Items[ITEM_INDEX(item)] = 1;
 															   
-	item = P_FindItem("morph");
+	item = FindItem("morph");
 	client->playerinfo.pers.inventory.Items[ITEM_INDEX(item)] = 1;
 
 	client->bowtype = BOW_TYPE_REDRAIN;
@@ -2367,10 +2367,10 @@ void PutClientInServer (edict_t *ent)
 	// Set the player's current offensive and defensive ammo indexes.
 	
 	if (client->playerinfo.pers.weapon->ammo)
-		client->playerinfo.weap_ammo_index = ITEM_INDEX(P_FindItem(client->playerinfo.pers.weapon->ammo));
+		client->playerinfo.weap_ammo_index = ITEM_INDEX(FindItem(client->playerinfo.pers.weapon->ammo));
 
 	if (client->playerinfo.pers.defence)
-		client->playerinfo.def_ammo_index = ITEM_INDEX(P_FindItem(client->playerinfo.pers.defence->ammo));
+		client->playerinfo.def_ammo_index = ITEM_INDEX(FindItem(client->playerinfo.pers.defence->ammo));
 
 	VectorCopy(spawn_origin,client->playerinfo.origin);
 	VectorClear(client->playerinfo.velocity);
@@ -2378,7 +2378,7 @@ void PutClientInServer (edict_t *ent)
 	// Make the player have the right attributes - armor that sort of thing.
 
 	SetupPlayerinfo_effects(ent);
-	P_PlayerUpdateModelAttributes(&ent->client->playerinfo);
+	PlayerUpdateModelAttributes(&ent->client->playerinfo);
 	WritePlayerinfo_effects(ent);
 
 	// Make sure the skin attributes are transferred.
@@ -2404,7 +2404,7 @@ void PutClientInServer (edict_t *ent)
 
 	SetupPlayerinfo(ent);
 
-	P_PlayerInit(&ent->client->playerinfo,complete_reset);
+	PlayerInit(&ent->client->playerinfo,complete_reset);
 
 	WritePlayerinfo(ent);
 
@@ -2419,7 +2419,7 @@ void PutClientInServer (edict_t *ent)
 
 		gitem_t *item;
 		
-		item=P_FindItem("staff");
+		item=FindItem("staff");
 		client->playerinfo.pers.newweapon=item;
 		client->playerinfo.switchtoweapon=WEAPON_READY_SWORDSTAFF;
 	}

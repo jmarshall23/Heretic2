@@ -450,13 +450,13 @@ void assassindagger (edict_t *self, float right_ofs)
 	
 	if(!self->enemy)
 	{
-		QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
+		G_QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
 		return;
 	}
 
 	if(self->enemy->health<0)
 	{
-		QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
+		G_QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
 		return;
 	}
 
@@ -565,7 +565,7 @@ void assassin_Touch(edict_t *self, trace_t *trace)
 				if(self->s.origin[2]+self->mins[2] > other->s.origin[2] + other->maxs[2] * 0.8)
 				{
 					if(other->client)
-						P_KnockDownPlayer(&other->client->playerinfo);
+						KnockDownPlayer(&other->client->playerinfo);
 
 					gi.sound(self, CHAN_BODY, Sounds[SND_LANDF], 1, ATTN_NORM, 0);
 	/*
@@ -782,7 +782,7 @@ void assassin_melee(edict_t *self, G_Message_t *msg)
 		assassin_random_attack(self);
 	}
 	else
-		QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
+		G_QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
 }
 
 void assassin_missile(edict_t *self, G_Message_t *msg)
@@ -812,7 +812,7 @@ void assassin_missile(edict_t *self, G_Message_t *msg)
 		assassin_random_attack(self);
 	}
 	else
-		QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
+		G_QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
 }
 /*-------------------------------------------------------------------------
 	assassin_pain
@@ -1328,7 +1328,7 @@ void assassin_dismember_msg(edict_t *self, G_Message_t *msg)
 	int				damage;
 	HitLocation_t	HitLocation;
 
-	ParseMsgParms(msg, "ii", &damage, &HitLocation);
+	G_ParseMsgParms(msg, "ii", &damage, &HitLocation);
 	assassin_dismember(self, damage, HitLocation);
 }
 
@@ -1356,7 +1356,7 @@ void assassin_pain(edict_t *self, G_Message_t *msg)
 	if(self->curAnimID == ANIM_TELEPORT)
 		return;
 
-	ParseMsgParms(msg, "eeiii", &inflictor, &attacker, &force_pain, &damage, &temp);
+	G_ParseMsgParms(msg, "eeiii", &inflictor, &attacker, &force_pain, &damage, &temp);
 
 	if(inflictor == attacker || !stricmp(inflictor->classname, "Spell_RedRain")||!stricmp(inflictor->classname, "Spell_Hellbolt"))
 	{//melee hit or contant effect, don't stick around!
@@ -1432,11 +1432,11 @@ void assassin_pause (edict_t *self)
 
 			if ((len > 80) || (self->monsterinfo.aiflags & AI_FLEE))  // Far enough to run after
 			{
-				QPostMessage(self, MSG_RUN,PRI_DIRECTIVE, NULL);
+				G_QPostMessage(self, MSG_RUN,PRI_DIRECTIVE, NULL);
 			}
 			else	// Close enough to Attack 
 			{
-				QPostMessage(self, MSG_MELEE, PRI_DIRECTIVE, NULL);
+				G_QPostMessage(self, MSG_MELEE, PRI_DIRECTIVE, NULL);
 			}
 		}
 	}
@@ -1446,20 +1446,20 @@ void assassin_pause (edict_t *self)
 		{
 		case AI_MOOD_ATTACK:
 			if(self->ai_mood_flags & AI_MOOD_FLAG_MISSILE)
-				QPostMessage(self, MSG_MISSILE, PRI_DIRECTIVE, NULL);
+				G_QPostMessage(self, MSG_MISSILE, PRI_DIRECTIVE, NULL);
 			else
-				QPostMessage(self, MSG_MELEE, PRI_DIRECTIVE, NULL);
+				G_QPostMessage(self, MSG_MELEE, PRI_DIRECTIVE, NULL);
 			break;
 		case AI_MOOD_PURSUE:
 		case AI_MOOD_NAVIGATE:
-			QPostMessage(self, MSG_RUN, PRI_DIRECTIVE, NULL);
+			G_QPostMessage(self, MSG_RUN, PRI_DIRECTIVE, NULL);
 			break;
 		case AI_MOOD_STAND:
-			QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
+			G_QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
 			break;
 
 		case AI_MOOD_WALK:
-			QPostMessage(self, MSG_WALK, PRI_DIRECTIVE, NULL);
+			G_QPostMessage(self, MSG_WALK, PRI_DIRECTIVE, NULL);
 			break;
 
 		case AI_MOOD_DELAY:
@@ -1472,7 +1472,7 @@ void assassin_pause (edict_t *self)
 				SetAnim(self, ANIM_DELAY);
 				return;
 			}
-			QPostMessage(self, MSG_WALK, PRI_DIRECTIVE, NULL);
+			G_QPostMessage(self, MSG_WALK, PRI_DIRECTIVE, NULL);
 			break;
 
 		case AI_MOOD_JUMP:
@@ -1611,7 +1611,7 @@ void assassin_run(edict_t *self, G_Message_t *msg)
 			SetAnim(self, ANIM_DELAY);
 	}
 	else
-		QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
+		G_QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
 }
 
 
@@ -1630,7 +1630,7 @@ void assassin_go_run(edict_t *self, float dist)
 -----------------------------------------------------------------------*/
 void assassin_runorder(edict_t *self)
 {
-	QPostMessage(self, MSG_RUN, PRI_DIRECTIVE, NULL);
+	G_QPostMessage(self, MSG_RUN, PRI_DIRECTIVE, NULL);
 }
 
 
@@ -1837,7 +1837,7 @@ void assassin_evade (edict_t *self, G_Message_t *msg)
 	if(!self->groundentity)
 		return;
 
-	ParseMsgParms(msg, "eif", &projectile, &HitLocation, &eta);
+	G_ParseMsgParms(msg, "eif", &projectile, &HitLocation, &eta);
 	
 	if(eta < 2)
 		self->evade_debounce_time = level.time + eta;
@@ -2714,7 +2714,7 @@ void assassinInitCloak (edict_t *self)
 
 void assassin_check_mood (edict_t *self, G_Message_t *msg)
 {
-	ParseMsgParms(msg, "i", &self->ai_mood);
+	G_ParseMsgParms(msg, "i", &self->ai_mood);
 
 	assassin_pause(self);
 }
@@ -2934,12 +2934,12 @@ void SP_monster_assassin (edict_t *self)
 
 	if(self->spawnflags & MSF_WANDER)
 	{
-		QPostMessage(self, MSG_WALK, PRI_DIRECTIVE, NULL);
+		G_QPostMessage(self, MSG_WALK, PRI_DIRECTIVE, NULL);
 	}
 	else if(self->spawnflags & MSF_ASS_CINEMATIC)
 	{
 		self->monsterinfo.c_mode = 1;
-		QPostMessage(self, MSG_C_IDLE1, PRI_DIRECTIVE, "iiige",0,0,0,NULL,NULL);
+		G_QPostMessage(self, MSG_C_IDLE1, PRI_DIRECTIVE, "iiige",0,0,0,NULL,NULL);
 	}
 	else
 	{
@@ -2949,7 +2949,7 @@ void SP_monster_assassin (edict_t *self)
 		self->pre_think = assassinCloakThink;
 		self->next_pre_think = level.time + FRAMETIME;
 
-		QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
+		G_QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
 	}
 
 	self->svflags |= SVF_WAIT_NOTSOLID;

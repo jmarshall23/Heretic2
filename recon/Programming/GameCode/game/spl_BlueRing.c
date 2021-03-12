@@ -134,7 +134,7 @@ void RingThink(edict_t *self)
 				}
 			}
 			// Vel is just passing the direction of the knockback.
-			QPostMessage(ent, MSG_REPULSE, PRI_DIRECTIVE, "fff", vel[0], vel[1], vel[2] + 30.0);
+			G_QPostMessage(ent, MSG_REPULSE, PRI_DIRECTIVE, "fff", vel[0], vel[1], vel[2] + 30.0);
 			if (ent->takedamage)
 			{
 				VectorMA(ent->s.origin, -ent->maxs[0], vel, hitloc);

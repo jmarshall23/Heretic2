@@ -13,7 +13,7 @@
 #include "ResourceManager.h"
 #include "SinglyLinkedList.h"
 
-static ResourceManager_t MsgMngr;
+static ResourceManager_t MsgMngr; 
 
 void InitMsgMngr()
 {

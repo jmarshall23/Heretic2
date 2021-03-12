@@ -184,7 +184,7 @@ qboolean Pickup_Puzzle(edict_t *ent, edict_t *other)
 		return(false);
 	}
 
-	item = P_FindItemByClassname(ent->classname);
+	item = FindItemByClassname(ent->classname);
 
 	if (!other->client->playerinfo.pers.inventory.Items[ITEM_INDEX(ent->item)])
 	{
@@ -239,7 +239,7 @@ qboolean AddWeaponToInventory(gitem_t *item,edict_t *player)
 		
 		if(count)
 		{
-			newitem = P_FindItem(item->ammo);
+			newitem = FindItem(item->ammo);
 			Add_Ammo(player, newitem,count);
 		}
 
@@ -268,22 +268,22 @@ qboolean AddWeaponToInventory(gitem_t *item,edict_t *player)
 
 			if (item->tag == ITEM_WEAPON_HELLSTAFF)
 			{
-				newitem = P_FindItemByClassname("item_ammo_hellstaff");
+				newitem = FindItemByClassname("item_ammo_hellstaff");
 				count = AMMO_COUNT_HELLSTAFF;
 			}
 			else if (item->tag == ITEM_WEAPON_REDRAINBOW)
 			{
-				newitem = P_FindItemByClassname("item_ammo_redrain");
+				newitem = FindItemByClassname("item_ammo_redrain");
 				count = AMMO_COUNT_REDRAINBOW;
 			}
 			else if (item->tag == ITEM_WEAPON_PHOENIXBOW)
 			{
-				newitem = P_FindItemByClassname("item_ammo_phoenix");
+				newitem = FindItemByClassname("item_ammo_phoenix");
 				count = AMMO_COUNT_PHOENIXBOW;
 			}
 			else 
 			{
-				newitem = P_FindItemByClassname("item_mana_offensive_half");
+				newitem = FindItemByClassname("item_mana_offensive_half");
 				count = AMMO_COUNT_MOST;
 			}
 
@@ -426,24 +426,24 @@ qboolean Add_Ammo (edict_t *ent, gitem_t *item, int count)
 
 	if ((item->tag == ITEM_AMMO_MANA_OFFENSIVE_HALF) || (item->tag == ITEM_AMMO_MANA_OFFENSIVE_FULL))
 	{
-		item = P_FindItemByClassname("item_mana_offensive_half");
+		item = FindItemByClassname("item_mana_offensive_half");
 		max = ent->client->playerinfo.pers.max_offmana;
 		return(Add_AmmoToInventory (ent,item,count,max));
 	}
 	else if ((item->tag == ITEM_AMMO_MANA_DEFENSIVE_HALF) || (item->tag == ITEM_AMMO_MANA_DEFENSIVE_FULL))
 	{
-		item = P_FindItemByClassname("item_mana_defensive_half");
+		item = FindItemByClassname("item_mana_defensive_half");
 		max = ent->client->playerinfo.pers.max_defmana;
 		return(Add_AmmoToInventory (ent,item,count,max));
 	}
 	else if ((item->tag == ITEM_AMMO_MANA_COMBO_QUARTER) || (item->tag == ITEM_AMMO_MANA_COMBO_HALF))
 	{
-		item = P_FindItemByClassname("item_mana_offensive_half");
+		item = FindItemByClassname("item_mana_offensive_half");
 		max = ent->client->playerinfo.pers.max_offmana;
 		
 		bo = Add_AmmoToInventory (ent,item,count,max);
 
-		item = P_FindItemByClassname("item_mana_defensive_half");
+		item = FindItemByClassname("item_mana_defensive_half");
 		max = ent->client->playerinfo.pers.max_defmana;
 		bo |= Add_AmmoToInventory (ent,item,count,max);
 
@@ -952,7 +952,7 @@ void PrecacheItem (gitem_t *it)
 	// parse everything for its ammo
 	if (it->ammo && it->ammo[0])
 	{
-		ammo = P_FindItem (it->ammo);
+		ammo = FindItem (it->ammo);
 		if (ammo != it)
 			PrecacheItem (ammo);
 	}
@@ -1088,14 +1088,14 @@ void G_InitItems(void)
 	// This can't be placed in the editor
 
 	playerExport.p_itemlist[1].pickup=Pickup_Weapon;
-	playerExport.p_itemlist[1].use=P_Weapon_EquipSwordStaff;
+	playerExport.p_itemlist[1].use=Weapon_EquipSwordStaff;
 	playerExport.p_itemlist[1].weaponthink=WeaponThink_SwordStaff;
 
 	// weapon_flyingfist
 	// This can't be placed in the editor
 
 	playerExport.p_itemlist[2].pickup=Pickup_Weapon;
-	playerExport.p_itemlist[2].use=P_Weapon_EquipSpell;
+	playerExport.p_itemlist[2].use=Weapon_EquipSpell;
 	playerExport.p_itemlist[2].weaponthink=WeaponThink_FlyingFist;
 
 	// item_weapon_hellstaff
@@ -1104,7 +1104,7 @@ Pickup for the hellstaff weapon.
 */
 
 	playerExport.p_itemlist[3].pickup=Pickup_Weapon;
-	playerExport.p_itemlist[3].use=P_Weapon_EquipHellStaff;
+	playerExport.p_itemlist[3].use=Weapon_EquipHellStaff;
 	playerExport.p_itemlist[3].weaponthink=WeaponThink_HellStaff;
 
 	// item_weapon_magicmissile
@@ -1113,7 +1113,7 @@ Pickup for the Magic Missile weapon.
 */
 
 	playerExport.p_itemlist[4].pickup=Pickup_Weapon;
-	playerExport.p_itemlist[4].use=P_Weapon_EquipSpell;
+	playerExport.p_itemlist[4].use=Weapon_EquipSpell;
 	playerExport.p_itemlist[4].weaponthink=WeaponThink_MagicMissileSpread;
 
 	// item_weapon_redrain_bow
@@ -1122,7 +1122,7 @@ Pickup for the Red Rain Bow weapon.
 */
 
 	playerExport.p_itemlist[5].pickup=Pickup_Weapon;
-	playerExport.p_itemlist[5].use=P_Weapon_EquipBow;
+	playerExport.p_itemlist[5].use=Weapon_EquipBow;
 	playerExport.p_itemlist[5].weaponthink=WeaponThink_RedRainBow;
 
 	// item_weapon_firewall
@@ -1131,7 +1131,7 @@ Pickup for the Fire Wall weapon.
 */
 
 	playerExport.p_itemlist[6].pickup=Pickup_Weapon;
-	playerExport.p_itemlist[6].use=P_Weapon_EquipSpell;
+	playerExport.p_itemlist[6].use=Weapon_EquipSpell;
 	playerExport.p_itemlist[6].weaponthink=WeaponThink_Firewall;
 
 	// item_weapon_phoenixbow
@@ -1140,7 +1140,7 @@ Pickup for the Phoenix Bow weapon.
 */
 
 	playerExport.p_itemlist[7].pickup=Pickup_Weapon;
-	playerExport.p_itemlist[7].use=P_Weapon_EquipBow;
+	playerExport.p_itemlist[7].use=Weapon_EquipBow;
 	playerExport.p_itemlist[7].weaponthink=WeaponThink_PhoenixBow;
 
 	// item_weapon_sphereofannihilation
@@ -1149,7 +1149,7 @@ Pickup for the Sphere Annihilation weapon.
 */
 
 	playerExport.p_itemlist[8].pickup=Pickup_Weapon;
-	playerExport.p_itemlist[8].use=P_Weapon_EquipSpell;
+	playerExport.p_itemlist[8].use=Weapon_EquipSpell;
 	playerExport.p_itemlist[8].weaponthink=WeaponThink_SphereOfAnnihilation;
 
 	// item_weapon_maceballs
@@ -1158,7 +1158,7 @@ Pickup for the Mace Balls weapon.
 */
 
 	playerExport.p_itemlist[9].pickup=Pickup_Weapon;
-	playerExport.p_itemlist[9].use=P_Weapon_EquipSpell;
+	playerExport.p_itemlist[9].use=Weapon_EquipSpell;
 	playerExport.p_itemlist[9].weaponthink=WeaponThink_Maceballs;
 	
 	// item_defense_powerup

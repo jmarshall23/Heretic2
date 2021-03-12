@@ -989,7 +989,7 @@ calling ReadLevel.
 */
 void ReadLevel (char *filename)
 {
-	void ClearMessageQueues();
+	void G_ClearMessageQueues();
 
 	int		entnum;
 	FILE	*f;
@@ -1001,7 +1001,7 @@ void ReadLevel (char *filename)
 	if (!f)
 		gi.error ("Couldn't open %s", filename);
 
-//	ClearMessageQueues();
+//	G_ClearMessageQueues();
 
 	// Free any dynamic memory allocated by loading the level base state.
 
@@ -1096,7 +1096,7 @@ void ReadLevel (char *filename)
 		ent->client->playerinfo.pers.connected = false;
 		InitPlayerinfo(ent);
 		SetupPlayerinfo(ent);
-		P_PlayerBasicAnimReset(&ent->client->playerinfo);
+		PlayerBasicAnimReset(&ent->client->playerinfo);
 	}
 
 	// Do any load time things at this point.

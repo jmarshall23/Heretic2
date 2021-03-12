@@ -235,7 +235,7 @@ void harpy_take_head(edict_t *self, edict_t *victim, int BodyPart, int frame, in
 	//fix angles?
 	self->enemy = NULL;
 
-	QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
+	G_QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
 	//go into a circle?
 }
 
@@ -276,7 +276,7 @@ void harpy_blocked (edict_t *self, struct trace_s *trace)
 					player_decap(trace->ent, self);
 				}
 				else
-					QPostMessage(trace->ent, MSG_DISMEMBER, PRI_DIRECTIVE, "ii", 9999999, hl_Head|hl_MeleeHit);
+					G_QPostMessage(trace->ent, MSG_DISMEMBER, PRI_DIRECTIVE, "ii", 9999999, hl_Head|hl_MeleeHit);
 				return;
 			}
 		}
@@ -290,7 +290,7 @@ void harpy_blocked (edict_t *self, struct trace_s *trace)
 				if(!irand(0, 5))
 				{
 					if(trace->ent->client->playerinfo.lowerseq != ASEQ_KNOCKDOWN)
-						P_KnockDownPlayer(&trace->ent->client->playerinfo);
+						KnockDownPlayer(&trace->ent->client->playerinfo);
 				}
 			}
 		}
@@ -909,7 +909,7 @@ void harpy_pain(edict_t *self, G_Message_t *msg)
 	int				temp, damage;
 	qboolean		force_pain;
 	
-	ParseMsgParms(msg, "eeiii", &temp, &temp, &force_pain, &damage, &temp);
+	G_ParseMsgParms(msg, "eeiii", &temp, &temp, &force_pain, &damage, &temp);
 
 	if (self->curAnimID >= ANIM_PIRCH1 && self->curAnimID <= ANIM_PIRCH9)
 	{
@@ -1017,7 +1017,7 @@ void harpy_hit(edict_t *self)
 void harpy_pause (edict_t *self)
 {
 	if (M_ValidTarget(self, self->enemy))
-		QPostMessage(self, MSG_RUN, PRI_DIRECTIVE, NULL);
+		G_QPostMessage(self, MSG_RUN, PRI_DIRECTIVE, NULL);
 	else if(self->curAnimID == ANIM_CIRCLING)
 	{
 		if(!irand(0, 6))
@@ -1705,7 +1705,7 @@ void SP_monster_harpy(edict_t *self)
 	}
 	else
 	{
-		QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
+		G_QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
 	}
 
 	if(irand(0,1))

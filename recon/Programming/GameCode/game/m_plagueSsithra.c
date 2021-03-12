@@ -1695,7 +1695,7 @@ void ssithra_pain(edict_t *self, G_Message_t *msg)
 	if(self->deadflag == DEAD_DEAD) //Dead but still being hit	
 		return;
 
-	ParseMsgParms(msg, "eeiii", &temp, &temp, &force_pain, &damage, &temp);
+	G_ParseMsgParms(msg, "eeiii", &temp, &temp, &force_pain, &damage, &temp);
 
 	if(!force_pain)
 	{
@@ -1932,7 +1932,7 @@ void ssithra_melee(edict_t *self, G_Message_t *msg)
 	{
 		if(ssithraCheckInWater(self))
 		{
-			QPostMessage(self, MSG_MISSILE, PRI_DIRECTIVE, NULL);
+			G_QPostMessage(self, MSG_MISSILE, PRI_DIRECTIVE, NULL);
 			return;
 		}
 
@@ -1951,7 +1951,7 @@ void ssithra_melee(edict_t *self, G_Message_t *msg)
 			SetAnim(self, ANIM_MELEE_STAND);
 	}
 	else
-		QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
+		G_QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
 }
 
 void ssithra_missile(edict_t *self, G_Message_t *msg)
@@ -1987,7 +1987,7 @@ void ssithra_missile(edict_t *self, G_Message_t *msg)
 	}
 	else
 	{
-		QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
+		G_QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
 	}
 }
 
@@ -2012,7 +2012,7 @@ void ssithra_backup(edict_t *self, G_Message_t *msg)
 	}
 	else
 	{
-		QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
+		G_QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
 	}
 }
 
@@ -2571,7 +2571,7 @@ void ssithraCheckLoop (edict_t *self)
 	{//don't loop if enemy close enough
 		if (len < min_seperation + melee_range)
 		{
-			QPostMessage(self, MSG_MELEE, PRI_DIRECTIVE, NULL);
+			G_QPostMessage(self, MSG_MELEE, PRI_DIRECTIVE, NULL);
 			return;
 		}
 		else if (len < min_seperation + jump_range && irand(0,10)<3)
@@ -2647,7 +2647,7 @@ void ssithra_evade (edict_t *self, G_Message_t *msg)
 	int chance;
 	float eta;
 
-	ParseMsgParms(msg, "eif", &projectile, &HitLocation, &eta);
+	G_ParseMsgParms(msg, "eif", &projectile, &HitLocation, &eta);
 	
 	switch(HitLocation)
 	{
@@ -2741,19 +2741,19 @@ qboolean SsithraCheckMood (edict_t *self)
 	{
 		case AI_MOOD_ATTACK:
 			if(self->ai_mood_flags & AI_MOOD_FLAG_MISSILE)
-				QPostMessage(self, MSG_MISSILE, PRI_DIRECTIVE, NULL);
+				G_QPostMessage(self, MSG_MISSILE, PRI_DIRECTIVE, NULL);
 			else
-				QPostMessage(self, MSG_MELEE, PRI_DIRECTIVE, NULL);
+				G_QPostMessage(self, MSG_MELEE, PRI_DIRECTIVE, NULL);
 			return true;
 			break;
 		case AI_MOOD_PURSUE:
 		case AI_MOOD_NAVIGATE:
 			//gi.dprintf("Pursue- Nav\n");
-			QPostMessage(self, MSG_RUN, PRI_DIRECTIVE, NULL);
+			G_QPostMessage(self, MSG_RUN, PRI_DIRECTIVE, NULL);
 			return true;
 			break;
 		case AI_MOOD_WALK:
-			QPostMessage(self, MSG_WALK, PRI_DIRECTIVE, NULL);
+			G_QPostMessage(self, MSG_WALK, PRI_DIRECTIVE, NULL);
 			return true;
 			break;
 		case AI_MOOD_STAND:
@@ -2779,7 +2779,7 @@ qboolean SsithraCheckMood (edict_t *self)
 			break;
 
 		case AI_MOOD_BACKUP:
-			QPostMessage(self, MSG_FALLBACK, PRI_DIRECTIVE, NULL);
+			G_QPostMessage(self, MSG_FALLBACK, PRI_DIRECTIVE, NULL);
 			return true;
 			break;
 
@@ -2803,7 +2803,7 @@ qboolean SsithraCheckMood (edict_t *self)
 
 void ssithra_check_mood (edict_t *self, G_Message_t *msg)
 {
-	ParseMsgParms(msg, "i", &self->ai_mood);
+	G_ParseMsgParms(msg, "i", &self->ai_mood);
 
 	SsithraCheckMood(self);
 }
@@ -2826,7 +2826,7 @@ void ssithra_sight (edict_t *self, G_Message_t *msg)
 	if (self->monsterinfo.supporters != -1)
 		return;
 	
-	ParseMsgParms(msg, "be", &sight_type, &enemy);
+	G_ParseMsgParms(msg, "be", &sight_type, &enemy);
 
 	//See if we are the first to see the player
 	if(M_CheckAlert(self, SSITHRA_SUPPORT_RADIUS))
@@ -3182,7 +3182,7 @@ void SP_monster_plague_ssithra (edict_t *self)
 	if(!irand(0,2))
 		self->ai_mood_flags |= AI_MOOD_FLAG_PREDICT;
 
-	QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
+	G_QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
 	self->svflags |= SVF_WAIT_NOTSOLID;
 	self->flags |= FL_AMPHIBIAN;
 

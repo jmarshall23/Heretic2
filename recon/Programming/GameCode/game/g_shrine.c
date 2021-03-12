@@ -118,7 +118,7 @@ void PlayerKillShrineFX(edict_t *self)
 	playerinfo->pers.armortype = ARMOR_NONE;
 
 	SetupPlayerinfo_effects(self);
-	P_PlayerUpdateModelAttributes(&self->client->playerinfo);
+	PlayerUpdateModelAttributes(&self->client->playerinfo);
 	WritePlayerinfo_effects(self);
 
 	// Remove Staff powerup.
@@ -566,7 +566,7 @@ void shrine_heal_touch	(edict_t *self, edict_t *other, cplane_t *plane, csurface
 
 		// Initialise the shrine animation.
 
-		P_PlayerAnimSetLowerSeq(&other->client->playerinfo,ASEQ_SHRINE);
+		PlayerAnimSetLowerSeq(&other->client->playerinfo,ASEQ_SHRINE);
 
 		// Make us invunerable for a couple of seconds.
 
@@ -642,7 +642,7 @@ void shrine_armor_silver_core(edict_t *self,edict_t *other)
 	}
 
 	SetupPlayerinfo_effects(other);
-	P_PlayerUpdateModelAttributes(&other->client->playerinfo);
+	PlayerUpdateModelAttributes(&other->client->playerinfo);
 	WritePlayerinfo_effects(other);
 
 
@@ -681,7 +681,7 @@ void shrine_armor_silver_touch	(edict_t *self, edict_t *other, cplane_t *plane, 
 
 		// Initialise the shrine animation.
 
-		P_PlayerAnimSetLowerSeq(&other->client->playerinfo, ASEQ_SHRINE);
+		PlayerAnimSetLowerSeq(&other->client->playerinfo, ASEQ_SHRINE);
 
 		// Make us invunerable for a couple of seconds.
 
@@ -752,7 +752,7 @@ void shrine_armor_gold_core(edict_t *self,edict_t *other)
 	other->client->playerinfo.pers.armor_count = gold_armor_info.max_armor;
 
 	SetupPlayerinfo_effects(other);
-	P_PlayerUpdateModelAttributes(&other->client->playerinfo);
+	PlayerUpdateModelAttributes(&other->client->playerinfo);
 	WritePlayerinfo_effects(other);
 
 	// restore dismemberment, and stop us being on fire
@@ -788,7 +788,7 @@ void shrine_armor_gold_touch (edict_t *self, edict_t *other, cplane_t *plane, cs
 
 		// Initialise the shrine animation.
 
-		P_PlayerAnimSetLowerSeq(&other->client->playerinfo, ASEQ_SHRINE);
+		PlayerAnimSetLowerSeq(&other->client->playerinfo, ASEQ_SHRINE);
 
 		// Make us invunerable for a couple of seconds.
 
@@ -870,7 +870,7 @@ void shrine_staff_core(edict_t *self,edict_t *other)
 		other->client->playerinfo.pers.stafflevel++;
 
 		SetupPlayerinfo_effects(other);
-		P_PlayerUpdateModelAttributes(&other->client->playerinfo);
+		PlayerUpdateModelAttributes(&other->client->playerinfo);
 		WritePlayerinfo_effects(other);
 	}
 
@@ -906,7 +906,7 @@ void shrine_staff_touch	(edict_t *self, edict_t *other, cplane_t *plane, csurfac
 
 		// Initialise the shrine animation.
 
-		P_PlayerAnimSetLowerSeq(&other->client->playerinfo, ASEQ_SHRINE);
+		PlayerAnimSetLowerSeq(&other->client->playerinfo, ASEQ_SHRINE);
 
 		// Make us invunerable for a couple of seconds.
 
@@ -1008,7 +1008,7 @@ void shrine_lung_touch	(edict_t *self, edict_t *other, cplane_t *plane, csurface
 
 		// Initialise the shrine animation.
 
-		P_PlayerAnimSetLowerSeq(&other->client->playerinfo, ASEQ_SHRINE);
+		PlayerAnimSetLowerSeq(&other->client->playerinfo, ASEQ_SHRINE);
 
 		// Make us invulnerable for a couple of seconds.
 
@@ -1124,7 +1124,7 @@ void shrine_light_touch	(edict_t *self, edict_t *other, cplane_t *plane, csurfac
 
 		// Initialise the shrine animation.
 
-		P_PlayerAnimSetLowerSeq(&other->client->playerinfo, ASEQ_SHRINE);
+		PlayerAnimSetLowerSeq(&other->client->playerinfo, ASEQ_SHRINE);
 
 		// Make us invunerable for a couple of seconds.
 
@@ -1191,8 +1191,8 @@ void shrine_mana_core(edict_t *self, edict_t *other)
 
 	// Add mana.
 
-	other->client->playerinfo.pers.inventory.Items[ITEM_INDEX(P_FindItem("Off-mana"))] = 100;
-    other->client->playerinfo.pers.inventory.Items[ITEM_INDEX(P_FindItem("Def-mana"))] = 100;
+	other->client->playerinfo.pers.inventory.Items[ITEM_INDEX(FindItem("Off-mana"))] = 100;
+    other->client->playerinfo.pers.inventory.Items[ITEM_INDEX(FindItem("Def-mana"))] = 100;
 
 	// restore dismemberment, and stop us being on fire
 	shrine_restore_player(other);
@@ -1227,7 +1227,7 @@ void shrine_mana_touch	(edict_t *self, edict_t *other, cplane_t *plane, csurface
 
 		// Initialise the shrine animation.
 
-		P_PlayerAnimSetLowerSeq(&other->client->playerinfo, ASEQ_SHRINE);
+		PlayerAnimSetLowerSeq(&other->client->playerinfo, ASEQ_SHRINE);
 
 		// Make us invunerable for a couple of seconds.
 
@@ -1301,7 +1301,7 @@ void shrine_ghost_core(edict_t *self,edict_t *other)
 	// Update the model attributes for ghosting.
 	
 	SetupPlayerinfo_effects(other);
-	P_PlayerUpdateModelAttributes(&other->client->playerinfo);
+	PlayerUpdateModelAttributes(&other->client->playerinfo);
 	WritePlayerinfo_effects(other);
 
 	// restore dismemberment, and stop us being on fire
@@ -1337,7 +1337,7 @@ void shrine_ghost_touch	(edict_t *self, edict_t *other, cplane_t *plane, csurfac
 
 		// Initialise the shrine animation.
 
-		P_PlayerAnimSetLowerSeq(&other->client->playerinfo, ASEQ_SHRINE);
+		PlayerAnimSetLowerSeq(&other->client->playerinfo, ASEQ_SHRINE);
 
 		// Make us invulnerable for a couple of seconds.
 
@@ -1414,7 +1414,7 @@ void shrine_reflect_core(edict_t *self,edict_t *other)
 	// Update the model attributes for the reflection skin.
 	
 	SetupPlayerinfo_effects(other);
-	P_PlayerUpdateModelAttributes(&other->client->playerinfo);
+	PlayerUpdateModelAttributes(&other->client->playerinfo);
 	WritePlayerinfo_effects(other);
 
 	// restore dismemberment, and stop us being on fire
@@ -1450,7 +1450,7 @@ void shrine_reflect_touch(edict_t *self, edict_t *other, cplane_t *plane, csurfa
 
 		// Initialise the shrine animation.
 
-		P_PlayerAnimSetLowerSeq(&other->client->playerinfo, ASEQ_SHRINE);
+		PlayerAnimSetLowerSeq(&other->client->playerinfo, ASEQ_SHRINE);
 
 		// Make us invunerable for a couple of seconds.
 
@@ -1566,7 +1566,7 @@ void shrine_powerup_touch (edict_t *self, edict_t *other, cplane_t *plane, csurf
 
 		// Initialise the shrine animation.
 
-		P_PlayerAnimSetLowerSeq(&other->client->playerinfo, ASEQ_SHRINE);
+		PlayerAnimSetLowerSeq(&other->client->playerinfo, ASEQ_SHRINE);
 
 		// Make us invunerable for a couple of seconds.
 
@@ -1681,7 +1681,7 @@ void shrine_speed_touch (edict_t *self, edict_t *other, cplane_t *plane, csurfac
 
 		// Initialise the shrine animation.
 
-		P_PlayerAnimSetLowerSeq(&other->client->playerinfo, ASEQ_SHRINE);
+		PlayerAnimSetLowerSeq(&other->client->playerinfo, ASEQ_SHRINE);
 
 		// Make us invunerable for a couple of seconds.
 
@@ -1797,8 +1797,8 @@ void shrine_random_touch (edict_t *self, edict_t *other, cplane_t *plane, csurfa
 			possible_shrines[total_rand_count] = SHRINE_ARMOR_GOLD;
 			total_rand_count++;
 		}
-		if ((other->client->playerinfo.pers.inventory.Items[ITEM_INDEX(P_FindItem("Off-mana"))] < 100) ||
-		    (other->client->playerinfo.pers.inventory.Items[ITEM_INDEX(P_FindItem("Def-mana"))] < 100))
+		if ((other->client->playerinfo.pers.inventory.Items[ITEM_INDEX(FindItem("Off-mana"))] < 100) ||
+		    (other->client->playerinfo.pers.inventory.Items[ITEM_INDEX(FindItem("Def-mana"))] < 100))
 		{
 			possible_shrines[total_rand_count] = SHRINE_MANA;
 			total_rand_count++;
@@ -1912,7 +1912,7 @@ void shrine_random_touch (edict_t *self, edict_t *other, cplane_t *plane, csurfa
 
 		// Initialise the shrine animation.
 
-		P_PlayerAnimSetLowerSeq(&other->client->playerinfo, ASEQ_SHRINE);
+		PlayerAnimSetLowerSeq(&other->client->playerinfo, ASEQ_SHRINE);
 
 		// Make us invulnerable for a couple of seconds.
 

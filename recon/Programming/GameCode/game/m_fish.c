@@ -666,7 +666,7 @@ void fish_pain(edict_t *self, G_Message_t *msg)
 	int				temp, damage;
 	qboolean		force_pain;
 	
-	ParseMsgParms(msg, "eeiii", &temp, &temp, &force_pain, &damage, &temp);
+	G_ParseMsgParms(msg, "eeiii", &temp, &temp, &force_pain, &damage, &temp);
 
 	if(!force_pain)
 		if(!flrand(0,3))

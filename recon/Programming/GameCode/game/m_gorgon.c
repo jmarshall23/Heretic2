@@ -175,7 +175,7 @@ void gorgon_blocked (edict_t *self, trace_t *trace)
 				{
 					if(infront(trace->ent, self))
 					{
-						P_KnockDownPlayer(&trace->ent->client->playerinfo);
+						KnockDownPlayer(&trace->ent->client->playerinfo);
 					}
 				}
 			}
@@ -248,7 +248,7 @@ void gorgonRoar (edict_t *self)
 									found->monsterinfo.roared = true;
 									found->enemy = self->enemy;
 									FoundTarget(found, false);
-									QPostMessage(found, MSG_VOICE_POLL, PRI_DIRECTIVE, "");
+									G_QPostMessage(found, MSG_VOICE_POLL, PRI_DIRECTIVE, "");
 								}
 							}
 						}
@@ -346,7 +346,7 @@ qboolean gorgon_check_attack(edict_t *self)
 	if (len < 200)
 	{
 		self->show_hostile = level.time + 1;		// wake up other monsters		
-		QPostMessage(self, MSG_MELEE, PRI_DIRECTIVE, NULL);
+		G_QPostMessage(self, MSG_MELEE, PRI_DIRECTIVE, NULL);
 
 		return true;
 	}
@@ -727,7 +727,7 @@ void gorgon_pain(edict_t *self, G_Message_t *msg)
 	int			chance, temp, damage;
 	qboolean	force_pain;
 	
-	ParseMsgParms(msg, "eeiii", &tempent, &tempent, &force_pain, &damage, &temp);
+	G_ParseMsgParms(msg, "eeiii", &tempent, &tempent, &force_pain, &damage, &temp);
 
 	if(!force_pain)
 	{
@@ -867,13 +867,13 @@ qboolean gorgonCheckMood(edict_t *self)
 	switch (self->ai_mood)
 	{
 		case AI_MOOD_ATTACK://melee and missile the same
-			QPostMessage(self, MSG_MELEE, PRI_DIRECTIVE, NULL);
+			G_QPostMessage(self, MSG_MELEE, PRI_DIRECTIVE, NULL);
 			break;
 		case AI_MOOD_PURSUE:
-			QPostMessage(self, MSG_RUN, PRI_DIRECTIVE, NULL);
+			G_QPostMessage(self, MSG_RUN, PRI_DIRECTIVE, NULL);
 			break;
 		case AI_MOOD_WALK:
-			QPostMessage(self, MSG_WALK, PRI_DIRECTIVE, NULL);
+			G_QPostMessage(self, MSG_WALK, PRI_DIRECTIVE, NULL);
 			break;
 		case AI_MOOD_NAVIGATE:
 			if(self->flags & FL_INWATER)
@@ -889,7 +889,7 @@ qboolean gorgonCheckMood(edict_t *self)
 				SetAnim(self, ANIM_RUN1);
 			break;
 		case AI_MOOD_STAND:
-			QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
+			G_QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
 			break;
 		case AI_MOOD_DELAY:
 			SetAnim(self, ANIM_DELAY);
@@ -916,7 +916,7 @@ qboolean gorgonCheckMood(edict_t *self)
 			break;
 		case AI_MOOD_EAT://FIXME: this is not neccessary?
 			gorgon_ai_eat(self, 0);
-			//QPostMessage(self, MSG_EAT, PRI_DIRECTIVE, NULL);
+			//G_QPostMessage(self, MSG_EAT, PRI_DIRECTIVE, NULL);
 			break;
 		default :
 #ifdef _DEVEL
@@ -930,7 +930,7 @@ qboolean gorgonCheckMood(edict_t *self)
 
 void gorgon_check_mood (edict_t *self, G_Message_t *msg)
 {
-	ParseMsgParms(msg, "i", &self->ai_mood);
+	G_ParseMsgParms(msg, "i", &self->ai_mood);
 
 	gorgonCheckMood(self);
 }
@@ -1003,7 +1003,7 @@ void gorgon_eatorder (edict_t *self)
 	if(gorgon_check_attack(self))
 		return;
 
-	QPostMessage(self, MSG_EAT, PRI_DIRECTIVE, NULL);
+	G_QPostMessage(self, MSG_EAT, PRI_DIRECTIVE, NULL);
 }
 
 #define JUMP_SCALE 1.5
@@ -1394,7 +1394,7 @@ void gorgon_evade (edict_t *self, G_Message_t *msg)
 	int chance;
 	float eta;
 
-	ParseMsgParms(msg, "eif", &projectile, &HitLocation, &eta);
+	G_ParseMsgParms(msg, "eif", &projectile, &HitLocation, &eta);
 	
 	if(eta<0.3)
 		return;//needs a .3 seconds to respond, minimum
@@ -1591,7 +1591,7 @@ void gorgon_throw_toy(edict_t *self)
 	VectorRandomCopy(vec3_origin,self->enemy->avelocity,300);
 	
 	if(stricmp(self->enemy->classname,"player"))
-		QPostMessage(self->enemy, MSG_DEATH, PRI_DIRECTIVE, NULL);
+		G_QPostMessage(self->enemy, MSG_DEATH, PRI_DIRECTIVE, NULL);
 
 	//FIXME: What if I miss?  Set the monster's touch to
 	//	something that restores it's angles and normal thinking (AI_FLEE)
@@ -1805,8 +1805,8 @@ void gorgon_anger_sound (edict_t *self)
 		chance = (byte)irand(1,3);
 		VectorCopy(self->enemy->s.origin, spot);
 
-		QPostMessage(self->enemy,MSG_DISMEMBER,PRI_DIRECTIVE,"ii", self->enemy->health*0.5, irand(1,13));//do I need last three if not sending them?
-		QPostMessage(self->enemy,MSG_PAIN,PRI_DIRECTIVE,"ii", self->enemy, self);//do I need last three if not sending them?
+		G_QPostMessage(self->enemy,MSG_DISMEMBER,PRI_DIRECTIVE,"ii", self->enemy->health*0.5, irand(1,13));//do I need last three if not sending them?
+		G_QPostMessage(self->enemy,MSG_PAIN,PRI_DIRECTIVE,"ii", self->enemy, self);//do I need last three if not sending them?
 	}
 }
 
@@ -1824,7 +1824,7 @@ void gorgon_done_gore (edict_t *self)
 		if(self->oldenemy->health>0)
 		{
 			self->enemy = self->oldenemy;
-			QPostMessage(self, MSG_RUN, PRI_DIRECTIVE, NULL);
+			G_QPostMessage(self, MSG_RUN, PRI_DIRECTIVE, NULL);
 			return;
 		}
 	}
@@ -2251,7 +2251,7 @@ void SP_monster_gorgon_leader (edict_t *self)
 
 	VectorScale(self->mins, scale, self->mins);
 	VectorScale(self->maxs, scale, self->maxs);
-	QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
+	G_QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
 	
 	MG_InitMoods(self);
 	self->svflags |= SVF_WAIT_NOTSOLID;
@@ -2378,13 +2378,13 @@ void SP_monster_gorgon (edict_t *self)
 	if (self->spawnflags & MSF_EATING)
 	{
 		self->monsterinfo.aiflags |= AI_EATING;
-		QPostMessage(self, MSG_EAT, PRI_DIRECTIVE, NULL);
+		G_QPostMessage(self, MSG_EAT, PRI_DIRECTIVE, NULL);
 		if(!self->wakeup_distance)
 			self->wakeup_distance = 300;
 	}
 	else
 	{
-		QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
+		G_QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
 	}
 
 	MG_InitMoods(self);

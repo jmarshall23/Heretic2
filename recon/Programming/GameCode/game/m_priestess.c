@@ -1432,7 +1432,7 @@ void priestess_pause( edict_t *self )
 		return;
 	}
 
-	QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
+	G_QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
 }
 
 /*-----------------------------------------------
@@ -1545,7 +1545,7 @@ void priestess_pain(edict_t *self, G_Message_t *msg)
 	int	temp, damage;
 	int	force_pain;
 
-	ParseMsgParms(msg, "eeiii", &temp, &temp, &force_pain, &damage, &temp);
+	G_ParseMsgParms(msg, "eeiii", &temp, &temp, &force_pain, &damage, &temp);
 
 	if (self->curAnimID == ANIM_ATTACK3_GO || self->curAnimID == ANIM_ATTACK3_LOOP || 
 		self->curAnimID == ANIM_SHIELD_GO)
@@ -1692,7 +1692,7 @@ void SP_monster_high_priestess (edict_t *self)
 							HP_STAFF_INIT,
 							self->s.number);
 
-	QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
+	G_QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
 
 	self->post_think = priestess_postthink;
 	self->next_post_think = level.time + 0.1;

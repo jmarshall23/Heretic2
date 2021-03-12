@@ -202,7 +202,7 @@ void rat_run(edict_t *self, G_Message_t *msg)
 		return;
 	}
 
-	QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
+	G_QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
 }
 
 
@@ -233,7 +233,7 @@ void rat_melee(edict_t *self, G_Message_t *msg)
 		return;
 	}
 
-	QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
+	G_QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
 }
 
 //----------------------------------------------------------------------
@@ -459,12 +459,12 @@ void rat_pain_init(edict_t *self)
 
 void rat_runorder(edict_t *self)
 {
-	QPostMessage(self, MSG_RUN, PRI_DIRECTIVE, NULL);
+	G_QPostMessage(self, MSG_RUN, PRI_DIRECTIVE, NULL);
 }
 
 void rat_standorder(edict_t *self)
 {
-	QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
+	G_QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
 }
 
 void rat_pause (edict_t *self)
@@ -478,17 +478,17 @@ void rat_pause (edict_t *self)
 		// Far enough to run after
 		if ((len > 60) || (self->monsterinfo.aiflags & AI_FLEE))
 		{
-			QPostMessage(self, MSG_RUN, PRI_DIRECTIVE, NULL);
+			G_QPostMessage(self, MSG_RUN, PRI_DIRECTIVE, NULL);
 		}
 		else	// Close enough to Attack 
 		{
-			QPostMessage(self, MSG_MELEE, PRI_DIRECTIVE, NULL);
+			G_QPostMessage(self, MSG_MELEE, PRI_DIRECTIVE, NULL);
 		}
 		
 		return;
 	}
 
-	QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
+	G_QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
 }
 
 void ratjump(edict_t *self)
@@ -506,7 +506,7 @@ void ratjump(edict_t *self)
 -----------------------------------------------------------------------*/
 void rat_watchorder(edict_t *self)
 {
-	QPostMessage(self, MSG_WATCH, PRI_DIRECTIVE, NULL);
+	G_QPostMessage(self, MSG_WATCH, PRI_DIRECTIVE, NULL);
 }
 
 /*----------------------------------------------------------------------
@@ -514,7 +514,7 @@ void rat_watchorder(edict_t *self)
 -----------------------------------------------------------------------*/
 void rat_eatorder(edict_t *self)
 {
-	QPostMessage(self, MSG_EAT, PRI_DIRECTIVE, NULL);
+	G_QPostMessage(self, MSG_EAT, PRI_DIRECTIVE, NULL);
 }
 
 void rat_use(edict_t *self, edict_t *other, edict_t *activator)
@@ -613,11 +613,11 @@ void rat_ai_eat(edict_t *self, float dist)
 	{
 		if (M_DistanceToTarget(self, self->enemy) < MAX_RAT_IGNORE_DIST)
 		{
-			QPostMessage(self, MSG_RUN, PRI_DIRECTIVE, NULL);
+			G_QPostMessage(self, MSG_RUN, PRI_DIRECTIVE, NULL);
 		}
 		else
 		{
-			QPostMessage(self, MSG_EAT, PRI_DIRECTIVE, NULL);
+			G_QPostMessage(self, MSG_EAT, PRI_DIRECTIVE, NULL);
 		}
 	}
 }
@@ -757,13 +757,13 @@ void SP_monster_rat (edict_t *self)
 	if (self->spawnflags & MSF_EATING)
 	{
 		//self->monsterinfo.aiflags |= AI_EATING;
-		QPostMessage(self, MSG_EAT, PRI_DIRECTIVE, NULL);
+		G_QPostMessage(self, MSG_EAT, PRI_DIRECTIVE, NULL);
 		if(!self->wakeup_distance)
 			self->wakeup_distance = 300;
 	}
 	else
 	{
-		QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
+		G_QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
 	}
 }
 
@@ -835,12 +835,12 @@ void SP_monster_rat_giant (edict_t *self)
 	if (self->spawnflags & MSF_EATING)
 	{
 		self->monsterinfo.aiflags |= AI_EATING;
-		QPostMessage(self, MSG_EAT, PRI_DIRECTIVE, NULL);
+		G_QPostMessage(self, MSG_EAT, PRI_DIRECTIVE, NULL);
 		if(!self->wakeup_distance)
 			self->wakeup_distance = 300;
 	}
 	else
 	{
-		QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
+		G_QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
 	}
 }

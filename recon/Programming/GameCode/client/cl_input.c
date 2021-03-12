@@ -460,6 +460,7 @@ void CL_SendCmd (void)
 	int			checksumIndex;
 
 	// build a command even if not connected
+	buf.data = NULL;
 
 	// save this command off for prediction
 	i = cls.netchan.outgoing_sequence & (CMD_BACKUP-1);

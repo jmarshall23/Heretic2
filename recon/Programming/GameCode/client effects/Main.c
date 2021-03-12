@@ -120,7 +120,7 @@ client_fx_export_t GetfxAPI (client_fx_import_t import)
 
 void Init()
 {
-	extern void (*classStaticsInits[NUM_CLASSIDS])();
+	extern void (*cg_classStaticsInits[NUM_CLASSIDS])();
 	void InitEntityMngr();
 	void InitFMNodeInfoMngr();
 
@@ -134,7 +134,7 @@ void Init()
 
 	for(i = 0; i < NUM_CLASSIDS; ++i)
 	{
-		classStaticsInits[i]();
+		cg_classStaticsInits[i]();
 	}
 
 	clientEnts = NULL;
@@ -303,7 +303,7 @@ int DummyEffectParams(centity_t *ent, int flags, int effect)
 	vec3_t			v;
 	sizebuf_t		*msg_read;
 	sizebuf_t		tempBuf;
-	EffectsBuffer_t *fxBuf;
+	EffectsBuffer_t *fxBuf = NULL;
 	char			*format;
 
 	format=clientEffectSpawners[effect].formatString;
@@ -423,10 +423,10 @@ void ParseEffects(centity_t *owner)
 	vec3_t			position;
 	sizebuf_t		*msg_read;
 	sizebuf_t		tempBuf;
-	EffectsBuffer_t *fxBuf;
+	EffectsBuffer_t *fxBuf = NULL;
 	centity_t		*tempOwner;
 	int				last_effect = -1;
-	int				eventId;
+	int				eventId = 0;
 	qboolean		EffectIsFromServer;
 
 	tempOwner = owner;

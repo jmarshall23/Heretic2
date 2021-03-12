@@ -156,7 +156,7 @@ ClientEffect_t clientEffectSpawners[NUM_FX] =
 
 CE_ClassStatics_t classStatics[NUM_CLASSIDS];
 
-void (*classStaticsInits[NUM_CLASSIDS])()= 
+void (*cg_classStaticsInits[NUM_CLASSIDS])()= 
 {
 	InitDebrisStatics
 };

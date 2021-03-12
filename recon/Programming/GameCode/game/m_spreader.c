@@ -324,18 +324,18 @@ void spreader_pause(edict_t *self)
 	switch (self->ai_mood)
 	{
 	case AI_MOOD_ATTACK:
-		QPostMessage(self, MSG_MISSILE, PRI_DIRECTIVE, NULL);
+		G_QPostMessage(self, MSG_MISSILE, PRI_DIRECTIVE, NULL);
 		break;
 
 	case AI_MOOD_NAVIGATE:
 	case AI_MOOD_PURSUE:
 	case AI_MOOD_FLEE:
-		QPostMessage(self, MSG_RUN, PRI_DIRECTIVE, NULL);
+		G_QPostMessage(self, MSG_RUN, PRI_DIRECTIVE, NULL);
 		break;
 
 	case AI_MOOD_STAND:
 		if (!self->enemy)
-			QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
+			G_QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
 		break;
 
 	case AI_MOOD_DELAY:
@@ -343,11 +343,11 @@ void spreader_pause(edict_t *self)
 		break;
 
 	case AI_MOOD_WANDER:
-		QPostMessage(self, MSG_WALK, PRI_DIRECTIVE, NULL);
+		G_QPostMessage(self, MSG_WALK, PRI_DIRECTIVE, NULL);
 		break;
 
 	case AI_MOOD_WALK:
-		QPostMessage(self, MSG_WALK, PRI_DIRECTIVE, NULL);
+		G_QPostMessage(self, MSG_WALK, PRI_DIRECTIVE, NULL);
 		break;
 
 	case AI_MOOD_JUMP:
@@ -358,7 +358,7 @@ void spreader_pause(edict_t *self)
 		break;
 
 	case AI_MOOD_BACKUP:
-		QPostMessage(self, MSG_FALLBACK, PRI_DIRECTIVE, NULL);
+		G_QPostMessage(self, MSG_FALLBACK, PRI_DIRECTIVE, NULL);
 		break;
 
 	default :
@@ -371,7 +371,7 @@ void spreader_pause(edict_t *self)
 
 void spreader_check_mood (edict_t *self, G_Message_t *msg)
 {
-	ParseMsgParms(msg, "i", &self->ai_mood);
+	G_ParseMsgParms(msg, "i", &self->ai_mood);
 
 	spreader_pause(self);
 }
@@ -387,7 +387,7 @@ void spreader_pain(edict_t *self, G_Message_t *msg)
 	int				temp, damage;
 	qboolean		force_pain;
 	
-	ParseMsgParms(msg, "eeiii", &temp, &temp, &force_pain, &damage, &temp);
+	G_ParseMsgParms(msg, "eeiii", &temp, &temp, &force_pain, &damage, &temp);
 
 	//Weighted random based on health compared to the maximum it was at
 	if (force_pain||((flrand(0, self->max_health+50) > self->health) && irand(0,2)))
@@ -420,7 +420,7 @@ void spreader_run(edict_t *self, G_Message_t *msg)
 	}
 
 	//If our enemy is dead, we need to stand
-	QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
+	G_QPostMessage(self, MSG_STAND, PRI_DIRECTIVE, NULL);
 }
 
 void spreader_walk(edict_t *self, G_Message_t *msg)
@@ -465,7 +465,7 @@ void spreader_melee(edict_t *self, G_Message_t *msg)
 							{
 								if(infront(self->enemy, self))
 								{
-									P_KnockDownPlayer(&self->enemy->client->playerinfo);
+									KnockDownPlayer(&self->enemy->client->playerinfo);
 								}
 							}
 						}
@@ -578,7 +578,7 @@ void spreader_evade(edict_t *self, G_Message_t *msg)
 	int				duck_chance, chance;
 	float eta;
 
-	ParseMsgParms(msg, "eif", &projectile, &HitLocation, &eta);
+	G_ParseMsgParms(msg, "eif", &projectile, &HitLocation, &eta);
 	
 	switch (self->curAnimID)
 	{
@@ -640,12 +640,12 @@ void spreader_evade(edict_t *self, G_Message_t *msg)
 
 void spreader_death(edict_t *self, G_Message_t *msg)
 {
-	edict_t	*targ, *inflictor, *attacker;
+	edict_t	*targ = NULL, *inflictor, *attacker;
 	float	damage;
 	vec3_t	dVel, vf, yf;
 
 	if(msg)
-		ParseMsgParms(msg, "eeei", &targ, &inflictor, &attacker, &damage);
+		G_ParseMsgParms(msg, "eeei", &targ, &inflictor, &attacker, &damage);
 
 	spreader_hidegrenade(self);
 
@@ -1109,7 +1109,7 @@ void spreaderSplat (edict_t *self, trace_t *trace)//, edict_s *other, cplane_s *
 
 			if(trace->ent->health>0)//else don't gib?
 				if(!stricmp(trace->ent->classname, "player"))
-					P_KnockDownPlayer(&trace->ent->client->playerinfo);
+					KnockDownPlayer(&trace->ent->client->playerinfo);
 		}
 	}
 
@@ -1401,10 +1401,10 @@ void SP_monster_spreader (edict_t *self)
 	//FIXME what else should he spawn doing?  
 	if(self->spawnflags & MSF_WANDER)
 	{
-		QPostMessage(self, MSG_WALK, PRI_DIRECTIVE, NULL);
+		G_QPostMessage(self, MSG_WALK, PRI_DIRECTIVE, NULL);
 	}
 	else
 	{
-		QPostMessage(self,MSG_STAND,PRI_DIRECTIVE, NULL);
+		G_QPostMessage(self,MSG_STAND,PRI_DIRECTIVE, NULL);
 	}
 }

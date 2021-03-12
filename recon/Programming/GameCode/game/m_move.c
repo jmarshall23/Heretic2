@@ -188,7 +188,7 @@ qboolean SV_movestep (edict_t *ent, vec3_t move, qboolean relink)
 					contents = gi.pointcontents(test);
 					if (contents & MASK_WATER)
 					{
-						QPostMessage(ent, MSG_BLOCKED, PRI_DIRECTIVE, NULL);
+						G_QPostMessage(ent, MSG_BLOCKED, PRI_DIRECTIVE, NULL);
 						return false;
 					}
 				}
@@ -205,7 +205,7 @@ qboolean SV_movestep (edict_t *ent, vec3_t move, qboolean relink)
 					contents = gi.pointcontents(test);
 					if (!(contents & MASK_WATER))
 					{
-						QPostMessage(ent, MSG_BLOCKED, PRI_DIRECTIVE, NULL);
+						G_QPostMessage(ent, MSG_BLOCKED, PRI_DIRECTIVE, NULL);
 						return false;
 					}
 				}
@@ -243,7 +243,7 @@ qboolean SV_movestep (edict_t *ent, vec3_t move, qboolean relink)
 
 	if (trace.allsolid)
 	{
-		QPostMessage(ent, MSG_BLOCKED, PRI_DIRECTIVE, NULL);
+		G_QPostMessage(ent, MSG_BLOCKED, PRI_DIRECTIVE, NULL);
 		return false;
 	}
 
@@ -253,7 +253,7 @@ qboolean SV_movestep (edict_t *ent, vec3_t move, qboolean relink)
 		gi.trace (neworg, ent->mins, ent->maxs, end, ent, MASK_MONSTERSOLID,&trace);
 		if (trace.allsolid || trace.startsolid)
 		{
-			QPostMessage(ent, MSG_BLOCKED, PRI_DIRECTIVE, NULL);
+			G_QPostMessage(ent, MSG_BLOCKED, PRI_DIRECTIVE, NULL);
 			return false;
 		}
 	}
@@ -287,7 +287,7 @@ qboolean SV_movestep (edict_t *ent, vec3_t move, qboolean relink)
 //	SV_Printf ("fall down\n"); 
 			return true;
 		}
-		QPostMessage(ent, MSG_BLOCKED, PRI_DIRECTIVE, NULL);
+		G_QPostMessage(ent, MSG_BLOCKED, PRI_DIRECTIVE, NULL);
 		return false;		// walked off an edge
 	}
 
@@ -307,7 +307,7 @@ qboolean SV_movestep (edict_t *ent, vec3_t move, qboolean relink)
 			return true;
 		}
 		VectorCopy (oldorg, ent->s.origin);
-		QPostMessage(ent, MSG_BLOCKED, PRI_DIRECTIVE, NULL);
+		G_QPostMessage(ent, MSG_BLOCKED, PRI_DIRECTIVE, NULL);
 		return false;
 	}
 

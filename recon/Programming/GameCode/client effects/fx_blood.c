@@ -263,7 +263,7 @@ static qboolean GetTruePlane(vec3_t origin, vec3_t direction)
 qboolean BloodSplatDripUpdate (client_entity_t *self, centity_t *owner);
 qboolean BloodSplatSplishUpdate (client_entity_t *self, centity_t *owner)
 {
-	client_particle_t	*p;
+	client_particle_t	*p = NULL;
 	paletteRGBA_t		color = {180, 140, 110, 160};
 	vec3_t				vel;
 	qboolean			yellow_blood = false;

@@ -50,7 +50,7 @@ static void TornadoThink(edict_t *self)
 			Vec3ScaleAssign(scale, vel);
 			vel[2] += 200;
    			// Vel is just passing the direction of the knockback.
-   			QPostMessage(ent, MSG_REPULSE, PRI_DIRECTIVE, "fff", vel[0], vel[1], vel[2] );
+   			G_QPostMessage(ent, MSG_REPULSE, PRI_DIRECTIVE, "fff", vel[0], vel[1], vel[2] );
 			damage = TORN_DAMAGE;
 			// double the damage if this tornado is powered up
    			if (ent->takedamage)

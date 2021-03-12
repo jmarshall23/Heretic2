@@ -1,5 +1,5 @@
-void InitMsgMngr();
-void ReleaseMsgMngr();
+void G_InitMsgMngr();
+void G_ReleaseMsgMngr();
 #if	G_NEW_SYSTEM
 void InitBoundingFormMngr();
 void ReleaseBoundingFormMngr();
@@ -7,7 +7,7 @@ void ReleaseBoundingFormMngr();
 
 void G_InitResourceManagers()
 {
-	InitMsgMngr();
+	G_InitMsgMngr();
 #if	G_NEW_SYSTEM
 	InitBoundingFormMngr();
 #endif
@@ -15,7 +15,7 @@ void G_InitResourceManagers()
 
 void G_ReleaseResourceManagers()
 {
-	ReleaseMsgMngr();
+	G_ReleaseMsgMngr();
 #if	G_NEW_SYSTEM
 	ReleaseBoundingFormMngr();
 #endif

@@ -30,6 +30,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include <io.h>
 #include <conio.h>
 #include "../win32/conproc.h"
+#include "../qcommon/ResourceManager.h"
 
 #define MINIMUM_WIN_MEMORY	0x0a00000
 #define MAXIMUM_WIN_MEMORY	0x1000000
@@ -422,60 +423,7 @@ void Sys_AppActivate (void)
 	SetForegroundWindow ( cl_hwnd );
 }
 
-/*
-========================================================================
-
-GAME DLL
-
-========================================================================
-*/
-
-void Sys_UnloadGameDll(const char* name, HINSTANCE* hinst) {
-	FreeLibrary(*hinst);
-	*hinst = NULL;
-}
-
-void Sys_LoadGameDll(const char* gamename, HINSTANCE* hinst, DWORD* chkSum) {
-	char	name[MAX_OSPATH];
-	char* path;
-	char	cwd[MAX_OSPATH];
-
-	_getcwd(cwd, sizeof(cwd));
-
-	// check the current directory for other development purposes
-	Com_sprintf(name, sizeof(name), "%s/%s", cwd, gamename);
-	*hinst = LoadLibrary(name);
-	if (*hinst)
-	{
-		Com_DPrintf("LoadLibrary (%s)\n", name);
-	}
-	else
-	{
-		// now run through the search paths
-		path = NULL;
-		while (1)
-		{
-			path = FS_NextPath(path);
-			if (!path)
-				return NULL;		// couldn't find one anywhere
-			Com_sprintf(name, sizeof(name), "%s/%s", path, gamename);
-			*hinst = LoadLibrary(name);
-			if (*hinst)
-			{
-				Com_DPrintf("LoadLibrary (%s)\n", name);
-				break;
-			}
-		}
-	}
-
-	if (*hinst && chkSum)
-	{
-		*chkSum = 100; // fake checksum.
-	}
-}
-
 //=======================================================================
-
 
 /*
 ==================
@@ -512,6 +460,30 @@ void ParseCommandLine (LPSTR lpCmdLine)
 
 }
 
+extern ResourceManager_t globalResourceManager;
+
+/*
+===============
+InitResourceManager
+===============
+*/
+void InitResourceManager()
+{
+	ResMngr_Con(&globalResourceManager, 8, 256);
+}
+
+/*
+===============
+ShutdownResourceManager
+===============
+*/
+
+void ShutdownResourceManager()
+{
+	ResMngr_Des(&globalResourceManager);
+}
+
+
 /*
 ==================
 WinMain
@@ -520,7 +492,7 @@ WinMain
 */
 HINSTANCE	global_hInstance;
 
-QUAKE2_API int __cdecl Quake2Main(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine)
+int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
     MSG				msg;
 	int				time, oldtime, newtime;
@@ -529,6 +501,8 @@ QUAKE2_API int __cdecl Quake2Main(HINSTANCE hInstance, HINSTANCE hPrevInstance, 
     /* previous instances do not exist in Win32 */
     if (hPrevInstance)
         return 0;
+
+	InitResourceManager();
 
 	global_hInstance = hInstance;
 
