@@ -1774,9 +1774,10 @@ void SpawnInitialPlayerEffects(edict_t *ent)
 	PlayerRestartShrineFX(ent);
 
 	// Don't need to keep track of this persistant effect, since its started but never stopped.
-
-	gi.CreatePersistantEffect(&ent->s, FX_PLAYER_PERSISTANT, 
-		CEF_BROADCAST | CEF_OWNERS_ORIGIN, NULL, ""); 
+// jmarshall - this doesn't seem to be used anywhere?
+	//gi.CreatePersistantEffect(&ent->s, FX_PLAYER_PERSISTANT, 
+	//	CEF_BROADCAST | CEF_OWNERS_ORIGIN, NULL, "");
+// jmarshall end
 
 	if (deathmatch->value || coop->value)
 	   	player_leader_effect();

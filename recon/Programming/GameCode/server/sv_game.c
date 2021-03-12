@@ -339,7 +339,6 @@ void SV_BroadcastObituary(int printlevel, short stringid, short client1, short c
 
 }
 
-void	SV_CreateEffect (entity_state_t* ent, int type, int flags, vec3_t origin, char* format, ...) { }
 void	SV_RemoveEffects(entity_state_t* ent, int type) { }
 void	SV_CreateEffectEvent (byte EventId, entity_state_t* ent, int type, int flags, vec3_t origin, char* format, ...) { }
 void	SV_RemoveEffectsEvent(byte EventId, entity_state_t* ent, int type) { }
@@ -353,10 +352,13 @@ void	SV_CLPrintf(edict_t* ent, edict_t* from, int color, char* fmt, ...) { }
 qboolean SV_ResizeBoundingForm (edict_t* self, struct FormMove_s* formMove) { return false; }
 qboolean SV_CheckDistances(vec3_t origin, float dist) { return false; }
 qboolean SV_RemovePersistantEffect(int toRemove, int call_from) { return false; }
-void SV_SoundEvent(byte EventId, float leveltime, edict_t* ent, int channel, int soundindex, float volume, float attenuation, float timeofs) { }
 void SV_ModelRemove (char* name) { };
 void SV_SoundRemove(char* name) { };
 void SV_CleanLevel(void) { };
+
+void SV_SoundEvent(byte EventId, float leveltime, edict_t* ent, int channel, int soundindex, float volume, float attenuation, float timeofs) { 
+	PF_StartSound(ent, channel, soundindex, volume, attenuation, timeofs);
+}
 
 void SV_WriteEffectToBuffer(sizebuf_t* msg, char* format, va_list args)
 {
@@ -508,6 +510,11 @@ int	SV_CreatePersistantEffect(entity_state_t* ent, int type, int flags, vec3_t o
 	effect->data_size = msg.cursize;
 
 	return effectID;
+}
+
+
+void	SV_CreateEffect(entity_state_t* ent, int type, int flags, vec3_t origin, char* format, ...) { 
+
 }
 
 void SV_ClearPersistantEffects(void) { 
