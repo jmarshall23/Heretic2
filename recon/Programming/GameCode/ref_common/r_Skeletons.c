@@ -82,16 +82,16 @@ static int GetRootIndex(int max, int numJoints)
 	return -1;
 }
 
-int CreateSkeleton(int structure)
-{
-	int index;
-
-	index = GetRootIndex(MAX_ARRAYED_SKELETAL_JOINTS, numJointsInSkeleton[structure]);
-
-	SkeletonCreators[structure](SkeletalClusters, sizeof(M_SkeletalCluster_t), ClusterNodes, index);
-
-	return index;
-}
+//int CreateSkeleton(int structure)
+//{
+//	int index;
+//
+//	index = GetRootIndex(MAX_ARRAYED_SKELETAL_JOINTS, numJointsInSkeleton[structure]);
+//
+//	SkeletonCreators[structure](SkeletalClusters, sizeof(M_SkeletalCluster_t), ClusterNodes, index);
+//
+//	return index;
+//}
 
 void ClearSkeleton(ModelSkeleton_t *skel, int root)
 {

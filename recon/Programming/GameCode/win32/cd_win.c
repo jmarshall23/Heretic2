@@ -439,7 +439,7 @@ int CDAudio_Init(void)
     MCI_SET_PARMS	mciSetParms;
 	int				n;
 
-	cd_nocd = Cvar_Get ("cd_nocd", "0", CVAR_ARCHIVE );
+	cd_nocd = Cvar_Get ("cd_nocd_new", "1", CVAR_ARCHIVE );
 	cd_loopcount = Cvar_Get ("cd_loopcount", "4", 0);
 	cd_looptrack = Cvar_Get ("cd_looptrack", "11", 0);
 	if ( cd_nocd->value)

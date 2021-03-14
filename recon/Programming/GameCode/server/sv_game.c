@@ -29,6 +29,8 @@ game_export_t	*ge;
 int sv_numeffects = 0;
 PerEffectsBuffer_t SV_Persistant_Effects[MAX_PERSISTANT_EFFECTS];
 
+game_export_t* GetGameAPI(game_import_t* import);
+
 void MSG_WriteData(sizebuf_t* sb, byte* data, int len);
 
 /*

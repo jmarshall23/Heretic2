@@ -22,31 +22,6 @@
 
 #define PLAYER_SCREAM_THRESHOLD	-600
 
-/*
-===============
-NormalizeAngle
-===============
-*/
-
-float NormalizeAngle(float angle)
-{	
-	// Returns the remainder.
-
-	angle = fmod(angle, ANGLE_360);
-	
-	// Makes the angle signed.
-
-	if(angle >= ANGLE_180)
-	{
-		angle -= ANGLE_360;
-	}
-	if(angle <= -ANGLE_180)
-	{
-		angle += ANGLE_360;
-	}
-	
-	return(angle);
-}
 
 // ************************************************************************************************
 // CalcJointAngles

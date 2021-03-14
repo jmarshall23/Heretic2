@@ -1103,23 +1103,15 @@ typedef struct
 // Quick version of float to long (trunc/round undefined)
 
 #pragma warning (disable:4035)
-_inline __declspec( naked ) long Q_ftol( float f )
+_inline long Q_ftol( float f )
 {
-	static int tmp;
-	__asm fld dword ptr [esp+4]
-	__asm fistp tmp
-	__asm mov eax, tmp
-	__asm ret
+	return (long)f;
 }
 #pragma warning (default:4035)
 
 _inline int Q_stricmp (char *s1, char *s2)
 {
-#if defined(WIN32)
 	return _stricmp (s1, s2);
-#else
-	return strcasecmp (s1, s2);
-#endif
 }
 
 _inline int Q_strncasecmp (char *s1, char *s2, int n)

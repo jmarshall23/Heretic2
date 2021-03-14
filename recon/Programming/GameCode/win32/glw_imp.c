@@ -163,8 +163,8 @@ rserr_t GLimp_SetMode( int *pwidth, int *pheight, int mode, qboolean fullscreen 
 	//	ri.Con_Printf( PRINT_ALL, " invalid mode\n" );
 	//	return rserr_invalid_mode;
 	//}
-	width = 1920;
-	height = 1080;
+	width = 1280;
+	height = 720;
 
 	ri.Con_Printf( PRINT_ALL, " %d %d %s\n", width, height, win_fs[fullscreen] );
 

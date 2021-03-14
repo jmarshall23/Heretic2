@@ -410,8 +410,14 @@ void CL_LoadClientinfo (clientinfo_t *ci, char *s)
 		s = t+1;
 	}
 // jmarshall
+//#define RAVEN_DEMO
+#ifdef RAVEN_DEMO
+	Com_sprintf(model_filename, sizeof(model_filename), "models/player/elf/tris.fm");
+	Com_sprintf(skin_filename, sizeof(skin_filename), "models/player/elf/!skin.m8");
+#else
 	Com_sprintf(model_filename, sizeof(model_filename), "players/male/tris.fm");
 	Com_sprintf(skin_filename, sizeof(skin_filename), "players/male/Corvus.m8");
+#endif
 	ci->model[0] = re.RegisterModel(model_filename);
 	qboolean ret;
 	ci->skin[0] = re.RegisterSkin(skin_filename, &ret);

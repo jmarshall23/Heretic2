@@ -1574,18 +1574,6 @@ void DrawLine(vec3_t start, vec3_t end) {
 	numDebugLines++;
 }
 
-
-/*
-================
-Swap_Init
-================
-*/
-void Swap_Init(void)
-{
-
-
-}
-
 void R_EndFrame(void)
 {
 	GLimp_EndFrame();
@@ -1648,20 +1636,4 @@ refexport_t GetRefAPI (refimport_t rimp )
 	return re;
 }
 
-
-#ifndef REF_HARD_LINKED
-
-void Com_Printf (char *fmt, ...)
-{
-	va_list		argptr;
-	char		text[1024];
-
-	va_start (argptr, fmt);
-	vsprintf (text, fmt, argptr);
-	va_end (argptr);
-
-	ri.Con_Printf (PRINT_ALL, "%s", text);
-}
-
-#endif
 
