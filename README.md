@@ -2,6 +2,9 @@
 
 Heretic 2 - Engine Reconstruction Branch:
 
+x64 <-- Runs in tutorial but player model doesn't show.
+x86 <-- Most stable. 
+
 I have got Heretic 2 running without any closed source bits; I modified the Quake 2 GPL release, to become the "quake2.dll" in Heretic 2. The code changes I made to create the new "quake2.dll" foundation aren't made hap hazzardly; I have mapped enough functions in quake2.dll and was able to use hex rays to help me make the needed code modifications to get this far.
 
 I have got the foundation on its feet, just a few big things are left:
