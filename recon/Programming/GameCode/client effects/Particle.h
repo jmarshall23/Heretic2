@@ -141,7 +141,7 @@ typedef struct client_particle_s
 // Additional particle flags
 #define PFL_PULSE_ALPHA	0x10000000	// If the alpha delta's to above 255, it "bounces" back down towards zero.
 #define PFL_SOFT_MASK	0x20000000	// For defining single point particles in software (unused in gl - here to stop
-									// people using this bit)
+									// people using _this bit)
 #define PFL_ADDITIVE	0x40000000	// Particle is added to additive particle list
 #define PFL_NEARCULL	0x80000000	// Force near culling
 
@@ -158,7 +158,7 @@ typedef struct client_particle_s
 void InitParticleMngrMngr();
 void ReleaseParticleMngrMngr();
 
-// should make a Particle_new to get rid of this
+// should make a Particle_new to get rid of _this
 extern struct ResourceManager_s ParticleMngr;
 
 void AddParticleToList(struct client_entity_s *ce, client_particle_t *fx);
@@ -169,9 +169,9 @@ void FreeParticles(struct client_entity_s *ce);
 client_particle_t *ClientParticle_new(int type, paletteRGBA_t color, int duration);
 
 // Particle Creation Functions
-void CreateParticles(struct client_entity_s *this, int numParticles, int originRand,
+void CreateParticles(struct client_entity_s *_this, int numParticles, int originRand,
 	int velocityRand, paletteRGBA_t color, int type, int duration, int d_alpha, 
 	float scale, vec3_t acceleration, float d_scale);
-void CreateGenericParticles(struct client_entity_s *this, int numParticles, paletteRGBA_t color, 
+void CreateGenericParticles(struct client_entity_s *_this, int numParticles, paletteRGBA_t color, 
 	int type, int duration);
 

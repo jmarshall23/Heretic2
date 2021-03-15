@@ -22,8 +22,8 @@ void InitMsgMngr();
 void ReleaseMsgMngr();
 
 void QPostMessage(struct client_entity_s *to, CE_MsgID_t ID, char *format, ...);
-int ParseMsgParms(CE_Message_t *this, char *format, ...);
-void ProcessMessages(struct client_entity_s *this);
-void ClearMessageQueue(struct client_entity_s *this);
+int ParseMsgParms(CE_Message_t *_this, char *format, ...);
+void ProcessMessages(struct client_entity_s *_this);
+void ClearMessageQueue(struct client_entity_s *_this);
 
 #endif

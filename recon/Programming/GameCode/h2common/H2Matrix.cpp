@@ -1,12 +1,10 @@
 // H2Matrix.c
 //
 
-extern "C" {
-	#include "../qcommon/H2Common.h"
-	#include "../qcommon/ResourceManager.h"
-	#include "../qcommon/Matrix.h"
-	#include "../qcommon/Vector.h"
-};
+#include "../qcommon/H2Common.h"
+#include "../qcommon/ResourceManager.h"
+#include "../qcommon/Matrix.h"
+#include "../qcommon/Vector.h"
 
 #include "Math/Matrix.h"
 
@@ -146,7 +144,7 @@ H2COMMON_API_CPLUSPLUS void IMatrix3FromAngles(vec3_t angles, matrix3_t rotation
 #endif
 }
 
-H2COMMON_API_CPLUSPLUS void Matrix3MultByVec3(matrix3_t A, vec3_t B, vec3_t C)
+void Matrix3MultByVec3(matrix3_t A, vec3_t B, vec3_t C)
 {
 	CMatrix::Matrix3MultByVec3(A, B, C);
 }

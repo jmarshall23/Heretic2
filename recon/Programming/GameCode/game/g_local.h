@@ -192,16 +192,11 @@ typedef struct
 	char *wav;
 } trig_message_t;
 
-#ifdef __cplusplus
-extern "C"
-{
-#endif
-	extern trig_message_t message_text[];
-#ifdef __cplusplus
-}
-#endif
+extern trig_message_t message_text[];
 
-unsigned	*messagebuf;
+
+extern unsigned	*messagebuf; // jmarshall: this wasn't extern in the original code, 
+							 // this is now correct, wondering if this will cause knock ons?
 
 // ************************************************************************************************
 // game_locals_t
@@ -738,11 +733,11 @@ typedef struct
 
 // The structure for each monster class.
 
-#define	FOFS(x)		(int)&(((edict_t *)0)->x)
-#define	STOFS(x)	(int)&(((spawn_temp_t *)0)->x)
-#define	LLOFS(x)	(int)&(((level_locals_t *)0)->x)
-#define	CLOFS(x)	(int)&(((gclient_t *)0)->x)
-#define	BYOFS(x)	(int)&(((buoy_t *)0)->x)
+#define	FOFS(x)		(intptr_t)&(((edict_t *)0)->x)
+#define	STOFS(x)	(intptr_t)&(((spawn_temp_t *)0)->x)
+#define	LLOFS(x)	(intptr_t)&(((level_locals_t *)0)->x)
+#define	CLOFS(x)	(intptr_t)&(((gclient_t *)0)->x)
+#define	BYOFS(x)	(intptr_t)&(((buoy_t *)0)->x)
 
 extern	game_locals_t	game;
 #ifdef __cplusplus
@@ -811,15 +806,9 @@ extern	cvar_t			*log_file_header;
 extern	cvar_t			*log_file_footer;
 extern	cvar_t			*log_file_line_header;
 
-#ifdef __cplusplus
-extern "C"
-{
-#endif
-	extern	cvar_t			*sv_cinematicfreeze;
-	extern	cvar_t			*sv_jumpcinematic;
-#ifdef __cplusplus
-}
-#endif
+extern	cvar_t			*sv_cinematicfreeze;
+extern	cvar_t			*sv_jumpcinematic;
+
 
 extern	cvar_t			*sv_freezemonsters;
 
@@ -892,19 +881,13 @@ typedef enum {
 typedef struct
 {
 	char	*name;
-	int		ofs;
+	intptr_t ofs;
 	fieldtype_t	type;
 	int		flags;
 } field_t;
 
-#ifdef __cplusplus
-extern "C"
-{
-#endif
-	extern	field_t fields[];
-#ifdef __cplusplus
-}
-#endif
+extern	field_t fields[];
+
 
 //
 // g_cmds.c
@@ -936,15 +919,9 @@ qboolean Add_Ammo (edict_t *ent, gitem_t *item, int count);
 qboolean	KillBox (edict_t *ent);
 void	G_ProjectSource (vec3_t point, vec3_t distance, vec3_t forward, vec3_t right, vec3_t result);
 
-#ifdef __cplusplus
-extern "C"
-{
-#endif
-	edict_t *G_Find (edict_t *from, int fieldofs, char *match);
-	edict_t	*G_Spawn (void);
-#ifdef __cplusplus
-}
-#endif
+edict_t *G_Find (edict_t *from, int fieldofs, char *match);
+edict_t	*G_Spawn (void);
+
 
 edict_t *oldfindradius (edict_t *from, vec3_t org, float rad);
 edict_t *findradius (edict_t *from, vec3_t org, float rad);
@@ -1173,15 +1150,10 @@ void ObjectInit(edict_t *self,int health,int mass, int materialtype,int solid);
 //
 
 //sfs--this is used to get a classname for guys spawned while game is running
-#ifdef __cplusplus
-extern "C"
-{
-#endif
-	char *ED_NewString (char *string);
-	void ED_CallSpawn (edict_t *ent);
-#ifdef __cplusplus
-}
-#endif
+
+char *ED_NewString (char *string);
+void ED_CallSpawn (edict_t *ent);
+
 
 //============================================================================
 
@@ -1335,6 +1307,8 @@ void SkyFly (edict_t *self);
 	void SaveScripts(FILE *FH, qboolean DoGlobals);
 	void LoadScripts(FILE *FH, qboolean DoGlobals);
 #endif
+void ProcessScripts(void);
+void ShutdownScripts(qboolean Complete);
 
 #endif // G_LOCAL_H
 

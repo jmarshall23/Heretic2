@@ -9,18 +9,10 @@
 
 #include <windows.h>
 
-#ifdef __cplusplus
-extern "C"
-{
-#endif
 
 // Public verification function.
 // Return TRUE if Aureal, FALSE if clone, -1 if check could not succeed.
 extern int WINAPI VerifyAurealA3D(void);
-
-#ifdef __cplusplus
-}
-#endif
 
 #endif
 

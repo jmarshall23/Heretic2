@@ -7,8 +7,8 @@
 // Update funcs
 //------------------------------------------------------------------
 
-qboolean RemoveSelfAI(client_entity_t *this, centity_t *owner);		// set by default in ClientEntity_new
-qboolean KeepSelfAI(client_entity_t *this, centity_t *owner);
+qboolean RemoveSelfAI(client_entity_t *_this, centity_t *owner);		// set by default in ClientEntity_new
+qboolean KeepSelfAI(client_entity_t *_this, centity_t *owner);
 qboolean AttemptRemoveSelf(client_entity_t *self, centity_t *owner);
 
 //------------------------------------------------------------------

@@ -18,10 +18,6 @@
 
 #define Q_fabs fabs
 
-#ifdef __cplusplus
-extern "C"
-{
-#endif
 H2COMMON_API void RotatePointAroundVector( vec3_t dst, const vec3_t dir, const vec3_t point, float degrees );
 H2COMMON_API void ProjectPointOnPlane( vec3_t dst, const vec3_t p, const vec3_t normal );
 H2COMMON_API void PerpendicularVector( vec3_t dst, const vec3_t src );
@@ -52,6 +48,8 @@ H2COMMON_API void VectorAdd (vec3_t veca, vec3_t vecb, vec3_t out);
 H2COMMON_API float vhlen (vec3_t p1, vec3_t p2);
 H2COMMON_API void Create_rand_relect_vect(vec3_t in, vec3_t out);
 H2COMMON_API qboolean Vec3IsZeroEpsilon(vec3_t in);
+H2COMMON_API float DistanceSquared(vec3_t p1, vec3_t p2);
+H2COMMON_API void AnglesToAxis(vec3_t angles, vec3_t axis[3]);
 
 #define INLINE_VEC_FUNCS	// placed in the header to avoid inconsistencies between projects
 
@@ -82,15 +80,9 @@ H2COMMON_API qboolean Vec3EqualsEpsilon(vec3_t v1, vec3_t v2);
 H2COMMON_API qboolean Vec3IsZero(vec3_t v1);
 H2COMMON_API qboolean Vec3NotZero(vec3_t vec);
 
-#ifdef __cplusplus
-}
-#endif // __cplusplus
 
 #else // INLINE_VEC_FUNCS
 
-#ifdef __cplusplus
-}
-#endif // __cplusplus
 
 __inline vec_t DotProduct (const vec3_t v1, const vec3_t v2)
 {

@@ -6,7 +6,7 @@
 // Id's for all the client-effects types.
 // ************************************************************************************************
 
-typedef enum FX_Types_e
+enum FX_Type_t
 {	// NOTE We currently have 126 client effects, we cannot exceed 32768 - ha !! Like we'll ever reach that !
 	FX_REMOVE_EFFECTS=0,			// special fx type for removing client fx
 	FX_TEST,						
@@ -158,7 +158,7 @@ typedef enum FX_Types_e
 	// not spawnable in the Game DLL,
 
 	FX_PUFF
-} FX_Type_t;
+};
 
 // ************************************************************************************************
 // FX_ANIM_XXX

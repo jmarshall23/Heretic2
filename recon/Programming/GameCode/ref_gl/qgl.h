@@ -26,6 +26,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 #include "gl/glew.h"
 
+qboolean QGL_Init(const char* dllname);
+void GLimp_EnableLogging(qboolean enable);
+void QGL_Shutdown(void);
 
 extern  int   (WINAPI* qwglChoosePixelFormat)(HDC, CONST PIXELFORMATDESCRIPTOR*);
 extern  int   (WINAPI* qwglDescribePixelFormat) (HDC, int, UINT, LPPIXELFORMATDESCRIPTOR);

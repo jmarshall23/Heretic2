@@ -25,7 +25,9 @@ typedef enum {false, true}	qboolean;
 typedef int qboolean;
 #endif
 
-typedef struct edict_s edict_t;
+#define edict_s edict_t
+#define sfx_s sfx_t
+#define client_entity_s client_entity_t
 
 typedef struct paletteRGBA_s
 {

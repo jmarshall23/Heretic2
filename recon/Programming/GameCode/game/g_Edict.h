@@ -17,7 +17,7 @@
 	class CScript;
 #endif
 
-struct edict_s
+struct edict_t
 {
 	// This is sent to the server as part of each client frame.
 
@@ -339,11 +339,13 @@ struct edict_s
 	// Used by shrines
 
 	void				(*oldtouch)(edict_t *self, edict_t *other, cplane_t *plane, csurface_t *surf);
+// jmarshall - 64bit
 	union {
-	int					shrine_type;
-	int					morph_timer;
-	int					buoy_index;
+	intptr_t			shrine_type;
+	intptr_t			morph_timer;
+	intptr_t			buoy_index;
 	};
+// jmarshall end
 
 	// Only set in trigger_push_touch and probably only on players.
 

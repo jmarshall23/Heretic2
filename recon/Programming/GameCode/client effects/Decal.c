@@ -43,7 +43,7 @@ void CL_ClearDecals()
 	num_decals = 0;
 }
 
-// this allows abstraction to a more efficient system if needed
+// _this allows abstraction to a more efficient system if needed
 Decal_t *CL_AllocateDecal()
 {
 	int i;

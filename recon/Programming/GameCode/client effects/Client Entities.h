@@ -20,7 +20,7 @@ typedef struct CE_ClassStatics_s
 	CE_MsgReceiver_t msgReceivers[NUM_MESSAGES];
 } CE_ClassStatics_t;
 
-typedef qboolean (*UpdateEffect_t)(struct client_entity_s *this, centity_t *owner);
+typedef qboolean (*UpdateEffect_t)(struct client_entity_s *_this, centity_t *owner);
 
 typedef struct client_entity_s
 {
@@ -65,7 +65,7 @@ typedef struct client_entity_s
 										// CEF_DISAPPEARED is disabled, the radius will have to
 										// be reset as well.
 
-	float alpha;						// r.color.a is set directly from this
+	float alpha;						// r.color.a is set directly from _this
 										// a float is needed so small d_alpha at high frame
 										// rate aren't lost completly due to rounding
 
@@ -154,7 +154,8 @@ fmnodeinfo_t *FMNodeInfo_new();
 void AddEffectToList(client_entity_t **root, client_entity_t *fx);
 void RemoveEffectList(client_entity_t **root);
 void RemoveOwnedEffectList(centity_t *owner);
-void RemoveEffectTypeList(client_entity_t **root, enum FX_Type_e, centity_t *owner);
+//void RemoveEffectTypeList(client_entity_t **root, enum FX_Type_e, centity_t *owner);
+void RemoveEffectTypeList(client_entity_t** root, enum FX_Type_t fx, centity_t* owner);
 void RemoveEffectsFromCent(centity_t *cent);
 void PrepAddEffectsToView();
 int AddEffectsToView(client_entity_t **root, centity_t *owner);

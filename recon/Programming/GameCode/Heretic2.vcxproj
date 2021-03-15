@@ -156,435 +156,435 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="client effects\Ambient Effects.c" />
-    <ClCompile Include="client effects\ce_DefaultMessageHandler.c" />
-    <ClCompile Include="client effects\ce_DLight.c" />
-    <ClCompile Include="client effects\ce_Message.c" />
-    <ClCompile Include="client effects\Client Effects.c" />
-    <ClCompile Include="client effects\Client Entities.c" />
-    <ClCompile Include="client effects\cl_fx.c" />
-    <ClCompile Include="client effects\Font1.c" />
-    <ClCompile Include="client effects\Font2.c" />
-    <ClCompile Include="client effects\fx_AmmoPickup.c" />
-    <ClCompile Include="client effects\fx_animate.c" />
-    <ClCompile Include="client effects\fx_assassin.c" />
-    <ClCompile Include="client effects\fx_blood.c" />
-    <ClCompile Include="client effects\fx_BlueRing.c" />
-    <ClCompile Include="client effects\fx_bubbler.c" />
-    <ClCompile Include="client effects\fx_crosshair.c" />
-    <ClCompile Include="client effects\fx_cwatcher.c" />
-    <ClCompile Include="client effects\fx_debris.c" />
-    <ClCompile Include="client effects\fx_DefensePickup.c" />
-    <ClCompile Include="client effects\fx_Dripper.c" />
-    <ClCompile Include="client effects\fx_dust.c" />
-    <ClCompile Include="client effects\fx_dustpuff.c" />
-    <ClCompile Include="client effects\fx_fire.c" />
-    <ClCompile Include="client effects\fx_firehands.c" />
-    <ClCompile Include="client effects\fx_flamethrow.c" />
-    <ClCompile Include="client effects\fx_flyingfist.c" />
-    <ClCompile Include="client effects\fx_Fountain.c" />
-    <ClCompile Include="client effects\fx_halo.c" />
-    <ClCompile Include="client effects\fx_HealthPickup.c" />
-    <ClCompile Include="client effects\fx_HellStaff.c" />
-    <ClCompile Include="client effects\fx_hitpuff.c" />
-    <ClCompile Include="client effects\fx_hpproj.c" />
-    <ClCompile Include="client effects\fx_insectstaff.c" />
-    <ClCompile Include="client effects\fx_lensflare.c" />
-    <ClCompile Include="client effects\fx_lightning.c" />
-    <ClCompile Include="client effects\fx_Maceball.c" />
-    <ClCompile Include="client effects\fx_magicmissile.c" />
-    <ClCompile Include="client effects\fx_meteorbarrier.c" />
-    <ClCompile Include="client effects\fx_mist.c" />
-    <ClCompile Include="client effects\fx_mork.c" />
-    <ClCompile Include="client effects\fx_Morph.c" />
-    <ClCompile Include="client effects\fx_objects.c" />
-    <ClCompile Include="client effects\fx_pespell.c" />
-    <ClCompile Include="client effects\fx_Phoenix.c" />
-    <ClCompile Include="client effects\fx_pickup.c" />
-    <ClCompile Include="client effects\fx_pickuppuzzle.c" />
-    <ClCompile Include="client effects\fx_PlagueMist.c" />
-    <ClCompile Include="client effects\fx_PlagueMistExplode.c" />
-    <ClCompile Include="client effects\fx_portal.c" />
-    <ClCompile Include="client effects\fx_quake.c" />
-    <ClCompile Include="client effects\fx_RedRain.c" />
-    <ClCompile Include="client effects\fx_redrainglow.c" />
-    <ClCompile Include="client effects\fx_remotecamera.c" />
-    <ClCompile Include="client effects\fx_Ripples.c" />
-    <ClCompile Include="client effects\fx_rope.c" />
-    <ClCompile Include="client effects\fx_scorchmark.c" />
-    <ClCompile Include="client effects\fx_shadow.c" />
-    <ClCompile Include="client effects\fx_Shield.c" />
-    <ClCompile Include="client effects\fx_shrine.c" />
-    <ClCompile Include="client effects\fx_smoke.c" />
-    <ClCompile Include="client effects\fx_sound.c" />
-    <ClCompile Include="client effects\fx_sparks.c" />
-    <ClCompile Include="client effects\fx_spellchange.c" />
-    <ClCompile Include="client effects\fx_spellhands.c" />
-    <ClCompile Include="client effects\fx_sphereofannihlation.c" />
-    <ClCompile Include="client effects\fx_spoo.c" />
-    <ClCompile Include="client effects\fx_ssarrow.c" />
-    <ClCompile Include="client effects\fx_ssithra.c" />
-    <ClCompile Include="client effects\fx_staff.c" />
-    <ClCompile Include="client effects\fx_tbeast.c" />
-    <ClCompile Include="client effects\fx_teleport.c" />
-    <ClCompile Include="client effects\fx_tome.c" />
-    <ClCompile Include="client effects\fx_tornado.c" />
-    <ClCompile Include="client effects\fx_Wall.c" />
-    <ClCompile Include="client effects\fx_waterentrysplash.c" />
-    <ClCompile Include="client effects\fx_waterwake.c" />
-    <ClCompile Include="client effects\fx_WeaponPickup.c" />
-    <ClCompile Include="client effects\Generic Character Effects.c" />
-    <ClCompile Include="client effects\Generic Weapon Effects.c" />
-    <ClCompile Include="client effects\Item Effects.c" />
-    <ClCompile Include="client effects\LevelMaps.c" />
-    <ClCompile Include="client effects\LightStyles.c" />
-    <ClCompile Include="client effects\Main.c" />
-    <ClCompile Include="client effects\Monster Weapon Effects.c" />
-    <ClCompile Include="client effects\Particle.c" />
-    <ClCompile Include="client effects\Player Effects.c" />
-    <ClCompile Include="client effects\TestEffect.c" />
-    <ClCompile Include="client effects\Utilities.c" />
-    <ClCompile Include="client\cl_cin.c" />
-    <ClCompile Include="client\cl_ents.c" />
-    <ClCompile Include="client\cl_fx.c" />
-    <ClCompile Include="client\cl_input.c" />
-    <ClCompile Include="client\cl_inv.c" />
-    <ClCompile Include="client\cl_main.c" />
-    <ClCompile Include="client\cl_parse.c" />
-    <ClCompile Include="client\cl_pred.c" />
-    <ClCompile Include="client\cl_scrn.c" />
-    <ClCompile Include="client\cl_view.c" />
-    <ClCompile Include="client\console.c" />
-    <ClCompile Include="client\keys.c" />
-    <ClCompile Include="client\menu.c" />
-    <ClCompile Include="client\qmenu.c" />
-    <ClCompile Include="client\x86.c" />
-    <ClCompile Include="game\buoy.c" />
-    <ClCompile Include="game\c_ai.c" />
-    <ClCompile Include="game\c_corvus1.c" />
-    <ClCompile Include="game\c_corvus1_anim.c" />
-    <ClCompile Include="game\c_corvus2.c" />
-    <ClCompile Include="game\c_corvus2_anim.c" />
-    <ClCompile Include="game\c_corvus3.c" />
-    <ClCompile Include="game\c_corvus3_anim.c" />
-    <ClCompile Include="game\c_corvus4.c" />
-    <ClCompile Include="game\c_corvus4_anim.c" />
-    <ClCompile Include="game\c_corvus5.c" />
-    <ClCompile Include="game\c_corvus5_anim.c" />
-    <ClCompile Include="game\c_corvus6.c" />
-    <ClCompile Include="game\c_corvus6_anim.c" />
-    <ClCompile Include="game\c_corvus7.c" />
-    <ClCompile Include="game\c_corvus7_anim.c" />
-    <ClCompile Include="game\c_corvus8.c" />
-    <ClCompile Include="game\c_corvus8_anim.c" />
-    <ClCompile Include="game\c_corvus9.c" />
-    <ClCompile Include="game\c_corvus9_anim.c" />
-    <ClCompile Include="game\c_dranor.c" />
-    <ClCompile Include="game\c_dranor_anim.c" />
-    <ClCompile Include="game\c_elflord.c" />
-    <ClCompile Include="game\c_elflord_anim.c" />
-    <ClCompile Include="game\c_morcalavin.c" />
-    <ClCompile Include="game\c_morcalavin_anim.c" />
-    <ClCompile Include="game\c_priestess.c" />
-    <ClCompile Include="game\c_priestess2.c" />
-    <ClCompile Include="game\c_priestess2_anim.c" />
-    <ClCompile Include="game\c_priestess_anim.c" />
-    <ClCompile Include="game\c_siernan1.c" />
-    <ClCompile Include="game\c_siernan1_anim.c" />
-    <ClCompile Include="game\c_siernan2.c" />
-    <ClCompile Include="game\c_siernan2_anim.c" />
-    <ClCompile Include="game\c_ssithrascout.c" />
-    <ClCompile Include="game\c_ssithrascout_anim.c" />
-    <ClCompile Include="game\c_tome.c" />
-    <ClCompile Include="game\c_tome_anim.c" />
-    <ClCompile Include="game\c_victimSsithra.c" />
-    <ClCompile Include="game\c_victimSsithra_anim.c" />
-    <ClCompile Include="game\decals.c" />
+    <ClCompile Include="client effects\Ambient Effects.cpp" />
+    <ClCompile Include="client effects\ce_DefaultMessageHandler.cpp" />
+    <ClCompile Include="client effects\ce_DLight.cpp" />
+    <ClCompile Include="client effects\ce_Message.cpp" />
+    <ClCompile Include="client effects\Client Effects.cpp" />
+    <ClCompile Include="client effects\Client Entities.cpp" />
+    <ClCompile Include="client effects\cl_fx.cpp" />
+    <ClCompile Include="client effects\Font1.cpp" />
+    <ClCompile Include="client effects\Font2.cpp" />
+    <ClCompile Include="client effects\fx_AmmoPickup.cpp" />
+    <ClCompile Include="client effects\fx_animate.cpp" />
+    <ClCompile Include="client effects\fx_assassin.cpp" />
+    <ClCompile Include="client effects\fx_blood.cpp" />
+    <ClCompile Include="client effects\fx_BlueRing.cpp" />
+    <ClCompile Include="client effects\fx_bubbler.cpp" />
+    <ClCompile Include="client effects\fx_crosshair.cpp" />
+    <ClCompile Include="client effects\fx_cwatcher.cpp" />
+    <ClCompile Include="client effects\fx_debris.cpp" />
+    <ClCompile Include="client effects\fx_DefensePickup.cpp" />
+    <ClCompile Include="client effects\fx_Dripper.cpp" />
+    <ClCompile Include="client effects\fx_dust.cpp" />
+    <ClCompile Include="client effects\fx_dustpuff.cpp" />
+    <ClCompile Include="client effects\fx_fire.cpp" />
+    <ClCompile Include="client effects\fx_firehands.cpp" />
+    <ClCompile Include="client effects\fx_flamethrow.cpp" />
+    <ClCompile Include="client effects\fx_flyingfist.cpp" />
+    <ClCompile Include="client effects\fx_Fountain.cpp" />
+    <ClCompile Include="client effects\fx_halo.cpp" />
+    <ClCompile Include="client effects\fx_HealthPickup.cpp" />
+    <ClCompile Include="client effects\fx_HellStaff.cpp" />
+    <ClCompile Include="client effects\fx_hitpuff.cpp" />
+    <ClCompile Include="client effects\fx_hpproj.cpp" />
+    <ClCompile Include="client effects\fx_insectstaff.cpp" />
+    <ClCompile Include="client effects\fx_lensflare.cpp" />
+    <ClCompile Include="client effects\fx_lightning.cpp" />
+    <ClCompile Include="client effects\fx_Maceball.cpp" />
+    <ClCompile Include="client effects\fx_magicmissile.cpp" />
+    <ClCompile Include="client effects\fx_meteorbarrier.cpp" />
+    <ClCompile Include="client effects\fx_mist.cpp" />
+    <ClCompile Include="client effects\fx_mork.cpp" />
+    <ClCompile Include="client effects\fx_Morph.cpp" />
+    <ClCompile Include="client effects\fx_objects.cpp" />
+    <ClCompile Include="client effects\fx_pespell.cpp" />
+    <ClCompile Include="client effects\fx_Phoenix.cpp" />
+    <ClCompile Include="client effects\fx_pickup.cpp" />
+    <ClCompile Include="client effects\fx_pickuppuzzle.cpp" />
+    <ClCompile Include="client effects\fx_PlagueMist.cpp" />
+    <ClCompile Include="client effects\fx_PlagueMistExplode.cpp" />
+    <ClCompile Include="client effects\fx_portal.cpp" />
+    <ClCompile Include="client effects\fx_quake.cpp" />
+    <ClCompile Include="client effects\fx_RedRain.cpp" />
+    <ClCompile Include="client effects\fx_redrainglow.cpp" />
+    <ClCompile Include="client effects\fx_remotecamera.cpp" />
+    <ClCompile Include="client effects\fx_Ripples.cpp" />
+    <ClCompile Include="client effects\fx_rope.cpp" />
+    <ClCompile Include="client effects\fx_scorchmark.cpp" />
+    <ClCompile Include="client effects\fx_shadow.cpp" />
+    <ClCompile Include="client effects\fx_Shield.cpp" />
+    <ClCompile Include="client effects\fx_shrine.cpp" />
+    <ClCompile Include="client effects\fx_smoke.cpp" />
+    <ClCompile Include="client effects\fx_sound.cpp" />
+    <ClCompile Include="client effects\fx_sparks.cpp" />
+    <ClCompile Include="client effects\fx_spellchange.cpp" />
+    <ClCompile Include="client effects\fx_spellhands.cpp" />
+    <ClCompile Include="client effects\fx_sphereofannihlation.cpp" />
+    <ClCompile Include="client effects\fx_spoo.cpp" />
+    <ClCompile Include="client effects\fx_ssarrow.cpp" />
+    <ClCompile Include="client effects\fx_ssithra.cpp" />
+    <ClCompile Include="client effects\fx_staff.cpp" />
+    <ClCompile Include="client effects\fx_tbeast.cpp" />
+    <ClCompile Include="client effects\fx_teleport.cpp" />
+    <ClCompile Include="client effects\fx_tome.cpp" />
+    <ClCompile Include="client effects\fx_tornado.cpp" />
+    <ClCompile Include="client effects\fx_Wall.cpp" />
+    <ClCompile Include="client effects\fx_waterentrysplash.cpp" />
+    <ClCompile Include="client effects\fx_waterwake.cpp" />
+    <ClCompile Include="client effects\fx_WeaponPickup.cpp" />
+    <ClCompile Include="client effects\Generic Character Effects.cpp" />
+    <ClCompile Include="client effects\Generic Weapon Effects.cpp" />
+    <ClCompile Include="client effects\Item Effects.cpp" />
+    <ClCompile Include="client effects\LevelMaps.cpp" />
+    <ClCompile Include="client effects\LightStyles.cpp" />
+    <ClCompile Include="client effects\Main.cpp" />
+    <ClCompile Include="client effects\Monster Weapon Effects.cpp" />
+    <ClCompile Include="client effects\Particle.cpp" />
+    <ClCompile Include="client effects\Player Effects.cpp" />
+    <ClCompile Include="client effects\TestEffect.cpp" />
+    <ClCompile Include="client effects\Utilities.cpp" />
+    <ClCompile Include="client\cl_cin.cpp" />
+    <ClCompile Include="client\cl_ents.cpp" />
+    <ClCompile Include="client\cl_fx.cpp" />
+    <ClCompile Include="client\cl_input.cpp" />
+    <ClCompile Include="client\cl_inv.cpp" />
+    <ClCompile Include="client\cl_main.cpp" />
+    <ClCompile Include="client\cl_parse.cpp" />
+    <ClCompile Include="client\cl_pred.cpp" />
+    <ClCompile Include="client\cl_scrn.cpp" />
+    <ClCompile Include="client\cl_view.cpp" />
+    <ClCompile Include="client\console.cpp" />
+    <ClCompile Include="client\keys.cpp" />
+    <ClCompile Include="client\menu.cpp" />
+    <ClCompile Include="client\qmenu.cpp" />
+    <ClCompile Include="client\x86.cpp" />
+    <ClCompile Include="game\buoy.cpp" />
+    <ClCompile Include="game\c_ai.cpp" />
+    <ClCompile Include="game\c_corvus1.cpp" />
+    <ClCompile Include="game\c_corvus1_anim.cpp" />
+    <ClCompile Include="game\c_corvus2.cpp" />
+    <ClCompile Include="game\c_corvus2_anim.cpp" />
+    <ClCompile Include="game\c_corvus3.cpp" />
+    <ClCompile Include="game\c_corvus3_anim.cpp" />
+    <ClCompile Include="game\c_corvus4.cpp" />
+    <ClCompile Include="game\c_corvus4_anim.cpp" />
+    <ClCompile Include="game\c_corvus5.cpp" />
+    <ClCompile Include="game\c_corvus5_anim.cpp" />
+    <ClCompile Include="game\c_corvus6.cpp" />
+    <ClCompile Include="game\c_corvus6_anim.cpp" />
+    <ClCompile Include="game\c_corvus7.cpp" />
+    <ClCompile Include="game\c_corvus7_anim.cpp" />
+    <ClCompile Include="game\c_corvus8.cpp" />
+    <ClCompile Include="game\c_corvus8_anim.cpp" />
+    <ClCompile Include="game\c_corvus9.cpp" />
+    <ClCompile Include="game\c_corvus9_anim.cpp" />
+    <ClCompile Include="game\c_dranor.cpp" />
+    <ClCompile Include="game\c_dranor_anim.cpp" />
+    <ClCompile Include="game\c_elflord.cpp" />
+    <ClCompile Include="game\c_elflord_anim.cpp" />
+    <ClCompile Include="game\c_morcalavin.cpp" />
+    <ClCompile Include="game\c_morcalavin_anim.cpp" />
+    <ClCompile Include="game\c_priestess.cpp" />
+    <ClCompile Include="game\c_priestess2.cpp" />
+    <ClCompile Include="game\c_priestess2_anim.cpp" />
+    <ClCompile Include="game\c_priestess_anim.cpp" />
+    <ClCompile Include="game\c_siernan1.cpp" />
+    <ClCompile Include="game\c_siernan1_anim.cpp" />
+    <ClCompile Include="game\c_siernan2.cpp" />
+    <ClCompile Include="game\c_siernan2_anim.cpp" />
+    <ClCompile Include="game\c_ssithrascout.cpp" />
+    <ClCompile Include="game\c_ssithrascout_anim.cpp" />
+    <ClCompile Include="game\c_tome.cpp" />
+    <ClCompile Include="game\c_tome_anim.cpp" />
+    <ClCompile Include="game\c_victimSsithra.cpp" />
+    <ClCompile Include="game\c_victimSsithra_anim.cpp" />
+    <ClCompile Include="game\decals.cpp" />
     <ClCompile Include="game\ds.cpp" />
-    <ClCompile Include="game\GameEntity.c" />
-    <ClCompile Include="game\game_utilities.c" />
-    <ClCompile Include="game\g_ai.c" />
-    <ClCompile Include="game\g_breakable.c" />
-    <ClCompile Include="game\g_ClassStatics.c" />
-    <ClCompile Include="game\g_cmds.c" />
-    <ClCompile Include="game\g_combat.c" />
-    <ClCompile Include="game\g_DefaultMessageHandler.c" />
-    <ClCompile Include="game\g_env.c" />
-    <ClCompile Include="game\g_field.c" />
-    <ClCompile Include="game\g_flamethrow.c" />
-    <ClCompile Include="game\g_func.c" />
-    <ClCompile Include="game\g_HitLocation.c" />
-    <ClCompile Include="game\g_items.c" />
-    <ClCompile Include="game\g_items_pickups.c" />
-    <ClCompile Include="game\g_light.c" />
-    <ClCompile Include="game\g_main.c" />
-    <ClCompile Include="game\g_Message.c" />
-    <ClCompile Include="game\g_misc.c" />
-    <ClCompile Include="game\g_monster.c" />
-    <ClCompile Include="game\g_MoveInfo.c" />
-    <ClCompile Include="game\g_obj.c" />
-    <ClCompile Include="game\g_phys.c" />
-    <ClCompile Include="game\g_Physics.c" />
-    <ClCompile Include="game\g_PhysicsInfo.c" />
-    <ClCompile Include="game\g_ResourceManagers.c" />
-    <ClCompile Include="game\g_rope.c" />
-    <ClCompile Include="game\g_save.c" />
-    <ClCompile Include="game\g_shrine.c" />
-    <ClCompile Include="game\g_Skeletons.c" />
-    <ClCompile Include="game\g_spawn.c" />
-    <ClCompile Include="game\g_spawnf.c" />
-    <ClCompile Include="game\g_StateInfo.c" />
-    <ClCompile Include="game\g_svcmds.c" />
-    <ClCompile Include="game\g_target.c" />
-    <ClCompile Include="game\g_trigger.c" />
-    <ClCompile Include="game\g_utils.c" />
-    <ClCompile Include="game\g_waterfx.c" />
-    <ClCompile Include="game\g_weapon.c" />
-    <ClCompile Include="game\mg_ai.c" />
-    <ClCompile Include="game\mg_guide.c" />
-    <ClCompile Include="game\m_assassin.c" />
-    <ClCompile Include="game\m_assassin_anim.c" />
-    <ClCompile Include="game\m_beast.c" />
-    <ClCompile Include="game\m_beast_anim.c" />
-    <ClCompile Include="game\m_bee.c" />
-    <ClCompile Include="game\m_chicken.c">
+    <ClCompile Include="game\GameEntity.cpp" />
+    <ClCompile Include="game\game_utilities.cpp" />
+    <ClCompile Include="game\g_ai.cpp" />
+    <ClCompile Include="game\g_breakable.cpp" />
+    <ClCompile Include="game\g_ClassStatics.cpp" />
+    <ClCompile Include="game\g_cmds.cpp" />
+    <ClCompile Include="game\g_combat.cpp" />
+    <ClCompile Include="game\g_DefaultMessageHandler.cpp" />
+    <ClCompile Include="game\g_env.cpp" />
+    <ClCompile Include="game\g_field.cpp" />
+    <ClCompile Include="game\g_flamethrow.cpp" />
+    <ClCompile Include="game\g_func.cpp" />
+    <ClCompile Include="game\g_HitLocation.cpp" />
+    <ClCompile Include="game\g_items.cpp" />
+    <ClCompile Include="game\g_items_pickups.cpp" />
+    <ClCompile Include="game\g_light.cpp" />
+    <ClCompile Include="game\g_main.cpp" />
+    <ClCompile Include="game\g_Message.cpp" />
+    <ClCompile Include="game\g_misc.cpp" />
+    <ClCompile Include="game\g_monster.cpp" />
+    <ClCompile Include="game\g_MoveInfo.cpp" />
+    <ClCompile Include="game\g_obj.cpp" />
+    <ClCompile Include="game\g_phys.cpp" />
+    <ClCompile Include="game\g_Physics.cpp" />
+    <ClCompile Include="game\g_PhysicsInfo.cpp" />
+    <ClCompile Include="game\g_ResourceManagers.cpp" />
+    <ClCompile Include="game\g_rope.cpp" />
+    <ClCompile Include="game\g_save.cpp" />
+    <ClCompile Include="game\g_shrine.cpp" />
+    <ClCompile Include="game\g_Skeletons.cpp" />
+    <ClCompile Include="game\g_spawn.cpp" />
+    <ClCompile Include="game\g_spawnf.cpp" />
+    <ClCompile Include="game\g_StateInfo.cpp" />
+    <ClCompile Include="game\g_svcmds.cpp" />
+    <ClCompile Include="game\g_target.cpp" />
+    <ClCompile Include="game\g_trigger.cpp" />
+    <ClCompile Include="game\g_utils.cpp" />
+    <ClCompile Include="game\g_waterfx.cpp" />
+    <ClCompile Include="game\g_weapon.cpp" />
+    <ClCompile Include="game\mg_ai.cpp" />
+    <ClCompile Include="game\mg_guide.cpp" />
+    <ClCompile Include="game\m_assassin.cpp" />
+    <ClCompile Include="game\m_assassin_anim.cpp" />
+    <ClCompile Include="game\m_beast.cpp" />
+    <ClCompile Include="game\m_beast_anim.cpp" />
+    <ClCompile Include="game\m_bee.cpp" />
+    <ClCompile Include="game\m_chicken.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="game\m_chicken_anim.c">
+    <ClCompile Include="game\m_chicken_anim.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="game\m_elflord.c">
+    <ClCompile Include="game\m_elflord.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="game\m_elflord_anims.c">
+    <ClCompile Include="game\m_elflord_anims.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="game\m_fish.c">
+    <ClCompile Include="game\m_fish.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="game\m_fish_anim.c">
+    <ClCompile Include="game\m_fish_anim.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="game\m_FMtest.c" />
-    <ClCompile Include="game\m_gkrokon.c">
+    <ClCompile Include="game\m_FMtest.cpp" />
+    <ClCompile Include="game\m_gkrokon.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="game\m_gkrokon_anim.c">
+    <ClCompile Include="game\m_gkrokon_anim.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="game\m_gorgon.c">
+    <ClCompile Include="game\m_gorgon.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="game\m_gorgon_anim.c">
+    <ClCompile Include="game\m_gorgon_anim.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="game\m_harpy.c">
+    <ClCompile Include="game\m_harpy.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="game\m_harpy_anim.c">
+    <ClCompile Include="game\m_harpy_anim.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="game\m_imp.c" />
-    <ClCompile Include="game\m_imp_anim.c" />
-    <ClCompile Include="game\m_morcalavin.c" />
-    <ClCompile Include="game\m_morcalavin_anim.c" />
-    <ClCompile Include="game\m_mother.c" />
-    <ClCompile Include="game\m_mother_anim.c" />
-    <ClCompile Include="game\m_move.c" />
-    <ClCompile Include="game\m_mssithra.c" />
-    <ClCompile Include="game\m_mssithra_anim.c" />
-    <ClCompile Include="game\m_ogle.c" />
-    <ClCompile Include="game\m_ogle_anim.c" />
-    <ClCompile Include="game\m_plagueElf.c">
+    <ClCompile Include="game\m_imp.cpp" />
+    <ClCompile Include="game\m_imp_anim.cpp" />
+    <ClCompile Include="game\m_morcalavin.cpp" />
+    <ClCompile Include="game\m_morcalavin_anim.cpp" />
+    <ClCompile Include="game\m_mother.cpp" />
+    <ClCompile Include="game\m_mother_anim.cpp" />
+    <ClCompile Include="game\m_move.cpp" />
+    <ClCompile Include="game\m_mssithra.cpp" />
+    <ClCompile Include="game\m_mssithra_anim.cpp" />
+    <ClCompile Include="game\m_ogle.cpp" />
+    <ClCompile Include="game\m_ogle_anim.cpp" />
+    <ClCompile Include="game\m_plagueElf.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="game\m_plagueElf_anim.c">
+    <ClCompile Include="game\m_plagueElf_anim.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="game\m_plagueSsithra.c">
+    <ClCompile Include="game\m_plagueSsithra.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="game\m_plagueSsithra_anim.c">
+    <ClCompile Include="game\m_plagueSsithra_anim.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="game\m_priestess.c" />
-    <ClCompile Include="game\m_priestess_anim.c" />
-    <ClCompile Include="game\m_rat.c">
+    <ClCompile Include="game\m_priestess.cpp" />
+    <ClCompile Include="game\m_priestess_anim.cpp" />
+    <ClCompile Include="game\m_rat.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="game\m_rat_anim.c">
+    <ClCompile Include="game\m_rat_anim.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="game\m_seraph.c" />
-    <ClCompile Include="game\m_seraph_anim.c" />
-    <ClCompile Include="game\m_seraph_guard.c" />
-    <ClCompile Include="game\m_seraph_guard_anim.c" />
-    <ClCompile Include="game\m_spreader.c">
+    <ClCompile Include="game\m_seraph.cpp" />
+    <ClCompile Include="game\m_seraph_anim.cpp" />
+    <ClCompile Include="game\m_seraph_guard.cpp" />
+    <ClCompile Include="game\m_seraph_guard_anim.cpp" />
+    <ClCompile Include="game\m_spreader.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="game\m_spreadermist.c" />
-    <ClCompile Include="game\m_spreader_anim.c">
+    <ClCompile Include="game\m_spreadermist.cpp" />
+    <ClCompile Include="game\m_spreader_anim.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="game\m_stats.c" />
-    <ClCompile Include="game\m_tcheckrik.c" />
-    <ClCompile Include="game\m_tcheckrik_anim.c" />
-    <ClCompile Include="game\m_tcheckrik_spells.c" />
-    <ClCompile Include="game\p_client.c" />
-    <ClCompile Include="game\p_funcs.c" />
-    <ClCompile Include="game\p_hud.c" />
-    <ClCompile Include="game\p_item.c" />
-    <ClCompile Include="game\p_view.c" />
-    <ClCompile Include="game\q_shared.c" />
-    <ClCompile Include="game\Script.c" />
-    <ClCompile Include="game\spl_blast.c" />
-    <ClCompile Include="game\spl_BlueRing.c" />
-    <ClCompile Include="game\spl_flyingfist.c" />
-    <ClCompile Include="game\spl_HellStaff.c" />
-    <ClCompile Include="game\spl_maceballs.c" />
-    <ClCompile Include="game\spl_magicmissile.c" />
-    <ClCompile Include="game\spl_meteorbarrier.c" />
-    <ClCompile Include="game\spl_morph.c" />
-    <ClCompile Include="game\spl_Phoenix.c" />
-    <ClCompile Include="game\spl_powerup.c" />
-    <ClCompile Include="game\spl_RedRain.c" />
-    <ClCompile Include="game\spl_ripper.c" />
-    <ClCompile Include="game\spl_shield.c" />
-    <ClCompile Include="game\spl_sphereofannihlation.c" />
-    <ClCompile Include="game\spl_teleport.c" />
-    <ClCompile Include="game\spl_tornado.c" />
-    <ClCompile Include="game\spl_wall.c" />
-    <ClCompile Include="h2common\H2Console.c" />
-    <ClCompile Include="h2common\H2Math.c" />
+    <ClCompile Include="game\m_stats.cpp" />
+    <ClCompile Include="game\m_tcheckrik.cpp" />
+    <ClCompile Include="game\m_tcheckrik_anim.cpp" />
+    <ClCompile Include="game\m_tcheckrik_spells.cpp" />
+    <ClCompile Include="game\p_client.cpp" />
+    <ClCompile Include="game\p_funcs.cpp" />
+    <ClCompile Include="game\p_hud.cpp" />
+    <ClCompile Include="game\p_item.cpp" />
+    <ClCompile Include="game\p_view.cpp" />
+    <ClCompile Include="game\q_shared.cpp" />
+    <ClCompile Include="game\Script.cpp" />
+    <ClCompile Include="game\spl_blast.cpp" />
+    <ClCompile Include="game\spl_BlueRing.cpp" />
+    <ClCompile Include="game\spl_flyingfist.cpp" />
+    <ClCompile Include="game\spl_HellStaff.cpp" />
+    <ClCompile Include="game\spl_maceballs.cpp" />
+    <ClCompile Include="game\spl_magicmissile.cpp" />
+    <ClCompile Include="game\spl_meteorbarrier.cpp" />
+    <ClCompile Include="game\spl_morph.cpp" />
+    <ClCompile Include="game\spl_Phoenix.cpp" />
+    <ClCompile Include="game\spl_powerup.cpp" />
+    <ClCompile Include="game\spl_RedRain.cpp" />
+    <ClCompile Include="game\spl_ripper.cpp" />
+    <ClCompile Include="game\spl_shield.cpp" />
+    <ClCompile Include="game\spl_sphereofannihlation.cpp" />
+    <ClCompile Include="game\spl_teleport.cpp" />
+    <ClCompile Include="game\spl_tornado.cpp" />
+    <ClCompile Include="game\spl_wall.cpp" />
+    <ClCompile Include="h2common\H2Console.cpp" />
+    <ClCompile Include="h2common\H2Math.cpp" />
     <ClCompile Include="h2common\H2Matrix.cpp" />
-    <ClCompile Include="h2common\H2Motion.c" />
-    <ClCompile Include="h2common\H2Palette.c" />
-    <ClCompile Include="h2common\H2Physics.c" />
-    <ClCompile Include="h2common\H2Rand.c" />
-    <ClCompile Include="h2common\H2SinglyLinkedList.c" />
-    <ClCompile Include="h2common\H2Surfaces.c" />
-    <ClCompile Include="h2common\H2Vector.c" />
+    <ClCompile Include="h2common\H2Motion.cpp" />
+    <ClCompile Include="h2common\H2Palette.cpp" />
+    <ClCompile Include="h2common\H2Physics.cpp" />
+    <ClCompile Include="h2common\H2Rand.cpp" />
+    <ClCompile Include="h2common\H2SinglyLinkedList.cpp" />
+    <ClCompile Include="h2common\H2Surfaces.cpp" />
+    <ClCompile Include="h2common\H2Vector.cpp" />
     <ClCompile Include="h2common\Math\Martix.cpp" />
-    <ClCompile Include="Player\player_main.c" />
-    <ClCompile Include="Player\p_actions.c" />
-    <ClCompile Include="Player\p_animactor.c" />
-    <ClCompile Include="Player\p_anims.c" />
-    <ClCompile Include="Player\p_anim_branch.c" />
-    <ClCompile Include="Player\p_anim_data.c" />
-    <ClCompile Include="Player\p_chicken.c" />
-    <ClCompile Include="Player\p_chicken_anim.c" />
-    <ClCompile Include="Player\p_ctrl.c" />
-    <ClCompile Include="Player\p_items.c" />
-    <ClCompile Include="Player\p_main.c" />
-    <ClCompile Include="Player\p_weapon.c" />
-    <ClCompile Include="qcommon\cmd.c" />
-    <ClCompile Include="qcommon\cmodel.c" />
-    <ClCompile Include="qcommon\common.c" />
-    <ClCompile Include="qcommon\crc.c" />
-    <ClCompile Include="qcommon\cvar.c" />
-    <ClCompile Include="qcommon\files.c" />
-    <ClCompile Include="qcommon\md4.c" />
-    <ClCompile Include="qcommon\Message.c" />
-    <ClCompile Include="qcommon\NetMsg Read.c" />
-    <ClCompile Include="qcommon\net_chan.c" />
-    <ClCompile Include="qcommon\pmove.c" />
-    <ClCompile Include="qcommon\p_dll.c" />
-    <ClCompile Include="qcommon\Reference.c" />
+    <ClCompile Include="Player\player_main.cpp" />
+    <ClCompile Include="Player\p_actions.cpp" />
+    <ClCompile Include="Player\p_animactor.cpp" />
+    <ClCompile Include="Player\p_anims.cpp" />
+    <ClCompile Include="Player\p_anim_branch.cpp" />
+    <ClCompile Include="Player\p_anim_data.cpp" />
+    <ClCompile Include="Player\p_chicken.cpp" />
+    <ClCompile Include="Player\p_chicken_anim.cpp" />
+    <ClCompile Include="Player\p_ctrl.cpp" />
+    <ClCompile Include="Player\p_items.cpp" />
+    <ClCompile Include="Player\p_main.cpp" />
+    <ClCompile Include="Player\p_weapon.cpp" />
+    <ClCompile Include="qcommon\cmd.cpp" />
+    <ClCompile Include="qcommon\cmodel.cpp" />
+    <ClCompile Include="qcommon\common.cpp" />
+    <ClCompile Include="qcommon\crc.cpp" />
+    <ClCompile Include="qcommon\cvar.cpp" />
+    <ClCompile Include="qcommon\files.cpp" />
+    <ClCompile Include="qcommon\md4.cpp" />
+    <ClCompile Include="qcommon\Message.cpp" />
+    <ClCompile Include="qcommon\NetMsg Read.cpp" />
+    <ClCompile Include="qcommon\net_chan.cpp" />
+    <ClCompile Include="qcommon\pmove.cpp" />
+    <ClCompile Include="qcommon\p_dll.cpp" />
+    <ClCompile Include="qcommon\Reference.cpp" />
     <ClCompile Include="qcommon\ResourceManager.cpp" />
-    <ClCompile Include="qcommon\Skeletons.c" />
-    <ClCompile Include="ref_common\r_Skeletons.c" />
+    <ClCompile Include="qcommon\Skeletons.cpp" />
+    <ClCompile Include="ref_common\r_Skeletons.cpp" />
     <ClCompile Include="ref_gl\glew.c" />
-    <ClCompile Include="ref_gl\gl_book.c" />
-    <ClCompile Include="ref_gl\gl_draw.c" />
-    <ClCompile Include="ref_gl\gl_fmodel.c" />
-    <ClCompile Include="ref_gl\gl_image.c" />
-    <ClCompile Include="ref_gl\gl_light.c" />
-    <ClCompile Include="ref_gl\gl_math.c" />
-    <ClCompile Include="ref_gl\gl_mesh.c" />
-    <ClCompile Include="ref_gl\gl_model.c" />
-    <ClCompile Include="ref_gl\gl_movie.c" />
-    <ClCompile Include="ref_gl\gl_rmain.c" />
-    <ClCompile Include="ref_gl\gl_rmisc.c" />
-    <ClCompile Include="ref_gl\gl_rsurf.c" />
-    <ClCompile Include="ref_gl\gl_warp.c" />
-    <ClCompile Include="server\sv_ccmds.c" />
-    <ClCompile Include="server\sv_ents.c" />
-    <ClCompile Include="server\sv_game.c" />
-    <ClCompile Include="server\sv_init.c" />
-    <ClCompile Include="server\sv_main.c" />
-    <ClCompile Include="server\sv_send.c" />
-    <ClCompile Include="server\sv_user.c" />
-    <ClCompile Include="server\sv_world.c" />
-    <ClCompile Include="win32\cd_win.c" />
-    <ClCompile Include="win32\conproc.c" />
-    <ClCompile Include="win32\glw_imp.c" />
-    <ClCompile Include="win32\in_win.c" />
-    <ClCompile Include="win32\net_wins.c" />
-    <ClCompile Include="win32\qgl_win.c" />
-    <ClCompile Include="win32\q_shwin.c" />
-    <ClCompile Include="win32\sys_win.c" />
-    <ClCompile Include="win32\vid_dll.c" />
-    <ClCompile Include="win32\vid_menu.c" />
+    <ClCompile Include="ref_gl\gl_book.cpp" />
+    <ClCompile Include="ref_gl\gl_draw.cpp" />
+    <ClCompile Include="ref_gl\gl_fmodel.cpp" />
+    <ClCompile Include="ref_gl\gl_image.cpp" />
+    <ClCompile Include="ref_gl\gl_light.cpp" />
+    <ClCompile Include="ref_gl\gl_math.cpp" />
+    <ClCompile Include="ref_gl\gl_mesh.cpp" />
+    <ClCompile Include="ref_gl\gl_model.cpp" />
+    <ClCompile Include="ref_gl\gl_movie.cpp" />
+    <ClCompile Include="ref_gl\gl_rmain.cpp" />
+    <ClCompile Include="ref_gl\gl_rmisc.cpp" />
+    <ClCompile Include="ref_gl\gl_rsurf.cpp" />
+    <ClCompile Include="ref_gl\gl_warp.cpp" />
+    <ClCompile Include="server\sv_ccmds.cpp" />
+    <ClCompile Include="server\sv_ents.cpp" />
+    <ClCompile Include="server\sv_game.cpp" />
+    <ClCompile Include="server\sv_init.cpp" />
+    <ClCompile Include="server\sv_main.cpp" />
+    <ClCompile Include="server\sv_send.cpp" />
+    <ClCompile Include="server\sv_user.cpp" />
+    <ClCompile Include="server\sv_world.cpp" />
+    <ClCompile Include="win32\cd_win.cpp" />
+    <ClCompile Include="win32\conproc.cpp" />
+    <ClCompile Include="win32\glw_imp.cpp" />
+    <ClCompile Include="win32\in_win.cpp" />
+    <ClCompile Include="win32\net_wins.cpp" />
+    <ClCompile Include="win32\qgl_win.cpp" />
+    <ClCompile Include="win32\q_shwin.cpp" />
+    <ClCompile Include="win32\sys_win.cpp" />
+    <ClCompile Include="win32\vid_dll.cpp" />
+    <ClCompile Include="win32\vid_menu.cpp" />
     <ClCompile Include="WinSnd\ALut\alutBufferData.c" />
     <ClCompile Include="WinSnd\ALut\alutCodec.c" />
     <ClCompile Include="WinSnd\ALut\alutError.c" />

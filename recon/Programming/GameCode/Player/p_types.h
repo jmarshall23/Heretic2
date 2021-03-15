@@ -644,7 +644,7 @@ typedef struct playerinfo_s
 
 	// Pointer to the associated player's edict_t.
 
-	void				*self;
+	edict_t				*self;
 
 	// Game .dll variables.
 

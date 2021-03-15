@@ -8,11 +8,8 @@ typedef struct MsgQueue_s
 	SinglyLinkedList_t msgs;
 } MsgQueue_t;
 
-#ifdef _GAME_DLL
-size_t SetParms(SinglyLinkedList_t *this_ptr, char *format, va_list marker, qboolean entsAsNames);
-#else
-size_t SetParms(SinglyLinkedList_t *this_ptr, char *format, va_list marker);
-#endif
+
+size_t SetParms(SinglyLinkedList_t *this_ptr, char *format, va_list marker, qboolean entsAsNames = false);
 
 int GetParms(SinglyLinkedList_t *this_ptr, char *format, va_list marker);
 void QueueMessage(MsgQueue_t *this_ptr, void *msg);

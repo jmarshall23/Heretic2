@@ -19,26 +19,16 @@ template<class T> size_t tRead(T *ptr,FILE *FH,int n=1)
 	return fread(ptr,n,sizeof(T),FH);
 }
 
-extern "C" {
-	void Use_Multi(edict_t* self, edict_t* other, edict_t* activator);
-};
+void Use_Multi(edict_t* self, edict_t* other, edict_t* activator);
 
 
 
-#ifdef _HERETIC2_
-extern "C"
-{
-#endif
-	extern void Use_Multi(edict_t *self, edict_t *other, edict_t *activator);
-	extern void c_swapplayer(edict_t *Self,edict_t *Cinematic);
-	extern void remove_non_cinematic_entites(edict_t *owner);
-	extern void reinstate_non_cinematic_entites(edict_t *owner);
-	extern cvar_t 	*Cvar_Set (char *var_name, char *value);
+extern void Use_Multi(edict_t *self, edict_t *other, edict_t *activator);
+extern void c_swapplayer(edict_t *Self,edict_t *Cinematic);
+extern void remove_non_cinematic_entites(edict_t *owner);
+extern void reinstate_non_cinematic_entites(edict_t *owner);
+extern cvar_t 	*Cvar_Set (char *var_name, char *value);
 
-
-#ifdef _HERETIC2_
-}
-#endif
 
 #ifdef _HERETIC2_
 int msg_animtype  [NUM_MESSAGES] =
@@ -284,7 +274,7 @@ void WriteEnt(edict_t **to,FILE *FH)
 
 //==========================================================================
 
-extern "C" void ProcessScripts(void)
+void ProcessScripts(void)
 {
 	List<CScript *>::Iter	is;
 
@@ -297,7 +287,7 @@ extern "C" void ProcessScripts(void)
 	}
 }
 
-extern "C" void ShutdownScripts(qboolean Complete)
+void ShutdownScripts(qboolean Complete)
 {
 	List<CScript *>::Iter	is;
 	List<Variable *>::Iter	iv;
@@ -329,7 +319,7 @@ extern "C" void ShutdownScripts(qboolean Complete)
 	}
 }
 
-extern "C" void SaveScripts(FILE *FH, qboolean DoGlobals)
+void SaveScripts(FILE *FH, qboolean DoGlobals)
 {
 	int						size;
 	List<CScript *>::Iter	is;
@@ -360,7 +350,7 @@ extern "C" void SaveScripts(FILE *FH, qboolean DoGlobals)
 	}
 }
 
-extern "C" void LoadScripts(FILE *FH, qboolean DoGlobals)
+void LoadScripts(FILE *FH, qboolean DoGlobals)
 {
 	int		size, i;
 	edict_t	*ent;
@@ -410,7 +400,7 @@ void script_use(edict_t *ent, edict_t *other, edict_t *activator)
 set Script to the name of the script to run when triggered
 use parm1 through parm16 to send parameters to the script
 */
-extern "C" void SP_script_runner (edict_t *ent)
+void SP_script_runner (edict_t *ent)
 {
 	char	temp[MAX_PATH];
 	int		i;
@@ -448,7 +438,7 @@ extern "C" void SP_script_runner (edict_t *ent)
 target the script_runner object
 use parm1 through parm16 to send parameters to the script
 */
-extern "C" void SP_parms (edict_t *ent)
+void SP_parms (edict_t *ent)
 {
 }
 

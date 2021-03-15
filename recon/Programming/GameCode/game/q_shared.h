@@ -191,10 +191,6 @@ H2COMMON_API char	*va(char *format, ...);
 #define	MAX_INFO_VALUE		64
 #define	MAX_INFO_STRING		512
 
-#ifdef __cplusplus
-extern "C"
-{
-#endif
 H2COMMON_API char *Info_ValueForKey (char *s, char *key);
 H2COMMON_API void Info_RemoveKey (char *s, char *key);
 H2COMMON_API void Info_SetValueForKey (char *s, char *key, char *value);
@@ -243,10 +239,6 @@ void	Sys_FindClose (void);
 QUAKE2_API void Sys_Error (char *error, ...);
 QUAKE2_API void Com_Printf (char *msg, ...);
 void Com_ColourPrintf (PalIdx_t colour, char *msg, ...);
-
-#ifdef __cplusplus
-}
-#endif
 
 /*
 ==========================================================

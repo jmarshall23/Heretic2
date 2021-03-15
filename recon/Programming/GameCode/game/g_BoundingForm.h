@@ -4,7 +4,7 @@
 #include "q_Typedef.h"
 
 // sides for a nonrotating box
-enum Box_BoundingForm_Sides_e
+enum Box_BoundingForm_Sides_t
 {
 	BOX_BOUNDINGFORM_SIDE_WEST,
 	BOX_BOUNDINGFORM_SIDE_NORTH,
@@ -13,6 +13,6 @@ enum Box_BoundingForm_Sides_e
 	BOX_BOUNDINGFORM_SIDE_BOTTOM,
 	BOX_BOUNDINGFORM_SIDE_TOP,
 	NUM_BOX_BOUNDINGFORM_SIDES
-} Box_BoundingForm_Sides_t;
+} ;
 
 #endif // G_BOUNDINGFORM_H

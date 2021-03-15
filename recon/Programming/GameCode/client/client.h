@@ -560,8 +560,8 @@ void DrawString (int x, int y, char *s);
 qboolean CL_CheckOrDownloadFile (char *filename);
 
 void CL_AddNetgraph (void);
-int CL_ParseEntityBits (unsigned char *bf);
-void CL_ParseDelta (entity_state_t *from, entity_state_t *to, int number, unsigned char *bf);
+int CL_ParseEntityBits (unsigned int *bf);
+void CL_ParseDelta (entity_state_t *from, entity_state_t *to, int number, int bf);
 void CL_ParseFrame (void);
 
 //=================================================
@@ -691,3 +691,24 @@ void CL_ClipMoveToEntities(vec3_t start,vec3_t mins,vec3_t maxs,vec3_t end,trace
 
 void Grab_EAX_Environment_type(void);
 
+void SNDEAX_SetEnvironment(int id);
+bool S_Init(void);
+sfx_s* S_FindName(char* name, qboolean create);
+sfx_s* S_RegisterSound(char* name);
+void S_Activate(bool active);
+void S_BeginRegistration(void);
+void S_EndRegistration(void);
+void S_Shutdown(void);
+void S_StartLocalSound(char* sound);
+void S_StartSound(vec3_t origin, int entnum, int entchannel, sfx_s* sfx, float fvol, int attenuation, float timeofs);
+void S_StopAllSounds(void);
+void S_StopAllSounds_Sounding(void);
+void S_Update(vec3_t quake_origin, vec3_t forward, vec3_t right, vec3_t up);
+void S_PlayMusic(int track, int looping);
+
+void CL_RunDLights(void);
+void CL_RunLightStyles(void);
+void CL_SetLightstyle(int i);
+
+void DrawAltString(int x, int y, char* s);
+void CL_AddEntities(void);
