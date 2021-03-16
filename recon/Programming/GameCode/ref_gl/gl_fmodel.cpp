@@ -657,9 +657,6 @@ void R_DrawFlexModel(entity_t *e)
 	if (R_CullBox(mins, maxs))
 		return;
 
-	glColor3f(1, 1, 1);
-
-
 	glPushMatrix();
 	e->angles[0] = -e->angles[0];	// stupid quake bug
 	e->angles[2] = -e->angles[2];	// stupid quake bug
@@ -677,9 +674,13 @@ void R_DrawFlexModel(entity_t *e)
 
 	GL_EnableMultitexture(false);
 	GL_SelectTexture(0);
-	GL_TexEnv(GL_REPLACE);
+	GL_TexEnv(GL_MODULATE);
 	//GL_SelectTexture(GL_TEXTURE1_ARB);
 	//GL_TexEnv(GL_MODULATE);
+
+	vec3_t lightColor;
+	R_LightPoint(e->origin, lightColor);
+	glColor3f(lightColor[0] * 3, lightColor[1] * 3, lightColor[2] * 3);
 
 	GL_Bind(e->model[0]->skins[0]->texnum);
 	R_RenderFlexModel(e->model[0]->fmodel, e->fmnodeinfo, e->frame, e->oldframe, e->oldorigin, e->origin, e->angles, e->backlerp);
@@ -687,4 +688,6 @@ void R_DrawFlexModel(entity_t *e)
 	GL_EnableMultitexture(false);
 
 	glPopMatrix();
+
+	glColor3f(1, 1, 1);
 }
