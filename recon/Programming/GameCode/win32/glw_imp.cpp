@@ -158,13 +158,11 @@ int GLimp_SetMode( int *pwidth, int *pheight, int mode, qboolean fullscreen )
 
 	ri.Con_Printf (PRINT_ALL, "...setting mode %d:", mode );
 
-	//if ( !ri.Vid_GetModeInfo( &width, &height, mode ) )
-	//{
-	//	ri.Con_Printf( PRINT_ALL, " invalid mode\n" );
-	//	return rserr_invalid_mode;
-	//}
-	width = 1280;
-	height = 720;
+	if (!ri.Vid_GetModeInfo(&width, &height, mode))
+	{
+		ri.Con_Printf(PRINT_ALL, " invalid mode\n");
+		return rserr_invalid_mode;
+	}
 
 	ri.Con_Printf( PRINT_ALL, " %d %d %s\n", width, height, win_fs[fullscreen] );
 
