@@ -343,3 +343,4 @@ extern byte SV_Persistant_Effects_Array[0x1B000];
 
 void SV_ClearPersistantEffects(void);
 byte	COM_BlockSequenceCRCByte(byte* base, int length, int sequence);
+void MSG_WriteData(sizebuf_t* sb, byte* data, int len);

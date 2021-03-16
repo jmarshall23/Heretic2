@@ -314,6 +314,8 @@ void SV_WritePlayerstateToClient (client_frame_t *from, client_frame_t *to, size
 	MSG_WriteByte (msg, svc_playerinfo);
 	MSG_WriteLong (msg, pflags);
 
+	MSG_WriteData(msg, (byte *)&ps->stats[0], sizeof(ps->stats));
+
 	if (pflags & PS_MINSMAXS) {
 		MSG_WriteFloat(msg, ps->mins[0]);
 		MSG_WriteFloat(msg, ps->mins[1]);

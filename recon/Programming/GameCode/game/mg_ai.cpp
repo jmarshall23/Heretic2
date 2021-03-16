@@ -1148,7 +1148,7 @@ qboolean MG_CheckJump (edict_t *self)
 	vec3_t up, cont_spot, vis_check_spot, end_spot, targ_org;
 	float jump_height, sub_len;
 	int	contents;
-	qboolean ignore_height;
+	qboolean ignore_height = false;
 	qboolean jumpup = false;
 	trace_t trace;
 

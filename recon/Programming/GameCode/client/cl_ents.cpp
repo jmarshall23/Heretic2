@@ -549,7 +549,7 @@ void CL_ParsePlayerstate (frame_t *oldframe, frame_t *newframe)
 		memset (state, 0, sizeof(*state));
 
 	flags = MSG_ReadLong (&net_message);
-
+	MSG_ReadData(&net_message, (byte*)&state->stats[0], sizeof(state->stats));
 	if (flags & PS_MINSMAXS) {
 		state->mins[0] = MSG_ReadFloat(&net_message);
 		state->mins[1] = MSG_ReadFloat(&net_message);
