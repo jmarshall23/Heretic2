@@ -405,7 +405,12 @@ InitResourceManager
 */
 void InitResourceManager()
 {
-	ResMngr_Con(&globalResourceManager, 8, 256);
+	// jmarshall:
+	// Based on decompiled output, Raven had globalResourceManager allocated to use 256 8 * sizeof(resourceNode) byte blocks,
+	// this seems really small, in x64 this actually causes code to run past the block size. Which seems in line,
+	// with some of the crashes people have experienced with Raven's binaries. I'm increasing this limit,
+	// because were not that worried about OOMing, and seems safer then modifying a bunch of code on the game/client side.
+	ResMngr_Con(&globalResourceManager, 1024, 256);
 }
 
 /*
