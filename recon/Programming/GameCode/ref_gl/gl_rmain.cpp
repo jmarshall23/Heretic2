@@ -21,6 +21,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "gl_local.h"
 #include "../ref_common/part_uvs.h"
 
+#define	PFL_FLAG_MASK	0x0000007f	// Mask out any flags
+
 typedef struct {
 	vec3_t start;
 	vec3_t end;
@@ -499,7 +501,7 @@ void R_DrawParticles(int num_particles, particle_t* particles, int type)
 		color[2] = p->color.b;
 		color[3] = p->color.a;
 
-		tex_coords_t* texCoord = &part_TexCoords[p->type];
+		tex_coords_t* texCoord = &part_TexCoords[p->type & PFL_FLAG_MASK];
 		
 		RB_RenderQuad(p->origin, right, up, color, texCoord->lx, texCoord->ty, texCoord->rx, texCoord->by);
 	}
