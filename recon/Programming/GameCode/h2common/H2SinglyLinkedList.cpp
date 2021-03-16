@@ -16,22 +16,18 @@ H2COMMON_API void SLList_DefaultCon(SinglyLinkedList_t *this_ptr)
 	this_ptr->current = this_ptr->rearSentinel;
 	this_ptr->front = this_ptr->rearSentinel;
 }
-H2COMMON_API void SLList_Des(SinglyLinkedList_t *this_ptr)
+H2COMMON_API void SLList_Des(SinglyLinkedList_t* this_ptr)
 {
-	SinglyLinkedListNode_t *v1; // esi@1
-	SinglyLinkedListNode_t *v2; // eax@2
-	SinglyLinkedListNode_t *v3; // ST04_4@3
+	SinglyLinkedListNode_t* node; 
 
-	v1 = this_ptr->front;
-	while (v1 != this_ptr->rearSentinel)
+	node = this_ptr->front;
+	while (node != this_ptr->rearSentinel)
 	{
-		v2 = v1;
-		v1 = v1->next;
-		ResMngr_AllocateResource(&globalResourceManager, 0);
+		node = node->next;
+		ResMngr_AllocateResource(&globalResourceManager, 0); // jmarshall: why are these here? 
 	}
-	v3 = this_ptr->rearSentinel;
 	this_ptr->current = this_ptr->rearSentinel;
-	ResMngr_AllocateResource(&globalResourceManager, 0);
+	ResMngr_AllocateResource(&globalResourceManager, 0); // jmarshall: why are these here? 
 }
 
 H2COMMON_API qboolean SLList_AtEnd(SinglyLinkedList_t *this_ptr)
@@ -51,87 +47,87 @@ H2COMMON_API qboolean SLList_IsEmpty(SinglyLinkedList_t *this_ptr)
 
 H2COMMON_API const GenericUnion4_t SLList_Increment(SinglyLinkedList_t *this_ptr)
 {
-	SinglyLinkedListNode_t *v1;
-
-	v1 = this_ptr->current->next;
-	this_ptr->current = v1;
-	return v1->value;
+	struct SinglyLinkedListNode_s* nextNode; // ecx
+	nextNode = this_ptr->current->next;
+	this_ptr->current = nextNode;
+	return nextNode->value;
 }
 
 H2COMMON_API const GenericUnion4_t SLList_PostIncrement(SinglyLinkedList_t *this_ptr)
 {
-	SinglyLinkedListNode_t *v1; // ecx@1
-	GenericUnion4_t result; // eax@1
+	GenericUnion4_t value; // [esp+D0h] [ebp-14h]
+	SinglyLinkedListNode_t* currentNode; // [esp+DCh] [ebp-8h]
 
-	v1 = this_ptr->current;
-	result = v1->value;
-	this_ptr->current = v1->next;
-	return result;
+	currentNode = this_ptr->current;
+	value = currentNode->value;
+	this_ptr->current = currentNode->next;
+	return value;
 }
 
 H2COMMON_API GenericUnion4_t SLList_Front(SinglyLinkedList_t *this_ptr)
 {
-	SinglyLinkedListNode_t *v1; // eax@1
+	SinglyLinkedListNode_t* frontNode; // ecx
 
-	v1 = this_ptr->front;
-	this_ptr->current = v1;
-	return v1->value;
+	frontNode = this_ptr->front;
+	this_ptr->current = frontNode;
+	return frontNode->value;
 }
 
 H2COMMON_API GenericUnion4_t SLList_ReplaceCurrent(SinglyLinkedList_t *this_ptr, const GenericUnion4_t toReplace)
 {
-	GenericUnion4_t *v2; // ecx@1
-	GenericUnion4_t result; // eax@1
+	GenericUnion4_t oldValue; // [esp+D0h] [ebp-14h]
+	SinglyLinkedListNode_t* node; // [esp+DCh] [ebp-8h]
 
-	v2 = (GenericUnion4_t *)this_ptr->current;
-	result = *v2;
-	*v2 = toReplace;
-	return result;
+	node = this_ptr->current;
+	oldValue = node->value;
+	node->value = toReplace;
+	return oldValue;
 }
 
 H2COMMON_API void SLList_PushEmpty(SinglyLinkedList_t *this_ptr)
 {
-	SinglyLinkedListNode_t *v1; // eax@1
+	SinglyLinkedListNode_t* emptyNode; // [esp+D0h] [ebp-8h]
 
-	v1 = (SinglyLinkedListNode_t *)ResMngr_AllocateResource(&globalResourceManager, 0);
-	v1->next = this_ptr->front;
-	this_ptr->front = v1;
+	emptyNode = (SinglyLinkedListNode_t*)ResMngr_AllocateResource(&globalResourceManager, 0);
+	emptyNode->next = this_ptr->front;
+	this_ptr->front = emptyNode;
 }
 
 H2COMMON_API void SLList_Push(SinglyLinkedList_t *this_ptr, const GenericUnion4_t toInsert)
 {
-	SinglyLinkedListNode_t *v2; // eax@1
+	SinglyLinkedListNode_t* newNode; 
 
-	v2 = (SinglyLinkedListNode_t *)ResMngr_AllocateResource(&globalResourceManager, 0);
-	v2->value = toInsert;
-	v2->next = this_ptr->front;
-	this_ptr->front = v2;
+	newNode = (SinglyLinkedListNode_t*)ResMngr_AllocateResource(&globalResourceManager, 0);
+	newNode->value = toInsert;
+	newNode->next = this_ptr->front;
+	this_ptr->front = newNode;
 }
 
 H2COMMON_API GenericUnion4_t SLList_Pop(SinglyLinkedList_t *this_ptr)
 {
-	SinglyLinkedListNode_t *v1; // eax@1
-	SinglyLinkedListNode_t *v2; // esi@1
-	SinglyLinkedListNode_t *v3; // edx@1
-	GenericUnion4_t v4; // esi@3
+	GenericUnion4_t value; 
+	SinglyLinkedListNode_t* nextNode; 
+	SinglyLinkedListNode_t* currentNode;
+	SinglyLinkedListNode_t* frontNode;
 
-	v1 = this_ptr->front;
-	v2 = this_ptr->current;
-	v3 = v1->next;
-	this_ptr->front = v3;
-	if (v2 == v1)
-		this_ptr->current = v3;
-	v4 = v1->value;
-	ResMngr_DeallocateResource(&globalResourceManager, v2, 0);
-	return v4;
+	frontNode = this_ptr->front;
+	currentNode = this_ptr->current;
+	nextNode = frontNode->next;
+	this_ptr->front = nextNode;
+	if (currentNode == frontNode)
+		this_ptr->current = nextNode;
+	value = frontNode->value;
+	ResMngr_DeallocateResource(&globalResourceManager, currentNode, 0);
+	return value;
 }
+
 H2COMMON_API void SLList_Chop(SinglyLinkedList_t *this_ptr)
 {
-	SinglyLinkedListNode_t *v1; // esi@1
-	SinglyLinkedListNode_t *v2; // eax@2
+	SinglyLinkedList_t* currentNode; 
+	SinglyLinkedList_t* nextNode;
 
-	v1 = this_ptr->current->next;
-	if (v1 == this_ptr->rearSentinel)
+	nextNode = (SinglyLinkedList_t*)this_ptr->current->next;
+	if (nextNode == (SinglyLinkedList_t*)this_ptr->rearSentinel)
 	{
 		this_ptr->current = this_ptr->rearSentinel;
 	}
@@ -139,20 +135,20 @@ H2COMMON_API void SLList_Chop(SinglyLinkedList_t *this_ptr)
 	{
 		do
 		{
-			v2 = v1;
-			v1 = v1->next;
-			ResMngr_DeallocateResource(&globalResourceManager, v2, 0);
-		} while (v1 != this_ptr->rearSentinel);
+			currentNode = nextNode;
+			nextNode = (SinglyLinkedList_t*)nextNode->front;
+			ResMngr_DeallocateResource(&globalResourceManager, currentNode, 0);
+		} while (nextNode != (SinglyLinkedList_t*)this_ptr->rearSentinel);
 		this_ptr->current = this_ptr->rearSentinel;
 	}
 }
 
 H2COMMON_API void SLList_InsertAfter(SinglyLinkedList_t *this_ptr, const GenericUnion4_t toInsert)
 {
-	SinglyLinkedListNode_t *v2; // eax@1
+	SinglyLinkedListNode_t* newNode; 
 
-	v2 = (SinglyLinkedListNode_t *)ResMngr_AllocateResource(&globalResourceManager, 0);
-	v2->value = toInsert;
-	v2->next = this_ptr->current->next;
-	this_ptr->current->next = v2;
+	newNode = (SinglyLinkedListNode_t*)ResMngr_AllocateResource(&globalResourceManager, 0);
+	newNode->value = toInsert;
+	newNode->next = this_ptr->current->next;
+	this_ptr->current->next = newNode;
 }
