@@ -951,19 +951,17 @@ void CL_OffsetThirdPersonView(void) {
 	// trace a ray from the origin to the viewpoint to make sure the view isn't
 	// in a solid block.  Use an 8 by 8 block to prevent the view from near clipping anything
 
+	trace = CL_PMTrace( cl.refdef.vieworg, mins, maxs, view);
+
+	if (trace.fraction != 1.0) {
+		VectorCopy(trace.endpos, view);
+		view[2] += (1.0 - trace.fraction) * 32;
+		// try another trace to this position, because a tunnel may have the ceiling
+		// close enogh that this is poking out
 	
-
-	trace = CM_BoxTrace( cl.refdef.vieworg, mins, maxs, view, 0, MASK_SOLID);
-
-	//if (trace.fraction != 1.0) {
-	//	VectorCopy(trace.endpos, view);
-	//	view[2] += (1.0 - trace.fraction) * 32;
-	//	// try another trace to this position, because a tunnel may have the ceiling
-	//	// close enogh that this is poking out
-	//
-	//	CG_Trace(&trace, cl.refdef.vieworg, mins, maxs, view, cg.predictedPlayerState.clientNum, MASK_SOLID);
-	//	VectorCopy(trace.endpos, view);
-	//}
+		trace = CL_PMTrace(cl.refdef.vieworg, mins, maxs, view);
+		VectorCopy(trace.endpos, view);
+	}
 
 
 	VectorCopy(view, cl.refdef.vieworg);

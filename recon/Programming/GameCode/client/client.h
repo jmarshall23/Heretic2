@@ -712,3 +712,5 @@ void CL_SetLightstyle(int i);
 
 void DrawAltString(int x, int y, char* s);
 void CL_AddEntities(void);
+
+trace_t		CL_PMTrace(vec3_t start, vec3_t mins, vec3_t maxs, vec3_t end);
