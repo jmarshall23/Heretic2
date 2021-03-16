@@ -149,7 +149,10 @@ typedef struct
 	byte	tris[MAX_FM_TRIANGLES>>3];
 
 	struct {
-	short	*triIndicies;
+// jmarshall - 64bit
+	//short	*triIndicies;
+	int triIndicies; // Array of shorts?
+// jmarshall end
 	int		num_tris;
 	};
 
