@@ -402,9 +402,6 @@
     <ClCompile Include="client effects\Utilities.cpp">
       <Filter>Client Effects</Filter>
     </ClCompile>
-    <ClCompile Include="client effects\cl_fx.cpp">
-      <Filter>Client Effects</Filter>
-    </ClCompile>
     <ClCompile Include="game\buoy.cpp">
       <Filter>Game</Filter>
     </ClCompile>

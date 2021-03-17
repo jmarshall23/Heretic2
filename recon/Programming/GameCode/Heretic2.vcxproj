@@ -164,7 +164,6 @@
     <ClCompile Include="client effects\ce_Message.cpp" />
     <ClCompile Include="client effects\Client Effects.cpp" />
     <ClCompile Include="client effects\Client Entities.cpp" />
-    <ClCompile Include="client effects\cl_fx.cpp" />
     <ClCompile Include="client effects\Font1.cpp" />
     <ClCompile Include="client effects\Font2.cpp" />
     <ClCompile Include="client effects\fx_AmmoPickup.cpp" />
