@@ -1435,13 +1435,11 @@ void GL_ConvertM32To32Bit(const char *name, byte **pic, int *width, int *height)
 
 	for (i = 0, f = 0; i < count * 4; i += 4, f += 3)
 	{
-		for (d = 0; d < 3; d++)
+		for (d = 0; d < 4; d++)
 		{
 			int image_buffer_id = i + d;
 			image_buffer[image_buffer_id] = source[image_buffer_id];
 		}
-
-		image_buffer[i + 3] = 255;
 	}
 }
 // jmarshall end

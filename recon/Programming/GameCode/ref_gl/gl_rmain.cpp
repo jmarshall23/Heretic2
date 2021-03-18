@@ -444,11 +444,10 @@ void RB_RenderQuad(const vec3_t origin, vec3_t left, vec3_t up, byte* color, flo
 
 	for (int i = 0; i < 6; i++)
 	{
-		glVertex3fv(vertexes[indexes[i]]);
 		glTexCoord2f(st[indexes[i]][0], st[indexes[i]][1]);
+		glVertex3fv(vertexes[indexes[i]]);		
 	}
 }
-
 
 /*
 ===============
@@ -467,34 +466,24 @@ void R_DrawParticles(int num_particles, particle_t* particles, int type)
 
 	if (type)
 	{
-		GL_Bind(atlas_aparticle->texnum);		
-		glBlendFunc(GL_ONE, GL_ONE);
+		GL_Bind(atlas_aparticle->texnum);				
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);		
 	}
 	else
 	{
-		GL_Bind(atlas_particle->texnum);
-		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+		GL_Bind(atlas_particle->texnum);					
+		glBlendFunc(GL_ONE, GL_ONE);
 	}
 
 	glDepthMask(GL_FALSE);		// no z buffering
 	glEnable(GL_BLEND);
 	GL_TexEnv(GL_MODULATE);
-	glBegin(GL_TRIANGLES);
-
-	VectorScale(vup, 1.5, up);
-	VectorScale(vright, -1.5, right);
+	glBegin(GL_TRIANGLES);	
 
 	for (p = particles, i = 0; i < num_particles; i++, p++)
 	{
-		// hack a scale up to keep particles from disapearing
-		scale = (p->origin[0] - r_origin[0]) * vpn[0] +
-			(p->origin[1] - r_origin[1]) * vpn[1] +
-			(p->origin[2] - r_origin[2]) * vpn[2];
-
-		if (scale < 20)
-			scale = 1;
-		else
-			scale = 1 + scale * 0.004;
+		VectorScale(vup, 1.5, up);
+		VectorScale(vright, -1.5, right);
 
 		color[0] = p->color.r;
 		color[1] = p->color.g;
