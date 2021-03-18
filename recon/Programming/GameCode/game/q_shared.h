@@ -827,6 +827,7 @@ typedef struct PerEffectsBuffer_s
 // jmarshall
 	qboolean inUse;
 	qboolean needsUpdate;
+	qboolean nonPersistant;
 
 	void* entity;
 	int data_size;

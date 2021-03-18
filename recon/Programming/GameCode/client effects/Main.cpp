@@ -414,7 +414,7 @@ ParseClientEffects
 */
 
 // Insert the logic in _this could use a good cleaning. . .
-
+sizebuf_t* fxMsgBuf = NULL;
 void ParseEffects(centity_t *owner)
 {
 	int				i, index;
@@ -435,27 +435,27 @@ void ParseEffects(centity_t *owner)
 	{
 		// Where do we pull the effect from?
 
-		if(!(*fxi.cl_effectpredict))
+		//if(!(*fxi.cl_effectpredict))
 		{
 			// Effects received as part of entity_state_t from server.
 
 			fxBuf = &owner->current.clientEffects;
 		}
-		else
-		{
-			// Predicted effects are pulled from here...
-
-			fxBuf=fxi.clientPredEffects;
-
-			// We are dealing with preicted effects, so reset freeblock for reading, as writing
-			// will have left it at the end of the written data.
-
-			fxBuf->freeBlock=0;
-		}
+		//else
+		//{
+		//	// Predicted effects are pulled from here...
+		//
+		//	fxBuf=fxi.clientPredEffects;
+		//
+		//	// We are dealing with preicted effects, so reset freeblock for reading, as writing
+		//	// will have left it at the end of the written data.
+		//
+		//	fxBuf->freeBlock=0;
+		//}
 
 		num = fxBuf->numEffects;
 
-		msg_read = &tempBuf;
+		fxMsgBuf = msg_read = &tempBuf;
 		memset (msg_read, 0, sizeof(*msg_read));
 		msg_read->data = fxBuf->buf;
 		msg_read->cursize = msg_read->maxsize = fxBuf->bufSize;
@@ -603,6 +603,8 @@ SkipEffect:
 		fxBuf->numEffects = 0;
 		fxBuf->bufSize = 0;
 	}
+
+	fxMsgBuf = NULL;
 }
 
 static void RemoveEffectsFromCent(centity_t *cent)

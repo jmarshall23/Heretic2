@@ -420,6 +420,12 @@ void SV_WriteClientEffectsToClient(client_frame_t* from, client_frame_t* to, siz
 		{			
 			MSG_WriteData(msg, SV_Persistant_Effects[i].buf, SV_Persistant_Effects[i].data_size);
 			SV_Persistant_Effects[i].needsUpdate = false;
+
+			if (SV_Persistant_Effects[i].nonPersistant)
+			{
+				SV_Persistant_Effects[i].nonPersistant = false;
+				SV_Persistant_Effects[i].inUse = false;
+			}
 		}
 	}	
 }
@@ -437,7 +443,7 @@ int	SV_CreatePersistantEffect(entity_state_t* ent, int type, int flags, vec3_t o
 		enta = ent->number;
 	}
 	else {
-		enta = 0;
+		enta = -1;
 	}
 
 	if (sv_numeffects >= 512) {
@@ -469,6 +475,7 @@ int	SV_CreatePersistantEffect(entity_state_t* ent, int type, int flags, vec3_t o
 	effect->needsUpdate = true;
 	effect->entity = ent;
 	effect->inUse = true;
+	effect->nonPersistant = false;
 	
 	SZ_Init(&msg, effect->buf, sizeof(effect->buf));
 	MSG_WriteShort(&msg, type);
@@ -512,6 +519,88 @@ int	SV_CreatePersistantEffect(entity_state_t* ent, int type, int flags, vec3_t o
 
 
 void	SV_CreateEffect(entity_state_t* ent, int type, int flags, vec3_t origin, char* format, ...) { 
+	int enta;
+	int effectID = -1;
+	va_list args;
+	sizebuf_t msg;
+	int testflags;
+
+	va_start(args, format);
+
+	if (ent) {
+		enta = ent->number;
+	}
+	else {
+		enta = -1;
+	}
+
+	if (sv_numeffects >= 512) {
+		Com_Printf("Warning : Unable to create persistant effect\n");
+		return;
+	}
+
+	for (int i = 0; i < MAX_PERSISTANT_EFFECTS; i++)
+	{
+		if (SV_Persistant_Effects[i].inUse == false)
+		{
+			effectID = i;
+			break;
+		}
+	}
+
+	if (effectID == -1)
+	{
+		return;
+	}
+
+	PerEffectsBuffer_t* effect = &SV_Persistant_Effects[effectID];
+	effect->freeBlock = 0;
+	effect->bufSize = 192;
+	effect->numEffects = 1;
+	effect->fx_num = type;
+	effect->demo_send_mask = -1;
+	effect->send_mask = 0;
+	effect->needsUpdate = true;
+	effect->entity = ent;
+	effect->inUse = true;
+	effect->nonPersistant = true;
+
+	SZ_Init(&msg, effect->buf, sizeof(effect->buf));
+	MSG_WriteShort(&msg, type);
+
+	if (ent != NULL)
+	{
+		ent->clientEffects.buf = &effect->buf[0];
+		ent->clientEffects.bufSize = sizeof(effect->buf);
+		ent->clientEffects.numEffects = 1;
+	}
+
+	testflags = flags;
+
+	//if ((flags & 0xA) != 0 && enta > 255)
+	//	testflags = flags | CEF_ENTNUM16;
+
+	MSG_WriteShort(&msg, testflags);
+
+	if ((testflags & CEF_BROADCAST) != 0 && enta >= 0)
+	{
+		//if (enta <= 255)
+		//	MSG_WriteByte(&msg, enta);
+		//else
+		MSG_WriteShort(&msg, enta);
+	}
+
+	if ((testflags & CEF_OWNERS_ORIGIN) == 0) {
+		MSG_WritePos(&msg, origin);
+	}
+
+	MSG_WriteByte(&msg, 0x3a);
+
+	if (format && format[0]) {
+		SV_WriteEffectToBuffer(&msg, format, args);
+	}
+
+	effect->data_size = msg.cursize;
 
 }
 

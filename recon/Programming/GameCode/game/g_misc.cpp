@@ -1308,11 +1308,14 @@ void misc_magic_portal_use (edict_t *self, edict_t *other, edict_t *activator)
 		return;
 	
 	if (self->solid == SOLID_NOT)
-	{	// We aren't engaged yet.  Make solid and start the effect.
+	{	
+		int style = self->style;
+		int count = self->count;
+		// We aren't engaged yet.  Make solid and start the effect.
 		self->solid = SOLID_TRIGGER;
 		self->touch = misc_magic_portal_touch;
 		self->PersistantCFX = gi.CreatePersistantEffect(&self->s, FX_MAGIC_PORTAL, CEF_BROADCAST, self->s.origin, 
-								"vbb", self->s.angles, (byte)self->style, (byte)self->count);
+								"vbb", self->s.angles, (byte)style, (byte)count);
 		self->s.effects &= ~EF_DISABLE_EXTRA_FX;
 	}
 	else

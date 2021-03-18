@@ -51,7 +51,88 @@ void Sys_LoadGameDll(const char* name, HINSTANCE* hinst, DWORD* chkSum);
 void Sys_UnloadGameDll(const char* name, HINSTANCE* hinst);
 void S_StartSound(vec3_t origin, int entnum, int entchannel, void* sfx, float fvol, int attenuation, float timeofs);
 sfx_s* S_RegisterSound(char* name);
-int CL_GetEffect(centity_t* ent, int flags, char* format, ...) { return 0; }
+
+extern sizebuf_t* fxMsgBuf;
+
+int CL_GetEffect(centity_t* ent, int flags, char* format, ...) { 
+	sizebuf_t* msg;
+	va_list args;
+	sizebuf_t newmsg;
+	EffectsBuffer_t* clientEffects;
+
+	if (!ent)
+	{
+		msg = &net_message;
+	}
+	else
+	{
+		//if (cl_effectpredict)
+		//{
+		//	clientEffects = (EffectsBuffer_t*)&clientPredEffects;
+		//	clientEffects = (EffectsBuffer_t*)&clientPredEffects;
+		//}
+		//else
+		{
+			clientEffects = &ent->current.clientEffects;
+			clientEffects = &ent->current.clientEffects;
+		}
+		msg = fxMsgBuf;
+	}
+
+	va_start(args, format);
+
+	int len = strlen(format);
+	for (int i = 0; i < len; i++)
+	{
+		switch (format[i])
+		{
+		case 'b':
+		{
+			byte* b = va_arg(args, byte*);
+			*b = MSG_ReadByte(msg);
+		}
+			break;
+		case 'd':			
+			MSG_ReadDir(msg, va_arg(args, float*));
+			break;
+		case 'f':
+		{
+			float* f = va_arg(args, float*);
+			*f = MSG_ReadFloat(msg);
+		}
+			break;
+		case 'i':
+		{
+			long* l = va_arg(args, long*);
+			*l = MSG_ReadLong(msg);
+		}
+			break;
+		case 'p':
+		case 'v':
+			MSG_ReadPos(msg, va_arg(args, float*));
+			break;
+		case 's':
+		{
+			short* s = va_arg(args, short*);
+			*s = MSG_ReadShort(msg);
+		}
+			break;
+		case 't':
+			MSG_ReadPos(msg, va_arg(args, float*));
+			break;
+		case 'u':
+			MSG_ReadPos(msg, va_arg(args, float*));
+			break;
+		case 'x':
+			MSG_ReadPos(msg, va_arg(args, float*));
+			break;
+		default:
+			break;
+		}
+	}
+
+	return len;
+}
 
 void CL_ShutdownClientEffects()
 {
