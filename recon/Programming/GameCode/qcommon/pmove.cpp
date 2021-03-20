@@ -709,6 +709,23 @@ void Pmove(pmove_t* pmove, qboolean isServer)
 {
 	pm = pmove;
 
+	// jmarshall: TODO: Client Prediction
+	if (!isServer)
+	{
+		// Convert it back into nonsense Quake 2 compression.
+		pm->s.origin[0] = pml.origin[0] * 8.0f;
+		pm->s.origin[1] = pml.origin[1] * 8.0f;
+		pm->s.origin[2] = pml.origin[2] * 8.0f;
+
+		pm->s.velocity[0] = pml.velocity[0] * 8.0f;
+		pm->s.velocity[1] = pml.velocity[1] * 8.0f;
+		pm->s.velocity[2] = pml.velocity[2] * 8.0f;
+
+		PM_ClampAngles();
+
+		return;
+	}
+
 	// clear results
 	pm->numtouch = 0;
 	VectorClear(pm->viewangles);
