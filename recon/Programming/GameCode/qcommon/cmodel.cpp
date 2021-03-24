@@ -1121,35 +1121,35 @@ void CM_TestBoxInBrush (vec3_t mins, vec3_t maxs, vec3_t p1,
 	if (!brush->numsides)
 		return;
 
-	//for (i=0 ; i<brush->numsides ; i++)
-	//{
-	//	side = &map_brushsides[brush->firstbrushside+i];
-	//	plane = side->plane;
-	//
-	//	// FIXME: special case for axial
-	//
-	//	// general box case
-	//
-	//	// push the plane out apropriately for mins/maxs
-	//
-	//	// FIXME: use signbits into 8 way lookup for each mins/maxs
-	//	for (j=0 ; j<3 ; j++)
-	//	{
-	//		if (plane->normal[j] < 0)
-	//			ofs[j] = maxs[j];
-	//		else
-	//			ofs[j] = mins[j];
-	//	}
-	//	dist = DotProduct (ofs, plane->normal);
-	//	dist = plane->dist - dist;
-	//
-	//	d1 = DotProduct (p1, plane->normal) - dist;
-	//
-	//	// if completely in front of face, no intersection
-	//	if (d1 > 0)
-	//		return;
-	//
-	//}
+	for (i=0 ; i<brush->numsides ; i++)
+	{
+		side = &map_brushsides[brush->firstbrushside+i];
+		plane = side->plane;
+	
+		// FIXME: special case for axial
+	
+		// general box case
+	
+		// push the plane out apropriately for mins/maxs
+	
+		// FIXME: use signbits into 8 way lookup for each mins/maxs
+		for (j=0 ; j<3 ; j++)
+		{
+			if (plane->normal[j] < 0)
+				ofs[j] = maxs[j];
+			else
+				ofs[j] = mins[j];
+		}
+		dist = DotProduct (ofs, plane->normal);
+		dist = plane->dist - dist;
+	
+		d1 = DotProduct (p1, plane->normal) - dist;
+	
+		// if completely in front of face, no intersection
+		if (d1 > 0)
+			return;
+	
+	}
 	// N&C: FF Precision. Fixes (hopefully) float movement from blocking in brushes..
 	// special test for axial
 	//if (trace->[0] > trace->bounds[1][0]
@@ -1163,20 +1163,20 @@ void CM_TestBoxInBrush (vec3_t mins, vec3_t maxs, vec3_t p1,
 	//}
 	// The first six planes are the axial planes, so we only
 	// need to test the remainder
-	for (i = 6; i < brush->numsides; i++) {
-	    side = &map_brushsides[brush->firstbrushside + i];
-	    plane = side->plane;
-
-	    // adjust the plane distance appropriately for mins/maxs
-	    dist = plane->dist - DotProduct(trace->offsets[plane->signbits], plane->normal);
-
-	    d1 = DotProduct(p1, plane->normal) - dist;
-
-	    // if completely in front of face, no intersection
-	    if (d1 > 0) {
-	        return;
-	    }
-	}
+	//for (i = 6; i < brush->numsides; i++) {
+	//    side = &map_brushsides[brush->firstbrushside + i];
+	//    plane = side->plane;
+	//
+	//    // adjust the plane distance appropriately for mins/maxs
+	//    dist = plane->dist - DotProduct(trace->offsets[plane->signbits], plane->normal);
+	//
+	//    d1 = DotProduct(p1, plane->normal) - dist;
+	//
+	//    // if completely in front of face, no intersection
+	//    if (d1 > 0) {
+	//        return;
+	//    }
+	//}
 
 	// inside this brush
 	trace->startsolid = trace->allsolid = true;
