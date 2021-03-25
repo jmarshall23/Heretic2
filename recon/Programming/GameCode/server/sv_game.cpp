@@ -337,7 +337,6 @@ void SV_BroadcastObituary(int printlevel, short stringid, short client1, short c
 
 }
 
-void	SV_RemoveEffects(entity_state_t* ent, int type) { }
 void	SV_CreateEffectEvent (byte EventId, entity_state_t* ent, int type, int flags, vec3_t origin, char* format, ...) { }
 void	SV_RemoveEffectsEvent(byte EventId, entity_state_t* ent, int type) { }
 void	SV_GameMsgCenterPrintf(edict_t* ent, short msg) { }
@@ -356,6 +355,10 @@ void SV_CleanLevel(void) { };
 
 void SV_SoundEvent(byte EventId, float leveltime, edict_t* ent, int channel, int soundindex, float volume, float attenuation, float timeofs) { 
 	PF_StartSound(ent, channel, soundindex, volume, attenuation, timeofs);
+}
+
+void	SV_RemoveEffects(entity_state_t* ent, int type) { 
+	ent->clientEffects.numEffects = 0;
 }
 
 void SV_WriteEffectToBuffer(sizebuf_t* msg, char* format, va_list args)

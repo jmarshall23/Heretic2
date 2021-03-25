@@ -252,10 +252,24 @@ void CL_ParseDelta (entity_state_t *from, entity_state_t *to, int number, int bi
 	if (bits & U_CLIENT_EFFECTS)
 	{
 		extern ResourceManager_t FXBufMgnr;
-		to->clientEffects.numEffects = MSG_ReadShort(&net_message);
-		to->clientEffects.buf = (byte *)ResMngr_AllocateResource(&FXBufMgnr, ENTITY_FX_BUF_SIZE);
-		to->clientEffects.bufSize = ENTITY_FX_BUF_SIZE;
-		MSG_ReadData(&net_message, to->clientEffects.buf, ENTITY_FX_BUF_SIZE);
+		
+		int numEffects = MSG_ReadShort(&net_message);
+
+		if (numEffects == -1)
+		{
+			if (to->clientEffects.buf != NULL)
+			{
+				ResMngr_DeallocateResource(&FXBufMgnr, to->clientEffects.buf, 0);
+				to->clientEffects.buf = NULL;
+			}
+		}
+		else
+		{
+			to->clientEffects.numEffects = numEffects;
+			to->clientEffects.buf = (byte*)ResMngr_AllocateResource(&FXBufMgnr, ENTITY_FX_BUF_SIZE);
+			to->clientEffects.bufSize = MSG_ReadShort(&net_message);;
+			MSG_ReadData(&net_message, to->clientEffects.buf, to->clientEffects.bufSize);
+		}
 	}
 
 	if (bits & U_FM_FRAME)
@@ -458,7 +472,8 @@ void CL_ParsePacketEntities (frame_t *oldframe, frame_t *newframe)
 		}
 
 		if (bits & U_REMOVE)
-		{	// the entity present in oldframe is not in the current frame
+		{				
+			// the entity present in oldframe is not in the current frame
 			if (cl_shownet->value == 3)
 				Com_Printf ("   remove: %i\n", newnum);
 			if (oldnum != newnum)
@@ -466,12 +481,14 @@ void CL_ParsePacketEntities (frame_t *oldframe, frame_t *newframe)
 
 			oldindex++;
 
+			fxe.RemoveClientEffects(&cl_entities[newnum]);
+
 			if (oldframe)
-			{
+			{				
 				if (oldindex >= oldframe->num_entities)
 					oldnum = 99999;
 				else
-				{
+				{					
 					oldstate = &cl_parse_entities[(oldframe->parse_entities + oldindex) & (MAX_PARSE_ENTITIES - 1)];
 					oldnum = oldstate->number;
 				}

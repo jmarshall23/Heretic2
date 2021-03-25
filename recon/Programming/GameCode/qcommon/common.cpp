@@ -510,10 +510,10 @@ void MSG_WriteDeltaEntity (entity_state_t *from, entity_state_t *to, sizebuf_t *
 	if ( to->angles[2] != from->angles[2] )
 		bits |= U_ANGLE3;
 
-	if (to->clientEffects.numEffects != from->clientEffects.numEffects)
-		bits |= U_CLIENT_EFFECTS;
-
-	if (to->clientEffects.buf != from->clientEffects.buf)
+	//if (to->clientEffects.numEffects != from->clientEffects.numEffects)
+	//	bits |= U_CLIENT_EFFECTS;
+	//
+	//if (to->clientEffects.buf != NULL)
 		bits |= U_CLIENT_EFFECTS;
 		
 	if ( to->skinnum != from->skinnum )
@@ -624,8 +624,16 @@ void MSG_WriteDeltaEntity (entity_state_t *from, entity_state_t *to, sizebuf_t *
 
 	if (bits & U_CLIENT_EFFECTS)
 	{
-		MSG_WriteShort(msg, to->clientEffects.numEffects);
-		MSG_WriteData(msg, to->clientEffects.buf, to->clientEffects.bufSize);
+		if (to->clientEffects.buf == NULL || to->clientEffects.numEffects <= 0)
+		{
+			MSG_WriteShort(msg, -1);
+		}
+		else
+		{
+			MSG_WriteShort(msg, to->clientEffects.numEffects);
+			MSG_WriteShort(msg, to->clientEffects.bufSize);
+			MSG_WriteData(msg, to->clientEffects.buf, to->clientEffects.bufSize);
+		}
 	}
 
 	if (bits & U_FM_FRAME)

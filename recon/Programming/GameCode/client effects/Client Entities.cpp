@@ -601,16 +601,6 @@ int UpdateEffects(client_entity_t **root, centity_t *owner)
 			}
 		}
 
-// jmarshall
-		if (owner == NULL)
-		{
-			if (fxi.InCameraPVS(r->origin))
-			{
-				AddEntityToView(r);
-			}
-		}
-// jmarshall end
-
 		prev = &(*prev)->next; 
 	}
 
