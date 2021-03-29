@@ -813,6 +813,9 @@ typedef struct EffectsBuffer_s
 	int		bufSize;
 	int		freeBlock;
 	int		numEffects;
+// jmarshall
+	qboolean isPersistant;
+// jmarshall end
 } EffectsBuffer_t;
 
 typedef struct PerEffectsBuffer_s

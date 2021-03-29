@@ -510,10 +510,7 @@ void MSG_WriteDeltaEntity (entity_state_t *from, entity_state_t *to, sizebuf_t *
 	if ( to->angles[2] != from->angles[2] )
 		bits |= U_ANGLE3;
 
-	//if (to->clientEffects.numEffects != from->clientEffects.numEffects)
-	//	bits |= U_CLIENT_EFFECTS;
-	//
-	//if (to->clientEffects.buf != NULL)
+	if (to->clientEffects.numEffects != from->clientEffects.numEffects || to->clientEffects.isPersistant)
 		bits |= U_CLIENT_EFFECTS;
 		
 	if ( to->skinnum != from->skinnum )

@@ -261,6 +261,7 @@ void CL_ParseDelta (entity_state_t *from, entity_state_t *to, int number, int bi
 			{
 				ResMngr_DeallocateResource(&FXBufMgnr, to->clientEffects.buf, 0);
 				to->clientEffects.buf = NULL;
+				to->clientEffects.numEffects = 0;
 			}
 		}
 		else
@@ -270,6 +271,10 @@ void CL_ParseDelta (entity_state_t *from, entity_state_t *to, int number, int bi
 			to->clientEffects.bufSize = MSG_ReadShort(&net_message);;
 			MSG_ReadData(&net_message, to->clientEffects.buf, to->clientEffects.bufSize);
 		}
+	}
+	else
+	{
+		to->clientEffects.numEffects = 0;
 	}
 
 	if (bits & U_FM_FRAME)

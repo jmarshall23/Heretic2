@@ -23,6 +23,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include "../qcommon/SinglyLinkedList.h"
 #include "../game/g_physics.h"
 #include "EffectFlags.h"
+#include "../qcommon/FX.h"
 
 game_export_t	*ge;
 
@@ -488,6 +489,15 @@ int	SV_CreatePersistantEffect(entity_state_t* ent, int type, int flags, vec3_t o
 		ent->clientEffects.buf = &effect->buf[0];
 		ent->clientEffects.bufSize = sizeof(effect->buf);
 		ent->clientEffects.numEffects = 1;
+
+		if (type == (int)FX_MAGIC_PORTAL)
+		{
+			ent->clientEffects.isPersistant = true;
+		}
+		else
+		{
+			ent->clientEffects.isPersistant = false;
+		}
 	}
 
 	testflags = flags;
