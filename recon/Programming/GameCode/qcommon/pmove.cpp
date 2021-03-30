@@ -782,5 +782,10 @@ void Pmove(pmove_t* pmove, qboolean isServer)
 	pm->s.velocity[0] = pml.velocity[0] * 8.0f;
 	pm->s.velocity[1] = pml.velocity[1] * 8.0f;
 	pm->s.velocity[2] = pml.velocity[2] * 8.0f;
+
+	// jmarshall: TODO: I believe this is used for first person view. 
+	pm->cmd.aimangles[0] = pm->cmd.angles[0];
+	pm->cmd.aimangles[1] = pm->cmd.angles[1];
+	pm->cmd.aimangles[2] = pm->cmd.angles[2];
 }
 
