@@ -220,7 +220,7 @@ void R_DrawSpriteModel (entity_t *e)
 	glColor4f( 1, 1, 1, alpha );
 
     
-
+	glShadeModel(7425);
 	GL_TexEnv( GL_MODULATE );
 
 	if ( alpha == 1.0 )
@@ -275,7 +275,7 @@ void R_DrawSpriteModel (entity_t *e)
 	GL_TexEnv( GL_REPLACE );
 
 	glDisable(GL_BLEND);
-		
+	glShadeModel(7424);
 
 	glColor4f( 1, 1, 1, 1 );
 }
@@ -336,10 +336,6 @@ void R_DrawEntitiesOnList (void)
 	for (i=0 ; i<r_newrefdef.num_entities ; i++)
 	{
 		currententity = r_newrefdef.entities[i];
-// jmarshall
-		if (VectorLength(currententity->origin) == 0)
-			continue;
-// jmarshall end
 
 		if (currententity->flags & RF_TRANSLUCENT)
 			continue;	// solid
