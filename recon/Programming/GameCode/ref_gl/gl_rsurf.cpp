@@ -993,9 +993,14 @@ void R_DrawBrushModel(entity_t* e)
 	{
 		vec3_t	temp;
 		vec3_t	forward, right, up;
+		vec3_t angles;
+
+		angles[0] = e->angles[0] * 57.295776;
+		angles[1] = e->angles[1] * 57.295776;
+		angles[2] = e->angles[2] * 57.295776;
 
 		VectorCopy(modelorg, temp);
-		AngleVectors(e->angles, forward, right, up);
+		AngleVectors(angles, forward, right, up);
 		modelorg[0] = DotProduct(temp, forward);
 		modelorg[1] = -DotProduct(temp, right);
 		modelorg[2] = DotProduct(temp, up);
