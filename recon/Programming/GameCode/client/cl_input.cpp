@@ -275,6 +275,8 @@ CL_BaseMove
 Send the intended movement message to the server
 ================
 */
+
+#define RAVEN_PLAYER_SPEED			64.0f // jmarshall: derivided from decompilation.
 void CL_BaseMove (usercmd_t *cmd)
 {	
 	//CL_AdjustAngles ();
@@ -288,20 +290,20 @@ void CL_BaseMove (usercmd_t *cmd)
 // jmarshall end
 	if (in_strafe.state & 1)
 	{
-		cmd->sidemove += cl_sidespeed->value * CL_KeyState (&in_right);
-		cmd->sidemove -= cl_sidespeed->value * CL_KeyState (&in_left);
+		cmd->sidemove += RAVEN_PLAYER_SPEED * CL_KeyState (&in_right);
+		cmd->sidemove -= RAVEN_PLAYER_SPEED * CL_KeyState (&in_left);
 	}
 
-	cmd->sidemove += cl_sidespeed->value * CL_KeyState (&in_moveright);
-	cmd->sidemove -= cl_sidespeed->value * CL_KeyState (&in_moveleft);
+	cmd->sidemove += RAVEN_PLAYER_SPEED * CL_KeyState (&in_moveright);
+	cmd->sidemove -= RAVEN_PLAYER_SPEED * CL_KeyState (&in_moveleft);
 
-	cmd->upmove += cl_upspeed->value * CL_KeyState (&in_up);
-	cmd->upmove -= cl_upspeed->value * CL_KeyState (&in_down);
+	cmd->upmove += RAVEN_PLAYER_SPEED * CL_KeyState (&in_up);
+	cmd->upmove -= RAVEN_PLAYER_SPEED * CL_KeyState (&in_down);
 
 	if (! (in_klook.state & 1) )
 	{	
-		cmd->forwardmove += cl_forwardspeed->value * CL_KeyState (&in_forward);
-		cmd->forwardmove -= cl_forwardspeed->value * CL_KeyState (&in_back);
+		cmd->forwardmove += RAVEN_PLAYER_SPEED * CL_KeyState (&in_forward);
+		cmd->forwardmove -= RAVEN_PLAYER_SPEED * CL_KeyState (&in_back);
 	}	
 
 //
@@ -347,10 +349,10 @@ void CL_FinishMove (usercmd_t *cmd)
 	
 //	if (in_use.state & 3)
 //		cmd->buttons |= BUTTON_USE;
-	in_use.state &= ~2;
+//	in_use.state &= ~2;
 
-	if (anykeydown && cls.key_dest == key_game)
-		cmd->buttons |= BUTTON_ANY;
+	//if (anykeydown && cls.key_dest == key_game)
+	//	cmd->buttons |= BUTTON_ANY;
 
 	// send milliseconds of time to apply the move
 	ms = cls.frametime * 1000;
@@ -474,6 +476,14 @@ void CL_SendCmd (void)
 	cl.cmd_time[i] = cls.realtime;	// for netgraph ping calculation
 
 	*cmd = CL_CreateCmd ();
+
+	cmd->camera_viewangles[0] = ANGLE2SHORT(cl.refdef.viewangles[0]);
+	cmd->camera_viewangles[1] = ANGLE2SHORT(cl.refdef.viewangles[1]);
+	cmd->camera_viewangles[2] = ANGLE2SHORT(cl.refdef.viewangles[2]);
+
+	cmd->camera_vieworigin[0] = cl.refdef.vieworg[0] * 8.0f;
+	cmd->camera_vieworigin[1] = cl.refdef.vieworg[1] * 8.0f;
+	cmd->camera_vieworigin[2] = cl.refdef.vieworg[2] * 8.0f;
 
 	cl.cmd = *cmd;
 
