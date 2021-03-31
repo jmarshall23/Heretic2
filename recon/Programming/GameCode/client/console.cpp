@@ -360,7 +360,7 @@ void Con_Print (char *txt)
 
 	if (txt[0] == 1 || txt[0] == 2)
 	{
-		mask = 128;		// go to colored text
+		mask = 0;		// go to colored text
 		txt++;
 	}
 	else
@@ -587,10 +587,15 @@ void Con_DrawConsole (float frac)
 	re.DrawStretchPic (0, -viddef.height+lines, viddef.width, viddef.height, "misc/conback.m8", 1.0f, false);
 	SCR_AddDirtyPoint (0,0);
 	SCR_AddDirtyPoint (viddef.width-1,lines-1);
+#ifdef WIN32
+	Com_sprintf(version, sizeof(version), "Heretic II v%s.%s(32 bit)", VERSION_MAJOR, VERSION_MINOR);
+#else
+	Com_sprintf (version, sizeof(version), "Heretic II v%s.%s(64 bit)", VERSION_MAJOR, VERSION_MINOR);
+#endif
 
-	Com_sprintf (version, sizeof(version), "Heretic II v%s.%s", VERSION_MAJOR, VERSION_MINOR);
-	for (x=0 ; x<5 ; x++)
-		re.DrawChar (viddef.width-44+x*8, lines-12, 128 + version[x], TextPalette[P_WHITE]);
+	int len = strlen(version);
+	for (x=0 ; x<len; x++)
+		re.DrawChar (viddef.width-(len * 8)+x*8, lines-12, version[x], TextPalette[P_WHITE]);
 
 // draw the text
 	con.vislines = lines;
