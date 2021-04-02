@@ -215,6 +215,33 @@ _inline void VectorCopy(vec3_t in, vec3_t out)
 	out[2] = in[2];
 }
 
+_inline void VectorCopy(short in[3], vec3_t out)
+{
+	//assert(out != vec3_origin);
+
+	out[0] = in[0];
+	out[1] = in[1];
+	out[2] = in[2];
+}
+
+_inline void VectorCopy(vec3_t in, short out[3])
+{
+	//assert(out != vec3_origin);
+
+	out[0] = in[0];
+	out[1] = in[1];
+	out[2] = in[2];
+}
+
+_inline void VectorCopy(short in[3], short out[3])
+{
+	//assert(out != vec3_origin);
+
+	out[0] = in[0];
+	out[1] = in[1];
+	out[2] = in[2];
+}
+
 _inline void VectorInverse (vec3_t v)
 {
 	//assert(v != vec3_origin);

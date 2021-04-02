@@ -44,6 +44,7 @@ typedef struct
 	qboolean	groundPlane;
 
 	float impactSpeed;
+	float knockbackfactor;
 } pml_t;
 
 pmove_t* pm;
@@ -639,7 +640,7 @@ static void PM_AirMove(float fmove, float smove) {
 	wishspeed *= scale;
 
 	// not on ground, so little effect on velocity
-	PM_Accelerate(wishdir, wishspeed, pm_airaccelerate);
+	PM_Accelerate(wishdir, wishspeed, pm_accelerate);
 
 	// we may have a ground plane that is very steep, even
 	// though we don't have a groundentity
@@ -709,6 +710,16 @@ static void PM_WalkMove(float fmove, float smove) {
 	PM_StepSlideMove(false);
 }
 
+void PM_CheckJump()
+{
+	if ((pm->s.pm_flags & 8) == 0 && pm->cmd.upmove > 9)
+	{
+		pm->groundentity = 0;
+		pml.velocity[2] = 200.0;
+		pml.walking = false;
+	}
+}
+
 /*
 ================
 Pmove
@@ -758,6 +769,8 @@ void Pmove(pmove_t* pmove, qboolean isServer)
 
 	pml.frametime = pm->cmd.msec * 0.001;
 
+	pml.knockbackfactor = pm->knockbackfactor;
+
 	// save old org in case we get stuck
 	//VectorCopy(pm->s.origin, pml.previous_origin);
 	pml.previous_origin[0] = pm->s.origin[0];
@@ -766,15 +779,35 @@ void Pmove(pmove_t* pmove, qboolean isServer)
 
 	PM_ClampAngles();
 
+	int time = pm->s.pm_time;
+	if (time)
+	{
+		int _msec = pm->cmd.msec >> 3;
+		int msec = _msec;
+		if (!_msec)
+			msec = 1;
+		if (msec < pm->s.pm_time)
+		{
+			pm->s.pm_time = time - msec;
+		}
+		else
+		{
+			pm->s.pm_flags &= 0xE7u;
+			pm->s.pm_time = 0;
+		}
+	}
+
 	AngleVectors(pm->viewangles, pml.forward, pml.right, pml.up);
 
 	if (pm->s.pm_type >= PM_DEAD) {
 		pm->cmd.forwardmove = 0;
 		pm->cmd.sidemove = 0;
 		pm->cmd.upmove = 0;
-	}
+	}	
 
 	PM_GroundTrace();
+
+//	PM_CheckJump();
 
 	if (pml.walking) {
 		// walking on ground
