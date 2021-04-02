@@ -253,6 +253,17 @@ static void PM_GroundTrace(void) {
 		return;
 	}
 
+	pm->numtouch = 0;
+
+	if (pm->numtouch < 31)
+	{
+		if (pm->groundentity)
+		{
+			pm->touchents[pm->numtouch] = pm->groundentity;
+			pm->numtouch++;
+		}
+	}
+
 	pml.groundPlane = true;
 	pml.walking = true;
 }
