@@ -268,6 +268,15 @@ void CL_PredictMovement (void)
 		pm.cmd = *cmd;
 		Pmove (&pm, false);
 
+		if (pm.waterlevel > 2)
+		{
+			cl.frame.playerstate.rdflags |= RDF_UNDERWATER;
+		}
+		else
+		{
+			cl.frame.playerstate.rdflags &= RDF_UNDERWATER;
+		}
+
 		// save for debug checking
 		//VectorCopy (pm.s.origin, cl.predicted_origins[frame]);
 		cl.predicted_origins[frame][0] = pm.s.origin[0];

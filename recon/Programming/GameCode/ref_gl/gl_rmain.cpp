@@ -145,6 +145,32 @@ cvar_t	*vid_fullscreen;
 cvar_t	*vid_gamma;
 cvar_t	*vid_ref;
 
+cvar_t* r_fog;
+cvar_t* r_fog_mode;
+cvar_t* r_fog_density;
+cvar_t* r_fog_startdist;
+cvar_t	*r_fog_color_r;
+cvar_t	*r_fog_color_g;
+cvar_t	*r_fog_color_b;
+cvar_t	*r_fog_color_a;
+cvar_t* r_fog_color_scale;
+cvar_t* r_fog_lightmap_adjust;
+
+cvar_t* r_fog_underwater;
+cvar_t* r_fog_underwater_mode;
+cvar_t* r_fog_underwater_density;
+cvar_t* r_fog_underwater_startdist;
+
+cvar_t* r_fog_underwater_color_r;
+cvar_t* r_fog_underwater_color_g;
+cvar_t* r_fog_underwater_color_b;
+cvar_t* r_fog_underwater_color_a;
+
+cvar_t* r_fog_underwater_color_scale;
+
+cvar_t* r_fog_underwater_lightmap_adjust;
+cvar_t* r_underwater_color;
+
 /*
 =================
 R_CullBox
@@ -740,11 +766,43 @@ void R_SetupGL (void)
 
 /*
 =============
+GL_WaterFog
+=============
+*/
+void GL_WaterFog()
+{
+	float color[4];
+
+	color[1] = r_fog_underwater_color_g->value;
+	color[2] = r_fog_underwater_color_b->value;
+	color[3] = r_fog_underwater_color_a->value;
+	color[0] = r_fog_underwater_color_r->value;
+	glFogi(GL_FOG_MODE, GL_EXP);
+	glFogf(GL_FOG_DENSITY, r_fog_underwater_density->value);
+
+	glFogfv(GL_FOG_COLOR, &color[0]);
+	glEnable(GL_FOG);
+	glClearColor(color[0], color[1], color[2], color[3]);
+	glClear(16640);
+	glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+}
+
+/*
+=============
 R_Clear
 =============
 */
 void R_Clear (void)
 {
+	if (r_newrefdef.rdflags & RDF_UNDERWATER)
+	{
+		GL_WaterFog();
+	}
+	else
+	{
+		glDisable(GL_FOG);
+	}
+
 	if (gl_ztrick->value)
 	{
 		static int trickframe;
@@ -971,6 +1029,62 @@ void R_RenderFrame (refdef_t *fd)
 
 void R_Register( void )
 {
+	r_fog = ri.Cvar_Get("r_fog", "1", 0);
+	r_fog_mode = ri.Cvar_Get("r_fog_mode", "1", 0);
+	r_fog_density = ri.Cvar_Get("r_fog_density", "0.004", 0);
+	r_fog_startdist = ri.Cvar_Get("r_fog_startdist", "50.0", 0);
+	r_fog_color_r = ri.Cvar_Get("r_fog_color_r", "1.0", 0);
+	r_fog_color_g = ri.Cvar_Get("r_fog_color_g", "1.0", 0);
+	r_fog_color_b = ri.Cvar_Get("r_fog_color_b", "1.0", 0);
+	r_fog_color_a = ri.Cvar_Get("r_fog_color_a", "0.0", 0);
+	r_fog_color_scale = ri.Cvar_Get("r_fog_color_scale", "1.0", 0);
+	r_fog_lightmap_adjust = ri.Cvar_Get(
+		"r_fog_lightmap_adjust",
+		"5.0",
+		0);
+	r_fog_underwater = ri.Cvar_Get("r_fog_underwater", "1", 0);
+	r_fog_underwater_mode = ri.Cvar_Get(
+		"r_fog_underwater_mode",
+		"1",
+		0);
+	r_fog_underwater_density = ri.Cvar_Get(
+		"r_fog_underwater_density",
+		"0.0015",
+		0);
+	r_fog_underwater_startdist = ri.Cvar_Get(
+		"r_fog_underwater_startdist",
+		"100.0",
+		0);
+	r_fog_underwater_color_r = ri.Cvar_Get(
+		"r_fog_underwater_color_r",
+		"1.0",
+		0);
+	r_fog_underwater_color_g = ri.Cvar_Get(
+		"r_fog_underwater_color_g",
+		"1.0",
+		0);
+	r_fog_underwater_color_b = ri.Cvar_Get(
+		"r_fog_underwater_color_b",
+		"1.0",
+		0);
+	r_fog_underwater_color_a = ri.Cvar_Get(
+		"r_fog_underwater_color_a",
+		"0.0",
+		0);
+	r_fog_underwater_color_scale = ri.Cvar_Get(
+		"r_fog_underwater_color_scale",
+		"1.0",
+		0);
+	r_fog_underwater_lightmap_adjust = ri.Cvar_Get(
+		"r_fog_underwater_lightmap_adjust",
+		"5.0",
+		0);
+	r_underwater_color = ri.Cvar_Get(
+		"r_underwater_color",
+		"0x70c06000",
+		0);
+
+
 	r_lefthand = ri.Cvar_Get( "hand", "0", CVAR_USERINFO | CVAR_ARCHIVE );
 	r_norefresh = ri.Cvar_Get ("r_norefresh", "0", 0);
 	r_fullbright = ri.Cvar_Get ("r_fullbright", "0", 0);
