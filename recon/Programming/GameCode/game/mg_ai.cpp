@@ -318,7 +318,7 @@ trace_t MG_MoveStep (edict_t *self, vec3_t move, qboolean relink)
 	int			i;
 	float		stepsize;
 	vec3_t		test;
-	int			contents, clipmask;
+	int			contents = 0, clipmask;
 	qboolean	slip_under = false;
 
 	trace.succeeded = false;
