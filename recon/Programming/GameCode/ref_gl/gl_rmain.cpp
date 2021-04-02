@@ -1057,15 +1057,15 @@ void R_Register( void )
 		0);
 	r_fog_underwater_color_r = ri.Cvar_Get(
 		"r_fog_underwater_color_r",
-		"1.0",
+		"0.1",
 		0);
 	r_fog_underwater_color_g = ri.Cvar_Get(
 		"r_fog_underwater_color_g",
-		"1.0",
+		"0.37",
 		0);
 	r_fog_underwater_color_b = ri.Cvar_Get(
 		"r_fog_underwater_color_b",
-		"1.0",
+		"0.6",
 		0);
 	r_fog_underwater_color_a = ri.Cvar_Get(
 		"r_fog_underwater_color_a",
