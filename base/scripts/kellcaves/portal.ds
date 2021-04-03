@@ -1,0 +1,46 @@
+// The camera shot in the beginning of the kellcaves
+
+#include "../common/header.ds"
+
+output "r:/base/ds/kellcaves"
+
+local entity portalcam
+local entity portal
+local entity c1
+local entity player1
+
+portalcam = find entity with targetname "portalcam"
+portal = find entity with targetname "portal"
+c1 = find entity with targetname "c1"
+player1 = get entity activator
+
+// Lights, Camera, Action.
+
+	enable cinematics
+
+	copy player attributes from entity player1 to entity c1
+	c1.modelindex = c1.count
+	c1.solid = SOLID_SOLID
+	c1.movetype = 4
+
+	animate entity c1 performing action IDLE1_ANIMATION
+
+	use entity portal
+	play sound "items/teleport2.wav" for entity portal
+	use entity portalcam
+
+	wait 4 seconds
+	use entity portal
+
+	wait 3 seconds
+
+	player1.origin = c1.origin
+	player1.p_origin = c1.origin
+	set view angles of entity player1 to c1.angles
+
+	c1.modelindex = 0
+	c1.solid = SOLID_NOT
+
+	use entity portalcam
+
+	disable cinematics

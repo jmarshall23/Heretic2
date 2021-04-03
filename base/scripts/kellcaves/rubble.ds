@@ -1,0 +1,69 @@
+//more rubble
+
+#include "../common/header.ds"
+
+output "r:/base/ds/kellcaves"
+
+//define entity
+
+local entity rockfall
+local entity rockfall2
+local entity rockfall3
+local entity rockfall4
+local entity a1 
+local entity a2
+local entity a3
+local entity a4
+local entity d1
+local entity d2
+local entity d3
+local entity d4
+
+//local entity quake
+local int sig
+
+//quake = find entity with targetname "quake"
+rockfall = find entity with targetname "rockfall"
+rockfall2 = find entity with targetname "rockfall2"
+rockfall3 = find entity with targetname "rockfall3"
+rockfall4 = find entity with targetname "rockfall4"
+a1 = find entity with targetname "a1"
+a2 = find entity with targetname "a2"
+a3 = find entity with targetname "a3"
+a4 = find entity with targetname "a4"
+d1 = find entity with targetname "d1"
+d2 = find entity with targetname "d2"
+d3 = find entity with targetname "d3"
+d4 = find entity with targetname "d4"
+
+//falling rubble
+
+//use entity quake
+
+use entity a1
+wait .2 seconds use entity rockfall
+
+
+use entity a2
+wait .4 seconds use entity rockfall2
+
+
+use entity a3
+wait .5 seconds use entity rockfall3
+use entity d1
+
+use entity d2
+
+use entity a4
+wait .5 seconds use entity rockfall4
+use entity d3
+
+wait .5 seconds
+use entity d4
+
+
+
+
+
+
+

@@ -1,0 +1,54 @@
+// template file for scripts
+
+#include "../common/header.ds"
+
+output "r:/base/ds/common"
+
+local int sig
+
+parameter entity bug
+
+
+bug.yaw_speed = 5
+
+// Idle 1
+animate entity bug performing action IDLE1_ANIMATION by turning [180, 0, 0] signaling sig
+wait for any clearing sig
+
+// Pain 1
+animate entity bug performing action PAIN1_ANIMATION repeating for 2 times signaling sig
+wait for any clearing sig
+
+
+// Walking
+animate entity bug performing action WALK1_ANIMATION by moving [200, 0, 0] by turning [180, 0, 0] signaling sig
+wait for any clearing sig
+
+// Backpedal
+animate entity bug performing action BACKPEDAL1_ANIMATION  by moving [-200, 0, 0] by turning [0, 0,0] signaling sig
+wait for any clearing sig
+
+
+// Idling
+animate entity bug performing action IDLE1_ANIMATION by turning [-200, 0, 0]  signaling sig
+wait for any clearing sig
+
+
+animate entity bug performing action ATTACK1_ANIMATION signaling sig
+wait for any clearing sig
+
+
+animate entity bug performing action PAIN2_ANIMATION signaling sig
+wait for any clearing sig
+
+
+animate entity bug performing action ATTACK2_ANIMATION signaling sig
+wait for any clearing sig
+
+
+animate entity bug performing action RUN1_ANIMATION by moving [200, 0, 0] signaling sig
+wait for any clearing sig
+
+
+// Death
+animate entity bug performing action DEATH1_ANIMATION by turning [300, 0, 0] signaling sig

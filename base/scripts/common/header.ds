@@ -1,0 +1,134 @@
+field vector	"origin"
+field int		"movetype"
+field vector	"start_origin"
+field vector	"start_angles"
+field int		"state"
+field float		"distance"
+field entity	"owner"
+field float		"wait"
+field vector	"velocity"
+field vector	"angle_velocity"
+field entity	"team_chain"
+field float		"yaw_speed"
+field int		"modelindex"
+field int		"count"
+field int		"solid"
+field vector	"angles"
+field vector	"delta_angles"
+field int		"skinnum"
+field int		"c_mode"
+field float		"ideal_yaw"
+field vector	"p_origin"
+field int		"takedamage"
+
+
+
+// Defines for print level
+#define	PRINT_LOW			0		// pickup messages
+#define	PRINT_MEDIUM		1		// death messages
+#define	PRINT_HIGH			2		// critical messages
+#define	PRINT_CHAT			3		// chat messages
+
+
+
+// Physic movetypes
+#define	PHYSICSTYPE_NONE			0		// MOVETYPE_NONE
+#define	PHYSICSTYPE_STATIC			1
+#define	PHYSICSTYPE_NOCLIP			2		// MOVETYPE_NOCLIP
+#define	PHYSICSTYPE_FLY				3		// MOVETYPE_FLY, MOVETYPE_FLYMISSILE, MOVETYPE_BOUNCE
+#define	PHYSICSTYPE_STEP			4		// MOVETYPE_WALK, MOVETYPE_STEP, MOVETYPE_TOSS, MOVETYPE_BOUNCE
+#define	PHYSICSTYPE_PUSH			5		// MOVETYPE_PUSH
+#define	PHYSICSTYPE_STOP			6		// MOVETYPE_STOP
+#define MOVETYPE_FLYMISSILE			7
+#define PHYSICSTYPE_SCRIPT_ANGULAR	8
+#define	NUM_PHYSICSTYPES			9
+
+#define	MOVETYPE_NONE				10  	// never moves
+#define	MOVETYPE_NOCLIP				11		// origin and angles change with no interaction
+#define	MOVETYPE_PUSH				12		// no clip to world, push on box contact
+#define	MOVETYPE_STOP				13		// no clip to world, stops on box contact
+#define	MOVETYPE_WALK				14		// gravity
+#define	MOVETYPE_STEP				15		// gravity, special edge handling
+#define	MOVETYPE_FLY				16
+#define	MOVETYPE_TOSS				17		// gravity
+#define	MOVETYPE_BOUNCE				18
+#define	MOVETYPE_SCRIPT_ANGULAR		19		// moves with the rotation of another entity
+
+
+// Defines for animation sequences
+
+#define ACTION1_ANIMATION		0
+#define ACTION2_ANIMATION		1
+#define ACTION3_ANIMATION		2
+#define ACTION4_ANIMATION		3
+#define ACTION5_ANIMATION		4
+#define ACTION6_ANIMATION		5
+#define ACTION7_ANIMATION		6
+#define ACTION8_ANIMATION		7
+#define ACTION9_ANIMATION		8
+#define ACTION10_ANIMATION		9
+#define ACTION11_ANIMATION		10
+#define ACTION12_ANIMATION		11
+#define ACTION13_ANIMATION		12
+#define ACTION14_ANIMATION		13
+#define ACTION15_ANIMATION		14
+#define ACTION16_ANIMATION		15
+#define ACTION17_ANIMATION		16
+#define ACTION18_ANIMATION		17
+#define ACTION19_ANIMATION		18
+#define ACTION20_ANIMATION		19
+#define ATTACK1_ANIMATION		20
+#define ATTACK2_ANIMATION		21
+#define ATTACK3_ANIMATION		22
+#define BACKPEDAL1_ANIMATION	23
+#define DEATH1_ANIMATION		24
+#define DEATH2_ANIMATION		25
+#define DEATH3_ANIMATION		26
+#define DEATH4_ANIMATION		27
+#define GIB1_ANIMATION			28
+#define IDLE1_ANIMATION			29
+#define IDLE2_ANIMATION			30
+#define IDLE3_ANIMATION			31
+#define IDLE4_ANIMATION			32
+#define IDLE5_ANIMATION			33
+#define IDLE6_ANIMATION			34
+#define JUMP1_ANIMATION			35
+#define PAIN1_ANIMATION			36
+#define PAIN2_ANIMATION			37
+#define PAIN3_ANIMATION			38
+#define PIVOTLEFTGO_ANIMATION	39
+#define PIVOTLEFT_ANIMATION		40
+#define PIVOTLEFTSTOP_ANIMATION	41
+#define PIVOTRIGHTGO_ANIMATION	42
+#define PIVOTRIGHT_ANIMATION	43
+#define PIVOTRIGHTSTOP_ANIMATION	44
+#define RUN1_ANIMATION			45
+#define STEPLEFT_ANIMATION		46
+#define STEPRIGHT_ANIMATION		47
+#define THINKAGAIN_ANIMATION	48
+#define TRANS1_ANIMATION		49
+#define TRANS2_ANIMATION		50
+#define TRANS3_ANIMATION		51
+#define TRANS4_ANIMATION		52
+#define TRANS5_ANIMATION		53
+#define TRANS6_ANIMATION		54
+#define WALKSTART_ANIMATION		55
+#define WALK1_ANIMATION			56
+#define WALK2_ANIMATION			57
+#define WALK3_ANIMATION			58
+#define WALK4_ANIMATION			59
+#define WALKSTOP1_ANIMATION		60
+#define WALKSTOP2_ANIMATION		61
+#define ATTACK4_ANIMATION		62
+#define ATTACK5_ANIMATION		63
+
+
+#define SOLID_NOT	0
+#define SOLID_SOLID 2
+
+
+#define DAMAGE_NO   0	// Won't take damage
+#define DAMAGE_YES  1	// Takes damage
+#define DAMAGE_AIM  2	// Can be autotargeted???
+#define DAMAGE_NO_RADIUS 3  // Will not take damage from radius blasts
+

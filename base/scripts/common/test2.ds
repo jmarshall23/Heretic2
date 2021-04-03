@@ -1,0 +1,26 @@
+//Beginning of game
+
+#include "../common/header.ds"
+output "r:/base/ds/common"
+
+local entity player1
+
+player1 = get entity activator
+
+print 28
+
+wait 5 seconds
+
+print 28 centered
+
+wait 5 seconds
+
+print 28 centered to entity player1
+
+wait 5 seconds
+
+print 28 captioned to entity player1
+
+wait 5 seconds
+
+exit

@@ -1,0 +1,17 @@
+//Lever pushes crates out of doorway at bottom of SSDocks tower
+
+#include "../common/header.ds"
+output "r:/base/ds/silverspring"
+
+
+//define variables
+
+local entity monster
+
+monster = get entity activator
+
+// print message then exit
+
+print 28 centered to entity monster
+
+exit

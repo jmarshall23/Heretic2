@@ -1,0 +1,65 @@
+//Beginning of game
+
+#include "../common/header.ds"
+output "r:/base/ds/silverspring"
+
+
+//define variables
+
+local entity camera
+local entity portal
+local entity message
+local entity hero
+local entity player1
+
+local int sig
+
+camera = find entity with targetname "cam1"
+portal = find entity with targetname "port"
+message = find entity with targetname "mess"
+hero = find entity with targetname "corv"
+
+//Switching player
+
+player1 = get entity activator  // Get player who set off trigger
+copy player attributes from entity player1 to entity hero
+hero.modelindex = hero.count	// Turn on cinematic corvus
+hero.solid = SOLID_SOLID	// Make him block
+
+
+//Where is everyone?
+
+enable cinematics
+disable ambient sounds
+use entity camera
+play sound "items/teleport2.wav" for entity portal
+animate entity hero performing action WALK2_ANIMATION by moving [64, 0, 0] signaling sig
+	wait for all clearing sig
+animate entity hero performing action ACTION6_ANIMATION repeating for 1 times signaling sig
+	wait for all clearing sig
+animate entity hero performing action ACTION7_ANIMATION repeating for 1 times signaling sig
+	wait for all clearing sig
+print 27 captioned
+animate entity hero performing action ACTION7_ANIMATION repeating for 1 times signaling sig
+	wait for all clearing sig
+use entity portal
+wait .5 seconds
+animate entity hero performing action ACTION8_ANIMATION repeating for 1 times signaling sig
+	wait for all clearing sig
+animate entity hero performing action IDLE1_ANIMATION repeating for 10 times
+	
+wait 1 seconds
+use entity camera
+
+//Switching back
+player1.origin = hero.origin	// Put player where Cinematic corvus is
+player1.p_origin = hero.origin	// Put player where Cinematic corvus is
+set view angles of entity player1 to hero.angles 
+
+hero.modelindex = 0		// Turn off the cinematic corvus model
+hero.solid = SOLID_NOT		// Make him  not solid
+
+disable cinematics
+
+
+enable ambient sounds

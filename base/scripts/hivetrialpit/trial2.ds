@@ -1,0 +1,56 @@
+#include "../common/header.ds"
+
+output "r:/base/ds/hivetrialpit"
+
+local vector v
+local int spd
+
+local entity rubble1
+local entity rubble2
+local entity rubble3
+local entity rubble4
+local entity flame
+
+v = [500,500,500]
+spd = 800
+
+rubble1 = find entity with scripttarget "rubble1n"
+rubble2 = find entity with scripttarget "rubble2n"
+rubble3 = find entity with scripttarget "rubble3n"
+rubble4 = find entity with scripttarget "rubble4n"
+flame = find entity with targetname "flamen"
+
+rubble1.movetype = PHYSICSTYPE_NOCLIP
+rubble2.movetype = PHYSICSTYPE_NOCLIP
+rubble3.movetype = PHYSICSTYPE_NOCLIP
+rubble4.movetype = PHYSICSTYPE_NOCLIP
+
+use entity flame
+rotate entity rubble1 by v at spd speed
+play sound "misc/breakstone.wav" for entity rubble1
+rotate entity rubble2 by v at spd speed
+play sound "misc/breakstone.wav" for entity rubble2
+rotate entity rubble3 by v at spd speed
+play sound "misc/breakstone.wav" for entity rubble3
+rotate entity rubble4 by v at spd speed
+play sound "misc/breakstone.wav" for entity rubble4
+
+move entity rubble1 to [-384,16,12] at 600 speed
+move entity rubble2 to [-430,100,8] at 550 speed
+move entity rubble3 to [-500,64,16] at 540 speed
+move entity rubble4 to [-320,128,8] at 575 speed
+
+wait .3 seconds
+
+use entity rubble1
+
+wait .1 seconds
+
+use entity rubble2
+use entity rubble4
+
+wait .2 seconds
+
+use entity rubble3
+
+exit

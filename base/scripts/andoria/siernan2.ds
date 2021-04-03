@@ -1,0 +1,118 @@
+// The second time corvus meets siernan.
+
+#include "../common/header.ds"
+
+output "r:/base/ds/andoria"
+
+local entity camera1a
+local entity objective
+local entity take
+local entity siernan
+local entity siernan2
+local entity corvus2
+local entity spreader
+local entity assassin
+local entity player2
+
+local int sig
+
+cache sound "cinematics/second siernan/60-14.wav"
+cache sound "cinematics/second siernan/61-16.wav"
+cache sound "cinematics/second siernan/62-14.wav"
+cache sound "cinematics/second siernan/63-18.wav"
+
+camera1a = find entity with targetname "camera1a"
+objective = find entity with targetname "objective4"
+take = find entity with targetname "take4"
+siernan = find entity with targetname "siernan"
+siernan2 = find entity with targetname "siernan2"
+corvus2 = find entity with targetname "corvus2"
+player2 = get entity activator
+
+// bring in the boys
+
+	spreader = spawn entity with fields "classname" = "monster_spreader", "angle" = 225, "origin" = [-2192, -16, -456], "target" = "monsters"
+
+	assassin = spawn entity with fields "classname" = "monster_assassin", "angle" = 180, "origin" = [-2064, -160, -424], "target" = "monsters"
+
+	siernan.modelindex = 0
+	siernan.solid = SOLID_NOT
+
+	siernan2.modelindex = siernan2.count
+	siernan2.solid = SOLID_SOLID
+
+	suspend
+
+//camera1a, side shot of both charactors. corvus walks into view. kneels etc.
+
+	copy player attributes from entity player2 to entity corvus2
+	corvus2.modelindex = corvus2.count
+	corvus2.solid = SOLID_SOLID
+	corvus2.movetype = 4
+
+	siernan2.movetype = 5
+
+	enable cinematics
+
+	use entity camera1a
+
+	animate entity corvus2 performing action WALK2_ANIMATION by moving [75, 0, 0] signaling sig
+	wait for all clearing sig
+
+	play sound "cinematics/second siernan/60-14.wav" for entity corvus2
+	print 189 captioned
+
+	animate entity corvus2 performing action ACTION1_ANIMATION signaling sig
+	wait for all clearing sig
+
+	play sound "cinematics/second siernan/61-16.wav" for entity siernan2
+	print 190 captioned
+
+	animate entity siernan2 performing action ACTION1_ANIMATION
+
+	animate entity corvus2 performing action ACTION2_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity corvus2 performing action ACTION3_ANIMATION repeating for 10 times signaling sig
+	wait for all clearing sig
+
+	play sound "cinematics/second siernan/62-14.wav" for entity corvus2
+	print 191 captioned
+
+	animate entity corvus2 performing action ACTION4_ANIMATION signaling sig
+	wait for all clearing sig
+
+
+	animate entity corvus2 performing action ACTION3_ANIMATION repeating
+
+
+	play sound "cinematics/second siernan/63-18.wav" for entity siernan2
+	print 192 captioned
+
+	animate entity siernan2 performing action ACTION2_ANIMATION
+	
+	wait 1 seconds
+
+	animate entity corvus2 performing action ACTION5_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity corvus2 performing action IDLE1_ANIMATION
+
+	wait 11 seconds
+
+	use entity take
+	use entity objective
+
+	player2.origin = corvus2.origin
+	player2.p_origin = corvus2.origin
+	set view angles of entity player2 to corvus2.angles
+
+	corvus2.modelindex = 0
+	corvus2.solid = SOLID_NOT
+
+	disable cinematics
+
+ 	use entity camera1a
+
+//this is where the script stop until corvus combines the earth blood and the crystal and brings the cure back to siernan.
+

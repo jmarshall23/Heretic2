@@ -1,0 +1,66 @@
+// stairs go down to secret room
+
+#include "../common/header.ds"
+
+output "r:/base/ds/cloud"
+
+
+//define variables
+
+local entity step1
+local entity step2
+local entity step3
+local entity step4
+local entity step5
+local entity step6
+local entity step7
+local entity step8
+local entity panelr
+local entity panell
+
+local int sig1
+local int sig2
+local int sig3
+local int sig4
+local int sig5
+local int sig6
+local int sig7
+local int sig8
+
+step1 = find entity with targetname "s1"
+step2 = find entity with targetname "s2"
+step3 = find entity with targetname "s3"
+step4 = find entity with targetname "s4"
+step5 = find entity with targetname "s5"
+step6 = find entity with targetname "s6"
+step7 = find entity with targetname "s7"
+step8 = find entity with targetname "s8"
+panelr = find entity with targetname "pr"
+panell = find entity with targetname "pl"
+
+
+// move stuff
+
+label loop
+
+
+	play sound "doors/kchunk6.wav" for entity panelr on channel 10
+	move entity panelr by [-56, 0, 0] at 50 speed signaling sig1
+	move entity panell by [56, 0, 0] at 50 speed signaling sig2
+	wait for all clearing sig1, sig2
+	play sound "doors/kchunk7.wav" for entity panelr on channel 10
+
+	move entity step8 by [0, 0, 128] at 50 speed signaling sig8
+	move entity step7 by [0, 0, 112] at 45 speed signaling sig7
+	move entity step6 by [0, 0, 96] at 40 speed signaling sig6
+	move entity step5 by [0, 0, 80] at 35 speed signaling sig5
+	move entity step4 by [0, 0, 64] at 30 speed signaling sig4
+	move entity step3 by [0, 0, 48] at 25 speed signaling sig3
+	move entity step2 by [0, 0, 32] at 20 speed signaling sig2
+	move entity step1 by [0, 0, 16] at 15 speed signaling sig1
+	wait for all clearing sig8, sig7, sig6, sig5, sig4, sig3, sig2, sig1
+
+
+suspend
+goto loop
+

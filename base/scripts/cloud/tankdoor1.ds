@@ -1,0 +1,59 @@
+// biotank secret room
+
+
+#include "../common/header.ds"
+
+output "r:/base/ds/cloud"
+
+// define varibles
+
+local entity doorr
+local entity doorl
+local entity floor
+local entity cover
+
+local entity cam1
+local entity portal
+local entity light
+local entity lablight
+local int sig
+local int sig1
+local int sig2
+
+doorr = find entity with targetname "biodoor1"
+doorl = find entity with targetname "biodoor"
+floor = find entity with targetname "tankdoor1"
+cover = find entity with targetname "tankdoor2"
+
+light = find entity with targetname "biolight"
+lablight = find entity with targetname "biolight2"
+cam1 = find entity with targetname "tankcam1"
+portal = find entity with targetname "portal"
+
+// wow
+
+label loop
+
+	use entity cam1
+	
+	play sound "doors/kchunk5.wav" for entity cover
+	move entity cover by [0, -56, 0] over 1 seconds signaling sig
+	wait for all clearing sig
+
+	use entity lablight
+	
+	play sound "doors/kchunk6.wav" for entity doorr
+	move entity doorr by [-72, 0, 0] over 1 seconds signaling sig
+	move entity doorl by [72, 0, 0] over 1 seconds signaling sig1
+	wait for all clearing sig, sig1
+
+	play sound "doors/kchunk7.wav" for entity floor
+	move entity floor by [0, 0, 154] over 2 seconds signaling sig
+	wait for all clearing sig
+
+	wait .5 seconds	
+
+	use entity cam1
+
+suspend
+goto loop

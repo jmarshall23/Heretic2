@@ -1,0 +1,36 @@
+//Starts elves banging heads in courtyard
+
+#include "../common/header.ds"
+output "r:/base/ds/silverspring"
+
+//define variables
+
+local entity bang1
+local entity bang2
+
+local int e1
+local int e2
+
+bang1 = find entity with targetname "bangelf1"
+bang2 = find entity with targetname "bangelf2"
+
+
+
+
+//Elves bang their heads
+label looper
+
+	animate entity bang1 performing action IDLE1_ANIMATION repeating for 1 times signaling e1
+	animate entity bang2 performing action IDLE1_ANIMATION repeating for 1 times signaling e2
+
+wait for any clearing e1, e2
+
+	if bang1 = -1
+	exit
+	endif
+
+	if bang2 = -1
+	exit
+	endif
+wait 2.0 seconds
+goto looper

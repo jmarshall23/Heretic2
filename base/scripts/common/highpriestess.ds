@@ -1,0 +1,116 @@
+// template file for scripts
+
+#include "../common/header.ds"
+
+output "r:/base/ds/common"
+
+local int sig
+
+parameter entity highpriestess
+
+
+highpriestess.yaw_speed = 2
+
+
+cache sound "cinematics/Fallen Priestess/107-454.wav" 
+cache sound "cinematics/Fallen Priestess/108-450.wav" 
+cache sound "cinematics/Fallen Priestess/109-450.wav" 
+cache sound "cinematics/Fallen Priestess/110-455.wav" 
+cache sound "cinematics/Fallen Priestess/112-458.wav" 
+cache sound "cinematics/Fallen Priestess/113-455.wav" 
+cache sound "cinematics/Fallen Priestess/99-450.wav" 
+cache sound "cinematics/Fallen Priestess/100-451.wav" 
+cache sound "cinematics/Fallen Priestess/101-454.wav" 
+cache sound "cinematics/Fallen Priestess/102-454.wav" 
+cache sound "cinematics/Fallen Priestess/103-454.wav" 
+cache sound "cinematics/Fallen Priestess/104-454.wav" 
+cache sound "cinematics/Fallen Priestess/105-450.wav" 
+cache sound "cinematics/Fallen Priestess/106-454.wav" 
+cache sound "cinematics/Fallen Priestess/114-458.wav" 
+cache sound "cinematics/Fallen Priestess/115-458.wav" 
+
+animate entity highpriestess performing action IDLE2_ANIMATION repeating for 100 times signaling sig
+wait for any clearing sig
+
+// Action7
+//play sound "cinematics/Fallen Priestess/99-450.wav" for entity highpriestess
+//animate entity highpriestess performing action ACTION7_ANIMATION signaling sig
+//wait for any clearing sig
+
+// Action8
+//play sound "cinematics/Fallen Priestess/100-451.wav" for entity highpriestess
+//animate entity highpriestess performing action ACTION8_ANIMATION signaling sig
+//wait for any clearing sig
+
+// Action9
+//play sound "cinematics/Fallen Priestess/101-454.wav" for entity highpriestess
+//animate entity highpriestess performing action ACTION9_ANIMATION signaling sig
+//wait for any clearing sig
+
+// Action10
+//play sound "cinematics/Fallen Priestess/102-454.wav" for entity highpriestess
+//animate entity highpriestess performing action ACTION10_ANIMATION signaling sig
+//wait for any clearing sig
+
+// Action11
+//play sound "cinematics/Fallen Priestess/103-454.wav" for entity highpriestess
+//animate entity highpriestess performing action ACTION11_ANIMATION signaling sig
+//wait for any clearing sig
+
+// Action12
+//play sound "cinematics/Fallen Priestess/104-454.wav" for entity highpriestess
+//animate entity highpriestess performing action ACTION12_ANIMATION signaling sig
+//wait for any clearing sig
+
+// Action13
+//play sound "cinematics/Fallen Priestess/105-450.wav" for entity highpriestess
+//animate entity highpriestess performing action ACTION13_ANIMATION signaling sig
+//wait for any clearing sig
+
+// Action14
+//play sound "cinematics/Fallen Priestess/106-454.wav" for entity highpriestess
+//animate entity highpriestess performing action ACTION14_ANIMATION signaling sig
+//wait for any clearing sig
+
+// Action1
+//play sound "cinematics/Fallen Priestess/107-454.wav" for entity highpriestess
+//animate entity highpriestess performing action ACTION1_ANIMATION signaling sig
+//wait for any clearing sig
+
+
+// Action2
+play sound "cinematics/Fallen Priestess/108-450.wav" for entity highpriestess
+animate entity highpriestess performing action ACTION2_ANIMATION signaling sig
+wait for any clearing sig
+
+
+// Action3
+play sound "cinematics/Fallen Priestess/109-450.wav" for entity highpriestess
+animate entity highpriestess performing action ACTION3_ANIMATION signaling sig
+wait for any clearing sig
+
+// Action4
+play sound "cinematics/Fallen Priestess/110-455.wav" for entity highpriestess
+animate entity highpriestess performing action ACTION4_ANIMATION signaling sig
+wait for any clearing sig
+
+// Action5
+play sound "cinematics/Fallen Priestess/112-458.wav" for entity highpriestess
+animate entity highpriestess performing action ACTION5_ANIMATION signaling sig
+wait for any clearing sig
+
+// Action6
+play sound "cinematics/Fallen Priestess/113-455.wav" for entity highpriestess
+animate entity highpriestess performing action ACTION6_ANIMATION signaling sig
+wait for any clearing sig
+
+// Action15
+play sound "cinematics/Fallen Priestess/114-458.wav" for entity highpriestess
+animate entity highpriestess performing action ACTION15_ANIMATION signaling sig
+wait for any clearing sig
+
+// Action16
+play sound "cinematics/Fallen Priestess/115-458.wav" for entity highpriestess
+animate entity highpriestess performing action ACTION16_ANIMATION signaling sig
+wait for any clearing sig
+

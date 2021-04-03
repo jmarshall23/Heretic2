@@ -1,0 +1,35 @@
+//teleporter secret doors... ooooooh.
+
+#include "../common/header.ds"
+
+output "r:/base/ds/andoria"
+
+//define variables
+
+local entity door1
+local entity door2
+local entity cam
+local int sig
+local int sig2
+
+door1 = find entity with targetname "tportdoor1"
+door2 = find entity with targetname "tportdoor2"
+cam = find entity with targetname "tportcam"
+
+//start script, meng
+
+use entity cam
+
+move entity door1 by [0, 0, -24] at 50 speed signaling sig
+
+move entity door2 by [0, 0, -24] at 50 speed signaling sig2
+
+wait for all clearing sig, sig2
+
+move entity door1 by [0, 56, 0] at 50 speed signaling sig
+
+move entity door2 by [0, -56, 0] at 50 speed signaling sig2
+
+wait for all clearing sig, sig2
+
+use entity cam

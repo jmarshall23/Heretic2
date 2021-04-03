@@ -1,0 +1,42 @@
+// This thing is intended to allow the creation of a rotating door
+// that always swings away from the player, thus avoiding those
+// annoying hitches when the door swings towards you.
+
+output "r:/base/ds/common"
+
+parameter entity parm1
+parameter vector parm2
+parameter int parm3
+parameter int parm4
+parameter entity parm5
+
+local entity door
+local vector angles
+local int spd
+local int delay
+
+local int sgnl
+
+label beginning
+
+door = parm1
+angles = parm2
+spd = parm3
+delay = parm4
+
+use entity parm5
+rotate entity door to angles at spd speed signaling sgnl
+
+wait for any clearing sgnl
+wait delay seconds
+
+angles = [0,0,0]
+
+rotate entity door to angles at spd speed signaling sgnl
+
+wait for any clearing sgnl
+use entity parm5
+
+suspend
+
+goto beginning

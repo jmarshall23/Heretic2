@@ -1,0 +1,28 @@
+//rubble falling
+
+#include "../common/header.ds"
+
+output "R:base/ds/andoria"
+
+
+//define variables
+
+local entity rubble
+local entity rubble2
+local int sig
+
+rubble = find entity with targetname "toppler"
+rubble2 = find entity with targetname "topl2"
+
+//pillar falls
+
+	rubble.movetype = PHYSICSTYPE_NOCLIP
+	play sound "doors/objectdrop.wav" for entity rubble
+	rotate entity rubble by [0, 45, -90] at 200 speed
+	wait 0.2 seconds
+	move entity rubble by [0, 0, -120] at 400 speed signaling sig
+	wait 0.2 seconds
+	use entity rubble2
+	wait for all clearing sig
+	rubble.movetype = PHYSICSTYPE_PUSH
+

@@ -1,0 +1,58 @@
+// Corvus is plagued!
+ 
+#include "../common/header.ds"
+
+output "r:/base/ds/swamp"
+
+local entity exitcorv
+local entity cendoor
+local entity topdoor
+local entity botdoor
+local entity camdoor
+local entity player1
+
+local int sig
+local int sig1
+local int sig2
+
+exitcorv = find entity with targetname "exitcorv"
+cendoor = find entity with targetname "cendoor"
+botdoor = find entity with targetname "botdoor"
+topdoor = find entity with targetname "topdoor"
+camdoor = find entity with targetname "camdoor"
+
+//Switching player
+
+player1 = get entity activator
+copy player attributes from entity player1 to entity exitcorv
+exitcorv.modelindex = exitcorv.count
+exitcorv.solid = SOLID_SOLID
+exitcorv.movetype = PHYSICSTYPE_STEP
+
+enable cinematics
+
+// door closes
+
+	use entity camdoor
+	
+	use entity cendoor
+
+	wait 2 seconds
+
+	use entity topdoor
+	use entity botdoor
+
+	wait 3 seconds
+
+	use entity camdoor
+	
+//Switching back
+
+player1.origin = exitcorv.origin
+player1.p_origin = exitcorv.origin	// Put player where Cinematic corvus is
+set view angles of entity player1 to exitcorv.angles
+exitcorv.modelindex = 0
+exitcorv.solid = SOLID_NOT
+
+disable cinematics
+

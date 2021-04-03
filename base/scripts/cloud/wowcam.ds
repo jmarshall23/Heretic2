@@ -1,0 +1,82 @@
+//wow cam for the cloudhub
+
+
+
+#include "../common/header.ds"
+
+output "r:/base/ds/cloud"
+
+local entity cam
+local entity cambase
+local entity null
+
+local entity light
+local entity light2
+local entity light3
+local entity player1
+local entity hero
+local int sig
+local int sig1
+
+cam = find entity with targetname "t66"
+cambase = find entity with targetname "t64"
+null = find entity with targetname "t65"
+light = find entity with targetname "t82"
+light2 = find entity with targetname "t76"
+light3 = find entity with targetname "t81"
+hero = find entity with targetname "wowcorvus"
+
+player1 = get entity activator  // Get player who set off trigger
+
+copy player attributes from entity player1 to entity hero
+hero.modelindex = hero.count	// Turn on cinematic corvus
+hero.solid = SOLID_SOLID	// Make him block
+hero.movetype = PHYSICSTYPE_STEP
+
+
+//wow	
+
+enable cinematics
+
+use entity cam
+
+	animate entity hero performing action IDLE1_ANIMATION 
+
+	move entity cambase by [450, -712, 360] over 3.5 seconds signaling sig
+	wait for all clearing sig
+	
+	use entity light
+	play sound "Weapons/lightning.wav" for entity cam
+
+	wait .5 seconds
+
+	use entity light2
+	play sound "Weapons/lightning.wav" for entity cam
+
+	wait 1 seconds
+
+	use entity light2
+	play sound "Weapons/lightning.wav" for entity cam
+
+	wait .25 seconds
+
+	use entity light
+	play sound "Weapons/lightning.wav" for entity cam
+
+	wait .25 seconds
+
+	use entity light
+	play sound "Weapons/lightning.wav" for entity cam
+
+	wait 1.5 seconds
+
+use entity cam
+
+player1.origin = hero.origin	// Put player where Cinematic corvus is
+player1.p_origin = hero.origin	// Put player where Cinematic corvus is set view angles of entity player1 to hero.angles
+hero.modelindex = 0		// Turn off the cinematic corvus model
+hero.solid = SOLID_NOT		// Make him  not solid
+
+disable cinematics
+
+exit

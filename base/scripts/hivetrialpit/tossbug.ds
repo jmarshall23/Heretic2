@@ -1,0 +1,15 @@
+output "r:/base/ds/hivetrialpit"
+#include "../common/header.ds"
+
+local entity bug
+local int s1
+
+bug = find entity with targetname "bug"
+
+bug.c_mode = 0
+
+rotate entity bug by [360, 180, 360] at 300 speed
+bug.velocity = [150, -100, 450]
+use entity bug
+
+exit

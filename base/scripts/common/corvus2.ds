@@ -1,0 +1,145 @@
+// template file for scripts
+
+#include "../common/header.ds"
+
+output "r:/base/ds/common"
+
+local int sig
+local int modelindex
+
+local entity camera1
+local entity player1
+local vector character_pos
+local vector player_pos
+local int holdindex
+
+parameter entity corvus
+
+corvus.yaw_speed = 15
+
+camera1 = find entity with targetname "camera1"
+
+use entity camera1
+
+
+
+
+player1 = get entity activator   // Get player who set off trigger
+
+holdindex = player1.modelindex	// Save players model
+player1.modelindex = 0			// Make players model disappear
+player1.solid = SOLID_NOT		// Player won't block now
+
+
+corvus.modelindex = corvus.count	// Turn on cinematic corvus
+corvus.solid = SOLID_SOLID			// Make him block
+
+
+
+
+enable cinematics
+
+
+// Walk start
+animate entity corvus performing action WALKSTART_ANIMATION signaling sig
+wait for any clearing sig
+
+// Walk 1
+animate entity corvus performing action WALK1_ANIMATION by moving [200, 0, 0] signaling sig
+wait for any clearing sig
+
+// Walk stop1
+animate entity corvus performing action WALKSTOP1_ANIMATION signaling sig
+wait for any clearing sig
+
+// Walk start
+animate entity corvus performing action WALKSTART_ANIMATION signaling sig
+wait for any clearing sig
+
+disable cinematics
+
+player1.origin = corvus.origin	// Put player where Cinematic corvus is
+player1.angles = corvus.angles	// Make player angles like Cinematic Corvus
+
+player1.modelindex = holdindex	// Return the model to the player
+player1.solid = SOLID_SOLID		// Make the player solid
+
+corvus.modelindex = 0			// Turn off the cinematic corvus model
+corvus.solid = SOLID_NOT		// Make him  not solid
+
+
+
+use entity camera1
+
+
+
+
+
+// Pivot Left Go
+animate entity corvus performing action PIVOTLEFTGO_ANIMATION signaling sig
+wait for any clearing sig
+
+// Pivot Left 
+animate entity corvus performing action PIVOTLEFT_ANIMATION by turning [180, 0, 0] signaling sig
+wait for any clearing sig
+
+// Pivot Left Stop
+animate entity corvus performing action PIVOTLEFTSTOP_ANIMATION signaling sig
+wait for any clearing sig
+
+
+
+// Walk 1
+animate entity corvus performing action WALK1_ANIMATION by moving [200, 0, 0] signaling sig
+wait for any clearing sig
+
+// Walk stop2
+animate entity corvus performing action WALKSTOP2_ANIMATION signaling sig
+wait for any clearing sig
+
+
+
+// Pivot Right Go
+animate entity corvus performing action PIVOTRIGHTGO_ANIMATION signaling sig
+wait for any clearing sig
+
+// Pivot Right 
+animate entity corvus performing action PIVOTRIGHT_ANIMATION by turning [-180, 0, 0] signaling sig
+wait for any clearing sig
+
+// Pivot Right Stop
+animate entity corvus performing action PIVOTLEFTSTOP_ANIMATION signaling sig
+wait for any clearing sig
+
+
+
+// Walk 1
+animate entity corvus performing action WALK1_ANIMATION by moving [200, 0, 0] signaling sig
+wait for any clearing sig
+
+// Walk stop1
+animate entity corvus performing action WALKSTOP1_ANIMATION signaling sig
+wait for any clearing sig
+
+// Walk start
+animate entity corvus performing action WALKSTART_ANIMATION signaling sig
+wait for any clearing sig
+
+
+
+
+// Action 1
+animate entity corvus performing action ACTION1_ANIMATION signaling sig
+wait for any clearing sig
+
+
+// Idle 1
+animate entity corvus performing action IDLE1_ANIMATION 
+
+use entity camera1
+
+// The big switch back
+corvus.origin = corvus.origin
+player1.origin = player1.origin
+
+wait 2 seconds

@@ -1,0 +1,39 @@
+//Assassin's explosive trap.
+
+
+#include "../common/header.ds"
+
+output "R:/base/ds/canyon"
+
+//define entity
+
+local entity flamel
+local entity rubble
+local entity activate
+local entity deactivate
+local int sig
+
+
+flamel = find entity with targetname "flamel"
+rubble = find entity with targetname "rubble"
+activate = find entity with targetname "activate"
+deactivate = find entity with targetname "deactivate"
+
+
+//move fire
+
+	
+	flamel.movetype = PHYSICSTYPE_PUSH
+	move entity flamel by [0, 0, -120] at 200 speed signaling sig
+	wait for all clearing sig
+
+	use entity rubble
+
+	wait .1 seconds
+
+	use entity activate
+
+	wait .1 seconds
+
+	use entity deactivate
+

@@ -1,0 +1,62 @@
+//Earthquake, rock falls, bridge brakes.
+
+#include "../common/header.ds"
+
+output "r:/base/ds/kellcaves"
+
+//define variables
+
+//local entity earthquake
+local entity rock
+local entity dust1
+local entity rubble1
+local entity bridge
+local int sig
+local entity dam1
+local entity dam2
+
+field vector "movetype"
+
+rock = find entity with targetname "rock"
+dust1 = find entity with targetname "dust1"
+rubble1 = find entity with targetname "rubble1"
+bridge = find entity with targetname "bridge"
+dam1 = find entity with targetname "dam1"
+dam2 = find entity with targetname "dam2"
+
+//earthquake = find entity with targetname "quake"
+
+//Start earthquake
+
+//use entity earthquake
+
+//count 2 speed 50 on quake
+
+use entity dam1
+
+rock.movetype =  PHYSICSTYPE_PUSH
+
+wait .5 seconds use entity dust1
+
+wait 1.2 seconds use entity rubble1
+
+rotate entity rock to [30, 0, 0] at 600 speed signaling sig
+wait for all clearing sig
+
+move entity rock by [0, 0, -656] at 800 speed 
+
+wait .3 seconds use entity bridge
+
+play sound "misc/breakstone.wav" for entity rock
+
+rotate entity rock to [-50, 0, 0] at 600 speed signaling sig
+wait for all clearing sig
+
+use entity dam2
+
+use entity rock
+
+ 
+
+
+

@@ -1,0 +1,44 @@
+// This is one of the secret doors that leads into 
+// the area behind the scroll cases in the Palace level.
+
+#include "../common/header.ds"
+
+output "r:/base/ds/silverspring"
+
+parameter entity parm1
+parameter entity parm2
+parameter vector parm3
+
+local int sig
+
+label beginning
+
+play sound "doors/slide2.wav" for entity parm1 on channel 10
+move entity parm1 by parm3 over 1 seconds signaling sig
+wait for all clearing sig
+wait 0.5 seconds
+
+play sound "doors/slide2.wav" for entity parm2 on channel 10
+move entity parm2 by [0, 0, 64] over 1 seconds signaling sig
+wait for all clearing sig
+wait 0.5 seconds
+
+wait 4 seconds
+
+play sound "doors/slide2.wav" for entity parm2 on channel 10
+move entity parm2 by [0, 0, -64] over 1 seconds signaling sig
+wait for all clearing sig
+wait 0.5 seconds
+
+parm3 *=-1
+
+play sound "doors/slide2.wav" for entity parm1 on channel 10
+move entity parm1 by parm3 over 1 seconds signaling sig
+wait for all clearing sig
+wait 0.5 seconds
+
+parm3 *=-1
+
+suspend
+
+goto beginning

@@ -1,0 +1,206 @@
+// template file for scripts
+
+#include "../common/header.ds"
+
+output "r:/base/ds/common"
+
+local int sig
+
+parameter entity dranor
+
+
+dranor.yaw_speed = 15
+
+
+cache sound "cinematics/dranor/19-316.wav"
+cache sound "cinematics/dranor/20-314.wav"
+cache sound "cinematics/dranor/21-319.wav"
+cache sound "cinematics/dranor/22-314.wav"
+cache sound "cinematics/dranor/23-315.wav"
+cache sound "cinematics/dranor/24-316.wav"
+cache sound "cinematics/dranor/25-316.wav"
+cache sound "cinematics/dranor/26-319.wav"
+cache sound "cinematics/dranor/27-315.wav"
+cache sound "cinematics/dranor/28-317.wav"
+cache sound "cinematics/dranor/29-317.wav"
+cache sound "cinematics/dranor/30-314.wav"
+cache sound "cinematics/dranor/31-314.wav"
+cache sound "cinematics/dranor/32-317.wav"
+
+
+// Idle 1
+animate entity dranor performing action IDLE1_ANIMATION repeating for 2 times signaling sig
+wait for any clearing sig
+
+
+// Action 12
+animate entity dranor performing action ACTION12_ANIMATION repeating for 20 times signaling sig
+wait for any clearing sig
+
+
+// Action 1
+animate entity dranor performing action ACTION1_ANIMATION signaling sig
+wait for any clearing sig
+
+play sound "cinematics/dranor/19-316.wav" for entity dranor
+
+// Action 2
+animate entity dranor performing action ACTION2_ANIMATION signaling sig
+wait for any clearing sig
+
+
+
+
+play sound "cinematics/dranor/20-314.wav" for entity dranor
+
+// Idle 2
+animate entity dranor performing action IDLE2_ANIMATION signaling sig
+wait for any clearing sig
+
+
+
+
+play sound "cinematics/dranor/21-319.wav" for entity dranor
+
+// Action 3
+animate entity dranor performing action ACTION3_ANIMATION signaling sig
+wait for any clearing sig
+
+
+
+
+play sound "cinematics/dranor/22-314.wav" for entity dranor
+
+// Idle 3
+animate entity dranor performing action IDLE3_ANIMATION  repeating for 2 times signaling sig
+wait for any clearing sig
+
+
+
+
+play sound "cinematics/dranor/23-315.wav" for entity dranor
+
+// Action 4
+animate entity dranor performing action ACTION4_ANIMATION signaling sig
+wait for any clearing sig
+
+// Action 5
+animate entity dranor performing action ACTION5_ANIMATION signaling sig
+wait for any clearing sig
+
+
+
+
+play sound "cinematics/dranor/24-316.wav" for entity dranor
+
+// Idle 3
+animate entity dranor performing action IDLE3_ANIMATION  signaling sig
+wait for any clearing sig
+
+
+
+play sound "cinematics/dranor/25-316.wav" for entity dranor
+
+// Action 7
+animate entity dranor performing action ACTION7_ANIMATION signaling sig
+wait for any clearing sig
+
+// Action 6
+animate entity dranor performing action ACTION6_ANIMATION signaling sig
+wait for any clearing sig
+
+
+
+
+play sound "cinematics/dranor/26-319.wav" for entity dranor
+
+
+// Action 8
+animate entity dranor performing action ACTION8_ANIMATION signaling sig
+wait for any clearing sig
+
+// Action 9
+animate entity dranor performing action ACTION9_ANIMATION signaling sig
+wait for any clearing sig
+
+
+
+
+
+play sound "cinematics/dranor/27-315.wav" for entity dranor
+
+// Idle 3
+animate entity dranor performing action IDLE3_ANIMATION  signaling sig
+wait for any clearing sig
+
+
+
+play sound "cinematics/dranor/28-317.wav" for entity dranor
+
+// Action 4
+animate entity dranor performing action ACTION4_ANIMATION signaling sig
+wait for any clearing sig
+
+// Action 5
+animate entity dranor performing action ACTION5_ANIMATION signaling sig
+wait for any clearing sig
+
+// Action 10
+animate entity dranor performing action ACTION10_ANIMATION signaling sig
+wait for any clearing sig
+
+
+
+play sound "cinematics/dranor/29-317.wav" for entity dranor
+
+// Action 8
+animate entity dranor performing action ACTION8_ANIMATION signaling sig
+wait for any clearing sig
+
+// Action 4
+animate entity dranor performing action ACTION4_ANIMATION signaling sig
+wait for any clearing sig
+
+// Action 5
+animate entity dranor performing action ACTION5_ANIMATION signaling sig
+wait for any clearing sig
+
+
+// Action 11
+animate entity dranor performing action ACTION11_ANIMATION signaling sig
+wait for any clearing sig
+
+
+play sound "cinematics/dranor/30-314.wav" for entity dranor
+
+// Idle 3
+animate entity dranor performing action IDLE3_ANIMATION  repeating for 3 times signaling sig
+wait for any clearing sig
+
+
+
+
+play sound "cinematics/dranor/31-314.wav" for entity dranor
+
+// Action 4
+animate entity dranor performing action ACTION4_ANIMATION signaling sig
+wait for any clearing sig
+
+// Action 11
+animate entity dranor performing action ACTION11_ANIMATION signaling sig
+wait for any clearing sig
+
+// Action 5
+animate entity dranor performing action ACTION5_ANIMATION signaling sig
+wait for any clearing sig
+
+
+
+play sound "cinematics/dranor/32-317.wav" for entity dranor
+
+// Death 1
+animate entity dranor performing action DEATH1_ANIMATION signaling sig
+wait for any clearing sig
+
+
+

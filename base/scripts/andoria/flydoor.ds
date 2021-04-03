@@ -1,0 +1,32 @@
+//the gorgon's break through the freakin wall!
+
+#include "../common/header.ds"
+
+output "r:/base/ds/andoria"
+
+//define variables
+
+local entity door
+local int sig
+local int sig2
+
+door = find entity with targetname "metaldoor"
+
+//start of script
+
+//door.movetype = PHYSICSTYPE_NOCLIP
+
+play sound "objects/klang.wav" for entity door
+
+move entity door by [60, -150, -56] at 400 speed signaling sig
+rotate entity door by [0, 160, 90] at 400 speed signaling sig2
+
+wait for all clearing sig, sig2
+
+use entity door
+
+play sound "doors/thud4.wav" for entity door
+
+//door.movetype = PHYSICSTYPE_PUSH
+
+exit

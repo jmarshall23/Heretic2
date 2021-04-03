@@ -1,0 +1,20 @@
+// Big statue falling if the Mutant Ssithra hits the tower.
+
+#include "../common/header.ds"
+output "r:/base/ds/andoria"
+
+local entity tower
+local entity statue
+
+tower = find entity with targetname "stbase"
+statue = find entity with targetname "BigFatStatue"
+
+rotate entity tower by [-15,0,0] at 200 speed
+move entity tower by [0,0,-16] at 100 speed
+
+rotate entity statue by [-15,0,0] at 400 speed
+move entity statue by [-96,0,-24] at 400 speed
+
+play sound "misc/plattrem.wav" for entity tower
+
+exit

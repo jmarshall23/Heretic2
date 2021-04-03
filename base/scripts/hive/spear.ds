@@ -1,0 +1,42 @@
+// Hive2 tomb script
+ 
+#include "../common/header.ds"
+
+output "r:/base/ds/hive"
+
+local entity spearcam
+local entity amdoor1
+local entity amdoor2
+local entity speartrain
+local entity t118
+local int sig
+local int sig2
+local int sig3
+
+spearcam = find entity with targetname "t115"
+amdoor1 = find entity with targetname "amdoor1"
+amdoor2 = find entity with targetname "amdoor2"
+speartrain = find entity with targetname "spearcam"
+t118 = find entity with targetname "t118"
+
+//Gunga-ga-lunga
+
+
+use entity spearcam
+
+move entity speartrain by [0, 0, 24] at 25 speed signaling sig
+wait for all clearing sig
+
+use entity t118
+
+move entity speartrain by [0, -64, 0] at 10 speed signaling sig
+play sound "doors/kchunk6.wav" for entity amdoor1
+move entity amdoor1 by [-32, 0, 0] at 50 speed signaling sig2
+move entity amdoor2 by [32, 0, 0] at 50 speed signaling sig3
+wait for all clearing sig, sig2, sig3
+play sound "doors/kchunk7.wav" for entity amdoor1
+wait 2.5 seconds
+
+use entity spearcam
+
+exit

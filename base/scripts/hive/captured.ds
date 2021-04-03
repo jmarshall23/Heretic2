@@ -1,0 +1,360 @@
+// Captured by the T'Chekrik!
+ 
+#include "../common/header.ds"
+
+output "r:/base/ds/hive"
+
+
+local entity cam1
+local entity cam2
+local entity cam3
+local entity cam4
+local entity cam5
+local entity cam6
+local entity cam7
+local entity cam8
+local entity cam9
+local entity cam10
+local entity cam11
+
+local entity dolly10
+local entity dolly7
+local entity dolly1
+local entity dolly2
+local entity dolly6
+
+local entity cam1train
+local entity cam6train
+local entity cam10train
+
+local entity tome
+local entity corvus
+local entity player1
+
+local entity spawn3
+local entity spawn4
+local entity spawn5
+local entity spawn6
+
+local entity sbug
+local entity sbug1
+local entity sbug2
+local entity sbug3
+
+local entity door
+local entity door1
+local entity fourdoors
+local entity stardoor
+
+local entity mainbug
+local entity bugright
+local entity bugleft
+
+local entity levelchange
+local entity objective
+local entity objective7
+
+local int sig
+local int sig1
+local int sig2
+local int sig3
+local int sig4
+local int sig5
+local int sig6
+local int sigrj
+
+
+corvus.yaw_speed = 5
+
+door = find entity with targetname "door"
+door1 = find entity with targetname "door1"
+fourdoors = find entity with targetname "floordoors"
+stardoor = find entity with targetname "floorlift"
+
+
+cam1 = find entity with targetname "shot1"
+cam2 = find entity with targetname "shot2"
+cam3 = find entity with targetname "shot3"
+cam4 = find entity with targetname "shot4"
+cam5 = find entity with targetname "shot5"
+cam6 = find entity with targetname "shot6"
+cam7 = find entity with targetname "shot7"
+cam8 = find entity with targetname "shot8"
+cam9 = find entity with targetname "shot9"
+cam10 = find entity with targetname "shot10"
+cam11 = find entity with targetname "shot11"
+
+dolly1 = find entity with targetname "pan1"
+dolly6 = find entity with targetname "t97"
+dolly2 = find entity with targetname "pan2"
+dolly7 = find entity with targetname "pan7"
+dolly10 = find entity with targetname "pan10"
+
+cam1train = find entity with targetname "train1"
+cam6train = find entity with targetname "cam6base"
+cam10train = find entity with targetname "train10"
+
+levelchange = find entity with targetname "t5"
+objective = find entity with targetname "take5"
+objective = find entity with targetname "objective7"
+
+tome = find entity with targetname "tome"
+corvus = find entity with targetname "corvus"
+
+enable cinematics
+
+//Switching player
+player1 = get entity activator  	// Get player who set off trigger
+copy player attributes from entity player1 to entity corvus  	// copies players appearance
+corvus.modelindex = corvus.count	// Turn on cinematic corvus
+corvus.solid = SOLID_NOT		// Make him block
+corvus.movetype = PHYSICSTYPE_STEP
+
+	// Create the bugs
+	sbug = spawn entity with fields "classname" = "monster_tcheckrik_male", "origin" = [-1824, -192, 184], "angle" = 180
+	sbug1 = spawn entity with fields "classname" = "monster_tcheckrik_male", "origin" = [-2200, -480, 168], "angle" = 90
+	sbug2 = spawn entity with fields "classname" = "monster_tcheckrik_male", "origin" = [-2152, -480, 168], "angle" = 90
+	sbug3 = spawn entity with fields "classname" = "monster_tcheckrik_male", "origin" = [-2176, -520, 188], "angle" = 90
+	mainbug = spawn entity with fields "classname" = "monster_tcheckrik_male", "origin" = [-2176, 208, 168], "angle" = 270
+	bugright = spawn entity with fields "classname" = "monster_tcheckrik_male", "origin" = [-2152, 160, 168], "angle" = 270
+	bugleft = spawn entity with fields "classname" = "monster_tcheckrik_male", "origin" = [-2200, 160, 168], "angle" = 270
+
+	// Let them know they are cinematic creatures
+	sbug.c_mode = 1;
+	sbug1.c_mode = 1;
+	sbug2.c_mode = 1;
+	sbug3.c_mode = 1;
+	mainbug.c_mode = 1;
+	bugright.c_mode = 1;
+	bugleft.c_mode = 1;
+
+//Opening shot of Corvus placing amulet and backing up seeing that he's surrounded by bugs.
+
+	use entity cam1
+
+	move entity cam1train by [128, -32, -16] over 5 seconds
+	dolly1.movetype = PHYSICSTYPE_PUSH
+	move entity dolly1 by [200, 0, 0] over 5 seconds
+
+	animate entity corvus performing action WALK2_ANIMATION by moving [-176, 0, 0] signaling sig
+	wait for all clearing sig
+	
+	move entity door by [48, 0, 0] at 100 speed
+
+	move entity door1 by [-48, 0, 0] at 100 speed
+
+	animate entity corvus performing action ACTION8_ANIMATION signaling sig
+	wait for all clearing sig
+	animate entity corvus performing action ACTION9_ANIMATION by turning [-90, 0, 0] signaling sig
+	wait for all clearing sig
+	
+//Panning across the room as the bugs run out.
+
+	use entity cam2
+
+	dolly2.movetype = PHYSICSTYPE_PUSH	
+	move entity dolly2 by [0, 200, 0] over 8 seconds
+	
+	animate entity sbug performing action RUN1_ANIMATION by moving [242, 0, 0] signaling sig
+	wait .8 seconds
+	animate entity sbug3 performing action RUN1_ANIMATION by moving [148, 0, 0] signaling sig1
+	animate entity sbug2 performing action RUN1_ANIMATION by moving [148, 0, 0] signaling sig2
+	animate entity sbug1 performing action RUN1_ANIMATION by moving [148, 0, 0] signaling sig3	
+	wait for all clearing sig, sig1, sig2, sig3
+
+
+	
+	animate entity sbug performing action IDLE1_ANIMATION //signaling sig
+	animate entity sbug2 performing action RUN1_ANIMATION by turning [-45, 0, 0] signaling sig1
+	animate entity sbug1 performing action RUN1_ANIMATION by turning [45, 0, 0] signaling sig2
+	wait for all clearing sig1, sig2
+	
+	play sound "cinematics/t'chekrik/kchektalk3.wav" for entity mainbug
+	animate entity sbug3 performing action RUN1_ANIMATION by moving [64, 0, 0] signaling sig3
+	animate entity sbug2 performing action RUN1_ANIMATION by moving [78, 0, 0] signaling sig1
+	animate entity sbug1 performing action RUN1_ANIMATION by moving [78, 0, 0] signaling sig2
+	wait for all clearing sig1, sig2, sig3
+
+	animate entity sbug3 performing action IDLE1_ANIMATION //signaling sig
+	animate entity sbug2 performing action IDLE1_ANIMATION //signaling sig1
+	animate entity sbug1 performing action IDLE1_ANIMATION //signaling sig2
+
+	animate entity bugleft performing action RUN1_ANIMATION by moving [238, -32, 0] signaling sig3
+	animate entity bugright performing action RUN1_ANIMATION by moving [238, -32, 0] signaling sig4
+	animate entity mainbug performing action RUN1_ANIMATION by moving [178, 0, 0] signaling sig5
+	wait for all clearing sig3, sig4, sig5
+	
+	animate entity mainbug performing action IDLE3_ANIMATION
+
+	move entity door by [-48, 0, 0] at 50 speed
+
+	move entity door1 by [48, 0, 0] at 50 speed	
+
+		
+// Clicking bugs, Corvus doesn't understand.  Camera close up on the Mainbug.
+
+	use entity cam5
+
+	animate entity bugleft performing action WALK1_ANIMATION by moving [80, 0, 0] by turning [-60, 0, 0] signaling sig
+	animate entity bugright performing action WALK1_ANIMATION by moving [80, 0, 0] by turning [60, 0, 0] signaling sig1
+	wait for all clearing sig, sig1
+
+	animate entity mainbug performing action WALK1_ANIMATION by moving [88, 0, 0] signaling sig
+	wait for all clearing sig
+
+	print 218 captioned 
+	play sound "cinematics/t'chekrik/kchektalk1.wav" for entity mainbug
+
+	animate entity mainbug performing action IDLE3_ANIMATION signaling sig
+	animate entity sbug1 performing action IDLE3_ANIMATION by turning [-90, 0, 0] signaling sig1
+	animate entity sbug2 performing action IDLE3_ANIMATION by turning [90, 0, 0] signaling sig2
+	animate entity sbug3 performing action IDLE3_ANIMATION signaling sig3
+	animate entity bugright performing action IDLE3_ANIMATION by turning [-90, 0, 0] signaling sig4
+	animate entity bugleft performing action IDLE3_ANIMATION by turning [90, 0, 0]	signaling sig5
+	wait for all clearing sig, sig1, sig2, sig3, sig4, sig5
+
+// Main bug does his speech and the cracks Corvus on the head.
+
+	use entity cam6	
+
+	move entity cam6train by [24, -24, 16] over 12 seconds
+	dolly6.movetype = PHYSICSTYPE_PUSH
+	move entity dolly6 by [0, -24, 0] over 12 seconds
+	animate entity mainbug performing action RUN1_ANIMATION by moving [64,0,0] signaling sig
+	wait for all clearing sig
+	animate entity mainbug performing action ATTACK3_ANIMATION signaling sig
+	wait .5 seconds
+	play sound "monster/insect/swipe.wav" for entity mainbug
+	play sound "Weapons/staffhit.wav" for entity mainbug
+	wait .2 seconds
+	play sound "Player/corvuspain1.wav" for entity corvus
+	animate entity corvus performing action ACTION7_ANIMATION signaling sig1
+	wait for all clearing sig
+	animate entity mainbug performing action IDLE3_ANIMATION
+	wait for all clearing sig1
+
+	print 220 captioned 
+	play sound "cinematics/t'chekrik/85-404.wav" for entity corvus
+	animate entity corvus performing action ACTION2_ANIMATION signaling sig1
+	wait for all clearing sig1
+	animate entity corvus performing action IDLE2_ANIMATION signaling sig
+	wait for all clearing sig
+	
+// Tome comes out and speaks
+
+	use entity cam7
+
+	tome.solid = SOLID_NOT
+	tome.modelindex = tome.count
+	
+	print 221 captioned 
+	play sound "cinematics/t'chekrik/86-405.wav" for entity tome
+	
+	dolly7.movetype = PHYSICSTYPE_PUSH
+	move entity dolly7 by [0,40,16] over 8 seconds	
+	tome.movetype = PHYSICSTYPE_PUSH
+	move entity tome by [-16, 32, 20] over 8 seconds	
+		
+	animate entity corvus performing action IDLE2_ANIMATION signaling sig
+	wait for all clearing sig
+	animate entity corvus performing action IDLE2_ANIMATION signaling sig
+	wait for all clearing sig
+	animate entity corvus performing action IDLE2_ANIMATION signaling sig
+	wait for all clearing sig
+//wait 8 seconds
+	
+// Corvus tells about amulet
+	
+	use entity cam8
+
+	print 222 captioned 
+	play sound "cinematics/t'chekrik/87-403.wav" for entity corvus
+	animate entity corvus performing action ACTION3_ANIMATION signaling sig
+	animate entity mainbug performing action BACKPEDAL1_ANIMATION by moving [-64, 0, 0] signaling sig1
+	wait for all clearing sig, sig1
+	animate entity mainbug performing action IDLE3_ANIMATION
+	print 223 captioned 
+	play sound "cinematics/t'chekrik/88-408.wav" for entity tome
+	animate entity corvus performing action IDLE2_ANIMATION signaling sig
+	wait for all clearing sig 
+	print 224 captioned 
+	play sound "cinematics/t'chekrik/tomekchek.wav" for entity tome
+
+	wait 2 seconds
+
+	
+// T'chekrik click, close up of main bug man.
+
+	use entity cam9
+
+	wait 1 seconds
+	print 225 captioned 
+	play sound "cinematics/t'chekrik/kchektalk2.wav" for entity mainbug
+	animate entity mainbug performing action IDLE3_ANIMATION signaling sig
+	wait for all clearing sig
+
+	wait 4 seconds	
+
+// Tome translates
+	
+	use entity cam10
+	print 226 captioned 
+	play sound "cinematics/t'chekrik/90-406.wav" for entity tome
+
+	move entity cam10train by [-66, 48, 24] over 8 seconds
+
+	dolly10.movetype = PHYSICSTYPE_PUSH
+	move entity dolly10 by [-34,16,32] over 8 seconds
+	animate entity corvus performing action ACTION4_ANIMATION signaling sig1
+	move entity tome by [32, -48, 0] over 4 seconds signaling sig
+	wait for all clearing sig, sig1
+	
+	//wait 8 seconds
+	print 227 captioned 
+	play sound "cinematics/t'chekrik/91-406.wav" for entity corvus
+	animate entity corvus performing action ACTION5_ANIMATION signaling sig
+	wait for all clearing sig
+	animate entity corvus performing action IDLE3_ANIMATION signaling sig
+	wait for all clearing sig
+	
+// door opens for Corvus
+
+	use entity cam11
+
+	//wait 1 seconds
+
+	//animate entity mainbug performing action BACKPEDAL1_ANIMATION by moving [-36, 0, 0] signaling sig
+	animate entity bugright performing action BACKPEDAL1_ANIMATION by moving [-48, 0, 0] signaling sig1
+	animate entity bugleft performing action BACKPEDAL1_ANIMATION by moving [-48, 0, 0] signaling sig2
+	animate entity sbug performing action BACKPEDAL1_ANIMATION by moving [-48, 0, 0] signaling sig3
+	animate entity sbug1 performing action BACKPEDAL1_ANIMATION by moving [-48, 0, 0] signaling sig4
+	animate entity sbug2 performing action BACKPEDAL1_ANIMATION by moving [-48, 0, 0] signaling sig5
+	animate entity sbug3 performing action BACKPEDAL1_ANIMATION by moving [-48, 0, 0] signaling sig6
+	wait for all clearing sig1, sig2, sig3, sig4, sig5, sig6
+
+	animate entity mainbug performing action IDLE3_ANIMATION signaling sig
+	animate entity bugright performing action IDLE3_ANIMATION signaling sig1
+	animate entity bugleft performing action IDLE3_ANIMATION signaling sig2
+	animate entity sbug performing action IDLE3_ANIMATION signaling sig3
+	animate entity sbug1 performing action IDLE3_ANIMATION signaling sig4
+	animate entity sbug2 performing action IDLE3_ANIMATION signaling sig5
+	animate entity sbug3 performing action IDLE3_ANIMATION signaling sig6
+	play sound "cinematics/t'chekrik/kchektalk3.wav" for entity mainbug
+
+	use entity objective
+
+	use entity objective7
+
+	use entity fourdoors
+	
+	wait 1.5 seconds
+
+	move entity stardoor by [0, 0, -320] at 500 speed signaling sig
+	
+	wait .6 seconds
+	move entity tome by [0, 0, -320] at 500 speed signaling sig1
+	wait for all clearing sig, sig1	
+
+disable cinematics
+
+use entity levelchange 

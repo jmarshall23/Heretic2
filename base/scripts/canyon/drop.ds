@@ -1,0 +1,61 @@
+//Lever pushes crates out of doorway at bottom of SSDocks tower
+
+#include "../common/header.ds"
+output "r:/base/ds/canyon"
+
+//define variables
+
+local entity pivot1
+local entity pivot2
+local entity break1
+local entity break2
+local entity break3
+local entity drop1
+local entity drop2
+local entity drop3
+
+local int sig1
+local int sig2
+
+pivot1 = find entity with targetname "brid1"
+pivot2 = find entity with targetname "brid2"
+drop1 = find entity with targetname "brid3"
+drop2 = find entity with targetname "brid4"
+drop3 = find entity with targetname "brid5"
+break1 = find entity with targetname "rope1"
+break2 = find entity with targetname "rope2"
+break3 = find entity with targetname "rope3"
+
+pivot1.movetype = PHYSICSTYPE_NOCLIP
+pivot2.movetype = PHYSICSTYPE_NOCLIP
+drop1.movetype = PHYSICSTYPE_NOCLIP
+drop2.movetype = PHYSICSTYPE_NOCLIP
+drop3.movetype = PHYSICSTYPE_NOCLIP
+
+use entity break3
+wait 0.2 seconds
+use entity break1
+use entity break2
+wait 0.2 seconds
+move entity drop1 by [-16, 10, -384] at 300 speed
+drop1.angle_velocity = [0, 200, 100]
+rotate entity pivot1 by [40, 20, 50] at 400 speed signaling sig1
+move entity pivot1 by [0, 0, 8] at 300 speed
+rotate entity pivot2 by [-40, 20, -50] at 300 speed signaling sig2
+move entity pivot2 by [0, 0, 8] at 300 speed
+move entity drop2 by [0, 0, -384] at 400 speed
+rotate entity drop2 by [100, 100, -300] at 300 speed
+move entity drop3 by [0, 0, -384] at 350 speed
+rotate entity drop3 by [100, 100, -300] at 200 speed
+wait 0.8 seconds
+use entity drop1
+use entity drop2
+wait 0.4 seconds
+use entity drop3
+//use entity pivot2
+
+wait for all clearing sig1, sig2
+pivot1.movetype = PHYSICSTYPE_PUSH
+pivot2.movetype = PHYSICSTYPE_PUSH
+
+exit

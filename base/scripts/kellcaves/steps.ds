@@ -1,0 +1,101 @@
+// the breaking stairs.
+
+#include "../common/header.ds"
+
+output "r:/base/ds/kellcaves"
+
+local entity b1
+local entity b2
+local entity b3
+local entity step1
+local entity step2
+local entity step3
+local entity trig
+local entity floor
+
+local int sig
+
+b1 = find entity with targetname "b1"
+b2 = find entity with targetname "b2"
+b3 = find entity with targetname "b3"
+step1 = find entity with targetname "step1"
+step2 = find entity with targetname "step2"
+step3 = find entity with targetname "step3"
+trig = find entity with targetname "trig"
+floor = find entity with targetname "floor"
+
+// use the breakable brushes and their steps
+
+	step1.movetype =  PHYSICSTYPE_NOCLIP
+	step2.movetype =  PHYSICSTYPE_NOCLIP
+	step3.movetype =  PHYSICSTYPE_NOCLIP
+
+	use entity b1
+
+	rotate entity step1 by [0, 0, 10] at 200 speed signaling sig
+	wait for all clearing sig
+	
+	use entity b2
+
+	rotate entity step2 by [0, 0, 10] at 200 speed signaling sig
+	wait for all clearing sig
+
+	use entity b3
+
+	rotate entity step3 by [0, 0, 10] at 200 speed signaling sig
+	wait for all clearing sig
+
+	use entity trig
+
+	suspend
+
+
+	move entity step1 by [0, 0, -200] at 200 speed
+	wait .2 seconds
+
+	move entity step2 by [0, 0, -200] at 200 speed
+
+	wait .1 seconds
+
+	use entity floor
+
+	wait .1 seconds
+
+	move entity step3 by [0, 0, -200] at 200 speed
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,9 @@
+#include "../common/header.ds"
+
+output "r:/base/ds/hivetrialpit"
+
+parameter entity flare
+
+move entity flare by [256,256,0] at 200 speed
+
+exit

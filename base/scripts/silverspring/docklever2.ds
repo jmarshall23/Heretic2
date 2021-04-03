@@ -1,0 +1,55 @@
+//Lever pushes crates out of doorway at bottom of SSDocks tower
+
+#include "../common/header.ds"
+output "r:/base/ds/silverspring"
+
+//define variables
+
+local entity lever1
+local entity lever2
+local entity jumper
+local entity slammer
+local int sig1
+local int sig2
+local int sig3
+
+lever1 = find entity with targetname "bar1"
+lever2 = find entity with targetname "bar2"
+jumper = find entity with targetname "jumper"
+slammer = find entity with targetname "slammer"
+
+//lever lifts crate and pushes it out of way
+
+//jumper.takedamage = DAMAGE_NO
+//slammer.takedamage = DAMAGE_NO
+lever1.movetype = PHYSICSTYPE_PUSH
+lever2.movetype = PHYSICSTYPE_PUSH
+animate entity slammer performing action IDLE3_ANIMATION repeating for 10 times
+animate entity jumper performing action WALK1_ANIMATION by moving [64, 0, 0]
+wait 1.5 seconds
+
+slammer.movetype = PHYSICSTYPE_NOCLIP
+rotate entity lever2 by [18, 0, 0] at 400 speed signaling sig1
+rotate entity lever1 by [20, 0, 0] at 400 speed signaling sig2
+move entity slammer by [-80, 0, 160] at 600 speed signaling sig3
+wait for any clearing sig1, sig2, sig3
+use entity lever1
+slammer.movetype = PHYSICSTYPE_STEP
+play sound "objects/planksnap.wav" for entity lever1 on channel 10
+animate entity slammer performing action GIB1_ANIMATION repeating for 1 times
+rotate entity lever2 by [18, 0, 0] at 400 speed signaling sig1
+move entity lever2 by [-2, 0, 2] at 400 speed signaling sig2
+wait for all clearing sig1, sig2
+animate entity jumper performing action WALK1_ANIMATION by moving [64, 0, 0] signaling sig2
+wait for any clearing sig2
+use entity lever2
+
+animate entity jumper performing action IDLE1_ANIMATION signaling sig2
+wait for any clearing sig2
+//jumper.takedamage = DAMAGE_YES
+
+animate entity jumper performing action THINKAGAIN_ANIMATION 
+wait 1 seconds
+exit
+
+

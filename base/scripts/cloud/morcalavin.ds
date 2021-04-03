@@ -1,0 +1,301 @@
+// The big boss man
+ 
+#include "../common/header.ds"
+
+output "r:/base/ds/cloud"
+
+local entity barrier
+
+local entity cam1
+local entity cam2
+local entity cam3
+local entity cam4
+local entity cam5
+local entity camone
+local entity dolly1
+local entity dolly2
+local entity dolly3
+local entity dolly4
+local entity cam1train
+local entity cam2train
+local entity cam3train
+local entity cam4train
+local entity boss
+parameter entity hero
+local entity player1
+local entity monster
+local entity cd
+local entity close
+local entity hero
+local entity doorcam
+local entity coop
+
+local entity toplf
+local entity toprt
+local entity topup
+local entity topdn
+local entity midupout
+local entity midupin
+local entity middnout
+local entity middnin
+local entity botup
+local entity botdn
+local entity bar1
+local entity bar2
+local entity bar3
+local entity bar4
+local entity bar5
+local entity bar6
+local entity bar7
+local entity bar8
+local entity portal
+local entity take
+
+local int sig
+local int sig1
+local int sig2
+local int sig3
+local int sig4
+local int sig5
+local int sig6
+local int sig7
+local int sig8
+
+
+//hero.yaw_speed = 8
+
+barrier = find entity with targetname "barrier"
+
+cam1 = find entity with targetname "shot1"
+cam1train = find entity with scripttarget "train1"
+cam2 = find entity with targetname "shot2"
+cam2train = find entity with scripttarget "train2"
+cam3 = find entity with targetname "shot3"
+cam3train = find entity with scripttarget "train3"
+cam4 = find entity with targetname "shot4"
+cam4train = find entity with scripttarget "train4"
+cam5 = find entity with targetname "cam5"
+camone = find entity with targetname "camone"
+dolly1 = find entity with scripttarget "pan1"
+dolly2 = find entity with scripttarget "pan2"
+dolly3 = find entity with scripttarget "pan3"
+dolly4 = find entity with scripttarget "pan4"
+boss = find entity with targetname "boss"
+monster = find entity with targetname "monster"
+cd = find entity with targetname "cd"
+close = find entity with targetname "close"
+hero = find entity with targetname "hero"
+doorcam = find entity with targetname "doorcam2"
+coop = find entity with targetname "telcoop"
+
+toplf = find entity with targetname "toplf"
+toprt = find entity with targetname "toprt"
+topup = find entity with targetname "topup"
+topdn = find entity with targetname "topdn"
+midupout = find entity with targetname "midupout"
+midupin = find entity with targetname "midupin"
+middnout = find entity with targetname "middnout"
+middnin = find entity with targetname "middnin"
+botup = find entity with targetname "botup"
+botdn = find entity with targetname "botdn"
+bar1 = find entity with targetname "bar1"
+bar2 = find entity with targetname "bar2"
+bar3 = find entity with targetname "bar3"
+bar4 = find entity with targetname "bar4"
+bar5 = find entity with targetname "bar5"
+bar6 = find entity with targetname "bar6"
+bar7 = find entity with targetname "bar7"
+bar8 = find entity with targetname "bar8"
+portal = find entity with targetname "portal"
+take = find entity with targetname "take"
+
+//Switching player
+
+player1 = get entity activator  // Get player who set off trigger
+
+copy player attributes from entity player1 to entity hero
+hero.modelindex = hero.count	// Turn on cinematic corvus
+hero.solid = SOLID_SOLID	// Make him block
+hero.movetype = PHYSICSTYPE_STEP
+
+enable cinematics
+cache sound "cinematics/morcalavin/120-54.wav"
+cache sound "cinematics/morcalavin/121-60.wav"
+cache sound "cinematics/morcalavin/122-52.wav"
+cache sound "cinematics/morcalavin/123-66.wav"
+cache sound "cinematics/morcalavin/124-52.wav"
+cache sound "cinematics/morcalavin/125-76.wav"
+
+// Corvus walks in and door closes.
+
+	use entity doorcam
+
+	animate entity hero performing action WALK2_ANIMATION by moving [302, 0, 0] signaling sig
+	wait for all clearing sig
+	animate entity hero performing action IDLE1_ANIMATION
+
+	wait .5 seconds
+
+	
+move entity botdn by [0,0,64] at 30 speed
+move entity botup by [0,0,64] at 30 speed
+move entity middnout by [0,64,0] at 30 speed
+move entity midupout by [0,-64,0] at 30 speed
+move entity middnin by [0,120,0] at 60 speed
+move entity midupin by [0,-120,0] at 60 speed
+move entity topup by [0,-112,0] at 40 speed
+move entity topdn by [0,112,0] at 40 speed
+move entity toprt by [0,0,-112] at 40 speed
+move entity toplf by [0,0,-112] at 40 speed
+
+play sound "doors/stonestart.wav" for entity botup on channel 10
+play sound "doors/stonestart.wav" for entity botdn on channel 10
+
+wait.5 seconds
+
+play sound "doors/stoneloop.wav" for entity botup on channel 10
+play sound "doors/stoneloop.wav" for entity botdn on channel 10
+
+wait 1.5 seconds
+
+play sound "doors/stoneend.wav" for entity botup on channel 10
+play sound "doors/stoneend.wav" for entity botdn on channel 10
+
+wait 2 seconds
+
+play sound "doors/kchunk5.wav" for entity bar1 on channel 10
+play sound "doors/kchunk5.wav" for entity bar3 on channel 10
+
+wait .5 seconds
+
+play sound "objects/gearsmove.wav" for entity bar1 on channel 10
+play sound "objects/gearsmove.wav" for entity bar3 on channel 10
+
+move entity bar1 by [0,-160,0] at 50 speed signaling sig1
+move entity bar2 by [0,96,0] at 50 speed signaling sig2
+move entity bar3 by [0,-96,0] at 50 speed signaling sig3
+move entity bar4 by [0,160,0] at 50 speed signaling sig4
+move entity bar5 by [0,-160,0] at 50 speed signaling sig5
+move entity bar6 by [0,96,0] at 50 speed signaling sig6
+move entity bar7 by [0,-96,0] at 50 speed signaling sig7
+move entity bar8 by [0,160,0] at 50 speed signaling sig8
+
+wait for all clearing sig1, sig2, sig3, sig4, sig5, sig6, sig7, sig8
+
+move entity bar1 by [-16,0,0] at 50 speed signaling sig1
+move entity bar2 by [-16,0,0] at 50 speed signaling sig2
+move entity bar3 by [-16,0,0] at 50 speed signaling sig3
+move entity bar4 by [-16,0,0] at 50 speed signaling sig4
+move entity bar5 by [16,0,0] at 50 speed signaling sig5
+move entity bar6 by [16,0,0] at 50 speed signaling sig6
+move entity bar7 by [16,0,0] at 50 speed signaling sig7
+move entity bar8 by [16,0,0] at 50 speed signaling sig8
+
+wait for all clearing sig1, sig2, sig3, sig4, sig5, sig6, sig7, sig8
+
+play sound "doors/thud4.wav" for entity bar1 on channel 10
+play sound "doors/thud4.wav" for entity bar3 on channel 10
+
+use entity portal
+
+	wait 1.5 seconds
+
+	use entity doorcam
+
+// Establishing shot
+
+	use entity camone
+
+	animate entity hero performing action WALK2_ANIMATION by moving [370, 0, 0] signaling sig
+	wait for all clearing sig
+
+	use entity camone
+
+// Morcalavin speaks 
+
+	use entity cam1
+	
+	print 263 captioned 
+	play sound "cinematics/morcalavin/120-54.wav" for entity boss
+	move entity cam1train by [96, 16, 0] over 28 seconds
+	animate entity boss performing action ACTION1_ANIMATION signaling sig
+	animate entity hero performing action IDLE2_ANIMATION signaling sig1
+	wait 10 seconds
+	print 264 captioned 
+	wait for all clearing sig, sig1
+//	wait .5 seconds
+	use entity cam1
+
+
+// Corvus replies
+
+	use entity cam2
+	
+	print 265 captioned 
+	play sound "cinematics/morcalavin/121-60.wav" for entity hero
+	animate entity hero performing action ACTION1_ANIMATION signaling sig
+	animate entity boss performing action IDLE2_ANIMATION signaling sig1
+	wait for all clearing sig, sig1
+//	wait .5 seconds
+	use entity cam2
+
+// Morcalavin is sarcastic
+	
+	use entity cam3
+	
+	print 266 captioned 
+	play sound "cinematics/morcalavin/122-52.wav" for entity boss
+	animate entity boss performing action ACTION2_ANIMATION signaling sig
+	animate entity hero performing action IDLE2_ANIMATION signaling sig1
+	wait for all clearing sig, sig1
+	wait .2 seconds
+	use entity cam3
+
+// They banter back and forth
+	
+	use entity cam4
+	
+	print 267 captioned 
+	play sound "cinematics/morcalavin/123-66.wav" for entity hero
+	animate entity hero performing action ACTION2_ANIMATION signaling sig
+	animate entity boss performing action IDLE3_ANIMATION signaling sig1
+	wait for all clearing sig, sig1
+	
+	print 268 captioned 
+	play sound "cinematics/morcalavin/124-52.wav" for entity boss
+	animate entity boss performing action ACTION3_ANIMATION signaling sig
+	animate entity hero performing action IDLE3_ANIMATION signaling sig1
+	wait for all clearing sig, sig1
+	use entity cam4
+
+	use entity cam5	
+	print 269 captioned 
+	play sound "cinematics/morcalavin/125-76.wav" for entity hero
+	animate entity hero performing action ACTION3_ANIMATION signaling sig
+	animate entity boss performing action IDLE4_ANIMATION signaling sig1
+	wait for all clearing sig, sig1
+	use entity cam5
+
+//Switching back
+
+player1.origin = hero.origin	// Put player where Cinematic corvus is
+player1.p_origin = hero.origin	// Put player where Cinematic corvus is set view angles of entity player1 to hero.angles
+hero.modelindex = 0		// Turn off the cinematic corvus model
+hero.solid = SOLID_NOT		// Make him  not solid
+
+//Switching Morcalavin
+
+monster.origin = boss.origin	// Put Monster where Morcalavin is
+monster.angles = boss.angles	// Make Monster angles like Morcalavin
+boss.modelindex = 0		// Turn off the cinematic Morcalavin model
+boss.solid = SOLID_NOT		// Make him  not solid
+
+disable cinematics
+
+use entity take
+
+use entity coop
+
+use entity barrier
+
+use entity cd

@@ -1,0 +1,150 @@
+// This is the cave in, in one of the hallways.
+
+#include "../common/header.ds"
+
+output "r:/base/ds/kellcaves"
+
+local entity top
+local entity bottom
+local entity beam
+local entity rubble1
+local entity rubble2
+local entity rocks1
+local entity rocks2
+local entity quake1
+local entity quake1a
+local entity rockrt
+local entity rocklt
+local entity rockcam1
+local entity rockcam2
+local entity rockdmgon
+local entity rockdmgoff
+local entity rockclip
+
+global int dir
+
+local int sig
+local int sig1
+local int sig2
+local int sig3
+
+top = find entity with targetname "top"
+bottom = find entity with targetname "bottom"
+beam = find entity with targetname "beam"
+rubble1 = find entity with targetname "rubble1"
+rubble2 = find entity with targetname "rubble2"
+rocks1 = find entity with targetname "rocks1"
+rocks2 = find entity with targetname "rocks2"
+quake1 = find entity with targetname "quake1"
+quake1a = find entity with targetname "quake1a"
+rockrt = find entity with targetname "rockrt"
+rocklt = find entity with targetname "rocklt"
+rockcam1 = find entity with targetname "rockcam1"
+rockcam2 = find entity with targetname "rockcam2"
+rockdmgon = find entity with targetname "rockdmgon"
+rockdmgoff = find entity with targetname "rockdmgoff"
+rockclip = find entity with targetname "rockclip"
+
+// In the begining
+
+
+//	enable cinematics
+
+	if dir = 1
+	  use entity rockcam1
+
+	else
+	  use entity rockcam2
+	endif
+
+	top.movetype =  PHYSICSTYPE_PUSH
+	beam.movetype =  PHYSICSTYPE_NOCLIP
+
+	use entity quake1
+
+	wait .5 seconds
+
+	use entity rocks1
+
+	wait .5 seconds
+
+	use entity rubble1
+
+	move entity top by [35, 0, -25] at 460 speed signaling sig
+	wait for all clearing sig
+
+	rotate entity beam by [-10, 0, 0] at 700 speed signaling sig
+
+	move entity top by [0, 0, -15] at 700 speed signaling sig1
+	wait for all clearing sig, sig1
+
+	rotate entity beam by [5, 0, 0] at 700 speed signaling sig
+
+	rotate entity top by [0, 0, 90] at 700 speed signaling sig1
+	wait for all clearing sig, sig1
+
+	use entity top
+
+	rotate entity beam by [-5, 0, 0] at 700 speed signaling sig
+
+	rotate entity rockrt by [9, 0, 0] at 700 speed signaling sig1
+
+	move entity rocklt by [-10, 0, -9] at 650 speed signaling sig2
+	wait for all clearing sig, sig1, sig2
+
+	wait 1 seconds
+
+	if dir = 1
+	  use entity rockcam1
+
+	else
+	  use entity rockcam2
+	endif
+
+//	disable cinematics
+
+	suspend
+
+// now for the actual cave in.
+
+	use entity quake1a
+
+	use entity rocks2
+
+	use entity rockdmgon
+
+	move entity beam by [0, 0, -53] at 600 speed signaling sig
+	wait for all clearing sig
+
+	use entity bottom
+
+	move entity beam by [0, 0, -90] at 700 speed signaling sig
+
+	rotate entity beam by [10, 0, 0] at 700 speed signaling sig1
+
+	rotate entity rockrt by [25, 0, 0] at 500 speed signaling sig2
+	wait for all clearing sig, sig1, sig2
+
+	move entity rocklt by [-50, 0, 0] at 700 speed signaling sig
+
+	move entity rockrt by [0, 0, -30] at 700 speed signaling sig1
+	wait for all clearing sig, sig1
+
+	use entity beam
+
+	rotate entity rockrt by [-15, 0, 0] at 500 speed signaling sig
+	
+	move entity rockrt by [0, 0, -110] at 500 speed signaling sig1
+
+	move entity rocklt by [90, 0, 0] at 700 speed signaling sig2
+
+	rotate entity rocklt by [85, 0, 0] at 600 speed signaling sig3
+	wait for all clearing sig, sig1, sig2, sig3
+
+	move entity rocklt by [0, 0, -10] at 600 speed signaling sig
+	wait for all clearing sig
+
+	use entity rockdmgoff
+
+	use entity rockclip
+

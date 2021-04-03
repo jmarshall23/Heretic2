@@ -1,0 +1,71 @@
+//SSwarehouse, Elf breaking up crane
+
+#include "../common/header.ds"
+output "r:/base/ds/silverspring"
+
+//define variables
+
+local entity craneright
+local entity craneleft
+local entity cranerope
+local entity cranebox
+local entity dam
+local entity e2
+local entity e1
+local int sig
+local int sig1
+local int sig2
+
+e2 = find entity with targetname "bybutton"
+e1 = find entity with targetname "oncrane"
+craneright = find entity with targetname "armright"
+craneleft = find entity with targetname "armleft"
+cranerope = find entity with targetname "rope"
+cranebox = find entity with targetname "box"
+dam = find entity with targetname "dam"
+
+craneleft.movetype = PHYSICSTYPE_NOCLIP
+craneright.movetype = PHYSICSTYPE_NOCLIP
+
+//e1.takedamage = DAMAGE_NO
+//e2.takedamage = DAMAGE_NO
+
+//Cut rope and drop crane
+
+animate entity e2 performing action ATTACK2_ANIMATION repeating for 2 times signaling sig
+play sound "elves/diep.wav" for entity e2
+animate entity e1 performing action ATTACK2_ANIMATION repeating for 2 times signaling sig1
+wait for all clearing sig, sig1
+
+use entity cranerope 
+
+wait .2 seconds
+enable trigger entity dam
+move entity cranebox by [0, 0, -88] at 450 speed signaling sig
+play sound "misc/metalbreak.wav" for entity craneright on channel 10
+move entity craneright by [0, 0, -116] at 350 speed signaling sig1
+play sound "misc/metalbreak.wav" for entity craneleft on channel 10
+move entity craneleft by [0, 0, -116] at 350 speed signaling sig2
+wait for all clearing sig, sig1, sig2
+
+use entity cranebox
+disable trigger entity dam
+
+rotate entity craneright to [90, 0, 0] at 300 speed signaling sig1
+rotate entity craneleft to [-90, -10, 0] at 300 speed signaling sig
+wait for all clearing sig, sig1
+
+use entity craneleft
+use entity craneright
+
+animate entity e2 performing action IDLE1_ANIMATION by turning [90, 0, 0] repeating for 1 times signaling sig
+animate entity e1 performing action IDLE1_ANIMATION by turning [-135, 0, 0] repeating for 1 times signaling sig1
+
+wait for all clearing sig, sig1
+
+//e1.takedamage = DAMAGE_YES
+//e2.takedamage = DAMAGE_YES
+
+animate entity e1 performing action THINKAGAIN_ANIMATION
+animate entity e2 performing action THINKAGAIN_ANIMATION
+craneright.movetype = PHYSICSTYPE_NONE

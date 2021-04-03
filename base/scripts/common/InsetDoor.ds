@@ -1,0 +1,52 @@
+output "r:/base/ds/common"
+
+parameter entity parm1
+parameter entity parm2
+parameter int parm3
+parameter vector parm4
+parameter vector parm5
+
+local entity door
+local entity areaportal
+local int spd
+local vector d1
+local vector d2
+local vector d1a
+local vector d2a
+
+local int sgnl
+
+label beginning
+
+door = parm1
+areaportal = parm2
+spd = parm3
+d1 = parm4
+d2 = parm5
+d1a = [0,0,0]
+d2a = [0,0,0]
+
+use entity areaportal
+
+move entity door by d1 at spd speed signaling sgnl
+wait for any clearing sgnl
+
+move entity door by d2 at spd speed signaling sgnl
+wait for any clearing sgnl
+
+wait 0.5 seconds
+
+d1a -= d1
+d2a -= d2
+
+move entity door by d2a at spd speed signaling sgnl
+wait for any clearing sgnl
+
+move entity door by d1a at spd speed signaling sgnl
+wait for any clearing sgnl
+
+use entity areaportal
+
+suspend
+
+goto beginning

@@ -1,0 +1,37 @@
+output "r:/base/ds/silverspring"
+
+parameter entity thing
+parameter vector distance
+parameter float time_var
+
+local vector tvec
+local int sgnl
+local float ttime
+local float counter
+
+counter = 0
+
+label begin
+
+counter += 9
+ttime = sin counter
+ttime += 1
+ttime /= 4
+ttime += time_var
+tvec = distance
+tvec *= -1
+
+rotate entity thing to tvec over ttime seconds signaling sgnl
+wait for any clearing sgnl
+
+counter += 17
+ttime = sin counter
+ttime += 1
+ttime /= 4
+ttime += time_var
+tvec = distance
+
+rotate entity thing to tvec over ttime seconds signaling sgnl
+wait for any clearing sgnl
+
+goto begin

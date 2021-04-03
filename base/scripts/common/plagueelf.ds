@@ -1,0 +1,78 @@
+// template file for scripts
+
+#include "../common/header.ds"
+
+output "r:/base/ds/common"
+
+local int sig
+
+parameter entity plagueelf
+
+// Idle 3
+animate entity plagueelf performing action IDLE3_ANIMATION repeating for 2 times  signaling sig
+wait for any clearing sig
+
+// Pain 1
+animate entity plagueelf performing action PAIN1_ANIMATION by turning [180, 0, 0]  repeating for 4 times  signaling sig
+wait for any clearing sig
+
+// DEATH 1
+animate entity plagueelf performing action DEATH1_ANIMATION signaling sig
+
+
+// DEATH 2
+//animate entity plagueelf performing action DEATH2_ANIMATION signaling sig
+//wait for any clearing sig
+
+// DEATH 3
+//animate entity plagueelf performing action DEATH3_ANIMATION signaling sig
+//wait for any clearing sig
+
+// Idle 3
+//animate entity plagueelf performing action IDLE3_ANIMATION by turning [180, 0, 0]  repeating for 2 times  signaling sig
+//wait for any clearing sig
+
+
+// Idle 1
+//animate entity plagueelf performing action IDLE1_ANIMATION by turning [180, 0, 0]  repeating for 4 times  signaling sig
+//wait for any clearing sig
+
+// Idle 2
+//animate entity plagueelf performing action IDLE2_ANIMATION by turning [-180, 0, 0]  repeating for 2 times  signaling sig
+//wait for any clearing sig
+
+
+// Run 1
+//animate entity plagueelf performing action RUN1_ANIMATION by moving [200, 0, 0] by turning [180, 0, 0] signaling sig
+//wait for any clearing sig
+
+
+// Walk 1
+//animate entity plagueelf performing action WALK2_ANIMATION by moving [200, 0, 0] by turning [180, 0, 0] signaling sig
+//wait for any clearing sig
+
+
+// Walk 2
+//animate entity plagueelf performing action WALK1_ANIMATION by moving [200, 0, 0] by turning [180, 0, 0] signaling sig
+//wait for any clearing sig
+
+
+// ATTACK1
+//animate entity plagueelf performing action ATTACK1_ANIMATION by moving [100, 0, 0] signaling sig
+//wait for any clearing sig
+
+
+// ATTACK2
+//animate entity plagueelf performing action ATTACK2_ANIMATION repeating for 3 times  signaling sig
+//wait for any clearing sig
+
+// ATTACK3
+//animate entity plagueelf performing action ATTACK3_ANIMATION signaling sig
+//wait for any clearing sig
+
+
+// DEATH 4
+//animate entity plagueelf performing action DEATH4_ANIMATION 
+
+// GIB 1
+//animate entity plagueelf performing action GIB1_ANIMATION 

@@ -1,0 +1,164 @@
+// This hopefully will be the cinematic with the Ssithera victim in the Dungeon level.
+// Starring Rick Johnson as the Hero and Eric Biessman as the Victim.
+ 
+#include "../common/header.ds"
+
+output "r:/base/ds/dungeon"
+
+local entity camera1
+local entity camera2
+local entity camera3
+local entity camera4
+local entity camera5
+local entity zoom
+local entity zoom2
+local entity spawner
+local entity victim
+local entity dungeonkey
+local entity player1
+parameter entity hero
+
+local int sig
+local int sig1
+
+cache sound "cinematics/torture victim/117-345.wav"
+cache sound "cinematics/torture victim/117a-344.wav"
+cache sound "cinematics/torture victim/117a-345.wav"
+cache sound "cinematics/torture victim/118-350.wav"
+cache sound "cinematics/torture victim/119-345.wav"
+cache sound "cinematics/torture victim/wheel.wav"
+
+hero.yaw_speed = 6
+
+camera1 = find entity with targetname "camera1"
+camera2 = find entity with targetname "camera2"
+camera3 = find entity with targetname "camera3"
+camera4 = find entity with targetname "camera4"
+camera5 = find entity with targetname "camera5"
+zoom = find entity with targetname "zoom"
+zoom2 = find entity with targetname "zoom2"
+spawner = find entity with targetname "spawner"
+victim = find entity with targetname "victim"
+player1 = get entity activator
+
+// its a start
+
+	copy player attributes from entity player1 to entity hero
+	hero.modelindex = hero.count
+	hero.solid = SOLID_SOLID
+	hero.movetype = 4
+
+	enable cinematics
+
+
+// Our story starts out with a lovely camrea shot.
+
+	play sound "cinematics/torture victim/117a-344.wav" for entity victim
+
+	use entity camera1
+
+// Let's make our hero walk forward shall we? Victim in pain.
+
+	animate entity hero performing action WALK2_ANIMATION by moving [140, 0, 0] by turning [0, 0, 0] signaling sig
+	wait for all clearing sig
+
+// At last our hero speaks
+
+	move entity zoom2 by [0, 100, 0] over 3 seconds
+
+	print 259 captioned
+	play sound "cinematics/torture victim/117-345.wav" for entity hero
+
+	animate entity hero performing action WALK2_ANIMATION by moving [60, 0, 0] by turning [-45, 0, 0] signaling sig
+	wait for all clearing sig
+
+	animate entity hero performing action WALK2_ANIMATION by moving [27, 0, 0] by turning [-45, 0, 0] signaling sig
+	wait for all clearing sig
+
+// Our Hero releases the poor victim
+
+	animate entity hero performing action ACTION1_ANIMATION signaling sig
+	wait for all clearing sig
+
+	play sound "cinematics/torture victim/wheel.wav" for entity hero
+
+	animate entity hero performing action ACTION2_ANIMATION signaling sig1
+	
+	animate entity victim performing action ACTION2_ANIMATION signaling sig
+	wait for all clearing sig, sig1	
+
+	animate entity hero performing action IDLE1_ANIMATION
+
+// Our story continues with this magnificent camera change. (up high looking down)
+
+	use entity camera1	
+
+	use entity camera4
+
+	play sound "cinematics/torture victim/117a-345.wav" for entity hero
+
+	animate entity victim performing action ACTION3_ANIMATION
+	
+	wait 3 seconds
+
+// Camera (high, looking down in hero and victim)
+
+	print 260 captioned
+	play sound "cinematics/torture victim/118-350.wav" for entity victim
+
+	animate entity victim performing action ACTION4_ANIMATION
+
+	animate entity hero performing action ACTION3_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity hero performing action IDLE2_ANIMATION repeating for 18 times
+
+	use entity camera4
+
+	use entity camera5
+
+	wait 9 seconds
+
+// Camera (medium shot, zooms in)
+
+	use entity camera5	
+
+	use entity camera2
+
+	wait 4 seconds
+
+	dungeonkey = spawn entity with fields "classname" = "item_puzzle_dungeonkey" , "angle" = 0 , "origin" = [-2391, -2758, 793]
+
+	animate entity victim performing action ACTION5_ANIMATION
+
+	print 261 captioned
+	play sound "cinematics/torture victim/119-345.wav" for entity victim
+
+	wait 10 seconds
+
+	animate entity victim performing action ACTION6_ANIMATION
+
+	move entity zoom by [30, 30, 0] over 10 seconds signaling sig
+	wait for all clearing sig
+
+	wait 2 seconds
+
+// The final shot.
+
+	use entity camera2	
+
+	use entity camera3
+
+	wait 2 seconds
+
+	player1.origin = hero.origin
+	player1.p_origin = hero.origin
+	set view angles of entity player1 to hero.angles
+
+	hero.modelindex = 0
+	hero.solid = SOLID_NOT
+
+	disable cinematics
+	
+	use entity camera3
+

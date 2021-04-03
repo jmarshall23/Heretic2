@@ -1,0 +1,51 @@
+// The most awful and brain racking BearTrap from hell!
+
+#include "../common/header.ds"
+
+output "r:/base/ds/hive"
+
+parameter entity parm1
+parameter entity parm2
+parameter entity parm3
+
+
+local int sig1
+local int sig2
+
+
+
+parm1.movetype = PHYSICSTYPE_NOCLIP
+parm2.movetype = PHYSICSTYPE_NOCLIP
+
+//this better fucking work
+
+label start
+
+rotate entity parm1 by [0, 0, 45] at 600 speed signaling sig1
+rotate entity parm2 by [0, 0, -45] at 600 speed signaling sig2
+wait for all clearing sig1, sig2
+
+enable trigger entity parm3
+
+rotate entity parm1 by [0, 0, 45] at 600 speed signaling sig1
+rotate entity parm2 by [0, 0,-45] at 600 speed signaling sig2
+wait for all clearing sig1, sig2
+
+play sound "objects/klang.wav" for entity parm1 on channel 10
+
+wait .2 seconds
+
+disable trigger entity parm3
+rotate entity parm1 by [0, 0, -45] at 600 speed signaling sig1
+rotate entity parm2 by [0, 0, 45] at 600 speed signaling sig2
+wait for all clearing sig1, sig2
+
+
+
+rotate entity parm1 by [0, 0, -45] at 600 speed signaling sig1
+rotate entity parm2 by [0, 0, 45] at 600 speed signaling sig2
+wait for all clearing sig1, sig2
+
+suspend
+
+goto start

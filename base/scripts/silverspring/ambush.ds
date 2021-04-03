@@ -1,0 +1,43 @@
+//SSwarehouse, I've been ambushed!
+
+#include "../common/header.ds"
+output "r:/base/ds/silverspring"
+
+//define variables
+
+local entity fallen
+local entity ouch
+local entity duster
+local int sig1
+local int sig2
+
+fallen = find entity with targetname "fallen"
+ouch = find entity with targetname "ouch"
+duster = find entity with targetname "duster"
+
+fallen.movetype = PHYSICSTYPE_PUSH
+
+//crate gets pushed
+
+move entity fallen by [0, 24, 0] at 20 speed signaling sig1
+
+wait for all clearing sig1
+
+move entity fallen by [0, 16, -216] at 400 speed signaling sig1
+
+rotate entity fallen by [0, 0, -90] at 400 speed signaling sig2
+
+wait for all clearing sig1, sig2
+
+enable trigger entity ouch
+
+use entity duster
+
+use entity fallen
+
+wait .5 seconds
+
+disable trigger entity ouch
+
+
+

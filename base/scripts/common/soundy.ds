@@ -1,0 +1,15 @@
+//This is the super blasto surround sound wave playing test script!
+
+#include "../common/header.ds"
+
+output "r:/base/ds/common"
+
+//define variables
+
+
+//playing wave
+
+play sound "ambient/kidcry1.wav" at volume 1.0 at attenuation 1 after 1.0 seconds
+
+
+

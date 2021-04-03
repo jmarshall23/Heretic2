@@ -1,0 +1,80 @@
+//The super duper guardian statue (part 2)
+
+#include "../common/header.ds"
+
+output "r:/base/ds/andoria"
+
+//define variables
+
+local entity leverblock
+local entity lever
+local entity guardian
+local entity secdoor
+local entity camera
+local entity activate
+local entity counter
+local entity c2
+local entity player1
+
+local int sig
+local int sig2
+
+leverblock = find entity with targetname "block2"
+lever = find entity with targetname "lever2"
+guardian = find entity with targetname "guard2"
+secdoor = find entity with targetname "secret2"
+camera = find entity with targetname "guardcam2"
+activate = find entity with targetname "active2"
+counter = find entity with targetname "counter"
+c2 = find entity with targetname "c2"
+player1 = get entity activator
+
+//move lever outward (cool huh?)
+move entity secdoor by [-16, 0, 0] at 30 speed signaling sig
+wait for all clearing sig
+move entity secdoor by [0, -120, 0] at 40 speed signaling sig
+wait for all clearing sig
+
+wait .3 seconds
+lever.movetype = PHYSICSTYPE_PUSH
+play sound "doors/stonestart.wav" for entity lever
+move entity lever by [48, 0, 0] at 30 speed signaling sig
+move entity leverblock by [48, 0, 0] at 30 speed signaling sig2
+wait for all clearing sig, sig2
+
+enable trigger entity activate
+
+suspend
+
+//use lever... rotate statue
+
+use entity lever
+wait 1 seconds
+
+enable cinematics
+
+	copy player attributes from entity player1 to entity c2
+	c2.modelindex = c2.count
+	c2.solid = SOLID_SOLID
+	c2.movetype = 4
+
+use entity camera
+
+guardian.movetype = PHYSICSTYPE_PUSH
+play sound "doors/gendoorstart.wav" for entity guardian
+rotate entity guardian by [0, 90, 0] over 3 seconds signaling sig
+wait 3.0 seconds
+play sound "doors/gendoorstop.wav" for entity guardian
+wait for all clearing sig
+
+	player1.origin = c2.origin
+	player1.p_origin = c2.origin
+	set view angles of entity player1 to c2.angles
+
+	c2.modelindex = 0
+	c2.solid = SOLID_NOT
+
+disable cinematics
+use entity camera
+use entity counter
+exit

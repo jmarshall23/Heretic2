@@ -1,0 +1,27 @@
+//teleporter thing goes back up
+
+
+#include "../common/header.ds"
+
+output "r:/base/ds/cloud"
+
+
+local entity teleporter
+local entity plat
+
+local int sig
+
+teleporter = find entity with targetname "telactivate"
+plat = find entity with targetname "beddoor"
+
+//move it
+
+wait 1 seconds
+
+use entity teleporter
+
+rotate entity plat by [0, 0, -90] at 75 speed signaling sig
+wait for all clearing sig
+
+
+exit

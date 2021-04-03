@@ -1,0 +1,61 @@
+//SSwarehouse, Spiky thing swings
+
+#include "../common/header.ds"
+output "r:/base/ds/silverspring"
+
+//define variables
+
+local entity spiky
+local entity richard
+
+local int sig1
+
+spiky = find entity with targetname "spiky"
+richard = find entity with targetname "richard"
+spiky.movetype = PHYSICSTYPE_PUSH
+//spike goes up
+
+rotate entity spiky by [0, 0, -60] at 200 speed signaling sig1
+
+wait for all clearing sig1
+
+suspend
+
+//...and spike comes down
+enable trigger entity richard
+
+play sound "doors/creak4.wav" for entity spiky on channel 10
+
+rotate entity spiky by [0, 0, 90] at 225 speed signaling sig1
+
+wait for all clearing sig1
+
+rotate entity spiky by [0, 0, -50] at 200 speed signaling sig1
+
+wait for all clearing sig1
+
+play sound "doors/creak4.wav" for entity spiky on channel 10
+
+rotate entity spiky by [0, 0, 40] at 175 speed signaling sig1
+
+wait for all clearing sig1
+
+rotate entity spiky by [0, 0, -30] at 150 speed signaling sig1
+
+wait for all clearing sig1
+
+rotate entity spiky by [0, 0, 20] at 125 speed signaling sig1
+
+wait for all clearing sig1
+
+rotate entity spiky by [0, 0, -15] at 125 speed signaling sig1
+
+wait for all clearing sig1
+
+rotate entity spiky by [0, 0, 5] at 100 speed signaling sig1
+
+wait for all clearing sig1
+
+disable trigger entity richard
+
+

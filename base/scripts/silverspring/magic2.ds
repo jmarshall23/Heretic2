@@ -1,0 +1,36 @@
+// spinning color blocks 
+
+#include "../common/header.ds"
+
+output "r:/base/ds/silverspring"
+
+local entity rock1
+local entity player1
+
+local int sig3
+local int sig4
+
+rock1 = find entity with targetname "rock1"
+player1 = get entity activator
+
+rock1.movetype = PHYSICSTYPE_NOCLIP
+rock1.solid = SOLID_NOT
+label bye
+rotate entity rock1 by [720, 720, 720] at 800 speed
+move entity rock1 by [2, -6, 6] at 300 speed signaling sig3
+wait for any clearing sig3
+move entity rock1 by [6, -2, 2] at 300 speed signaling sig3
+wait for any clearing sig3
+move entity rock1 by [6, -2, -2] at 300 speed signaling sig3
+wait for any clearing sig3
+move entity rock1 by [2, -6, -6] at 300 speed signaling sig3
+wait for any clearing sig3
+move entity rock1 by [-2, 6, -6] at 300 speed signaling sig3
+wait for any clearing sig3
+move entity rock1 by [-6, 2, -2] at 300 speed signaling sig3
+wait for any clearing sig3
+move entity rock1 by [-6, 2, 2] at 300 speed signaling sig3
+wait for any clearing sig3
+move entity rock1 by [-2, 6, 6] at 300 speed signaling sig3
+wait for all clearing sig3
+goto bye

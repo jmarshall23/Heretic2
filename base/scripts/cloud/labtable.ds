@@ -1,0 +1,41 @@
+// The fantabulous rotating lab table!
+
+#include "../common/header.ds"
+
+output "r:/base/ds/cloud"
+
+local entity labtable
+local entity arm
+local int sig
+
+labtable = find entity with targetname "t100"
+arm = find entity with targetname "t200"
+
+
+label loop
+
+wait 3 seconds
+
+labtable.owner = arm
+labtable.state = 0
+labtable.distance = 240
+labtable.start_origin = [0, 0, 240]
+labtable.movetype = PHYSICSTYPE_SCRIPT_ANGULAR
+
+play sound "objects/globebottomstart.wav" for entity arm on channel 10
+rotate entity arm by [0,0,-180] at 30 speed signaling sig
+wait for all clearing sig
+play sound "objects/globebottomend.wav" for entity arm on channel 10
+
+wait 15 seconds
+
+play sound "objects/globebottomstart.wav" for entity arm on channel 10
+rotate entity arm by [0,0, 180] at 30 speed signaling sig
+wait for all clearing sig
+play sound "objects/globebottomend.wav" for entity arm on channel 10
+
+suspend
+goto loop
+
+
+

@@ -1,0 +1,28 @@
+//gaurds die, ogles cheer, flames go out
+
+#include "../common/header.ds"
+
+output "r:/base/ds/cloud"
+
+//define variables
+
+local entity fire
+local entity fire1
+local entity hurt
+local entity light
+local int sig
+
+fire = find entity with targetname "fire"
+fire1 = find entity with targetname "fire1"
+hurt = find entity with targetname "firedamage"
+light = find entity with targetname "flamelight"
+
+//turn stuff off.
+
+	use entity fire
+	use entity fire1
+
+	move entity hurt by [0, 0, -256] over 1 seconds
+
+	move entity light by [0, 0, -256] over 1 seconds signaling sig
+	wait for all clearing sig

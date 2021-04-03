@@ -1,0 +1,160 @@
+//Roof caving in, in Andslums
+
+#include "../common/header.ds"
+
+output "r:/base/ds/andoria"
+
+//define variables
+
+local entity roofcam
+local entity camtrain
+local entity domebreak1
+local entity domebreak3
+local entity domebreak4
+local entity domebreak5
+local entity domebreak6
+local entity domebreak7
+local entity domebreak8
+local entity domebreak9
+local entity dometrain
+local entity dometrain10
+local entity dome1
+local entity dome2
+local entity dome3
+local entity walkway
+local entity walkwaya
+local entity quaker
+local entity dmg
+local entity corv
+local entity player1
+
+local int sig
+local int sig2
+local int sig3
+local int sig4
+
+roofcam = find entity with targetname "t111"
+camtrain = find entity with scripttarget "camtrain"
+domebreak1 = find entity with targetname "domebreak1"
+domebreak3 = find entity with targetname "domebreak3"
+domebreak4 = find entity with targetname "domebreak4"
+domebreak5 = find entity with targetname "domebreak5"
+domebreak6 = find entity with targetname "domebreak6"
+domebreak7 = find entity with targetname "domeJS1"
+domebreak8 = find entity with targetname "domeJS2"
+domebreak9 = find entity with targetname "domeJS3"
+dometrain = find entity with targetname "dometrain"
+dometrain10 = find entity with targetname "dometrain10"
+dome1 = find entity with targetname "t20"
+dome2 = find entity with targetname "dome2"
+dome3 = find entity with targetname "dome3"
+walkway = find entity with targetname "walkway"
+walkwaya = find entity with targetname "walkwaya"
+quaker = find entity with targetname "quaker"
+dmg = find entity with targetname "dmg"
+corv = find entity with targetname "corv"
+
+dometrain.movetype = PHYSICSTYPE_PUSH
+dometrain10.movetype = PHYSICSTYPE_PUSH
+
+	player1 = get entity activator
+
+	copy player attributes from entity player1 to entity corv
+	corv.modelindex = corv.count
+	corv.solid = SOLID_SOLID
+	corv.movetype = 4
+
+//start er up
+
+enable cinematics
+
+enable trigger entity quaker
+
+use entity roofcam
+
+animate entity corv performing action ACTION7_ANIMATION repeating for 10 times
+
+play sound "world/quake.wav" for entity corv on channel 10
+
+use entity quaker
+
+wait 1 seconds
+
+use entity domebreak6
+
+wait .5 seconds
+
+use entity domebreak3
+
+wait .5 seconds
+
+use entity dome3
+
+use entity domebreak5
+use entity domebreak8
+
+wait .7 seconds
+
+use entity dome1
+
+use entity dome2
+
+wait .5 seconds
+
+use entity domebreak1
+
+use entity domebreak4
+use entity domebreak9
+use entity domebreak7
+
+enable trigger entity dmg
+
+move entity camtrain by [0, 0, -256] at 225 speed
+
+move entity dometrain by [0, 0, -568] at 800 speed signaling sig
+rotate entity dometrain by [0, 0, 45] at 80 speed signaling sig2
+
+wait .2 seconds
+
+move entity dometrain10 by [36, -16, -256] at 800 speed signaling sig3
+rotate entity dometrain10 by [52, 0, 42] at 160 speed signaling sig4
+
+wait for all clearing sig3, sig4
+
+move entity dometrain10 by [36, -16, -200] at 1000 speed signaling sig3
+
+move entity walkwaya by [0, 0, -168] at 800 speed
+
+use entity walkway
+
+wait for all clearing sig, sig2, sig3
+
+use entity dometrain
+
+use entity dometrain10
+
+play sound "world/quakend.wav" for entity corv on channel 10
+
+wait 2 seconds
+
+animate entity corv performing action ACTION8_ANIMATION repeating for 1 times
+
+wait 1 seconds
+
+disable trigger entity quaker
+
+disable trigger entity dmg
+
+use entity roofcam
+
+walkwaya.movetype = PHYSICSTYPE_NONE
+
+	player1.origin = corv.origin
+	player1.p_origin = corv.origin
+	set view angles of entity player1 to corv.angles
+
+
+	corv.modelindex = 0
+	corv.solid = SOLID_NOT
+
+disable cinematics

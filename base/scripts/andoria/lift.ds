@@ -1,0 +1,31 @@
+// a stupid lift i can't get to work anyother way.
+
+
+#include "../common/header.ds"
+
+output "r:/base/ds/andoria"
+
+
+local entity lift
+
+local int sig
+
+lift = find entity with targetname "tom"
+
+
+// start
+
+label start
+
+move entity lift by [0, 0, 246] over 3 seconds signaling sig
+wait for all clearing sig
+
+wait 2 seconds
+
+move entity lift by [0, 0, -246] over 3 seconds signaling sig
+wait for all clearing sig
+
+suspend
+
+goto start
+

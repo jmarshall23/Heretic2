@@ -1,0 +1,42 @@
+//A one and a two and a...
+
+#include "../common/header.ds"
+
+output "r:/base/ds/andoria"
+
+//define variables
+
+local entity door
+local entity door2
+local entity camera
+local int sig
+local int sig2
+
+door = find entity with targetname "bigdoor1"
+door2 = find entity with targetname "bigdoor2"
+camera = find entity with targetname "doorcam"
+
+//start er up
+
+suspend
+
+enable cinematics
+
+use entity camera
+
+move entity door by [0, 120, 0] at 30 speed signaling sig
+move entity door2 by [0, -120, 0] at 30 speed signaling sig2
+play sound "doors/gendoorstart.wav" for entity door
+play sound "doors/gendoorstart.wav" for entity door2
+wait 4.0 seconds
+play sound "doors/gendoorstop.wav" for entity door
+play sound "doors/gendoorstop.wav" for entity door2
+wait for all clearing sig, sig2
+
+use entity camera
+
+disable cinematics
+
+exit
+
+

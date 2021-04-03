@@ -1,0 +1,117 @@
+//Picking up firewall weapon.
+
+
+#include "../common/header.ds"
+
+output "R:/base/ds/andoria"
+
+//define entity
+
+local entity flamel
+local entity flamer
+//local entity ped
+local entity barreltop
+local entity barrelback
+local entity rubblefront
+local entity rubbleback
+local entity camera
+local entity camtarget
+local entity c1
+local entity player1
+local entity wall
+
+local int sig
+local int sig1
+
+flamel = find entity with targetname "flamel"
+flamer = find entity with targetname "flamer"
+//ped = find entity with targetname "ped"
+barreltop = find entity with targetname "barreltop"
+barrelback = find entity with targetname "barrelback"
+rubblefront = find entity with targetname "rubble1"
+rubbleback = find entity with targetname "r2"
+camera = find entity with targetname "camera"
+camtarget = find entity with targetname "camtarget"
+c1 = find entity with targetname "c1"
+player1 = get entity activator
+wall = find entity with targetname "wall"
+
+enable cinematics
+
+	copy player attributes from entity player1 to entity c1
+	c1.modelindex = c1.count
+	c1.solid = SOLID_SOLID
+	c1.movetype = 4
+
+//	move entity ped by [0, 0, -12] at 30 speed signaling sig
+//	wait for all clearing sig
+
+
+//move fire
+
+	use entity camera
+
+	flamel.movetype = PHYSICSTYPE_NOCLIP
+	flamer.movetype = PHYSICSTYPE_NOCLIP
+
+	move entity flamel by [64, 4, 0] at 60 speed signaling sig
+
+	move entity flamer by [64, 0, 0] at 60 speed signaling sig1
+	wait for all clearing sig, sig1
+
+	move entity flamel by [0, 0, -16] at 60 speed signaling sig
+
+	move entity flamer by [0, 0, -16] at 60 speed signaling sig1
+	wait for all clearing sig, sig1
+
+	move entity flamel by [48, 0, 0] at 60 speed signaling sig
+
+	move entity flamer by [48, 0, 0] at 60 speed signaling sig1
+	wait for all clearing sig, sig1
+
+	move entity flamel by [0, 0, -20] at 60 speed signaling sig
+
+	move entity flamer by [0, 0, -20] at 60 speed signaling sig1
+	wait for all clearing sig, sig1
+
+	camtarget.movetype = PHYSICSTYPE_PUSH
+	move entity camtarget by [640, 0, 0] at 100 speed
+
+	move entity flamel by [640, 0, 0] at 400 speed signaling sig
+
+	move entity flamer by [640, 0, 0] at 400 speed signaling sig1
+	wait for all clearing sig, sig1
+
+	use entity rubblefront
+
+	use entity barreltop
+
+	wait .3 seconds
+
+	use entity wall
+
+	use entity rubbleback
+
+	use entity barrelback
+
+//	move entity flamel by [0, 0, -640] at 1000 speed signaling sig
+
+//	move entity flamer by [0, 0, -640] at 1000 speed signaling sig1
+//	wait for all clearing sig, sig1
+
+
+	wait 2 seconds
+
+	use entity camera
+
+	player1.origin = c1.origin
+	player1.p_origin = c1.origin
+	set view angles of entity player1 to c1.angles
+
+	c1.modelindex = 0
+	c1.solid = SOLID_NOT
+
+disable cinematics
+
+
+

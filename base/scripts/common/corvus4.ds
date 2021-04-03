@@ -1,0 +1,122 @@
+// template file for scripts
+
+#include "../common/header.ds"
+
+output "r:/base/ds/common"
+
+local int sig
+
+parameter entity corvus
+
+
+corvus.yaw_speed = 15
+
+// Idle2
+animate entity corvus performing action IDLE2_ANIMATION repeating for 4 times signaling sig
+wait for any clearing sig
+
+
+// Action 2
+animate entity corvus performing action ACTION2_ANIMATION signaling sig
+wait for any clearing sig
+
+// Action 2
+animate entity corvus performing action ACTION2_ANIMATION signaling sig
+wait for any clearing sig
+
+// Walk start
+animate entity corvus performing action WALKSTART_ANIMATION signaling sig
+wait for any clearing sig
+
+// Walk 1
+animate entity corvus performing action WALK1_ANIMATION by moving [240, 0, 0] signaling sig
+wait for any clearing sig
+
+// Walk stop1
+animate entity corvus performing action WALKSTOP1_ANIMATION signaling sig
+wait for any clearing sig
+
+// Walk start
+animate entity corvus performing action WALKSTART_ANIMATION signaling sig
+wait for any clearing sig
+
+// Walk 1
+animate entity corvus performing action WALK1_ANIMATION by moving [140, 0, 0] signaling sig
+wait for any clearing sig
+
+// Walk stop2
+animate entity corvus performing action WALKSTOP2_ANIMATION signaling sig
+wait for any clearing sig
+
+// Idle 1
+animate entity corvus performing action IDLE1_ANIMATION repeating for 2 times signaling sig
+wait for any clearing sig
+
+
+// Pivot Left Go
+animate entity corvus performing action PIVOTLEFTGO_ANIMATION signaling sig
+wait for any clearing sig
+
+// Pivot Left 
+animate entity corvus performing action PIVOTLEFT_ANIMATION by turning [180, 0, 0] signaling sig
+wait for any clearing sig
+
+// Pivot Left Stop
+animate entity corvus performing action PIVOTLEFTSTOP_ANIMATION signaling sig
+wait for any clearing sig
+
+
+// Idle 1
+animate entity corvus performing action IDLE1_ANIMATION repeating for 2 times signaling sig
+wait for any clearing sig
+
+// Pivot Right Go
+animate entity corvus performing action PIVOTRIGHTGO_ANIMATION signaling sig
+wait for any clearing sig
+
+// Pivot Right 
+animate entity corvus performing action PIVOTRIGHT_ANIMATION by turning [-180, 0, 0] signaling sig
+wait for any clearing sig
+
+// Pivot Right Stop
+animate entity corvus performing action PIVOTLEFTSTOP_ANIMATION signaling sig
+wait for any clearing sig
+
+
+// Action 1
+animate entity corvus performing action ACTION1_ANIMATION signaling sig
+wait for any clearing sig
+
+// Action 2
+animate entity corvus performing action ACTION2_ANIMATION signaling sig
+wait for any clearing sig
+
+// Action 3
+animate entity corvus performing action ACTION3_ANIMATION signaling sig
+wait for any clearing sig
+
+// Action 4
+animate entity corvus performing action ACTION4_ANIMATION signaling sig
+wait for any clearing sig
+
+// Action 5
+animate entity corvus performing action ACTION5_ANIMATION signaling sig
+wait for any clearing sig
+
+// Idle 2
+animate entity corvus performing action IDLE2_ANIMATION by turning [180, 0, 0] repeating for 4 times signaling sig
+wait for any clearing sig
+
+// Walk start
+animate entity corvus performing action WALKSTART_ANIMATION signaling sig
+wait for any clearing sig
+
+// Walk 2
+animate entity corvus performing action WALK2_ANIMATION by moving [240, 0, 0] signaling sig
+wait for any clearing sig
+
+
+
+
+// Idle 1
+animate entity corvus performing action IDLE1_ANIMATION

@@ -1,0 +1,24 @@
+// Spit with a frying elf
+
+
+#include "../common/header.ds"
+
+output "r:/base/ds/silverspring"
+
+local entity spinman
+local entity spit
+local int sig
+local int sig1
+
+spinman = find entity with targetname "spinman"
+spit = find entity with targetname "spit"
+spinman.movetype = PHYSICSTYPE_PUSH
+spinman.origin = spit.origin
+ 
+label top
+
+rotate entity spit by [360, 0, 0] at 30 speed signaling sig
+rotate entity spinman by [0, 0, 360] at 30 speed signaling sig1
+wait for all clearing sig, sig1
+
+goto top

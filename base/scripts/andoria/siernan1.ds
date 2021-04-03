@@ -1,0 +1,431 @@
+// The first time corvus meets siernan.
+
+#include "../common/header.ds"
+
+output "r:/base/ds/andoria"
+
+local entity camera1
+local entity camera2
+local entity camera3
+local entity camera4
+local entity camera5
+local entity camera6
+local entity camera7
+local entity camera8
+local entity objective
+local entity take
+local entity siernan
+local entity corvus
+local entity player1
+local entity movecam1
+
+local int sig
+
+cache sound "cinematics/first siernan/48-4.wav"
+cache sound "cinematics/first siernan/49-6.wav"
+cache sound "cinematics/first siernan/50-5.wav"
+cache sound "cinematics/first siernan/51-5.wav"
+cache sound "cinematics/first siernan/52-8.wav"
+cache sound "cinematics/first siernan/53-3.wav"
+cache sound "cinematics/first siernan/54-2.wav"
+cache sound "cinematics/first siernan/55-12.wav"
+cache sound "cinematics/first siernan/56-1.wav"
+cache sound "cinematics/first siernan/57-2.wav"
+cache sound "cinematics/first siernan/58-2.wav"
+cache sound "cinematics/first siernan/59-8.wav"
+
+camera1 = find entity with targetname "camera1"
+camera2 = find entity with targetname "camera2"
+camera3 = find entity with targetname "camera3"
+camera4 = find entity with targetname "camera4"
+camera5 = find entity with targetname "camera5"
+camera6 = find entity with targetname "camera6"
+camera7 = find entity with targetname "camera7"
+camera8 = find entity with targetname "camera8"
+objective = find entity with targetname "objective3"
+take = find entity with targetname "take3"
+siernan = find entity with targetname "siernan"
+corvus = find entity with targetname "corvus"
+movecam1 = find entity with targetname "movecam1"
+player1 = get entity activator
+
+// lets start this sucker.
+
+ 	siernan.yaw_speed = 7
+
+	copy player attributes from entity player1 to entity corvus
+	corvus.modelindex = corvus.count
+	corvus.solid = SOLID_SOLID
+	corvus.movetype = 4
+
+	siernan.movetype = 5
+
+	enable cinematics
+
+//camera1, high on right side of corvus looking at siernan.
+
+	use entity camera1
+
+	animate entity corvus performing action WALK2_ANIMATION by moving [100, 0, 0] by turning [-15, 0, 0] signaling sig
+	wait for all clearing sig
+
+	animate entity corvus performing action WALKSTOP2_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity corvus performing action IDLE1_ANIMATION
+
+	play sound "cinematics/first siernan/48-4.wav" for entity siernan
+	print 168 captioned
+
+	animate entity siernan performing action ACTION5_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity siernan performing action IDLE2_ANIMATION
+	
+	play sound "cinematics/first siernan/49-6.wav" for entity corvus
+	print 169 captioned
+
+	animate entity corvus performing action ACTION9_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity corvus performing action IDLE1_ANIMATION	
+
+	use entity camera1
+
+//camera2, middle shot of siernan.
+
+	use entity camera2
+
+	animate entity siernan performing action WALK1_ANIMATION by turning [-90, 0, 0] signaling sig
+	wait for all clearing sig
+
+	animate entity siernan performing action WALKSTART_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity siernan performing action WALK1_ANIMATION by moving [100, 0, 0] signaling sig
+	wait for all clearing sig
+
+	animate entity siernan performing action WALK1_ANIMATION by moving [100, 0, 0] by turning [45, 0, 0] signaling sig
+	wait for all clearing sig
+
+	animate entity siernan performing action WALKSTOP1_ANIMATION signaling sig
+	wait for all clearing sig
+
+	play sound "cinematics/first siernan/50-5.wav" for entity siernan
+	print 170 captioned
+
+	animate entity siernan performing action ACTION1_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity siernan performing action ACTION2_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity siernan performing action ACTION3_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity siernan performing action ACTION4_ANIMATION repeating for 2 times signaling sig
+	wait for all clearing sig
+
+	animate entity siernan performing action IDLE1_ANIMATION
+
+	use entity camera2
+
+//camera3, middle shot of corvus
+
+	use entity camera3
+
+//-----------------------------------------------
+
+	animate entity corvus performing action WALK2_ANIMATION by moving [75, 0, 0] signaling sig
+	wait for all clearing sig
+
+//	animate entity corvus performing action WALKSTOP1_ANIMATION signaling sig
+//	wait for all clearing sig
+
+//------------------------------------------------
+
+	play sound "cinematics/first siernan/51-5.wav" for entity corvus
+	print 171 captioned
+
+	animate entity siernan performing action IDLE1_ANIMATION
+
+	animate entity corvus performing action ACTION8_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity corvus performing action ACTION11_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity corvus performing action ACTION12_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity corvus performing action ACTION6_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity corvus performing action ACTION11_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity corvus performing action ACTION12_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity corvus performing action IDLE1_ANIMATION
+
+	use entity camera3
+
+//camera4, side shot of both charactors
+
+ 	use entity camera4
+
+	play sound "cinematics/first siernan/52-8.wav" for entity siernan
+	print 172 captioned
+
+	animate entity siernan performing action ACTION1_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity siernan performing action ACTION2_ANIMATION signaling sig
+	wait for all clearing sig
+
+	play sound "cinematics/first siernan/53-3.wav" for entity corvus
+	print 173 captioned
+
+	animate entity siernan performing action IDLE1_ANIMATION
+
+	animate entity corvus performing action ACTION8_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity corvus performing action ACTION11_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity corvus performing action ACTION12_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity corvus performing action ACTION10_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity corvus performing action IDLE1_ANIMATION
+
+	use entity camera4
+
+//camera7, side shot.
+
+	use entity camera7
+
+	play sound "cinematics/first siernan/54-2.wav" for entity siernan
+	print 174 captioned
+
+	animate entity siernan performing action ACTION2_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity siernan performing action ACTION3_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity siernan performing action ACTION5_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity siernan performing action ACTION1_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity siernan performing action ACTION2_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity siernan performing action ACTION3_ANIMATION signaling sig
+	print 175 captioned
+	wait for all clearing sig
+
+	animate entity siernan performing action ACTION5_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity siernan performing action ACTION4_ANIMATION signaling sig
+	wait for all clearing sig
+
+	use entity camera7
+
+//camera6, back to looking straight on corvus.
+
+	use entity camera6
+
+	animate entity corvus performing action ACTION11_ANIMATION signaling sig
+	wait for all clearing sig
+
+	play sound "cinematics/first siernan/55-12.wav" for entity corvus
+	print 176 captioned
+
+	animate entity siernan performing action IDLE1_ANIMATION
+
+	animate entity corvus performing action ACTION12_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity corvus performing action ACTION8_ANIMATION signaling sig
+	wait for all clearing sig
+	
+	animate entity corvus performing action ACTION10_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity corvus performing action ACTION8_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity corvus performing action ACTION11_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity siernan performing action IDLE2_ANIMATION
+
+	animate entity corvus performing action ACTION12_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity corvus performing action IDLE1_ANIMATION
+
+	use entity camera6
+
+//camera5, looking at siernan and moving a little bit.
+
+	use entity camera5
+
+	play sound "cinematics/first siernan/56-1.wav" for entity siernan
+	print 177 captioned
+
+	animate entity siernan performing action ACTION1_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity siernan performing action ACTION2_ANIMATION signaling sig
+	wait for all clearing sig
+	print 178 captioned
+
+	animate entity siernan performing action ACTION3_ANIMATION signaling sig
+	wait for all clearing sig
+
+	move entity movecam1 by [50, 0, 20] over 15 seconds
+
+	animate entity siernan performing action ACTION2_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity siernan performing action ACTION1_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity siernan performing action ACTION5_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity siernan performing action ACTION3_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity siernan performing action ACTION2_ANIMATION signaling sig
+	print 179 captioned
+	wait for all clearing sig
+
+	animate entity siernan performing action ACTION1_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity siernan performing action ACTION3_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity siernan performing action ACTION4_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity siernan performing action ACTION5_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity siernan performing action ACTION1_ANIMATION signaling sig
+	print 180 captioned
+	wait for all clearing sig
+
+	animate entity siernan performing action ACTION2_ANIMATION signaling sig
+	wait for all clearing sig
+
+ 	use entity camera5
+
+//camera8, side shot of both charactors (same as camera4)
+
+	use entity camera8
+
+	play sound "cinematics/first siernan/57-2.wav" for entity corvus
+	print 181 captioned
+
+	animate entity siernan performing action IDLE1_ANIMATION
+
+	animate entity corvus performing action ACTION10_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity corvus performing action ACTION6_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity corvus performing action IDLE1_ANIMATION
+
+	play sound "cinematics/first siernan/58-2.wav" for entity siernan
+	print 182 captioned
+
+	animate entity siernan performing action ACTION3_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity siernan performing action ACTION2_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity siernan performing action ACTION4_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity siernan performing action ACTION1_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity siernan performing action ACTION5_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity siernan performing action ACTION2_ANIMATION signaling sig
+	wait for all clearing sig
+
+	play sound "cinematics/first siernan/59-8.wav" for entity siernan
+
+	animate entity siernan performing action ACTION1_ANIMATION signaling sig
+	print 183 captioned
+	wait for all clearing sig
+
+	animate entity siernan performing action ACTION4_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity siernan performing action ACTION3_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity siernan performing action IDLE1_ANIMATION signaling sig
+	wait for all clearing sig
+
+	use entity take
+	use entity objective
+
+	disable cinematics
+
+	player1.origin = corvus.origin
+	player1.p_origin = corvus.origin
+	set view angles of entity player1 to corvus.angles
+
+	corvus.modelindex = 0
+	corvus.solid = SOLID_NOT
+
+	use entity camera8
+
+	animate entity siernan performing action WALK1_ANIMATION by turning [90, 0, 0] signaling sig
+	wait for all clearing sig
+
+	animate entity siernan performing action WALK1_ANIMATION by turning [90, 0, 0] signaling sig
+	wait for all clearing sig
+
+	animate entity siernan performing action WALK1_ANIMATION by moving [20, 0, 0] signaling sig
+	wait for all clearing sig
+
+	animate entity siernan performing action WALK1_ANIMATION by turning [-45, 0, 0] signaling sig
+	wait for all clearing sig
+
+	animate entity siernan performing action WALK1_ANIMATION by moving [20, 0, 0] signaling sig
+	wait for all clearing sig
+
+	animate entity siernan performing action WALK1_ANIMATION by turning [-90, 0, 0] signaling sig
+	wait for all clearing sig
+
+	animate entity siernan performing action IDLE1_ANIMATION signaling sig
+	wait for all clearing sig
+
+
+
+
+
+
+
+
+
+
+

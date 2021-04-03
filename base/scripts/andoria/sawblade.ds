@@ -1,0 +1,46 @@
+//saw blade from hell
+
+#include "../common/header.ds"
+
+output "r:/base/ds/andoria"
+
+//define variables
+
+local entity saw
+local entity rope
+local entity dam
+
+local int sig
+local int sig2
+
+saw = find entity with targetname "blade"
+rope = find entity with targetname "rope"
+dam = find entity with targetname "dam"
+
+//start of script
+
+label start
+
+saw.angle_velocity = [0, 0, 480]
+play sound "objects/yoyo.wav" for entity saw
+move entity saw by [0, 0, -416] at 400 speed signaling sig
+move entity rope by [0, 0, -416] at 400 speed signaling sig2
+wait for all clearing sig, sig2
+
+enable trigger entity dam
+play sound "objects/yoyo.wav" for entity dam
+
+wait 3 seconds
+
+disable trigger entity dam
+
+saw.angle_velocity = [0, 0, -480]
+play sound "objects/yoyo.wav" for entity saw
+move entity saw by [0, 0, 416] at 300 speed signaling sig
+move entity rope by [0, 0, 416] at 300 speed signaling sig2
+wait for all clearing sig, sig2
+saw.angle_velocity = [0, 0, 0]
+
+suspend
+
+goto start

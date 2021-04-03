@@ -1,0 +1,21 @@
+//SSwarehouse, Spiky thing swings
+
+#include "../common/header.ds"
+output "r:/base/ds/silverspring"
+
+//define variables
+
+local entity spiky
+local entity richard
+
+spiky = find entity with targetname "spiky"
+richard = find entity with targetname "richard"
+spiky.movetype = PHYSICSTYPE_PUSH
+
+//poor spiky
+
+use entity spiky
+
+disable trigger entity richard
+
+

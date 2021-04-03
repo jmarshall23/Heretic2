@@ -1,0 +1,47 @@
+//blocking entities
+
+#include "../common/header.ds"
+
+output "r:/base/ds/andoria"
+
+//define variables
+
+local entity back
+local entity front
+local entity crap
+
+global int up_or_down1
+global int up_or_down2
+
+local int sig
+local int sig2
+
+back = find entity with targetname "pusher1"
+front = find entity with targetname "pusher2"
+crap = find entity with targetname "pickmeup"
+
+//start of script
+
+label start
+if up_or_down1 = 0
+
+ if up_or_down2 = 0
+	up_or_down2 = 1
+	play sound "doors/stonestart.wav" for entity crap
+	play sound "doors/stonestart.wav" for entity back
+	move entity back by [0, 400, 0] at 300 speed signaling sig
+	move entity front by [0, 400, 0] at 300 speed signaling sig2
+ else
+	up_or_down2 = 0
+	play sound "doors/stonestart.wav" for entity front
+	play sound "doors/stonestart.wav" for entity back
+	move entity back by [0, -400, 0] at 300 speed signaling sig
+	move entity front by [0, -400, 0] at 300 speed signaling sig2
+endif
+else
+	print 51 captioned
+endif
+
+suspend
+
+goto start

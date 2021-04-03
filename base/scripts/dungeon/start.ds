@@ -1,0 +1,127 @@
+// the beginnign script with corvus and the tome of power.
+
+#include "../common/header.ds"
+
+output "r:/base/ds/dungeon"
+
+local entity corvus1
+local entity tome
+local entity scamera
+local entity player1
+local entity sickcam
+
+local int sig
+
+corvus1 = find entity with targetname "corvus1"
+tome = find entity with targetname "tome"
+scamera = find entity with targetname "scamera"
+sickcam = find entity with targetname "sickcam"
+player1 = get entity activator
+
+// tome starts talking.
+
+	copy player attributes from entity player1 to entity corvus1
+	corvus1.modelindex = corvus1.count
+	corvus1.solid = SOLID_SOLID
+	corvus1.movetype = 4
+
+	tome.modelindex = tome.count
+	tome.solid = SOLID_SOLID
+
+	enable cinematics
+
+	use entity scamera
+
+	animate entity tome performing action IDLE1_ANIMATION 
+
+	print 74 captioned
+
+	play sound "player/corvussick.wav" for entity corvus1
+
+	animate entity corvus1 performing action ACTION4_ANIMATION signaling sig
+	wait 2 seconds
+	move entity sickcam by [90, 200, -75] over 4 seconds
+	wait for all clearing sig
+
+	animate entity corvus1 performing action IDLE1_ANIMATION
+	
+	wait 4 seconds
+
+	disable cinematics
+
+	player1.origin = corvus1.origin
+	player1.p_origin = corvus1.origin
+	set view angles of entity player1 to corvus1.angles
+
+	corvus1.modelindex = 0
+	corvus1.solid = SOLID_NOT
+
+	tome.modelindex = 0
+	tome.solid = SOLID_NOT
+
+	use entity scamera
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

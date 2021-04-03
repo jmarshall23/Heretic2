@@ -1,0 +1,36 @@
+//Level change, push crate
+
+#include "../common/header.ds"
+
+output "R:base/ds/silverspring"
+
+//Define variables
+
+local entity box
+local entity boards
+local entity cam
+local int sig
+
+box = find entity with targetname "b1"
+boards = find entity with targetname "b2"
+cam = find entity with targetname "c1"
+
+//Pushing crate over edge
+
+	use entity cam
+
+	rotate entity box to [-30, 0, 0] at 250 speed signaling sig
+	wait for all clearing sig
+	
+	//move entity box by [0, 0, -272] at 500 speed signaling sig
+	wait for all clearing sig
+
+	rotate entity box to [-60, 0, 0] at 250 speed signaling sig
+
+	use entity boards
+
+exit 
+
+
+
+	

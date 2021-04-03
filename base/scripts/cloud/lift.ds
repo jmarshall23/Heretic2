@@ -1,0 +1,35 @@
+//lift in boiler room
+
+#include "../common/header.ds"
+
+output "r:/base/ds/cloud"
+
+
+//define variables
+
+local entity roll
+local entity lift
+local int sig
+local int sig1
+
+roll = find entity with targetname "roll"
+lift = find entity with targetname "lift"
+
+label loop
+
+//lift goes up
+
+	move entity lift by [0, 0, 576] at 60 speed signaling sig
+	
+	rotate entity roll to [-576, 0, 0] at 60 speed signaling sig1
+	wait for all clearing sig, sig1
+
+	wait 2 seconds
+
+	move entity lift by [0, 0, -576] at 80 speed signaling sig
+	
+	rotate entity roll to [576, 0, 0] at 80 speed signaling sig1
+	wait for all clearing sig, sig1
+
+suspend
+goto loop

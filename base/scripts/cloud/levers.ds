@@ -1,0 +1,56 @@
+//Levers come from the walls in the sanctum.
+
+
+#include "../common/header.ds"
+
+output "r:/base/ds/cloud"
+
+// define varibles
+
+local entity leverr
+local entity leverl
+local entity leverbaser
+local entity leverbasel
+local entity doorr
+local entity doorl
+local entity steps
+local int sig
+local int sig1
+local int sig2
+local int sig3
+
+leverr = find entity with targetname "leverr"
+leverl = find entity with targetname "leverl"
+leverbaser = find entity with targetname "t50"
+leverbasel = find entity with targetname "t62"
+doorr = find entity with targetname "r7"
+doorl = find entity with targetname "d7"
+steps = find entity with targetname "steps"
+
+//move it
+
+	play sound "doors/kchunk3.wav" for entity doorl on channel 10
+	move entity doorr by [-16, 0, 0] at 75 speed signaling sig
+	move entity doorl by [-16, 0, 0] at 75 speed signaling sig1
+	wait for all clearing sig, sig1
+
+	wait .5 seconds
+	move entity doorr by [0, 32, 0] at 75 speed signaling sig
+	move entity doorl by [0, -32, 0] at 75 speed signaling sig1
+	wait for all clearing sig, sig1
+
+	play sound "doors/slide2.wav" for entity leverbasel on channel 10
+	leverr.movetype = PHYSICSTYPE_PUSH
+	leverl.movetype = PHYSICSTYPE_PUSH
+	move entity leverr by [104, 0, 0] at 75 speed signaling sig
+	move entity leverl by [104, 0, 0] at 75 speed signaling sig1
+	move entity leverbaser by [104, 0, 0] at 75 speed signaling sig2
+	move entity leverbasel by [104, 0, 0] at 75 speed signaling sig3
+	wait for all clearing sig, sig1, sig2, sig3
+	play sound "doors/thud4.wav" for entity leverbasel on channel 10
+
+	move entity steps by [32, 0, 0] at 75 speed signaling sig
+	wait for all clearing sig
+
+
+	

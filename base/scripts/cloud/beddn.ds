@@ -1,0 +1,22 @@
+//bed goes down
+
+#include "../common/header.ds"
+
+output "r:/base/ds/cloud"
+
+local entity bed
+local int sig
+
+bed = find entity with targetname "bed"
+
+//label loop
+
+play sound "doors/gendoorstart.wav" for entity bed on channel 10
+
+move entity bed by [0, 0, -280] at 75 speed signaling sig
+wait for all clearing sig
+
+play sound "doors/gendoorstop.wav" for entity bed on channel 10
+
+//suspend
+//goto loop

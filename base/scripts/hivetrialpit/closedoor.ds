@@ -1,0 +1,32 @@
+output "r:/base/ds/hivetrialpit"
+#include "../common/header.ds"
+
+local entity BigDoorN
+local entity BigDoorS
+local entity BigDoorPortal
+local int s1
+local int s2
+
+BigDoorN = find entity with targetname "bigdoorn"
+BigDoorS = find entity with targetname "bigdoors"
+BigDoorPortal = find entity with targetname "bigdoorportal"
+
+label beginning
+
+move entity BigDoorN by [0,-128,0] at 128 speed signaling s1
+move entity BigDoorS by [0,128,0] at 128 speed signaling s2
+
+play sound "doors/slide2.wav" for entity BigDoorN
+wait 0.1 seconds
+play sound "doors/slide2.wav" for entity BigDoorS
+
+wait for all clearing s1, s2
+
+use entity BigDoorPortal
+
+play sound "doors/stoneend.wav" for entity BigDoorN
+play sound "doors/stoneend.wav" for entity BigDoorS
+
+
+suspend
+goto beginning

@@ -1,0 +1,23 @@
+//Lever pushes crates out of doorway at bottom of SSDocks tower
+
+#include "../common/header.ds"
+output "r:/base/ds/silverspring"
+
+
+//define variables
+
+local entity trigs
+global int jumpyboy
+
+trigs = find entity with targetname "jump1"
+
+// print message then exit
+
+if jumpyboy != 1
+	jumpyboy = 1
+	print 77
+endif
+
+disable trigger entity trigs
+exit
+

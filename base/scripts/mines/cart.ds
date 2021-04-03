@@ -1,0 +1,40 @@
+// an ogle pushing a cart
+
+#include "../common/header.ds"
+
+output "r:/base/ds/mines"
+
+local entity cart
+local entity larry
+
+local int sig
+local int sig1
+
+cart = find entity with targetname "cart"
+larry = find entity with targetname "larry"
+
+// start
+
+	cart.movetype = PHYSICSTYPE_PUSH
+
+	play sound "monsters/seraph/overlord/scold.wav" for entity larry
+
+	wait 1 seconds
+
+	move entity cart by [0, 186, 14] over 9 seconds signaling sig
+	
+	animate entity larry performing action WALK2_ANIMATION by moving [186, 0, 0] signaling sig1
+	wait for all clearing sig, sig1
+
+	rotate entity cart by [0, 0, 8] at 200 speed signaling sig
+	wait for all clearing sig
+
+	move entity cart by [0, 48, 0] over 2 seconds signaling sig
+
+	animate entity larry performing action WALK2_ANIMATION by moving [48, 0, 0] signaling sig1
+	wait for all clearing sig, sig1
+
+	animate entity larry performing action IDLE3_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity larry performing action THINKAGAIN_ANIMATION

@@ -1,0 +1,111 @@
+//platform that raises block over stairs
+
+#include "../common/header.ds"
+
+output "r:/base/ds/andoria"
+
+//define variables
+
+local entity plat
+local entity buttons
+local entity punch
+local entity bars
+local entity block
+local entity back
+local entity saw
+local entity rope
+
+local int sig
+local int sig2
+local int sig3
+
+global int up_or_down1
+global int up_or_down2
+
+plat = find entity with targetname "lifter"
+buttons = find entity with targetname "buttonpunchers"
+punch = find entity with targetname "punch"
+bars = find entity with targetname "pusher2"
+block = find entity with targetname "pickmeup"
+back = find entity with targetname "pusher1"
+saw = find entity with targetname "blade"
+rope = find entity with targetname "rope"
+
+//start of script
+
+//plat moves down after checking to see if bars are in place
+label downsy
+if up_or_down2 = 0
+	up_or_down1 = 1
+	play sound "doors/elevatorstart.wav" for entity plat
+//	wait 0.9 seconds
+//	play sound "doors/elevatormove.wav" for entity plat
+	move entity plat by [0, 0, -176] at 100 speed signaling sig
+	wait for all clearing sig
+	play sound "doors/elevatorstop.wav" for entity plat
+	up_or_down1 = 0
+	goto checkit
+else
+	up_or_down1 = 1
+	play sound "doors/elevatorstart.wav" for entity plat
+//	wait 0.9 seconds
+//	play sound "doors/elevatormove.wav" for entity plat
+	move entity plat by [0, 0, -144] at 100 speed signaling sig
+	wait for all clearing sig
+	play sound "doors/elevatorstop.wav" for entity plat
+	wait 2 seconds
+	play sound "doors/elevatorstart.wav" for entity plat
+//	wait 0.9 seconds
+//	play sound "doors/elevatormove.wav" for entity plat
+	move entity plat by [0, 0, 144] at 100 speed signaling sig
+	wait for all clearing sig
+	play sound "doors/elevatorstop.wav" for entity plat
+	up_or_down1 = 0
+	goto holdon
+endif
+
+
+//pause to allow bars to be moved into place
+label checkit
+	wait 10 seconds
+	goto upsy
+
+//plat moves up after checking to see if bars are in place
+label upsy
+if up_or_down2 = 0
+	up_or_down1 = 1
+	play sound "doors/elevatorstart.wav" for entity plat
+//	wait 0.9 seconds
+//	play sound "doors/elevatormove.wav" for entity plat
+	move entity plat by [0, 0, 176] at 100 speed signaling sig
+	wait for all clearing sig
+	play sound "doors/elevatorstop.wav" for entity plat
+	up_or_down1 = 0
+	goto holdon
+else
+	up_or_down1 = 1
+	disable trigger entity buttons
+	disable trigger entity punch
+	play sound "doors/elevatorstart.wav" for entity plat
+//	wait 0.9 seconds
+//	play sound "doors/elevatormove.wav" for entity plat
+	move entity saw by [0, 0, 384] at 400 speed
+	move entity rope by [0, 0, 384] at 400 speed
+	move entity plat by [0, 0, 176] at 100 speed signaling sig
+	move entity bars by [0, 0, 176] at 100 speed signaling sig2
+	move entity block by [0, 0, 176] at 100 speed signaling sig3
+	wait for all clearing sig, sig2, sig3
+	play sound "doors/elevatorstop.wav" for entity plat
+	play sound "doors/stonestart.wav" for entity back
+	move entity back by [0, -176, 0] at 300 speed signaling sig
+	exit
+endif
+
+label holdon
+suspend
+
+goto downsy
+
+
+
+

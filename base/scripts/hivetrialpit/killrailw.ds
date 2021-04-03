@@ -1,0 +1,20 @@
+output "r:/base/ds/hivetrialpit"
+#include "../common/header.ds"
+
+local entity RailW
+local int s1
+local int s2
+
+RailW = find entity with targetname "RailingW"
+RailW.movetype = 5
+
+move entity RailW by [-256,64,-128] at 800 speed signaling s1
+rotate entity RailW by [180, 600, 180] at 600 speed
+wait for any clearing s1
+
+move entity RailW by [-256,64,-256] at 800 speed signaling s1
+wait for any clearing s1
+
+use entity RailW
+
+exit

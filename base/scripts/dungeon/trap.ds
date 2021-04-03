@@ -1,0 +1,109 @@
+// the big bad trap right before the level change
+
+#include "../common/header.ds"
+
+output "r:/base/ds/dungeon"
+
+
+local entity trapdoor1
+local entity trapdoor2
+
+local int sig
+local int sig1
+
+trapdoor1 = find entity with targetname "trapdoor1"
+trapdoor2 = find entity with targetname "trapdoor2"
+
+// dropping your drawers. ah hem, i mean doors.
+
+	move entity trapdoor1 by [0, 0, -200] at 1000 speed signaling sig
+	
+	move entity trapdoor2 by [0, 0, -200] at 1000 speed signaling sig1
+	wait for all clearing sig, sig1
+
+// start coming together
+
+	move entity trapdoor1 by [100, 0, 0] over 3 seconds signaling sig
+	
+	move entity trapdoor2 by [-100, 0, 0] over 3 seconds signaling sig1
+	wait for all clearing sig, sig1
+
+
+
+
+	move entity trapdoor1 by [100, 0, 0] over 3 seconds signaling sig
+	
+	move entity trapdoor2 by [-100, 0, 0] over 3 seconds signaling sig1
+	wait for all clearing sig, sig1
+
+
+
+
+	move entity trapdoor1 by [75, 0, 0] over 3 seconds signaling sig
+	
+	move entity trapdoor2 by [-75, 0, 0] over 3 seconds signaling sig1
+	wait for all clearing sig, sig1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

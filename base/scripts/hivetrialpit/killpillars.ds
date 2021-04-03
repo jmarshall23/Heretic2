@@ -1,0 +1,39 @@
+output "r:/base/ds/hivetrialpit"
+#include "../common/header.ds"
+
+local entity pillartop
+local entity pillarbottom
+local entity pillarfirebase
+local int s1
+local int s2
+local int spd
+spd = 800
+
+pillartop = find entity with scripttarget "SouthPillarTop"
+pillarbottom = find entity with scripttarget "SouthPillarBottom"
+pillarfirebase = find entity with targetname "spillarfirebase"
+
+pillartop.movetype = 5
+pillarbottom.movetype = 5
+
+play sound "misc/breakstone.wav" for entity pillartop
+
+use entity pillarfirebase
+
+move entity pillartop by [-128,-32,-288] at spd speed signaling s1
+rotate entity pillartop by [-90,15,15] at 220 speed
+move entity pillarbottom by [-384,32,-104] at spd speed signaling s2
+rotate entity pillarbottom by [-75,15,15] at 200 speed
+
+wait for all clearing s1, s2
+
+play sound "misc/breakstone.wav" for entity pillartop
+
+pillartop.movetype = 0
+pillarbottom.movetype = 0
+
+use entity pillartop
+use entity pillarbottom
+
+exit
+

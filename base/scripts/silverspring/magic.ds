@@ -1,0 +1,34 @@
+// spinning color blocks 
+
+#include "../common/header.ds"
+
+output "r:/base/ds/silverspring"
+
+local entity spin1
+
+local int sig1
+local int sig2
+
+spin1 = find entity with targetname "spin1"
+
+spin1.movetype = PHYSICSTYPE_NOCLIP
+spin1.solid = SOLID_NOT
+label hi
+rotate entity spin1 by [720, 720, 720] at 800 speed
+move entity spin1 by [0, 2, -6] at 300 speed signaling sig1
+wait for all clearing sig1
+move entity spin1 by [0, 6, -2] at 300 speed signaling sig1
+wait for all clearing sig1
+move entity spin1 by [0, 6, 2] at 300 speed signaling sig1
+wait for all clearing sig1
+move entity spin1 by [0, 2, 6] at 300 speed signaling sig1
+wait for all clearing sig1
+move entity spin1 by [0, -2, 6] at 300 speed signaling sig1
+wait for all clearing sig1
+move entity spin1 by [0, -6, 2] at 300 speed signaling sig1
+wait for all clearing sig1
+move entity spin1 by [0, -6, -2] at 300 speed signaling sig1
+wait for all clearing sig1
+move entity spin1 by [0, -2, -6] at 300 speed signaling sig1
+wait for all clearing sig1
+goto hi

@@ -1,0 +1,99 @@
+// the place where you put the unrefined ore.
+
+#include "../common/header.ds"
+
+output "r:/base/ds/mines"
+
+local entity scoop
+local entity pole
+local entity ore
+local entity wall
+local entity bcam
+local entity bcam2
+local entity relay
+local entity cor
+local entity player1
+
+local int sig
+local int sig1
+local int sig2
+
+scoop = find entity with targetname "scoop"
+pole = find entity with targetname "pole"
+ore = find entity with targetname "ore"
+wall = find entity with targetname "wall"
+bcam = find entity with targetname "bcam"
+bcam2 = find entity with targetname "bcam2"
+relay = find entity with targetname "relay"
+cor = find entity with targetname "cor"
+player1 = get entity activator
+
+// place the ore in the bucket
+
+	enable cinematics
+
+	copy player attributes from entity player1 to entity cor
+	cor.modelindex = cor.count
+	cor.solid = SOLID_NOT
+	cor.movetype = PHYSICSTYPE_NOCLIP
+
+	
+	use entity bcam
+
+	use entity relay
+
+	ore = spawn entity with fields "classname" = "item_puzzle_ore", "origin" = [2144, -88, -500], "targetname" = "ore"
+
+	wait 2 seconds
+
+	ore.movetype =  PHYSICSTYPE_NOCLIP
+
+	move entity scoop by [0, 0, 24] over 1 seconds signaling sig
+
+	move entity pole by [0, 0, 24] over 1 seconds signaling sig1
+
+	move entity ore by [0, 0, 8] over 1 seconds signaling sig2
+	wait for all clearing sig, sig1, sig2
+
+	rotate entity scoop by [0, 0, -110] over 2 seconds signaling sig
+
+	move entity ore by [0, 40, 0] over 2 seconds signaling sig1
+	wait for all clearing sig, sig1
+
+	move entity ore by [0, 250, 0] over 4 seconds signaling sig
+
+	rotate entity scoop by [0, 0, 110] over 2 seconds signaling sig1
+	wait for all clearing sig, sig1
+
+	move entity scoop by [0, 0, -24] over 1 seconds signaling sig
+
+	move entity pole by [0, 0, -24] over 1 seconds signaling sig1
+
+	wait for all clearing sig, sig1
+
+	use entity bcam
+
+	use entity bcam2
+
+	wait 2 seconds
+
+	print 60 captioned
+
+	use entity wall
+	
+	wait 3 seconds
+
+	player1.origin = cor.origin
+	player1.p_origin = cor.origin	// Put player where Cinematic corvus is
+	set view angles of entity player1 to cor.angles 
+
+	cor.modelindex = 0
+	cor.solid = SOLID_NOT
+
+	use entity bcam2
+
+	disable cinematics
+
+
+
+

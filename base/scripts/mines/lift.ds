@@ -1,0 +1,74 @@
+// the lifts in the mine levels
+
+
+#include "../common/header.ds"
+
+output "r:/base/ds/mines"
+
+parameter entity parm1
+parameter entity parm2
+parameter vector parm3
+parameter entity parm4
+parameter entity parm5
+
+local int up = 1
+
+local int sig
+local int sig2
+
+
+	label begining
+
+// using the lever
+
+	parm1.movetype = PHYSICSTYPE_PUSH
+
+	use entity parm1
+
+	wait 1 seconds
+
+// lets move this sucker
+
+	play sound "doors/elevatormove.wav" for entity parm2 on channel 10
+
+	move entity parm1 by parm3 over 5 seconds signaling sig
+
+	move entity parm2 by parm3 over 5 seconds signaling sig2
+
+	if up = 1
+	  wait 3.5 seconds
+	  use entity parm4
+	endif
+
+	wait .5 seconds 
+
+	if up = 1
+	  use entity parm5
+	  up = 0	
+	else
+	  up = 1
+	endif
+
+	wait for all clearing sig, sig2
+
+	play sound "doors/elevatorstop.wav" for entity parm2 on channel 10
+
+
+	parm3 *=-1	
+
+	suspend
+
+	goto begining
+
+
+
+
+
+
+
+
+
+
+
+
+

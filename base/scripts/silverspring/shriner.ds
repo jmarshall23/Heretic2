@@ -1,0 +1,18 @@
+//Lever pushes crates out of doorway at bottom of SSDocks tower
+
+#include "../common/header.ds"
+output "r:/base/ds/silverspring"
+
+
+//define variables
+
+global int firstshrine
+
+// print message then exit
+
+if firstshrine != 66
+	print 73
+	firstshrine = 66
+endif
+exit
+

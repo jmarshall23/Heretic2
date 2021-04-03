@@ -1,0 +1,31 @@
+// its the steam jet. coming out of a pipe.
+
+#include "../common/header.ds"
+
+output "r:/base/ds/mines"
+
+
+local entity wheel
+local entity flame
+local entity flame1
+local entity flame2
+
+local int sig
+
+wheel = find entity with targetname "wheel"
+flame = find entity with targetname "flame"
+flame1 = find entity with targetname "flame1"
+flame2 = find entity with targetname "flame2"
+
+// the start. turning of the wheel
+
+	wheel.movetype = PHYSICSTYPE_PUSH
+
+	rotate entity wheel by [420, 0, 0] at 200 speed signaling sig
+	wait for all clearing sig
+
+// shutting off the steam
+
+	use entity flame
+	use entity flame1
+	use entity flame2

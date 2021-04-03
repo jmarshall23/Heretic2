@@ -1,0 +1,70 @@
+//SSwarehouse level Scared running elf!
+
+#include "../common/header.ds"
+
+output "r:/base/ds/silverspring"
+
+parameter entity wus
+parameter entity bully1
+parameter entity bully2
+
+local int sig
+local int sig1
+local int sig2
+
+bully1.yaw_speed = 8
+bully2.yaw_speed = 8
+
+//Chief Running Elf
+
+//wus.takedamage = DAMAGE_NO
+//bully1.takedamage = DAMAGE_NO
+//bully2.takedamage = DAMAGE_NO
+
+animate entity wus performing action RUN1_ANIMATION by moving [700, 0, 0] 
+
+play sound "ambient/scream2.wav" at attenuation 0 for entity wus
+
+wait 1 seconds
+
+//two elves chase
+
+animate entity bully1 performing action RUN1_ANIMATION by moving [765, 0, 0] 
+
+animate entity bully2 performing action RUN1_ANIMATION by moving [832, 0, 0] signaling sig
+wait for all clearing sig
+
+animate entity bully1 performing action ATTACK3_ANIMATION repeating for 4 times
+
+play sound "monsters/plagueElf/hookhit.wav" for entity bully1 
+
+animate entity bully2 performing action ATTACK2_ANIMATION repeating for 4 times signaling sig
+
+play sound "monsters/plagueElf/hamhit.wav" for entity bully2 
+
+animate entity wus performing action PAIN1_ANIMATION by turning [180, 0, 0] repeating for 2 times signaling sig1
+
+play sound "monsters/plagueElf/pain1.wav" for entity wus 
+wait for all clearing sig, sig1
+
+animate entity wus performing action DEATH1_ANIMATION signaling sig
+
+animate entity bully1 performing action IDLE1_ANIMATION by turning [180, 0, 0] repeating for 1 times signaling sig1
+
+animate entity bully2 performing action IDLE1_ANIMATION by turning [180, 0, 0] repeating for 1 times signaling sig2
+
+play sound "monsters/plagueElf/death1.wav"
+wait for all clearing sig, sig1, sig2
+
+animate entity wus performing action GIB1_ANIMATION
+
+//bully1.takedamage = DAMAGE_YES
+//bully2.takedamage = DAMAGE_YES
+
+animate entity bully1 performing action THINKAGAIN_ANIMATION signaling sig1
+
+animate entity bully2 performing action THINKAGAIN_ANIMATION signaling sig2
+
+wait for all clearing sig1, sig2
+
+exit

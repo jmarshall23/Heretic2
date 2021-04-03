@@ -1,0 +1,63 @@
+//raise water and close doors
+
+#include "../common/header.ds"
+
+output "r:/base/ds/andoria"
+
+//define variables
+
+local entity water
+local entity door1
+local entity door2
+local entity cam
+
+local int sig1
+local int sig2
+local int sig3
+local int wait4me
+
+
+water = find entity with targetname "movewater"
+door1 = find entity with targetname "waterdoor2"
+door2 = find entity with targetname "waterdoor1"
+cam = find entity with targetname "watrcammm"
+
+//start of script
+
+label start
+if wait4me != 666
+	wait4me = 666
+	//use entity cam
+	play sound "objects/oilpump.wav" for entity cam on channel 10
+	play sound "doors/stonestart.wav" for entity door1 on channel 10
+	move entity door1 by [0, 0, -272] at 300 speed signaling sig1
+	play sound "doors/stonestart.wav" for entity door2 on channel 10
+	play sound "objects/oilpump.wav" for entity cam on channel 10
+	rotate entity door2 by [-90, 0, 0] at 30 speed signaling sig2
+	wait for all clearing sig1, sig2
+	play sound "doors/stonestop.wav" for entity door1 on channel 10
+	play sound "doors/stonestop.wav" for entity door2 on channel 10
+	play sound "objects/oilpump.wav" for entity cam on channel 10
+	wait .5 seconds
+	//use entity cam
+//	play sound "ambient/river.wav" for entity water on channel 2
+	move entity water by [0, 0, 260] at 20 speed signaling sig3
+	wait for all clearing sig3
+//	play sound "misc/null.wav" for entity water on channel 2
+	wait 20 seconds
+//	play sound "ambient/river.wav" for entity water 
+	move entity water by [0, 0, -260] at 20 speed signaling sig3
+	wait for all clearing sig3
+//	play sound "misc/null.wav" for entity water on channel 2
+	wait 3 seconds
+	play sound "doors/stonestart.wav" for entity door1 on channel 10
+	move entity door1 by [0, 0, 272] at 300 speed signaling sig1
+	play sound "doors/stonestart.wav" for entity door2 on channel 10
+	rotate entity door2 by [90, 0, 0] at 30 speed signaling sig2
+	wait for all clearing sig1, sig2
+	play sound "doors/stonestop.wav" for entity door1 on channel 10
+	play sound "doors/stonestop.wav" for entity door2 on channel 10
+	wait4me = 0
+endif
+suspend
+goto start

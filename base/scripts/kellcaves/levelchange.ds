@@ -1,0 +1,117 @@
+//level change for kell caves
+
+#include "../common/header.ds"
+
+output "r:/base/ds/kellcaves"
+
+//define variables
+
+local entity cam
+local entity cl
+local entity rock1
+local entity rock2
+local entity rock3
+local entity brock
+local entity two
+local entity rub1
+local entity rub2
+local entity rub3
+local entity dust
+local entity dust1
+local entity c2
+local entity player1
+local entity quake9
+
+local int sig
+local int sig1
+
+cl = find entity with targetname "t1"
+cam = find entity with targetname "t68"
+rock1 = find entity with targetname "rock1"
+rock2 = find entity with targetname "rock2"
+rock3 = find entity with targetname "rock3"
+brock = find entity with targetname "backrock"
+two = find entity with targetname "tworocks"
+dust = find entity with targetname "smallrubble"
+rub1 = find entity with targetname "rubble1"
+rub2 = find entity with targetname "rubble2"
+rub3 = find entity with targetname "rubble3"
+dust1 = find entity with targetname "smallrubble2"
+c2 = find entity with targetname "c2"
+player1 = get entity activator
+quake9 = find entity with targetname "quake9"
+
+//Cave-in and level change
+
+	enable cinematics
+
+	copy player attributes from entity player1 to entity c2
+	c2.modelindex = c2.count
+	c2.solid = SOLID_SOLID
+	c2.movetype = 4
+
+	player1.takedamage = DAMAGE_NO
+
+	c2.movetype = PHYSICSTYPE_NOCLIP
+
+	animate entity c2 performing action IDLE1_ANIMATION
+
+	use entity cam
+
+	enable trigger entity quake9
+
+	use entity rub1 wait 1 seconds
+	play sound "Misc/gravel2.wav" for entity two
+	move entity two by [0, 0, -192] at 1100 speed signaling sig
+	wait for all clearing sig
+
+	play sound "world/quake.wav" for entity c2 on channel 10
+	use entity quake9
+
+	move entity brock by [0, 0, -160] at 1100 speed signaling sig
+	wait for all clearing sig
+
+	use entity rub2 wait .5 seconds
+
+	animate entity c2 performing action ACTION8_ANIMATION
+
+	play sound "Misc/gravel2.wav" for entity rock3
+	move entity rock3 by [0, 0, -136] at 1100 speed signaling sig
+	rotate entity rock3 by [0, 20, -60] at 1100 speed signaling sig1
+	wait for all clearing sig, sig1
+
+	animate entity c2 performing action ACTION9_ANIMATION
+
+	use entity dust1 
+
+	move entity rock2 by [0, 0, -136] at 1200 speed signaling sig
+	rotate entity rock2 by [0, -10, 70] at 1200 speed signaling sig1
+	wait for all clearing sig, sig1
+
+	use entity rub3 
+
+	play sound "Misc/gravel2.wav" for entity rock1
+	move entity rock1 by [0, 0, -160] at 1300 speed signaling sig
+	rotate entity rock1 by [0, 0, -60] at 1300 speed signaling sig1
+	wait for all clearing sig, sig1
+
+	use entity dust 
+
+	disable trigger entity quake9
+
+	wait 2 second
+
+	player1.origin = c2.origin
+	player1.p_origin = c2.origin
+	set view angles of entity player1 to c2.angles
+	player1.takedamage = DAMAGE_YES
+
+	disable cinematics
+
+	player1.modelindex = 0
+	player1.solid = SOLID_NOT
+
+	use entity cl
+
+
+

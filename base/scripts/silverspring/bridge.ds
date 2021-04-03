@@ -1,0 +1,20 @@
+// This is the bridge in the Palace that collapses when Corvus jumps on it.
+
+output "r:/base/ds/silverspring"
+
+local entity bridge
+local int sig
+
+bridge = find entity with targetname "bridge"
+
+rotate entity bridge by [0, 0, 5] at 800 speed signaling sig
+wait for all clearing sig
+
+rotate entity bridge by [0, 0, -2] at 800 speed signaling sig
+wait for all clearing sig 
+
+rotate entity bridge by [0, 0, 7] over 0.5 seconds signaling sig
+wait for all clearing sig 
+
+rotate entity bridge by [0, 0, 34] at 250 speed signaling sig
+wait for all clearing sig  

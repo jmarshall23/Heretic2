@@ -1,0 +1,29 @@
+//This is the cool camera script!
+
+#include "../common/header.ds"
+
+output "r:/base/ds/common"
+
+//define variables
+
+local entity train
+local entity rollem
+local int sig
+
+train = find entity with targetname "t100"
+rollem = find entity with targetname "camera"
+
+//move camera
+
+use entity rollem
+move entity train by [128, 128, 0] at 100 speed signaling sig
+wait for all clearing sig
+rotate entity train by [0, 0, 128] at 200 speed signaling sig
+wait for all clearing sig
+wait 3 seconds
+move entity train by [16, 16, 64] at 100 speed signaling sig
+wait for all clearing sig
+use entity rollem
+
+suspend
+

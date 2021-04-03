@@ -1,0 +1,27 @@
+//rubble falling
+
+#include "../common/header.ds"
+
+output "R:base/ds/andoria"
+
+
+//define variables
+
+local entity rubble
+local entity dust
+local int sig
+
+rubble = find entity with targetname "r1"
+dust = find entity with targetname "r2"
+
+//rubble falls
+
+	use entity dust
+	
+	wait 0.5 seconds
+
+	move entity rubble by [0, 0, -308] at 800 speed signaling sig
+	play sound "doors/objectdrop.wav" for entity rubble
+	rotate entity rubble to [0, 0, 18] at 400 speed
+	wait for all clearing sig
+

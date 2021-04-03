@@ -1,0 +1,34 @@
+// The fantabulous rotating lab table which has now been changed into the Gaunlet trapeze!
+
+#include "../common/header.ds"
+
+output "r:/base/ds/hive"
+
+local entity bucket
+local entity arm
+
+local int s1
+field int accel
+
+bucket = find entity with targetname "swingee"
+arm = find entity with targetname "swinger"
+
+bucket.owner = arm
+bucket.state = 0
+bucket.distance = 464
+bucket.start_origin = [0, 0, 464]
+bucket.movetype = PHYSICSTYPE_SCRIPT_ANGULAR
+
+rotate entity arm by [40,0,0] at 60 speed
+
+wait 2 seconds
+
+
+label schwingit
+rotate entity arm by [-80,0,0] at 20 speed signaling s1
+wait for all clearing s1
+wait 0.3 seconds
+rotate entity arm by [80,0,0] at 20 speed signaling s1
+wait for all clearing s1
+wait 0.3 seconds
+goto schwingit

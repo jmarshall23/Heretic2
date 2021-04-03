@@ -1,0 +1,40 @@
+// ogles pushing a wheel
+
+#include "../common/header.ds"
+
+output "r:/base/ds/cloud"
+
+local entity ogle1
+local entity ogle2
+local entity wheel
+local int sig
+
+ogle1 = find entity with targetname "ogle1"
+ogle2 = find entity with targetname "ogle2"
+wheel = find entity with targetname "t289"
+
+
+ogle1.owner = wheel
+ogle1.distance = 155
+ogle1.start_origin = wheel.origin - [0, 0, 184]
+ogle1.start_angles = [0, 160, 0]
+ogle1.movetype = PHYSICSTYPE_SCRIPT_ANGULAR
+ogle1.state = 3
+
+ogle2.owner = wheel
+ogle2.distance = 155
+ogle2.start_origin = wheel.origin - [0, 0, 184]
+ogle2.start_angles = [0, 300, 0]
+ogle2.movetype = PHYSICSTYPE_SCRIPT_ANGULAR
+ogle2.state = 3
+
+label loop
+
+rotate entity wheel by [0,-360,0] at 10 speed signaling sig
+wait for all clearing sig
+
+
+goto loop
+
+
+

@@ -1,0 +1,34 @@
+// A camera test!
+
+#include "../common/header.ds"
+
+output "r:/base/ds/common"
+
+local entity camera
+local entity cameratarget
+local int cut
+
+camera = find entity with targetname "rollem"
+cameratarget = find entity with targetname "camlook"
+
+// move camera (I hope)
+
+use entity camera
+
+move entity cameratarget by [128,32,16] at 35 speed signaling cut
+
+wait for all clearing cut
+
+move entity camera by [16,96,32] at 35 speed signaling cut
+
+wait for all clearing cut
+
+wait 2 seconds
+
+move entity cameratarget by [8,128,-48] at 35 speed signaling cut
+
+wait for all clearing cut
+
+use entity camera
+
+suspend

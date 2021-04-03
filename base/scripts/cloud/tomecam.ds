@@ -1,0 +1,36 @@
+// Pivoting cam to run while sister_tome plays
+
+#include "../common/header.ds"
+
+output "r:/base/ds/cloud"
+
+local entity cam
+local entity ctr
+local entity mess
+local entity give
+
+local int sig
+
+cam = find entity with targetname "rotcam"
+ctr = find entity with scripttarget "camtrain"
+mess = find entity with targetname "mess"
+give = find entity with targetname "mission"
+
+//start action!
+
+
+enable cinematics
+
+use entity cam
+
+wait 1 seconds
+
+print 72 captioned
+move entity ctr by [-256, -256, 0] over 20 seconds signaling sig
+wait for all clearing sig
+
+use entity cam
+
+use entity give
+
+disable cinematics

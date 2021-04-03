@@ -1,0 +1,17 @@
+// template file for scripts
+
+#include "../common/header.ds"
+
+output "r:/base/ds/common"
+
+local entity ogle1
+local entity push1
+local int sig
+local int sig1
+
+ogle1 = find entity with targetname ogle1
+push1 = find entity with targetname push1
+
+animate entity ogle1 performing action WALK3_ANIMATION by moving [704, 0, 0] signaling sig
+move entity push1 by [0, -704, 0] at 40 speed signaling sig1
+wait for all clearing sig, sig1

@@ -1,0 +1,20 @@
+// the floating crystal puzzle piece.
+
+#include "../common/header.ds"
+
+output "r:/base/ds/andoria"
+
+
+local entity train1
+local entity train2
+field vector "angle_velocity"
+
+
+train1 = find entity with targetname "train"
+train2 = find entity with targetname "trainpuz"
+train2.owner = train1
+train2.distance = 80
+train2.start_origin = [-80, 0, 0]
+train2.movetype = PHYSICSTYPE_SCRIPT_ANGULAR
+
+train1.angle_velocity = [0, 90, 0]

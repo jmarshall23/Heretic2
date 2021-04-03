@@ -1,0 +1,25 @@
+#include "../common/header.ds"
+
+output "r:/base/ds/silverspring"
+
+parameter entity crate
+
+local int sgnl
+crate.movetype = PHYSICSTYPE_PUSH
+rotate entity crate by [0,0,90] at 512 speed signaling sgnl
+wait for any clearing sgnl
+
+move entity crate by [0,0,-8] at 256 speed signaling sgnl
+wait for all clearing sgnl
+
+play sound "misc/brkwood2.wav" for entity crate
+
+move entity crate by [0,0,12] at 256 speed signaling sgnl
+wait for all clearing sgnl
+
+move entity crate by [0,0,-11] at 256 speed signaling sgnl
+wait for all clearing sgnl
+
+play sound "misc/brkwood2.wav" for entity crate
+
+exit

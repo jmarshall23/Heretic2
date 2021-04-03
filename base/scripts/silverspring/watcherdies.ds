@@ -1,0 +1,194 @@
+// The Watcher dies
+
+#include "../common/header.ds"
+
+output "r:/base/ds/silverspring"
+
+local entity lpillar
+local entity lpilltp
+local entity lpillbt
+local entity rpillar
+local entity rpillarside
+local entity camera
+local entity camdolly
+local entity camtarget
+local entity floor1
+local entity floor2
+local entity floor3
+local entity floor4
+local entity floor5
+local entity topbeam
+local entity topbeambar
+local entity tbeamst
+local entity taker
+parameter entity hero1
+local entity player1
+local entity watcher
+local entity monster
+local entity change
+local entity quaker
+local entity rubble
+local entity killer
+
+local int sig
+local int sig1
+
+lpillar = find entity with targetname "t116"
+lpilltp = find entity with targetname "pilltop"
+lpillbt = find entity with targetname "t117"
+rpillar = find entity with targetname "pillar"
+rpillarside = find entity with targetname "t133"
+camera = find entity with targetname "t162"
+camdolly = find entity with targetname "end"
+camtarget = find entity with targetname "t167"
+floor1 = find entity with targetname "floor1"
+floor2 = find entity with targetname "floor2"
+floor3 = find entity with targetname "floor3"
+floor4 = find entity with targetname "floor4"
+floor5 = find entity with targetname "floor5"
+topbeam = find entity with targetname "t123"
+topbeambar = find entity with targetname "bar"
+tbeamst = find entity with targetname "t128"
+taker = find entity with targetname "taker"
+monster = find entity with targetname "monster"
+watcher = find entity with targetname "lord"
+change = find entity with targetname "change"
+quaker = find entity with targetname "quaker"
+rubble = find entity with targetname "rubble"
+killer = find entity with targetname "killer"
+player1 = get entity activator
+
+//start the end
+
+copy player attributes from entity player1 to entity hero1
+hero1.modelindex = hero1.count
+hero1.solid = SOLID_SOLID
+hero1.movetype = PHYSICSTYPE_STEP
+
+monster = find entity with targetname "monster"
+monster.modelindex = 0
+monster.solid = SOLID_NOT
+watcher.modelindex = watcher.count
+watcher.solid = SOLID_SOLID
+watcher.movetype = PHYSICSTYPE_STEP
+
+   // Give monster elflord a chance to go away
+	wait .4 seconds
+
+//here we go
+
+	enable cinematics
+
+	use entity camera
+
+	animate entity watcher performing action DEATH2_ANIMATION signaling sig
+	
+	wait for all clearing sig
+
+	animate entity watcher performing action DEATH1_ANIMATION signaling sig
+
+	wait for all clearing sig
+
+	animate entity watcher performing action DEATH2_ANIMATION signaling sig
+	
+	wait for all clearing sig
+
+	animate entity watcher performing action GIB1_ANIMATION
+
+	enable trigger entity quaker
+
+	play sound "world/quake.wav" for entity quaker on channel 10
+
+	use entity killer
+
+//place goes to hell
+
+	rubble.movetype = PHYSICSTYPE_NOCLIP
+
+	wait .5 seconds
+
+//break left pillar
+
+	move entity camdolly by [-320, 0, 32] over 8 seconds
+
+	move entity camtarget by [128,0,-32] over 8 seconds
+
+	lpillar.movetype = PHYSICSTYPE_NOCLIP
+
+	use entity lpilltp
+
+	wait 1 seconds
+
+	move entity lpillar by [0, 0, -256] at 400 speed signaling sig
+	rotate entity lpillar by [120, 0, 0] at 400 speed signaling sig1
+
+	wait for all clearing sig, sig1
+
+	use entity lpillar
+	use entity lpillbt
+
+//break right pillar
+
+	wait 4.5 seconds
+
+	use entity rpillarside
+
+	wait .5 seconds
+
+	rpillar.movetype = PHYSICSTYPE_NOCLIP
+
+	move entity rubble by [0, 0, -384] at 1000 speed
+
+	rotate entity rpillar by [-110, 0, 0] at 150 speed signaling sig
+	move entity rpillar by [ -16, 0, 0 ] at 150 speed signaling sig1
+
+	wait for all clearing sig, sig1
+
+	use entity rubble
+	use entity rpillar
+	use entity floor3
+	use entity floor2
+
+//break top crossbeam
+
+	use entity topbeambar
+
+	wait 1 seconds
+
+	use entity tbeamst
+
+	topbeam.movetype = PHYSICSTYPE_NOCLIP
+
+	move entity topbeam by [0, -64, -64] at 300 speed signaling sig
+	rotate entity topbeam by [0, 0, 30] at 75 speed signaling sig1
+
+	wait for all clearing sig, sig1
+
+	move entity topbeam by [0, -32, -368] at 500 speed signaling sig
+	rotate entity topbeam by [0, 15, 60] at 100 speed signaling sig1
+
+	wait for all clearing sig, sig1
+	
+	move entity camdolly by [160, 160, -64] over 3 seconds
+
+	move entity camtarget by [0,0,-384] over 3 seconds
+
+	use entity floor5
+
+	move entity topbeam by [0, -16, -448] at 500 speed signaling sig
+	rotate entity topbeam by [-5, 75, 90] at 100 speed signaling sig1
+	
+	use entity floor1
+	
+	wait for all clearing sig, sig1
+
+	use entity floor4
+
+//the rest
+	disable trigger entity quaker
+	use entity taker
+	use entity camera
+	wait .5 seconds
+	use entity change
+	disable cinematics
+	exit

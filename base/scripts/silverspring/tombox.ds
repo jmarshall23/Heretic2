@@ -1,0 +1,226 @@
+//SSwarehouse, opening the exit to the town level.
+
+#include "../common/header.ds"
+
+output "r:/base/ds/silverspring"
+
+local entity right
+local entity left
+local entity rope
+local entity box
+local entity one
+local entity two
+local entity camera
+local entity target
+local entity corvus
+local entity player1
+
+local int sig
+local int sig1
+local int sig2
+local int sig3
+
+field vector "velocity"
+
+right = find entity with targetname "righttom"
+left = find entity with targetname "lefttom"
+rope = find entity with targetname "ropetom"
+box = find entity with targetname "boxtom"
+one = find entity with targetname "one"
+two = find entity with targetname "two"
+camera = find entity with targetname "cameratom"
+target = find entity with targetname "targetcamtom"
+corvus = find entity with targetname "corvus"
+
+player1 = get entity activator
+
+	copy player attributes from entity player1 to entity corvus
+	corvus.modelindex = corvus.count
+	corvus.solid = SOLID_SOLID
+	corvus.movetype = 4
+
+enable cinematics
+
+// clamping down on the box
+
+	use entity camera
+
+	rotate entity right by [0, 0, -15] over 1 seconds signaling sig
+
+	rotate entity left by [0, 0, 15] over 1 seconds signaling sig1	
+	play sound "doors/elevatorstart.wav" for entity rope on channel 10
+	wait for all clearing sig, sig1
+
+
+// picking up the box
+	
+	move entity right by [0, 0, 30] over 1 seconds
+
+	move entity left by [0, 0, 30] over 1 seconds
+
+	move entity rope by [0, 0, 30] over 1 seconds
+
+	move entity box by [0, 0, 30] over 1 seconds
+
+	play sound "doors/elevatorstop.wav" for entity rope on channel 10
+
+// move it to the right
+	
+	wait 1.5 seconds
+
+	play sound "objects/winch2.wav" for entity rope on channel 10
+
+	target.movetype = PHYSICSTYPE_NOCLIP
+
+	move entity target by [0, 220, 0] at 50 speed	
+
+	move entity right by [0, 220, 0] at 50 speed
+
+	move entity left by [0, 220, 0] at 50 speed
+
+	move entity rope by [0, 220, 0] at 50 speed
+
+	move entity box by [0, 220, 0] at 50 speed
+	wait 2 seconds
+	play sound "objects/winch2.wav" for entity left on channel 10
+	
+// spin it around
+
+	wait 4 seconds
+
+	play sound "doors/elevatorstop.wav" for entity rope on channel 10
+
+	right.velocity = [10, -9, 0]
+	left.velocity = [-10, 9, 0]
+
+	play sound "objects/oilpump.wav" for entity left on channel 10
+
+	rotate entity right by [0, -90, 0] over 1 seconds signaling sig
+
+	rotate entity left by [0, -90, 0] over 1 seconds signaling sig1
+
+	rotate entity rope by [0, -90, 0] over 1 seconds signaling sig2
+
+	rotate entity box by [0, -90, 0] over 1 seconds signaling sig3
+	wait for all clearing sig, sig1, sig2, sig3
+	
+	right.velocity = [0, 0, 0]
+	left.velocity = [0, 0, 0]
+
+// move it down
+	play sound "doors/elevatormove.wav" for entity rope on channel 10
+
+	move entity target by [0, 0, -200] over 10 seconds
+
+	one.movetype = PHYSICSTYPE_NOCLIP
+	move entity one by [-20, 0, 0] over 7 seconds
+
+	two.movetype = PHYSICSTYPE_NOCLIP
+	move entity two by [20, 0, 0] over 7 seconds
+
+	move entity right by [0, 0, -100] at 30 speed signaling sig
+
+	move entity left by [0, 0, -100] at 30 speed signaling sig1
+
+	move entity rope by [0, 0, -100] at 30 speed signaling sig2
+
+	move entity box by [0, 0, -100] at 30 speed signaling sig3
+	wait for all clearing sig, sig1, sig2, sig3
+	
+	play sound "doors/elevatorstop.wav" for entity rope on channel 10
+
+// oh oh we're in trouble
+
+
+	move entity right by [0, 0, 5] at 30 speed signaling sig
+
+	move entity left by [0, 0, 5] at 30 speed signaling sig1
+
+	move entity rope by [0, 0, 5] at 30 speed signaling sig2
+
+	move entity box by [0, 0, 5] at 30 speed signaling sig3
+	wait for all clearing sig, sig1, sig2, sig3
+	
+	play sound "doors/thud3.wav" for entity rope on channel 10
+	wait 1 seconds
+
+	play sound "misc/brkwood2.wav" for entity box on channel 10
+	move entity box by [0, 0, -5] at 10 speed signaling sig
+	wait for all clearing sig
+	
+	wait 1 seconds
+
+	play sound "misc/brkwood2.wav" for entity box on channel 10
+	move entity box by [0, 0, -5] at 10 speed signaling sig
+	wait for all clearing sig
+	
+
+// bombs away
+
+	rotate entity right by [0, 0, 10] at 50 speed signaling sig
+
+	rotate entity left by [0, 0, -10] at 50 speed signaling sig1
+
+	move entity box by [0, 0, -420] at 400 speed
+	wait .5 seconds
+	play sound "misc/breakwood.wav" for entity one on channel 10
+	play sound "misc/breakwood.wav" for entity two on channel 10
+	use entity one
+	use entity two
+
+	wait for all clearing sig, sig1
+
+//---------
+
+	rotate entity right by [0, 0, -15] at 20 speed signaling sig
+
+	rotate entity left by [0, 0, 15] at 20 speed signaling sig1
+	wait for all clearing sig, sig1
+
+//---------
+
+	rotate entity right by [0, 0, 7] at 20 speed signaling sig
+
+	rotate entity left by [0, 0, -7] at 20 speed signaling sig1
+	wait for all clearing sig, sig1
+
+//---------
+
+	rotate entity right by [0, 0, -2] at 20 speed signaling sig
+
+	rotate entity left by [0, 0, 2] at 20 speed signaling sig1
+	wait for all clearing sig, sig1
+
+	use entity camera
+
+disable cinematics
+
+	player1.origin = corvus.origin
+	player1.p_origin = corvus.origin	// Put player where Cinematic corvus is
+	set view angles of entity player1 to corvus.angles
+
+	corvus.modelindex = 0
+	corvus.solid = SOLID_NOT
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,10 @@
+//Sounds for falling bridge
+
+#include "../common/header.ds"
+output "r:/base/ds/hive"
+
+
+//define variables
+parameter entity break
+
+play sound "misc/breakstone.wav" for entity break

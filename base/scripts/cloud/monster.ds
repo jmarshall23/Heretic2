@@ -1,0 +1,61 @@
+// Big Gaurd comes out and whoops ass!
+
+
+#include "../common/header.ds"
+
+output "r:/base/ds/cloud"
+
+//varibles
+
+local entity light
+local entity chain
+local entity tablef
+local entity tableb
+local entity rubble
+local entity junk
+local entity kill
+local entity kill1
+local entity throne
+local int sig
+local int sig1
+local int sig2
+
+light = find entity with targetname "chandelier"
+chain = find entity with targetname "chain"
+tablef = find entity with targetname "tablefront"
+tableb = find entity with targetname "tableback"
+rubble = find entity with targetname "tablerubble"
+kill = find entity with targetname "kill"
+kill1 = find entity with targetname "kill1"
+throne = find entity with targetname "throne"
+junk = find entity with targetname "junk"
+
+
+
+
+// wow
+
+	use entity chain
+
+	light.movetype = PHYSICSTYPE_PUSH
+	move entity light by [0, 0, -336] over .25 seconds signaling sig
+	wait for all clearing sig
+	play sound "monsters/tbeast/slam.wav" for entity rubble
+	use entity rubble
+	use entity junk
+	rotate entity tablef by [0, 0, -15] at 300 speed signaling sig
+	rotate entity tableb by [0, 0, 15] at 300 speed signaling sig1
+	wait for all clearing sig, sig1
+
+	use entity kill
+	use entity kill1
+	use entity throne
+
+	wait 10 seconds
+
+	light.modelindex = 0
+	light.solid = SOLID_NOT	
+
+exit
+	
+	

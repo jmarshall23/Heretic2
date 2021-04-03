@@ -1,0 +1,18 @@
+//Lever pushes crates out of doorway at bottom of SSDocks tower
+
+#include "../common/header.ds"
+output "r:/base/ds/silverspring"
+
+
+//define variables
+
+global int blood
+
+// print message then exit
+
+blood += 1
+if blood = 4
+	print 31
+	exit
+endif
+

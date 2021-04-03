@@ -1,0 +1,358 @@
+// The third time corvus meets siernan. corvus now has the potion. hopefully.
+
+#include "../common/header.ds"
+
+output "r:/base/ds/andoria"
+
+
+local entity camera3a
+local entity camera4a
+local entity camera5a
+local entity camera6a
+local entity camera7a
+local entity camera8a
+local entity camera9a
+local entity aremac
+local entity aremac1
+local entity aremac2
+local entity funcwall
+local entity siernan2
+local entity siernan3
+local entity nan
+local entity corvus3
+local entity player3
+local entity trian
+local entity portal
+local entity trian2
+local entity target
+local entity objective
+local entity take
+
+local int sig
+local int sig1
+
+field vector "movetype"
+
+cache sound "cinematics/second siernan/64-18.wav"
+cache sound "cinematics/second siernan/65-18.wav"
+cache sound "cinematics/second siernan/66-20.wav"
+cache sound "cinematics/second siernan/67-16.wav"
+cache sound "cinematics/second siernan/68-23.wav"
+cache sound "cinematics/second siernan/69-16.wav"
+cache sound "cinematics/second siernan/70-18.wav"
+cache sound "cinematics/second siernan/71-21.wav"
+cache sound "cinematics/second siernan/72-14.wav"
+cache sound "cinematics/second siernan/73-16.wav"
+cache sound "cinematics/second siernan/74-21.wav"
+cache sound "cinematics/second siernan/75-14.wav"
+
+camera3a = find entity with targetname "camera3a"
+camera4a = find entity with targetname "camera4a"
+camera5a = find entity with targetname "camera5a"
+camera6a = find entity with targetname "camera6a"
+camera7a = find entity with targetname "camera7a"
+camera8a = find entity with targetname "camera8a"
+camera9a = find entity with targetname "camera9a"
+aremac = find entity with targetname "aremac"
+aremac1 = find entity with targetname "aremac1"
+aremac2 = find entity with targetname "aremac2"
+funcwall = find entity with targetname "funcwall"
+siernan2 = find entity with targetname "siernan2"
+siernan3 = find entity with targetname "siernan3"
+nan = find entity with targetname "nan"
+corvus3 = find entity with targetname "corvus3"
+trian = find entity with targetname "trian"
+portal = find entity with targetname "t130"
+trian2 = find entity with targetname "trian2"
+target = find entity with targetname "target"
+objective = find entity with targetname "objective5"
+take = find entity with targetname "take5"
+
+//switching siernans
+
+	use entity funcwall
+
+	wait .1 seconds
+
+	siernan2.modelindex = 0
+	siernan2.solid = SOLID_NOT
+
+	nan.modelindex = nan.count
+	nan.solid = SOLID_SOLID
+
+	suspend
+
+// here we go
+
+	player3 = get entity activator
+
+	copy player attributes from entity player3 to entity corvus3
+
+	corvus3.modelindex = corvus3.count
+	corvus3.solid = SOLID_SOLID
+	corvus3.movetype = 4
+
+	siernan3.movetype = 5
+	nan.movetype = 5
+
+	enable cinematics
+
+//camera3a, away looking at both charactors.
+
+	use entity camera3a
+
+	move entity aremac by [50, -25 , 20] over 10 seconds
+
+	wait 1 seconds
+
+	animate entity corvus3 performing action WALK3_ANIMATION by moving [116, 0, 0] signaling sig
+	wait for all clearing sig
+
+	animate entity corvus3 performing action ACTION18_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity corvus3 performing action IDLE2_ANIMATION repeating for 100 times
+
+// siernan reaching out
+
+	animate entity nan performing action ACTION13_ANIMATION signaling sig by turning [-35, 0, 0]
+	wait for all clearing sig
+
+	animate entity nan performing action IDLE4_ANIMATION repeating for 100 times
+
+// corvus pouring the juice in siernan's hands
+
+	animate entity corvus3 performing action ACTION20_ANIMATION signaling sig
+	wait for all clearing sig
+
+// siernan takes a sip
+
+	animate entity nan performing action ACTION12_ANIMATION by turning [-55, 0, 0]
+
+// corvus takes a drink
+
+	animate entity corvus3 performing action ACTION19_ANIMATION
+
+	wait 1 seconds
+
+	use entity camera3a
+
+//aremac2, close up of siernan.
+
+	use entity aremac2
+
+	wait 1 seconds
+
+	animate entity corvus3 performing action IDLE1_ANIMATION repeating for 100 times
+
+	play sound "cinematics/second siernan/64-18.wav" for entity nan
+	print 194 captioned
+
+	animate entity nan performing action ACTION11_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity nan performing action IDLE1_ANIMATION
+
+	use entity aremac2
+
+//aremac1, close up of corvus.
+
+	use entity aremac1
+
+	play sound "cinematics/second siernan/65-18.wav" for entity corvus3
+	print 195 captioned
+
+	animate entity corvus3 performing action ACTION17_ANIMATION signaling sig
+	wait for all clearing sig
+
+//--------
+
+	nan.modelindex = 0
+	nan.solid = SOLID_NOT
+
+	siernan3.modelindex = siernan3.count
+	siernan3.solid = SOLID_SOLID
+
+//--------
+
+	animate entity corvus3 performing action IDLE1_ANIMATION
+
+	use entity aremac1
+
+//camera4a, close up of siernan.
+
+	use entity camera4a
+
+	play sound "cinematics/second siernan/66-20.wav" for entity siernan3
+	print 196 captioned
+
+	animate entity siernan3 performing action ACTION9_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity siernan3 performing action IDLE1_ANIMATION
+
+	use entity camera4a
+
+//camera5a, behind siernan looking at corvus
+
+	use entity camera5a
+
+	play sound "cinematics/second siernan/67-16.wav" for entity corvus3
+	print 197 captioned
+
+	animate entity corvus3 performing action ACTION14_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity corvus3 performing action IDLE1_ANIMATION
+
+	move entity trian by [75, 0, 30] over 10 seconds
+
+	play sound "cinematics/second siernan/68-23.wav" for entity siernan3
+	print 198 captioned
+
+	animate entity siernan3 performing action ACTION10_ANIMATION signaling sig
+	
+	wait 3 seconds
+
+	print 199 captioned	
+
+	wait for all clearing sig
+
+	animate entity siernan3 performing action IDLE1_ANIMATION
+
+ 	use entity camera5a
+
+//camera6a, long shot so you can see the door open.
+
+	use entity camera6a
+
+	play sound "cinematics/second siernan/69-16.wav" for entity corvus3
+	print 200 captioned
+
+	animate entity corvus3 performing action ACTION16_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity corvus3 performing action IDLE1_ANIMATION
+
+	play sound "cinematics/second siernan/70-18.wav" for entity siernan3
+	print 201 captioned
+
+	use entity portal
+
+	animate entity siernan3 performing action ACTION10_ANIMATION
+
+//	wait 4 seconds	
+	
+	target.movetype = PHYSICSTYPE_PUSH
+
+	move entity trian2 by [0, 0, 20] over 1 seconds signaling sig
+	move entity target by [0, 0, 50] over 2 seconds signaling sig1
+	wait for all clearing sig, sig1
+
+	move entity trian2 by [-325, -100, 50] over 5 seconds signaling sig
+	move entity target by [-175, -100, 50] over 5 seconds signaling sig1
+	wait for all clearing sig, sig1
+
+	move entity target by [0, -300, 0] over 1 seconds signaling sig
+	wait for all clearing sig	
+
+	print 202 captioned
+
+	move entity trian2 by [0, -325, 0] over 3 seconds signaling sig
+	wait for all clearing sig
+
+	move entity trian2 by [0, -300, 0] over 3 seconds signaling sig
+	move entity target by [-400, -300, 0] over 3 seconds signaling sig1
+	wait for all clearing sig, sig1
+
+	animate entity siernan3 performing action IDLE1_ANIMATION
+
+	move entity target by [-450, 0, 0] over 3 seconds signaling sig
+	wait for all clearing sig
+
+	use entity camera6a
+
+//camera7a, side shot of charactors.
+
+	use entity camera7a
+
+	play sound "cinematics/second siernan/71-21.wav" for entity corvus3
+	print 203 captioned
+
+	animate entity corvus3 performing action ACTION13_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity corvus3 performing action IDLE1_ANIMATION
+
+	play sound "cinematics/second siernan/72-14.wav" for entity siernan3
+	print 204 captioned
+
+	animate entity siernan3 performing action ACTION8_ANIMATION signaling sig
+	wait for all clearing sig
+
+	play sound "cinematics/second siernan/73-16.wav" for entity siernan3
+	print 205 captioned
+
+	animate entity siernan3 performing action ACTION7_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity siernan3 performing action IDLE1_ANIMATION
+
+	use entity camera7a
+
+//camera8a, looking over siernan'n shoulder at corvus (something like camera5a)
+
+	use entity camera8a
+
+	play sound "cinematics/second siernan/74-21.wav" for entity corvus3
+	print 206 captioned
+
+	animate entity corvus3 performing action ACTION15_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity corvus3 performing action IDLE1_ANIMATION
+
+	use entity camera8a
+
+//camera9a, waist up shot of siernan.
+
+	use entity camera9a
+
+	play sound "cinematics/second siernan/75-14.wav" for entity siernan3
+	print 207 captioned
+
+	animate entity siernan3 performing action ACTION6_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity siernan3 performing action IDLE1_ANIMATION
+
+	use entity take
+	use entity objective	
+
+	disable cinematics
+
+	player3.origin = corvus3.origin
+	player3.p_origin = corvus3.origin
+	set view angles of entity player3 to corvus3.angles
+
+	corvus3.modelindex = 0
+	corvus3.solid = SOLID_NOT
+	siernan3.solid = SOLID_SOLID
+
+	use entity camera9a
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

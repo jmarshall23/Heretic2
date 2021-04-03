@@ -1,0 +1,41 @@
+//the gorgon's break through the freakin wall!
+
+#include "../common/header.ds"
+
+output "r:/base/ds/andoria"
+
+//define variables
+
+local entity blockone
+local entity blocktwo
+local int sig
+local int sig2
+local int sig3
+local int sig4
+
+field vector "velocity"
+
+blockone = find entity with targetname "blockone"
+blocktwo = find entity with targetname "blocktwo"
+
+//start of script
+
+blockone.movetype = PHYSICSTYPE_NOCLIP
+blocktwo.movetype = PHYSICSTYPE_NOCLIP
+
+play sound "doors/stoneend.wav" for entity blockone
+play sound "doors/stoneend.wav" for entity blocktwo
+move entity blockone by [0, -150, -24] at 700 speed signaling sig
+rotate entity blockone by [0, 70, 90] at 400 speed signaling sig2 
+
+move entity blocktwo by [0, -200, -24] at 800 speed signaling sig3
+rotate entity blocktwo by [0, 130, 100] at 500 speed signaling sig4
+
+wait for any clearing sig, sig2, sig3, sig4
+
+use entity blocktwo
+
+blockone.movetype = PHYSICSTYPE_NONE
+blocktwo.movetype = PHYSICSTYPE_NONE
+
+exit

@@ -1,0 +1,29 @@
+#include "../common/header.ds"
+
+output "r:/base/ds/hivetrialpit"
+
+local entity flare
+local entity lights
+local int s1
+
+flare = find entity with targetname "flare1"
+lights = find entity with targetname "f1"
+
+use entity flare
+
+move entity flare to [-704, 192, 4] at 400 speed signaling s1
+wait for any clearing s1
+
+move entity flare to [-768, 512, 132] at 400 speed signaling s1
+wait for any clearing s1
+
+move entity flare to [-768, 704, 132] at 400 speed signaling s1
+wait for any clearing s1
+
+move entity flare to [-896, 832, 132] at 400 speed signaling s1
+wait for any clearing s1
+
+use entity flare
+use entity lights
+
+exit

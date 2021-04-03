@@ -1,0 +1,79 @@
+// Hive2 tomb script
+ 
+#include "../common/header.ds"
+
+output "r:/base/ds/hive"
+
+local entity bug1
+local entity bug2
+local entity tomb
+local entity base1
+local entity base2
+local entity tombguy
+local entity clampleft
+local entity clampright
+local entity steps
+local entity cam
+local entity camerabase
+local entity rubbleleft
+local entity rubbleright
+local int sig
+local int sig2
+local int sig3
+local int sig4
+local int sig5
+local int sig6
+
+bug1 = find entity with targetname "bug1"
+bug2 = find entity with targetname "bug2"
+tomb = find entity with targetname "tomb"
+base1 = find entity with targetname "base1"
+base2 = find entity with targetname "base2"
+tombguy = find entity with targetname "tombguy"
+clampleft = find entity with targetname "clampleft"
+clampright = find entity with targetname "clampright"
+steps = find entity with targetname "steps"
+cam = find entity with targetname "cam"
+camerabase = find entity with targetname "camerabase"
+rubbleleft = find entity with targetname "rubbleleft"
+rubbleright = find entity with targetname "rubbleright"
+
+
+//ohhhhh yeah!
+
+use entity cam
+move entity camerabase by [-112, 160, -64] over 8 seconds 
+
+use entity rubbleleft
+use entity rubbleright
+
+play sound "doors/kchunk5.wav" for entity clampleft
+play sound "doors/kchunk5.wav" for entity clampright
+rotate entity clampleft by [80, 0, 0] at 50 speed signaling sig
+rotate entity clampright by [-80, 0, 0] at 50 speed signaling sig2
+wait for all clearing sig, sig2
+
+bug1.movetype = PHYSICSTYPE_NOCLIP
+bug2.movetype = PHYSICSTYPE_NOCLIP
+tombguy.movetype = PHYSICSTYPE_NOCLIP
+play sound "doors/stoneloop.wav" for entity tomb on channel 10
+move entity base1 by [0, 0, -112] at 50 speed signaling sig
+move entity base2 by [0, 0, -112] at 50 speed signaling sig2
+move entity bug1 by [0, 0, -112] at 50 speed signaling sig3
+move entity bug2 by [0, 0, -112] at 50 speed signaling sig4
+move entity tomb by [0, 0, -112] at 50 speed signaling sig5
+move entity tombguy by [0, 0, -112] at 50 speed signaling sig6
+wait for all clearing sig, sig2, sig3, sig4, sig5, sig6
+play sound "doors/stoneend.wav" for entity tomb on channel 10
+
+
+move entity steps by [0, 0, 16] at 50 speed signaling sig
+wait for all clearing sig
+play sound "doors/stoneend.wav" for entity steps
+wait 1 seconds
+
+use entity cam
+
+
+
+

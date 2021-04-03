@@ -1,0 +1,282 @@
+// The Dranor Cinematic. Starring, Gina Garren as the hero, Corvus and
+// Kim Lathrop as the old fart, Dranor. With guest appearances by Mike Gummelt
+// and Josh Weier as the evil Plague Speader Twins.
+// ....and all your troubles go down the drain.
+
+#include "../common/header.ds"
+
+output "r:/base/ds/silverspring"
+
+local entity camera1
+local entity camera2
+local entity camera3
+local entity camera4
+local entity camera5
+local entity camera6
+local entity camera7
+local entity break1
+local entity chair
+local entity dranor
+local entity corvus
+local entity player1
+local entity give
+
+local int sig
+local int sig1
+
+field vector "velocity"
+field vector "movetype"
+
+cache sound "cinematics/dranor/19-316.wav"
+cache sound "cinematics/dranor/20-314.wav"
+cache sound "cinematics/dranor/21-319.wav"
+cache sound "cinematics/dranor/22-314.wav"
+cache sound "cinematics/dranor/23-315.wav"
+cache sound "cinematics/dranor/24-316.wav"
+cache sound "cinematics/dranor/25-316.wav"
+cache sound "cinematics/dranor/26-319.wav"
+cache sound "cinematics/dranor/27-315.wav"
+cache sound "cinematics/dranor/28-317.wav"
+cache sound "cinematics/dranor/29-317.wav"
+cache sound "cinematics/dranor/30-314.wav"
+cache sound "cinematics/dranor/31-314.wav"
+cache sound "cinematics/dranor/32-317.wav"
+
+camera1 = find entity with targetname "camera1"
+camera2 = find entity with targetname "camera2"
+camera3 = find entity with targetname "camera3"
+camera4 = find entity with targetname "camera4"
+camera5 = find entity with targetname "camera5"
+camera6 = find entity with targetname "camera6"
+camera7 = find entity with targetname "camera7"
+break1 = find entity with targetname "break1"
+chair = find entity with targetname "chair"
+dranor = find entity with targetname "dranor"
+corvus = find entity with targetname "corvus"
+give = find entity with targetname "give"
+player1 = get entity activator
+
+corvus.yaw_speed = 5
+
+	copy player attributes from entity player1 to entity corvus
+	corvus.modelindex = corvus.count
+	corvus.solid = SOLID_SOLID
+	corvus.movetype = 4
+
+	dranor.movetype = 4
+	
+	enable cinematics
+
+// Corvus walks in and notices Dranor
+
+	use entity camera1
+	print 138 captioned
+	play sound "cinematics/dranor/19-316.wav" for entity dranor
+
+	animate entity dranor performing action ACTION1_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity dranor performing action ACTION2_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity dranor performing action IDLE2_ANIMATION	
+	print 139 captioned
+	play sound "cinematics/dranor/20-314.wav" for entity corvus
+
+	animate entity corvus performing action ACTION1_ANIMATION signaling sig
+	wait for all clearing sig		
+
+	animate entity corvus performing action IDLE1_ANIMATION
+	print 140 captioned
+	play sound "cinematics/dranor/21-319.wav" for entity dranor
+
+	animate entity dranor performing action ACTION3_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity dranor performing action IDLE3_ANIMATION repeating for 6 times
+
+	animate entity corvus performing action WALK2_ANIMATION by moving [120, 0, 0] by turning [15, 0, 0] signaling sig
+	wait for all clearing sig
+
+	use entity camera1
+
+// Corvus walks up to Dranor
+
+	use entity camera2
+	print 141 captioned
+	play sound "cinematics/dranor/22-314.wav" for entity corvus
+
+	animate entity corvus performing action ACTION2_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity corvus performing action IDLE3_ANIMATION repeating for 5 times
+	print 142 captioned
+	play sound "cinematics/dranor/23-315.wav" for entity dranor
+
+	animate entity dranor performing action ACTION4_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity dranor performing action ACTION5_ANIMATION signaling sig
+	wait for all clearing sig
+	print 143 captioned
+	play sound "cinematics/dranor/24-316.wav" for entity corvus	
+
+	animate entity dranor performing action IDLE3_ANIMATION
+
+	animate entity corvus performing action ACTION3_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity corvus performing action IDLE3_ANIMATION repeating for 10 times
+
+	use entity camera2
+
+// Dranor's close-up speech.
+
+	use entity camera3
+	print 144 captioned
+	play sound "cinematics/dranor/25-316.wav" for entity dranor
+
+	animate entity dranor performing action ACTION7_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity dranor performing action ACTION6_ANIMATION signaling sig
+	wait for all clearing sig
+	wait .5 seconds
+	print 145 captioned
+	play sound "cinematics/dranor/26-319.wav" for entity dranor
+
+	animate entity dranor performing action ACTION8_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity dranor performing action ACTION9_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity dranor performing action IDLE3_ANIMATION repeating for 2 times
+
+	use entity camera3
+
+// Side shot as Corvus speaks
+
+	use entity camera7
+	print 146 captioned
+	play sound "cinematics/dranor/27-315.wav" for entity corvus
+
+	animate entity corvus performing action ACTION4_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity corvus performing action IDLE3_ANIMATION repeating for 14 times
+
+	use entity camera7
+
+// Shot behind Corvus looking at Dranor has he gives his long speech.
+
+	use entity camera4
+	print 147 captioned
+	play sound "cinematics/dranor/28-317.wav" for entity dranor
+
+	animate entity dranor performing action ACTION4_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity dranor performing action ACTION5_ANIMATION signaling sig
+	wait for all clearing sig
+	print 148 captioned
+	animate entity dranor performing action ACTION10_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity dranor performing action IDLE3_ANIMATION signaling sig
+	wait for all clearing sig
+	print 149 captioned
+	play sound "cinematics/dranor/29-317.wav" for entity dranor
+
+	animate entity dranor performing action ACTION8_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity dranor performing action ACTION4_ANIMATION signaling sig
+	wait for all clearing sig
+	print 150 captioned
+	animate entity dranor performing action ACTION5_ANIMATION signaling sig
+	wait for all clearing sig
+	
+	animate entity dranor performing action ACTION11_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity dranor performing action IDLE3_ANIMATION signaling sig
+	wait for all clearing sig
+
+	use entity camera4
+
+// Shot behind Dranor looking at Corvus
+
+	use entity camera5
+	print 151 captioned
+	play sound "cinematics/dranor/30-314.wav" for entity corvus
+
+	animate entity corvus performing action ACTION5_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity corvus performing action ACTION4_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity corvus performing action IDLE3_ANIMATION repeating for 5 times
+
+	use entity camera5
+
+// Medium shot of both charators.
+
+	use entity camera6
+	print 152 captioned
+	play sound "cinematics/dranor/31-314.wav" for entity dranor
+
+	animate entity dranor performing action ACTION4_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity dranor performing action ACTION11_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity dranor performing action ACTION5_ANIMATION signaling sig
+	wait for all clearing sig
+	play sound "misc/breakstone.wav" for entity break1 on channel 10
+	use entity break1
+	
+	play sound "cinematics/dranor/32-317.wav" for entity dranor
+
+	animate entity dranor performing action DEATH1_ANIMATION
+
+	chair. movetype = PHYSICSTYPE_PUSH
+	chair.velocity = [0, 200, 30]
+
+	rotate entity chair by [0, 0, 95] at 400 speed signaling sig
+	wait for all clearing sig
+
+	move entity chair by [0, 20, -25] at 400 speed signaling sig
+	wait for all clearing sig
+
+	chair.velocity = [0, 0, 0]
+
+	wait 3 seconds
+
+	use entity give
+
+	disable cinematics
+
+	player1.origin = corvus.origin
+	player1.p_origin = corvus.origin
+	set view angles of entity player1 to corvus.angles
+	corvus.modelindex = 0
+	corvus.solid = SOLID_NOT
+
+	dranor.solid = SOLID_NOT
+
+	use entity camera6
+
+
+
+
+
+
+
+
+
+
+
+	

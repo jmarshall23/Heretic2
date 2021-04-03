@@ -1,0 +1,20 @@
+// Pivoting cam to run while sister_tome plays
+
+#include "../common/header.ds"
+
+output "r:/base/ds/cloud"
+
+global int countem
+
+label countloop
+countem += 1
+
+if countem = 6
+	wait 12 seconds
+	print 75
+	wait 16 seconds
+	exit
+endif
+suspend
+
+goto countloop

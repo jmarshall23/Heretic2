@@ -1,0 +1,7 @@
+// template file for scripts
+
+#include "../common/header.ds"
+
+output "r:/base/ds"
+
+

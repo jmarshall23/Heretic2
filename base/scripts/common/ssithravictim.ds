@@ -1,0 +1,35 @@
+// template file for scripts
+
+#include "../common/header.ds"
+
+output "r:/base/ds/common"
+
+local int sig
+
+parameter entity ssithravictim
+
+
+ssithravictim.yaw_speed = 5
+
+// Action 2
+animate entity ssithravictim performing action ACTION2_ANIMATION signaling sig
+wait for any clearing sig
+
+// Action 3
+animate entity ssithravictim performing action ACTION3_ANIMATION signaling sig
+wait for any clearing sig
+
+// Action 4
+animate entity ssithravictim performing action ACTION4_ANIMATION signaling sig
+wait for any clearing sig
+
+// Action 5
+animate entity ssithravictim performing action ACTION5_ANIMATION signaling sig
+wait for any clearing sig
+
+// Action 6
+animate entity ssithravictim performing action ACTION6_ANIMATION signaling sig
+wait for any clearing sig
+
+// Idle 1
+animate entity ssithravictim performing action IDLE1_ANIMATION 

@@ -1,0 +1,47 @@
+//Swinging wood on a broken bridge.
+
+#include "../common/header.ds"
+
+output "r:/base/ds/canyon"
+
+parameter entity parm1
+parameter vector parm2
+parameter float parm3
+
+local entity thing
+local vector distance
+local vector tvec
+local float time_var
+local int sgnl
+local float ttime
+local float counter
+
+thing = parm1
+distance = parm2
+time_var = parm3
+counter = 0
+
+label begin
+
+counter += 9
+ttime = sin counter
+ttime += 1
+ttime /= 4
+ttime += time_var
+tvec = distance
+tvec *= -1
+
+rotate entity thing to tvec over ttime seconds signaling sgnl
+wait for any clearing sgnl
+
+counter += 17
+ttime = sin counter
+ttime += 1
+ttime /= 4
+ttime += time_var
+tvec = distance
+
+rotate entity thing to tvec over ttime seconds signaling sgnl
+wait for any clearing sgnl
+
+goto begin

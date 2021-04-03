@@ -1,0 +1,86 @@
+// After all 6 tomes are turned off.
+ 
+#include "../common/header.ds"
+
+output "r:/base/ds/cloud"
+
+local entity tome
+local entity camera1
+local entity target1
+local entity hero
+local entity player1
+local entity puzztome
+local vector holdpos
+local entity miss
+local entity take
+
+local int sig
+local int sig1
+local int sig2
+local int holdindex
+local vector holdangles
+
+tome = find entity with targetname "tome"
+camera1 = find entity with targetname "cam1"
+target1 = find entity with scripttarget "target1"
+hero = find entity with targetname "hero"
+puzztome = find entity with targetname "puzztome"
+miss = find entity with targetname "miss"
+take = find entity with targetname "take"
+player1 = get entity activator
+//Switching player
+
+
+
+copy player attributes from entity player1 to entity hero
+hero.origin = player1.origin
+hero.angles = player1.angles
+hero.modelindex = hero.count	// Turn on cinematic corvus
+hero.solid = SOLID_SOLID	// Make him block
+hero.movetype = PHYSICSTYPE_STEP
+
+camera1.origin = player1.origin + [8, 72, 16]
+target1.origin = player1.origin + [0, -16, 0]
+tome.origin = player1.origin + [24, 32, 0]
+tome.angles = hero.angles + [0, 180, 0]
+holdangles = tome.angles
+tome.ideal_yaw =  holdangles.y
+tome.solid = SOLID_SOLID
+tome.modelindex = tome.count
+enable cinematics
+use entity camera1
+wait 1 seconds
+
+animate entity tome performing action IDLE1_ANIMATION repeating for 5 times
+animate entity hero performing action PIVOTLEFT_ANIMATION by turning [60, 0, 0]
+
+print 75 captioned
+play sound "tome/place_tome.wav" for entity tome
+wait 16 seconds
+use entity camera1
+
+//Switching back
+disable cinematics
+player1.origin = hero.origin	// Put player where Cinematic corvus is
+player1.p_origin = hero.origin	// Put player where Cinematic corvus is
+set view angles of entity player1 to hero.angles
+hero.modelindex = 0		// Turn off the cinematic corvus model
+hero.solid = SOLID_NOT		// Make him  not solid
+holdpos = tome.origin + [0, 0, 8]
+tome.modelindex = 0
+tome.solid = SOLID_NOT
+
+target1.movetype = PHYSICSTYPE_NOCLIP
+//holdpos = player1.origin + [24, 32, 8]
+
+//puzztome = spawn entity with fields "classname" = "item_puzzle_tome", "origin" = holdpos
+puzztome.origin = player1.origin + [0, 0, 8]
+use entity puzztome
+
+use entity take
+wait .1 seconds
+use entity miss
+wait .5 seconds
+
+exit
+	

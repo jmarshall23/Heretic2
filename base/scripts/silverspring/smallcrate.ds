@@ -1,0 +1,32 @@
+output "r:/base/ds/silverspring"
+
+#include "../common/header.ds"
+
+parameter entity smallcrate
+
+local int sgnl
+local int sgnl2
+
+smallcrate.movetype = PHYSICSTYPE_PUSH
+smallcrate.angle_velocity = [0,0,94]
+move entity smallcrate by [0,-80,-24] at 512 speed signaling sgnl
+wait for all clearing sgnl
+
+smallcrate.angle_velocity = [0,0,94]
+move entity smallcrate by [0,-32,-32] at 512 speed signaling sgnl
+wait for all clearing sgnl
+
+smallcrate.angle_velocity = [0,0,190]
+move entity smallcrate by [0,-16,-48] at 512 speed signaling sgnl
+wait for all clearing sgnl
+
+rotate entity smallcrate by [0,0,135] at 640 speed signaling sgnl
+move entity smallcrate by [0,-4,-24] at 448 speed signaling sgnl2
+wait for any clearing sgnl, sgnl2
+
+play sound "misc/brkwood2.wav" at volume 1
+smallcrate.angle_velocity = [0,0,0]
+
+smallcrate.movetype = PHYSICSTYPE_PUSH
+use entity smallcrate
+exit

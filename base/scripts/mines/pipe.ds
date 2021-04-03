@@ -1,0 +1,92 @@
+// the big bad falling pipe.
+
+#include "../common/header.ds"
+
+output "r:/base/ds/mines"
+
+local entity pipe
+local entity pipepiece
+local entity pipefloor
+local entity act1
+local entity deact1
+
+local int sig
+
+pipe = find entity with targetname "pipe"
+pipepiece = find entity with targetname "pipepiece"
+pipefloor = find entity with targetname "pipefloor"
+act1 = find entity with targetname "act1"
+deact1 = find entity with targetname "deact1"
+
+// here we go
+
+	use entity act1
+
+	rotate entity pipe by [0, 0, -28] at 150 speed signaling sig
+	wait for all clearing sig
+
+	use entity pipepiece
+
+	rotate entity pipe by [0, 0, -4] at 150 speed signaling sig
+	wait for all clearing sig
+
+	use entity deact1
+
+	use entity pipefloor
+
+	rotate entity pipe by [0, 0, 5] at 150 speed signaling sig
+	wait for all clearing sig
+
+	rotate entity pipe by [0, 0, -8] at 150 speed signaling sig
+	wait for all clearing sig
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

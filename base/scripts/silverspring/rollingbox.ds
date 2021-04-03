@@ -1,0 +1,77 @@
+//Thing drops, box rolls, wall blows up.
+
+
+#include "../common/header.ds"
+
+output "r:/base/ds/silverspring"
+
+//define variables
+
+local entity crate
+local entity cam
+local entity targ
+local entity plat
+local entity door
+local entity ropes
+local entity gono
+local int sig
+local int sig2
+
+field vector "velocity"
+
+plat = find entity with targetname "plat"
+crate = find entity with targetname "broke"
+cam = find entity with targetname "platcam"
+targ = find entity with targetname "camtarg"
+door = find entity with targetname "breakdoor"
+ropes = find entity with targetname "whousedoor"
+gono = find entity with targetname "nogo"
+
+crate.movetype = PHYSICSTYPE_PUSH
+targ.movetype = PHYSICSTYPE_PUSH
+
+//Drop box and slide
+
+use entity cam
+wait 0.5 seconds
+use entity ropes
+wait 0.1 seconds
+
+rotate entity plat by [0, 0, -40] at 150 speed 
+move entity crate by [0, 0, -2] at 150 speed signaling sig
+move entity targ by [0, 0, -2] at 150 speed signaling sig2
+wait for all clearing sig, sig2
+
+play sound "doors/objectdrop.wav" for entity crate
+
+rotate entity crate by [0, 0, -40] at 200 speed signaling sig
+wait for all clearing sig
+
+move entity crate by [0, 90, -130] at 250 speed signaling sig
+move entity targ by [0, 124, -110] at 250 speed signaling sig2
+wait for all clearing sig, sig2
+
+crate.velocity = [0, 380, 0]
+
+rotate entity crate by [0, 30, -20] at 250 speed signaling sig
+wait for all clearing sig
+
+move entity crate by [0, 20, -10] at 300 speed signaling sig
+move entity targ by [0, 20, -10] at 300 speed signaling sig2
+wait for all clearing sig, sig2
+
+crate.velocity = [0, 500, 200]
+
+rotate entity crate by [0, 0, -140] at 150 speed
+
+use entity door
+wait 0.1 seconds
+use entity crate
+wait 1 seconds
+use entity cam
+disable trigger entity gono
+
+
+
+
+

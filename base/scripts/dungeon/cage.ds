@@ -1,0 +1,142 @@
+// the cage that dips down into the lava. killing poor fred.
+
+#include "../common/header.ds"
+
+output "r:/base/ds/dungeon"
+
+local entity cage
+local entity light
+local entity fred
+local entity lavadoor1
+local entity lavadoor2
+
+local int sig
+local int sig1
+local int sig2
+
+cage = find entity with targetname "cage"
+light = find entity with targetname "light"
+fred = find entity with targetname "fred"
+lavadoor1 = find entity with targetname "lavadoor1"
+lavadoor2 = find entity with targetname "lavadoor2"
+
+// start
+
+	label beginning
+
+	play sound "doors/gendoorstart.wav" for entity lavadoor1
+	move entity lavadoor1 by [-120, 0, 0] over 2 seconds signaling sig
+
+	play sound "doors/gendoorstart.wav" for entity lavadoor2
+	move entity lavadoor2 by [120, 0, 0] over 2 seconds signaling sig1
+	wait for all clearing sig, sig1
+
+	play sound "doors/gendoorstop.wav" for entity lavadoor1
+	play sound "doors/gendoorstop.wav" for entity lavadoor2
+
+	fred.movetype = PHYSICSTYPE_NOCLIP
+	light.movetype = PHYSICSTYPE_PUSH
+
+	play sound "doors/gendoorstart.wav" for entity cage
+
+	move entity cage by [0, 0, -380] at 50 speed signaling sig
+
+	move entity light by [0, 0, -380] at 50 speed signaling sig2
+
+	move entity fred by [0, 0, -380] at 50 speed signaling sig1
+	wait for all clearing sig, sig2
+
+	play sound "doors/gendoorstop.wav" for entity cage
+
+	fred.movetype = PHYSICSTYPE_STEP
+
+	wait 3 seconds
+
+	fred.movetype = PHYSICSTYPE_NOCLIP
+
+	play sound "doors/gendoorstart.wav" for entity cage
+
+	move entity cage by [0, 0, 380] at 50 speed signaling sig
+
+	move entity light by [0, 0, 380] at 50 speed signaling sig2
+	wait for all clearing sig, sig2
+
+	play sound "doors/gendoorstop.wav" for entity cage
+
+	play sound "doors/gendoorstart.wav" for entity lavadoor1
+	move entity lavadoor1 by [120, 0, 0] over 2 seconds signaling sig
+
+	play sound "doors/gendoorstart.wav" for entity lavadoor2
+	move entity lavadoor2 by [-120, 0, 0] over 2 seconds signaling sig1
+	wait for all clearing sig, sig1
+
+	play sound "doors/gendoorstop.wav" for entity lavadoor1
+	play sound "doors/gendoorstop.wav" for entity lavadoor2	
+
+	fred.modelindex = 0
+
+	suspend
+
+	goto beginning
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

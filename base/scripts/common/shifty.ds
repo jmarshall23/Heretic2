@@ -1,0 +1,14 @@
+// template file for scripts
+
+#include "../common/header.ds"
+
+output "r:/base/ds/common"
+
+local entity break1
+local entity break2
+
+break1 = find entity with targetname "break1"
+break2 = find entity with targetname "break2"
+
+use entity break1
+use entity break2

@@ -1,0 +1,50 @@
+output "r:/base/ds/hivetrialpit"
+#include "../common/header.ds"
+
+local entity opener
+local entity bug
+local entity beast
+local entity flare1t
+local entity flare2t
+local entity flare3t
+local entity fire
+local int s1
+local int s2
+
+opener = find entity with targetname "opendoor"
+bug = find entity with targetname "bug"
+flare1t = find entity with targetname "flare1t"
+flare2t = find entity with targetname "flare2t"
+flare3t = find entity with targetname "flare3t"
+fire = find entity with targetname "fire"
+beast = find entity with scripttarget "trialbeast"
+
+wait 0.5 seconds
+
+animate entity bug performing action ATTACK3_ANIMATION signaling s1
+wait 0.4 seconds
+
+use entity fire
+move entity fire to [-640, -64, 8] over 1 seconds signaling s2
+
+wait for any clearing s1
+animate entity bug performing action IDLE2_ANIMATION
+
+wait for any clearing s2
+
+use entity flare1t
+use entity flare2t
+use entity flare3t
+
+wait 1 seconds
+use entity fire
+
+wait 4 seconds
+
+use entity opener
+
+wait .5 seconds
+
+use entity beast
+
+exit

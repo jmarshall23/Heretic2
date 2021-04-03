@@ -1,0 +1,32 @@
+//teleporter in secret bed room if player is stupid.
+
+#include "../common/header.ds"
+
+output "r:/base/ds/cloud"
+
+
+local entity teleporter
+local entity plat
+local entity cam
+local int sig
+
+teleporter = find entity with targetname "telactivate"
+plat = find entity with targetname "beddoor"
+cam = find entity with targetname "bedcam"
+
+
+
+//move it
+
+use entity cam
+
+rotate entity plat by [0, 0, 90] at 75 speed signaling sig
+wait for all clearing sig
+
+use entity teleporter
+
+wait 2 seconds
+
+use entity cam
+
+exit

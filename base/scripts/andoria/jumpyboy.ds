@@ -1,0 +1,24 @@
+//breaking part of jump platform
+
+#include "../common/header.ds"
+
+output "r:/base/ds/andoria"
+
+//define variables
+
+local entity drop
+
+local int sig1
+local int sig2
+
+drop = find entity with targetname "jumpbreak2"
+
+//start of script
+
+//drop.movetype = PHYSICSTYPE_NOCLIP
+rotate entity drop by [0, 10, -180] at 400 speed signaling sig1
+move entity drop by [60, 80, -176] at 700 speed signaling sig2
+play sound "doors/objectdrop.wav" for entity drop
+wait for all clearing sig1, sig2
+//drop.movetype = PHYSICSTYPE_PUSH
+exit

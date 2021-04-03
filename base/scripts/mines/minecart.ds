@@ -1,0 +1,283 @@
+// Come and ride on my beautiful, my beautiful, Mine Cart.
+
+#include "../common/header.ds"
+
+output "r:/base/ds/mines"
+
+local entity wheel1
+local entity wheel2
+local entity main
+local entity walls
+local entity camera
+local entity change
+local entity corvus
+local entity player1
+local entity break
+
+local int sig
+local int sig1
+local int sig2
+local int sig3
+local int sig4
+local int sig5
+local int sig6
+local int sig7
+local int cor
+local int cor1
+
+cache sound "objects/spankers.wav"
+cache sound "misc/breakstone.wav"
+
+wheel1 = find entity with targetname "wheel1"
+wheel2 = find entity with targetname "wheel2"
+main = find entity with targetname "main"
+walls = find entity with targetname "walls"
+camera = find entity with targetname "camera"
+change = find entity with targetname "change"
+corvus = find entity with targetname "corvus"
+player1 = get entity activator
+break = find entity with targetname "break"
+
+
+// in the begining
+
+	move entity wheel1 by [0, 0, 40] at 2000 speed signaling sig
+	wait for all clearing sig
+
+	enable cinematics
+
+// let's get things rolling
+
+	copy player attributes from entity player1 to entity corvus
+	corvus.modelindex = corvus.count
+	corvus.solid = SOLID_SOLID
+	corvus.movetype = 4
+
+//--------------------------------
+
+
+	use entity camera
+
+	corvus.movetype = PHYSICSTYPE_NOCLIP
+
+	animate entity corvus performing action ACTION8_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity corvus performing action ACTION9_ANIMATION repeating for 100 times
+	
+	play sound "objects/cartroll.wav" for entity main	
+
+	move entity wheel1 by [0, -100, 0] at 100 speed signaling sig
+	move entity wheel2 by [0, -100, 0] at 100 speed signaling sig1
+	move entity main by [0, -100, 0] at 100 speed signaling sig2
+	move entity walls by [0, -100, 0] at 100 speed signaling sig3
+	move entity corvus by [0, -100, 0] at 100 speed signaling cor
+	wait for all clearing sig, sig1, sig2, sig3, cor
+
+// --------------------------------
+
+	move entity wheel1 by [0, -40, -6] at 150 speed signaling sig
+	move entity wheel2 by [0, -40, -6] at 150 speed signaling sig1
+	move entity main by [0, -40, -6] at 150 speed signaling sig2
+	move entity walls by [0, -40, -6] at 150 speed signaling sig3
+	move entity corvus by [0, -40, -6] at 150 speed signaling cor
+
+	rotate entity wheel1 by [0, 0, 18] at 200 speed signaling sig4
+	rotate entity wheel2 by [0, 0, 18] at 200 speed signaling sig5
+	rotate entity main by [0, 0, 18] at 200 speed signaling sig6
+	rotate entity walls by [0, 0, 18] at 200 speed signaling sig7
+	rotate entity corvus by [0, 0, 18] at 200 speed signaling cor1
+	wait for all clearing sig, sig1, sig2, sig3, sig4, sig5, sig6, sig7, cor, cor1
+
+// --------------------------------
+
+	move entity wheel1 by [0, -690, -215] at 800 speed signaling sig
+	move entity wheel2 by [0, -690, -215] at 800 speed signaling sig1
+	move entity main by [0, -690, -215] at 800 speed signaling sig2
+	move entity walls by [0, -690, -215] at 800 speed signaling sig3
+	move entity corvus by [0, -690, -215] at 800 speed signaling cor
+	wait for all clearing sig, sig1, sig2, sig3, cor
+
+//---------------------------------
+	
+	move entity wheel1 by [0, -50, 0] at 800 speed signaling sig
+	move entity wheel2 by [0, -50, 0] at 800 speed signaling sig1
+	move entity main by [0, -50, 0] at 800 speed signaling sig2
+	move entity walls by [0, -50, 0] at 800 speed signaling sig3
+	move entity corvus by [0, -50, 0] at 800 speed signaling cor
+
+	rotate entity wheel1 by [0, 0, -10] at 800 speed signaling sig4
+	rotate entity wheel2 by [0, 0, -10] at 800 speed signaling sig5
+	rotate entity main by [0, 0, -10] at 800 speed signaling sig6
+	rotate entity walls by [0, 0, -10] at 800 speed signaling sig7
+	rotate entity corvus by [0, 0, -10] at 800 speed signaling cor1
+	wait for all clearing sig, sig1, sig2, sig3, sig4, sig5, sig6, sig7, cor, cor1
+
+//---------------------------------
+
+	move entity wheel1 by [0, -65, -20] at 800 speed signaling sig
+	move entity wheel2 by [0, -65, -20] at 800 speed signaling sig1
+	move entity main by [0, -65, -20] at 800 speed signaling sig2
+	move entity walls by [0, -65, -20] at 800 speed signaling sig3
+	move entity corvus by [0, -65, -20] at 800 speed signaling cor
+
+	rotate entity wheel1 by [0, 0, -8] at 800 speed signaling sig4
+	rotate entity wheel2 by [0, 0, -8] at 800 speed signaling sig5
+	rotate entity main by [0, 0, -8] at 800 speed signaling sig6
+	rotate entity walls by [0, 0, -8] at 800 speed signaling sig7
+	rotate entity corvus by [0, 0, -8] at 800 speed signaling cor1
+	wait for all clearing sig, sig1, sig2, sig3, sig4, sig5, sig6, sig7, cor, cor1
+
+//---------------------------------
+
+	move entity wheel1 by [0, -140, 0] at 800 speed signaling sig
+	move entity wheel2 by [0, -140, 0] at 800 speed signaling sig1
+	move entity main by [0, -140, 0] at 800 speed signaling sig2
+	move entity walls by [0, -140, 0] at 800 speed signaling sig3
+	move entity corvus by [0, -140, 0] at 800 speed signaling cor
+	wait for all clearing sig, sig1, sig2, sig3, cor
+
+//---------------------------------
+
+	play sound "objects/spankers.wav" for entity main	
+
+	move entity wheel1 by [0, -50, 20] at 800 speed signaling sig
+	move entity wheel2 by [0, -50, 20] at 800 speed signaling sig1
+	move entity main by [0, -50, 20] at 800 speed signaling sig2
+	move entity walls by [0, -50, 20] at 800 speed signaling sig3
+	move entity corvus by [0, -50, 20] at 800 speed signaling cor
+
+	rotate entity wheel1 by [0, 0, -25] at 800 speed signaling sig4
+	rotate entity wheel2 by [0, 0, -25] at 800 speed signaling sig5
+	rotate entity main by [0, 0, -25] at 800 speed signaling sig6
+	rotate entity walls by [0, 0, -25] at 800 speed signaling sig7
+	rotate entity corvus by [0, 0, -25] at 800 speed signaling cor1
+	wait for all clearing sig, sig1, sig2, sig3, sig4, sig5, sig6, sig7, cor, cor1
+
+// --------------------------------
+
+	move entity wheel1 by [0, -50, 50] at 800 speed signaling sig
+	move entity wheel2 by [0, -50, 50] at 800 speed signaling sig1
+	move entity main by [0, -50, 50] at 800 speed signaling sig2
+	move entity walls by [0, -50, 50] at 800 speed signaling sig3
+	move entity corvus by [0, -50, 50] at 800 speed signaling cor
+	wait for all clearing sig, sig1, sig2, sig3, cor
+
+//---------------------------------
+
+	move entity wheel1 by [0, -50, 20] at 800 speed signaling sig
+	move entity wheel2 by [0, -50, 20] at 800 speed signaling sig1
+	move entity main by [0, -50, 20] at 800 speed signaling sig2
+	move entity walls by [0, -50, 20] at 800 speed signaling sig3
+	move entity corvus by [0, -50, 20] at 800 speed signaling cor
+
+	rotate entity wheel1 by [0, 0, 15] at 800 speed signaling sig4
+	rotate entity wheel2 by [0, 0, 15] at 800 speed signaling sig5
+	rotate entity main by [0, 0, 15] at 800 speed signaling sig6
+	rotate entity walls by [0, 0, 15] at 800 speed signaling sig7
+	rotate entity corvus by [0, 0, 15] at 800 speed signaling cor1
+	wait for all clearing sig, sig1, sig2, sig3, sig4, sig5, sig6, sig7, cor, cor1
+
+// --------------------------------
+
+	move entity wheel1 by [0, -150, 0] at 800 speed signaling sig
+	move entity wheel2 by [0, -150, 0] at 800 speed signaling sig1
+	move entity main by [0, -150, 0] at 800 speed signaling sig2
+	move entity walls by [0, -150, 0] at 800 speed signaling sig3
+	move entity corvus by [0, -150, 0] at 800 speed signaling cor
+
+	rotate entity wheel1 by [0, 0, 10] at 800 speed signaling sig4
+	rotate entity wheel2 by [0, 0, 10] at 800 speed signaling sig5
+	rotate entity main by [0, 0, 10] at 800 speed signaling sig6
+	rotate entity walls by [0, 0, 10] at 800 speed signaling sig7
+	rotate entity corvus by [0, 0, 10] at 800 speed signaling cor1
+	wait for all clearing sig, sig1, sig2, sig3, sig4, sig5, sig6, sig7, cor, cor1
+
+//---------------------------------
+
+	move entity wheel1 by [0, -150, 0] at 800 speed signaling sig
+	move entity wheel2 by [0, -150, 0] at 800 speed signaling sig1
+	move entity main by [0, -150, 0] at 800 speed signaling sig2
+	move entity walls by [0, -150, 0] at 800 speed signaling sig3
+	move entity corvus by [0, -150, 0] at 800 speed signaling cor
+
+	rotate entity wheel1 by [0, 0, 10] at 800 speed signaling sig4
+	rotate entity wheel2 by [0, 0, 10] at 800 speed signaling sig5
+	rotate entity main by [0, 0, 10] at 800 speed signaling sig6
+	rotate entity walls by [0, 0, 10] at 800 speed signaling sig7
+	rotate entity corvus by [0, 0, 10] at 800 speed signaling cor1
+	wait for all clearing sig, sig1, sig2, sig3, sig4, sig5, sig6, sig7, cor, cor1
+
+
+// ---------------------------------
+
+
+	move entity wheel1 by [0, -50, -20] at 800 speed signaling sig
+	move entity wheel2 by [0, -50, -20] at 800 speed signaling sig1
+	move entity main by [0, -50, -20] at 800 speed signaling sig2
+	move entity walls by [0, -50, -20] at 800 speed signaling sig3
+	move entity corvus by [0, -50, -20] at 800 speed signaling cor
+
+	rotate entity wheel1 by [0, 0, 15] at 800 speed signaling sig4
+	rotate entity wheel2 by [0, 0, 15] at 800 speed signaling sig5
+	rotate entity main by [0, 0, 15] at 800 speed signaling sig6
+	rotate entity walls by [0, 0, 15] at 800 speed signaling sig7
+	rotate entity corvus by [0, 0, 15] at 800 speed signaling cor1
+	wait for all clearing sig, sig1, sig2, sig3, sig4, sig5, sig6, sig7, cor, cor1
+
+//----------------------------------
+
+	move entity wheel1 by [0, -75, -50] at 800 speed signaling sig
+	move entity wheel2 by [0, -75, -50] at 800 speed signaling sig1
+	move entity main by [0, -75, -50] at 800 speed signaling sig2
+	move entity walls by [0, -75, -50] at 800 speed signaling sig3
+	move entity corvus by [0, -75, -50] at 800 speed signaling cor
+	wait for all clearing sig, sig1, sig2, sig3, cor
+
+	play sound "misc/metalbreak.wav" for entity main
+
+	use entity break
+
+//---------------------------------
+
+	move entity wheel1 by [75, 25, 15] at 400 speed signaling sig
+	move entity wheel2 by [75, 0, 15] at 400 speed signaling sig1
+	move entity main by [0, -10, -20] at 400 speed signaling sig2
+	move entity corvus by [0, -10, -20] at 400 speed signaling cor
+	move entity walls by [30, -100, -40] at 400 speed signaling sig3
+
+
+	rotate entity wheel1 by [90, 0, -25] at 400 speed signaling sig4
+	rotate entity wheel2 by [90, 0, -25] at 400 speed signaling sig5
+	rotate entity main by [0, 0, -25] at 400 speed signaling sig6
+	rotate entity corvus by [0, 0, -25] at 400 speed signaling cor1
+	rotate entity walls by [0, 0, -25] at 400 speed signaling sig7
+	wait for any clearing sig, sig1, sig2, sig3, sig4, sig5, sig6, sig7, cor, cor1
+
+	corvus.movetype = PHYSICSTYPE_PUSH
+	animate entity corvus performing action ACTION11_ANIMATION by moving [-20, 0, 0]
+
+//----------------------------------
+
+	move entity main by [0, -10, 0] at 200 speed signaling sig
+	wait for all clearing sig
+
+	move entity main by [0, -10, 0] at 100 speed signaling sig
+	wait for all clearing sig
+
+	move entity main by [0, -10, 0] at 50 speed signaling sig
+	wait for all clearing sig
+
+// ----------------------------------
+
+	wait 1 seconds
+
+	disable cinematics
+
+	player1.modelindex = 0
+	player1.solid = SOLID_NOT
+
+	use entity change
+	
+
+

@@ -1,0 +1,23 @@
+// A little script that gives the player a message. I made this a script in the hopes that it will 
+// work a little better in coop.
+
+#include "../common/header.ds"
+
+output "r:/base/ds/mines"
+
+global entity last_player
+
+local entity dipshit
+
+label loop
+
+	dipshit = get entity activator
+	
+	if dipshit != last_player
+	  print 65 captioned
+	  last_player = dipshit
+	endif
+
+	suspend
+
+goto loop

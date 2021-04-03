@@ -1,0 +1,80 @@
+//The super duper guardian statue rotater lever-o-matic thing a ma bob!
+
+#include "../common/header.ds"
+
+output "r:/base/ds/andoria"
+
+//define variables
+
+local entity leverblock
+local entity lever
+local entity guardian
+local entity secdoor
+local entity camera
+local entity activate
+local entity counter
+local entity c1
+local entity player1
+
+local int sig
+local int sig2
+
+leverblock = find entity with targetname "block"
+lever = find entity with targetname "lever"
+guardian = find entity with targetname "guard1"
+secdoor = find entity with targetname "secret"
+camera = find entity with targetname "guardcam"
+activate = find entity with targetname "active"
+counter = find entity with targetname "counter"
+c1 = find entity with targetname "c1"
+player1 = get entity activator
+
+//move lever outward (cool huh?)
+move entity secdoor by [-16, 0, 0] at 30 speed signaling sig
+wait for all clearing sig
+move entity secdoor by [0, 120, 0] at 40 speed signaling sig
+wait for all clearing sig
+
+wait .3 seconds
+lever.movetype = PHYSICSTYPE_PUSH
+play sound "doors/stonestart.wav" for entity lever
+move entity lever by [48, 0, 0] at 30 speed signaling sig
+move entity leverblock by [48, 0, 0] at 30 speed signaling sig2
+wait for all clearing sig, sig2
+
+enable trigger entity activate
+
+suspend
+
+//use lever... rotate statue
+
+use entity lever
+wait 1 seconds
+
+enable cinematics
+
+	copy player attributes from entity player1 to entity c1
+	c1.modelindex = c1.count
+	c1.solid = SOLID_SOLID
+	c1.movetype = 4
+
+use entity camera
+
+guardian.movetype = PHYSICSTYPE_PUSH
+play sound "doors/gendoorstart.wav" for entity guardian
+rotate entity guardian by [0, -90, 0] over 3 seconds signaling sig
+wait 3.0 seconds
+play sound "doors/gendoorstop.wav" for entity guardian
+wait for all clearing sig
+
+	player1.origin = c1.origin
+	player1.p_origin = c1.origin
+	set view angles of entity player1 to c1.angles
+
+	c1.modelindex = 0
+	c1.solid = SOLID_NOT
+
+disable cinematics
+use entity camera
+use entity counter
+exit

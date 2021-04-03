@@ -1,0 +1,244 @@
+// The Fallen High Priestess. 
+
+
+#include "../common/header.ds"
+
+output "r:/base/ds/hive"
+
+local entity send
+local entity camnot
+local entity camthere
+local entity cam22
+local entity camera1
+local entity camera2
+local entity camera3
+local entity camera4
+local entity camera4base
+local entity camera5
+local entity camera6
+local entity portal
+local entity portalcam
+local entity fallen
+local entity corvus
+local entity levelchange
+
+local entity player1
+local entity watcher
+local entity monster
+
+local int sig
+local int sig1
+
+send = find entity with targetname "send"
+camnot = find entity with targetname "not"
+camthere = find entity with targetname "there"
+cam22 = find entity with targetname "cam22"
+camera1 = find entity with targetname "fcam1"
+camera2 = find entity with targetname "fcam2"
+camera3 = find entity with targetname "fcam3"
+camera4 = find entity with targetname "fcam4"
+camera4base = find entity with targetname "fcam4b"
+camera5 = find entity with targetname "fcam5"
+camera6 = find entity with targetname "fcam6"
+portal = find entity with targetname "portal"
+portalcam = find entity with targetname "portalcam"
+levelchange = find entity with targetname "t129"
+fallen = find entity with targetname "fallen"
+corvus = find entity with targetname "corvus"
+monster = find entity with targetname "monster"
+
+cache sound "cinematics/fallen priestess/107-454.wav"
+cache sound "cinematics/fallen priestess/108-450.wav"
+cache sound "cinematics/fallen priestess/109-450.wav"
+cache sound "cinematics/fallen priestess/110-455.wav"
+cache sound "cinematics/fallen priestess/112-458.wav"
+cache sound "cinematics/fallen priestess/113-455.wav"
+cache sound "cinematics/fallen priestess/99-450.wav"
+cache sound "cinematics/fallen priestess/100-451.wav"
+cache sound "cinematics/fallen priestess/101-454.wav"
+cache sound "cinematics/fallen priestess/102-454.wav"
+cache sound "cinematics/fallen priestess/103-454.wav"
+cache sound "cinematics/fallen priestess/104-454.wav"
+cache sound "cinematics/fallen priestess/105-450.wav"
+cache sound "cinematics/fallen priestess/106-454.wav"
+cache sound "cinematics/fallen priestess/114-458.wav"
+cache sound "cinematics/fallen priestess/115-458.wav"
+
+
+
+//Switching Priestess
+player1 = get entity activator 	// Get player who set off trigger
+
+copy player attributes from entity player1 to entity corvus  	// copies players appearance
+player1.solid = SOLID_NOT		// Player won't block now
+
+corvus.modelindex = corvus.count	// Turn on cinematic corvus
+corvus.solid = SOLID_NOT	 	// Make him block
+corvus.movetype = PHYSICSTYPE_STEP
+
+//monster = get entity activator  	// Get player who set off trigger
+monster.modelindex = 0			// Make players model disappear
+monster.solid = SOLID_NOT		// Player won't block now
+fallen.modelindex = fallen.count	// Turn on cinematic priestess
+fallen.solid = SOLID_SOLID		// Make her block
+fallen.movetype = PHYSICSTYPE_STEP
+fallen.origin = [2292, 2108, 504]
+fallen.angles = [0, 270, 0]
+
+
+enable cinematics
+
+
+//Camera1, behind fallen looking at corvus.
+	
+	use entity camera1
+	
+	play sound "cinematics/fallen priestess/99-450.wav" for entity fallen
+	animate entity fallen performing action ACTION7_ANIMATION signaling sig
+	animate entity corvus performing action ACTION7_ANIMATION signaling sig1
+	wait for all clearing sig, sig1
+	print 237 captioned 
+	play sound "cinematics/fallen priestess/100-451.wav" for entity corvus
+	animate entity fallen performing action ACTION8_ANIMATION signaling sig
+	animate entity corvus performing action ACTION8_ANIMATION signaling sig1
+	wait for all clearing sig, sig1
+
+	print 238 captioned 
+	play sound "cinematics/fallen priestess/101-454.wav" for entity fallen
+	animate entity fallen performing action ACTION9_ANIMATION signaling sig
+	animate entity corvus performing action ACTION9_ANIMATION signaling sig1
+	wait for all clearing sig, sig1
+
+//Camera2, on the side looking at both the fallen and corvus.
+
+	animate entity fallen performing action ACTION10_ANIMATION signaling sig1
+
+	use entity camera2
+	print 239 captioned 
+	play sound "cinematics/fallen priestess/102-454.wav" for entity corvus
+	animate entity corvus performing action ACTION10_ANIMATION signaling sig
+	wait for all clearing sig, sig1
+	print 240 captioned 
+	play sound "cinematics/fallen priestess/103-454.wav" for entity fallen
+	animate entity corvus performing action ACTION11_ANIMATION signaling sig
+	animate entity fallen performing action ACTION11_ANIMATION signaling sig1
+	wait 9 seconds
+	print 241 captioned 
+	use entity camera2
+
+//Close up shots, one of Priestess, one of Corvus
+
+	use entity camnot
+
+	wait for all clearing sig, sig1
+
+	use entity camnot
+
+	use entity camthere
+
+	print 242 captioned 
+	play sound "cinematics/fallen priestess/104-454.wav" for entity corvus
+	animate entity corvus performing action ACTION12_ANIMATION signaling sig
+	animate entity fallen performing action ACTION12_ANIMATION signaling sig1
+	wait for all clearing sig, sig1
+
+	use entity camthere
+
+//back to profile shot of the two
+
+	use entity cam22
+	print 243 captioned 
+	play sound "cinematics/fallen priestess/105-450.wav" for entity fallen
+	animate entity corvus performing action ACTION13_ANIMATION signaling sig
+	animate entity corvus performing action ACTION13_ANIMATION signaling sig1
+	wait for all clearing sig, sig1
+	print 244 captioned 
+	play sound "cinematics/fallen priestess/106-454.wav" for entity corvus
+	animate entity corvus performing action ACTION14_ANIMATION signaling sig
+	animate entity fallen performing action ACTION14_ANIMATION signaling sig1
+	wait for all clearing sig, sig1
+	print 245 captioned 
+	play sound "cinematics/fallen priestess/107-454.wav" for entity fallen
+	animate entity corvus performing action ACTION1_ANIMATION signaling sig
+	animate entity fallen performing action ACTION1_ANIMATION signaling sig1
+	wait for all clearing sig, sig1
+	use entity cam22
+
+
+//Camera3, close up of corvus.
+
+	use entity camera3
+	print 246 captioned 
+	play sound "cinematics/fallen priestess/108-450.wav" for entity corvus
+	animate entity corvus performing action ACTION2_ANIMATION signaling sig
+	animate entity fallen performing action ACTION2_ANIMATION signaling sig1
+	wait for all clearing sig, sig1
+
+//Camera4, looking over corvus's shoulder
+
+	use entity camera4
+	print 247 captioned 
+	play sound "cinematics/fallen priestess/109-450.wav" for entity fallen
+	animate entity corvus performing action ACTION3_ANIMATION signaling sig
+	animate entity fallen performing action ACTION3_ANIMATION signaling sig1
+	wait 6 seconds
+	print 248 captioned 
+	wait for all clearing sig, sig1
+
+//Camera4, camera pulls back looking at both the fallen and corvus
+
+	move entity camera4base by [-56, 72, 0] over 37 seconds
+	print 249 captioned
+	play sound "cinematics/fallen priestess/110-455.wav" for entity fallen
+	animate entity corvus performing action ACTION4_ANIMATION signaling sig
+	animate entity fallen performing action ACTION4_ANIMATION signaling sig1
+	wait 4 seconds
+	print 250 captioned
+	wait 6 seconds
+	print 251 captioned 
+	wait for all clearing sig, sig1
+	print 252 captioned 
+	play sound "cinematics/fallen priestess/112-458.wav" for entity fallen
+	animate entity corvus performing action ACTION5_ANIMATION signaling sig
+	animate entity fallen performing action ACTION5_ANIMATION signaling sig1
+	wait 8 seconds
+	print 253 captioned to entity player1
+	wait for all clearing sig, sig1
+
+//Camera5, low looking up at corvus
+
+	use entity camera5
+	print 254 captioned 
+	play sound "cinematics/fallen priestess/113-455.wav" for entity corvus
+	animate entity corvus performing action ACTION6_ANIMATION signaling sig
+	animate entity fallen performing action ACTION6_ANIMATION signaling sig1
+	wait for all clearing sig, sig1
+
+//Camera6, behind corvus looking at the fallen.
+
+	use entity camera6
+	print 255 captioned 
+	play sound "cinematics/fallen priestess/114-458.wav" for entity fallen
+	animate entity corvus performing action ACTION15_ANIMATION signaling sig
+	animate entity fallen performing action ACTION15_ANIMATION signaling sig1
+	wait 6 seconds
+	print 256 captioned 
+	wait for all clearing sig, sig1
+	use entity camera6
+	use entity send
+	print 257 captioned 
+	play sound "cinematics/fallen priestess/115-458.wav" for entity corvus
+	animate entity fallen performing action ACTION16_ANIMATION signaling sig
+	animate entity corvus performing action ACTION16_ANIMATION signaling sig1
+	wait for all clearing sig, sig1
+
+	use entity send
+//	animate entity fallen performing action IDLE1_ANIMATION	signaling sig
+//	animate entity corvus performing action IDLE4_ANIMATION signaling sig1
+//	wait for all clearing sig
+
+	use entity send
+
+	disable cinematics
+
+	use entity levelchange

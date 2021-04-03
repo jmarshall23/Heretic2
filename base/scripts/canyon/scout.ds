@@ -1,0 +1,227 @@
+//Ssithra scout encounter
+
+#include "../common/header.ds"
+
+output "r:/base/ds/canyon"
+
+//define variables
+
+local entity corvus
+local entity scout
+local entity cam1
+local entity cam2
+local entity cam2t
+local entity cam2train
+local entity cam3
+local entity cam3b
+local entity cam4
+local entity cam1b
+local entity cam4b
+local entity cam5
+local entity cam6
+local entity cam6b
+local entity objective
+local int sig
+local int sig1
+local int sig2
+local entity player1
+
+corvus = find entity with targetname "corvus"
+scout = find entity with targetname "scout"
+cam1 = find entity with targetname "c1"
+cam1b = find entity with targetname "camtrain"
+cam2 = find entity with targetname "c2"
+cam2t = find entity with targetname "cam2target"
+cam2train = find entity with targetname "cam2train"
+cam3 = find entity with targetname "c3"
+cam3b = find entity with targetname "t41"
+cam4 = find entity with targetname "c4"
+cam4b = find entity with targetname "cam4b"
+cam5 = find entity with targetname "nothing"
+cam6 = find entity with targetname "cam6"
+cam6b = find entity with targetname "cam6b"
+objective = find entity with targetname "objective5"
+
+cache sound "cinematics/Scout/76-334.wav"
+cache sound "cinematics/Scout/77-332.wav"
+cache sound "cinematics/Scout/78-332.wav"
+cache sound "cinematics/Scout/79-330.wav"
+cache sound "cinematics/Scout/80-335.wav" 
+cache sound "cinematics/Scout/81-335.wav" 
+cache sound "cinematics/Scout/82-330.wav" 
+cache sound "cinematics/Scout/83-335.wav" 
+
+player1 = get entity activator  // Get player who set off trigger
+copy player attributes from entity player1 to entity corvus
+corvus.modelindex = corvus.count	// Turn on cinematic corvus
+corvus.solid = SOLID_SOLID	// Make him block
+
+enable cinematics
+
+//First camera closing in on both Corvus and Scout
+
+	use entity cam1 
+
+	wait 1 seconds
+	
+	move entity cam1b by [-16, 80, -24] over 3.5 seconds
+	
+//You are the scout?	
+	
+	animate entity corvus performing action WALK2_ANIMATION by moving [80, 0, 0] by turning [35, 0, 0] signaling sig
+	wait for all clearing sig
+
+	animate entity corvus performing action ACTION1_ANIMATION signaling sig
+	wait for all clearing sig
+	
+	print 209 captioned to entity player1
+	play sound "cinematics/Scout/76-334.wav" for entity corvus
+
+	animate entity corvus performing action ACTION2_ANIMATION signaling sig1
+
+	wait .2 seconds
+	
+	animate entity scout performing action ACTION1_ANIMATION signaling sig
+	wait for all clearing sig, sig1
+
+	animate entity corvus performing action IDLE2_ANIMATION signaling sig1
+use entity cam1
+//Scout, cough, cough... yup.  Corvus..."infected?"
+
+	use entity cam2
+
+	cam2t.movetype = PHYSICSTYPE_PUSH
+	move entity cam2t by [16, 8, 0] over 12 seconds
+	move entity cam2train by [16, 8, 16] over 12 seconds
+
+	print 210 captioned to entity player1
+	play sound "cinematics/Scout/77-332.wav" for entity scout
+
+	animate entity scout performing action ACTION2_ANIMATION signaling sig
+	wait for all clearing sig, sig1
+	
+	wait 7 seconds
+
+	use entity cam2
+
+	use entity cam3
+
+	print 211 captioned to entity player1
+	play sound "cinematics/Scout/78-332.wav" for entity corvus 
+
+	animate entity corvus performing action ACTION3_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity corvus performing action IDLE2_ANIMATION signaling sig
+
+	animate entity scout performing action IDLE2_ANIMATION signaling sig2
+	wait for all clearing sig, sig2
+
+	use entity cam3
+
+//Action breakdown #1 Scout... they seem immune.
+
+	use entity cam4
+
+	move entity cam4b by [36, 56, 24] over 30 seconds
+	
+	print 212 captioned to entity player1
+	play sound "cinematics/Scout/79-330.wav" for entity scout
+
+	animate entity scout performing action ACTION3_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity scout performing action ACTION5_ANIMATION signaling sig
+	wait for all clearing sig
+
+	print 213 captioned to entity player1
+	animate entity scout performing action ACTION3_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity scout performing action ACTION4_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity scout performing action IDLE3_ANIMATION signaling sig
+	wait for all clearing sig
+	
+	use entity cam4
+
+//My journey has been for nothing.
+
+	use entity cam5
+
+	print 214 captioned to entity player1
+	play sound "cinematics/Scout/80-335.wav" for entity corvus
+	
+	animate entity corvus performing action ACTION4_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity corvus performing action IDLE2_ANIMATION signaling sig
+	//wait for all clearing sig
+	
+	use entity cam5	
+		
+//Action breakdown #2  No.  She may listen.
+
+	use entity cam6
+
+	print 215 captioned to entity player1
+	play sound "cinematics/Scout/81-335.wav" for entity scout
+
+	move entity cam6b by [-84, -170, 32] over 59 seconds
+
+	animate entity scout performing action ACTION6_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity scout performing action ACTION7_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity scout performing action ACTION8_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity scout performing action ACTION10_ANIMATION signaling sig
+	wait for all clearing sig
+
+	
+//ACTION BREAKDOWN #3
+
+	print 216 captioned to entity player1
+	play sound "cinematics/Scout/82-330.wav" for entity scout
+
+	animate entity scout performing action ACTION7_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity scout performing action ACTION7_ANIMATION signaling sig
+	wait for all clearing sig
+	
+	animate entity scout performing action ACTION7_ANIMATION signaling sig
+	wait for all clearing sig
+	
+	animate entity scout performing action ACTION9_ANIMATION signaling sig
+	wait for all clearing sig
+
+//DEATH OF SCOUT
+
+	play sound "cinematics/Scout/83-335.wav" for entity scout
+
+	animate entity scout performing action DEATH1_ANIMATION signaling sig
+
+	use entity objective
+
+	wait 1 seconds
+	
+	animate entity corvus performing action ACTION5_ANIMATION signaling sig
+	wait for all clearing sig	
+
+	animate entity corvus performing action IDLE1_ANIMATION signaling sig
+	
+	wait .5 seconds	
+
+	use entity cam6
+
+disable cinematics
+	
+player1.origin = corvus.origin	
+player1.p_origin = corvus.origin		// Put player where Cinematic corvus is set view angles of entity player1 to hero.angles
+corvus.modelindex = 0			
+corvus.solid = SOLID_NOT

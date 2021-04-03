@@ -1,0 +1,99 @@
+//Plague Elves break stair in Inn
+
+#include "../common/header.ds"
+output "r:/base/ds/silverspring"
+
+//declare variables
+local entity elf1
+local entity elf2
+local entity base
+local entity break1
+local entity camera
+local entity set1
+local entity set2
+local entity set3
+local entity set4
+local entity set5
+local entity set6
+
+local int sig1
+local int sig2
+local int sig3
+local int sig4
+local int sig5
+
+//define variables
+elf1 = find entity with targetname "stairelf1"
+elf2 = find entity with targetname "stairelf2"
+base = find entity with targetname "stairbase"
+break1 = find entity with targetname "breakstair1"
+camera = find entity with targetname "staircam"
+set1 = find entity with targetname "stairset1"
+set2 = find entity with targetname "stairset2"
+set3 = find entity with targetname "stairset3"
+set4 = find entity with targetname "stairset4"
+set5 = find entity with targetname "stairset5"
+set6 = find entity with targetname "stairset6"
+
+//Elves break stair and it crashes down
+
+elf1.takedamage = DAMAGE_NO
+elf2.takedamage = DAMAGE_NO
+
+animate entity elf1 performing action ATTACK4_ANIMATION repeating for 10 times
+animate entity elf2 performing action ATTACK3_ANIMATION repeating for 10 times
+set1.movetype = PHYSICSTYPE_NOCLIP
+set2.movetype = PHYSICSTYPE_NOCLIP
+set3.movetype = PHYSICSTYPE_NOCLIP
+set4.movetype = PHYSICSTYPE_NOCLIP
+set5.movetype = PHYSICSTYPE_NOCLIP
+set6.movetype = PHYSICSTYPE_NOCLIP
+use entity camera
+wait 2.0 seconds
+
+use entity base
+use entity break1
+play sound "objects/planksnap.wav" for entity set3 on channel 10
+rotate entity set3 by [-15, 0, 0] at 90 speed signaling sig1
+wait for all clearing sig1
+move entity set3 by [0, 0, -104] at 400 speed signaling sig1
+rotate entity set3 by [15, 0, 0] at 90 speed signaling sig2
+wait for all clearing sig1, sig2
+set3.movetype = PHYSICSTYPE_PUSH
+
+use entity set6
+play sound "objects/planksnap.wav" for entity set2 on channel 10
+rotate entity set2 by [25, 0, 0] at 90 speed signaling sig1
+move entity set2 by [0, 0, -32] at 300 speed signaling sig2
+play sound "objects/planksnap.wav" for entity set1 on channel 10
+rotate entity set1 by [-27, -15, 0] at 300 speed signaling sig3
+move entity set1 by [0, 0, -8] at 300 speed signaling sig4
+play sound "objects/planksnap.wav" for entity set4 on channel 10
+move entity set4 by [-16, 10, -80] at 300 speed signaling sig5
+wait for all clearing sig1, sig2, sig3, sig4, sig5
+use entity set1
+use entity set2
+use entity set4
+
+set5.angle_velocity = [0, 200, 0]
+play sound "objects/planksnap.wav" for entity set5 on channel 10
+rotate entity set5 by [0, 30, 0] at 30 speed signaling sig1
+move entity set5 by [0, 0, -200] at 300 speed signaling sig2
+set5.movetype = PHYSICSTYPE_PUSH
+set5.angle_velocity = [0, 0, 0]
+wait for any clearing sig1, sig2
+
+wait 1.0 seconds
+use entity camera
+animate entity elf1 performing action IDLE1_ANIMATION by turning [180, 0, 0] repeating for 3 times signaling sig1
+animate entity elf2 performing action IDLE1_ANIMATION repeating for 2 times signaling sig2
+wait for all clearing sig1, sig2
+
+elf1.takedamage = DAMAGE_YES
+elf2.takedamage = DAMAGE_YES
+
+animate entity elf1 performing action THINKAGAIN_ANIMATION
+animate entity elf2 performing action THINKAGAIN_ANIMATION
+wait 1 seconds
+exit
+

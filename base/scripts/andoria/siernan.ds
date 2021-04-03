@@ -1,0 +1,68 @@
+// Corvus goes back to siernan. if he does not have both puzzle items that he needs
+// 	this script will play.
+
+#include "../common/header.ds"
+
+output "r:/base/ds/andoria"
+
+local entity siernan
+local entity camera
+local entity player1
+
+local int sig
+
+cache sound "cinematics/second siernan/question.wav"
+cache sound "cinematics/second siernan/getitems.wav"
+cache sound "corvus/no.wav"
+
+siernan = find entity with targetname "siernan"
+camera = find entity with targetname "luke"
+player1 = get entity activator
+
+// here we go.
+enable cinematics
+ 	siernan.yaw_speed = 4
+
+	use entity camera
+
+	animate entity siernan performing action WALK1_ANIMATION by turning [-45, 0, 0] signaling sig
+	wait for all clearing sig
+
+	play sound "cinematics/second siernan/question.wav" for entity siernan
+	print 185 captioned
+
+	animate entity siernan performing action ACTION1_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity siernan performing action IDLE1_ANIMATION
+
+	play sound "corvus/no.wav" for entity siernan
+	print 186 captioned
+
+	wait 1 seconds
+
+	play sound "cinematics/second siernan/getitems.wav" for entity siernan
+	print 187 captioned
+
+	animate entity siernan performing action ACTION4_ANIMATION signaling sig
+	wait for all clearing sig
+
+	animate entity siernan performing action ACTION1_ANIMATION signaling sig
+	wait for all clearing sig
+
+	wait 1 seconds
+
+	animate entity siernan performing action WALK1_ANIMATION by turning [45, 0, 0] signaling sig
+	wait for all clearing sig
+
+	animate entity siernan performing action IDLE1_ANIMATION
+
+disable cinematics
+
+	use entity camera
+
+
+
+
+
+

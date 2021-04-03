@@ -1,0 +1,18 @@
+// This is first part of the cave in, in one of the hallways.
+// this part decides which camera to use
+
+#include "../common/header.ds"
+
+output "r:/base/ds/kellcaves"
+
+global int dir
+
+parameter int parm1
+
+local entity cavein
+
+dir = parm1
+
+cavein = find entity with targetname "cavein"
+
+use entity cavein

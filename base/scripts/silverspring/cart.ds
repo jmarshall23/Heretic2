@@ -1,0 +1,44 @@
+//SSwarehouse, an elf pushing a cart
+
+#include "../common/header.ds"
+
+output "R:base/ds/silverspring"
+
+local entity elf1
+local entity elf2
+local entity barrel
+local entity cart
+
+local int sig
+
+elf1.yaw_speed = 3
+
+elf1 = find entity with targetname "elf1"
+elf2 = find entity with targetname "elf2"
+barrel = find entity with targetname "barrel"
+cart = find entity with targetname "cart"
+
+//Pushing the cart
+//elf1.takedamage = DAMAGE_NO
+//elf2.takedamage = DAMAGE_NO
+
+animate entity elf2 performing action WALK1_ANIMATION by moving [72, 0, 0] signaling sig
+
+cart.movetype = PHYSICSTYPE_NOCLIP
+move entity cart by [64, 0, 0] at 30 speed signaling sig
+
+animate entity elf1 performing action WALK1_ANIMATION by moving [80, 0, 0] signaling sig
+
+barrel.movetype = PHYSICSTYPE_NOCLIP
+move entity barrel by [72, 0, 0] at 30 speed signaling sig
+wait for all clearing sig
+
+cart.movetype = PHYSICSTYPE_PUSH
+barrel.movetype = PHYSICSTYPE_PUSH
+
+//elf1.takedamage = DAMAGE_YES
+//elf2.takedamage = DAMAGE_YES
+
+animate entity elf1 performing action THINKAGAIN_ANIMATION
+animate entity elf2 performing action THINKAGAIN_ANIMATION
+

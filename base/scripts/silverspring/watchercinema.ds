@@ -1,0 +1,137 @@
+// The Watcher Cinematic with Spam-O-Vision.
+ 
+#include "../common/header.ds"
+
+output "r:/base/ds/silverspring"
+
+local entity cam1
+local entity cam2
+local entity cam3
+local entity dolly
+local entity dolly2
+local entity dolly3
+local entity cam1train
+local entity cam2train
+local entity cam3train
+local entity watcher
+local entity player1
+local entity fire1
+local entity fire2
+local entity light1
+local entity light2
+local entity light3
+local entity monster
+parameter entity hero
+
+local int sig
+local int sig1
+local int sig2
+
+cam1 = find entity with targetname "shot1"
+cam1train = find entity with scripttarget "train1"
+cam2 = find entity with targetname "shot2"
+cam2train = find entity with scripttarget "train2"
+cam3 = find entity with targetname "shot3"
+cam3train = find entity with scripttarget "train3"
+dolly = find entity with scripttarget "pan"
+dolly2 = find entity with scripttarget "pan2"
+dolly3 = find entity with scripttarget "pan3"
+watcher = find entity with targetname "lord"
+fire1 = find entity with targetname "fire1"
+fire2 = find entity with targetname "fire2"
+light1 = find entity with targetname "light1"
+light2 = find entity with targetname "light2"
+light3 = find entity with targetname "light3"
+monster = find entity with targetname "monster"
+
+//Switching player
+
+player1 = get entity activator  // Get player who set off trigger
+copy player attributes from entity player1 to entity hero
+hero.modelindex = hero.count	// Turn on cinematic corvus
+hero.solid = SOLID_SOLID	// Make him block
+hero.movetype = PHYSICSTYPE_STEP
+
+enable cinematics
+cache sound "cinematics/watcher/33-33.wav"
+cache sound "cinematics/watcher/34-36.wav"
+cache sound "cinematics/watcher/35-33.wav"
+
+// Corvus enters the Watcher's Throne Room and says, Nice Digs.
+	animate entity watcher performing action IDLE2_ANIMATION repeating for 10 times
+	use entity cam1
+	dolly.movetype = PHYSICSTYPE_NOCLIP
+	animate entity hero performing action WALK2_ANIMATION by moving [64, 0, 0] by turning [0, 0, 0] signaling sig
+	wait for any clearing sig
+	animate entity hero performing action IDLE2_ANIMATION repeating for 10 times
+	print 154 captioned
+	play sound "cinematics/watcher/33-33.wav" for entity watcher
+	wait .2 seconds
+	animate entity watcher performing action ACTION1_ANIMATION signaling sig2
+	move entity cam1train by [0, 0, 128] over 2.5 seconds signaling sig1
+	wait for any clearing sig1
+	wait 1 seconds
+	use entity fire1
+	use entity fire2
+	use entity light1
+	use entity light2
+	use entity light3
+	move entity dolly by [0, 300, 0] over 10.5 seconds signaling sig
+	move entity cam1train by [0, 300, 0] over 12.5 seconds signaling sig1
+	wait for all clearing sig, sig1, sig2
+	use entity cam1
+	animate entity watcher performing action IDLE2_ANIMATION
+
+
+// Corvus walks into room, Watcher floats down and they shake hands.
+	use entity cam2
+	dolly2.movetype = PHYSICSTYPE_NOCLIP
+	print 155 captioned
+	play sound "cinematics/watcher/34-36.wav" for entity hero
+	wait .2 seconds
+	animate entity hero performing action ACTION1_ANIMATION signaling sig
+	move entity dolly2 by [0, 200, 64] over 6.5 seconds signaling sig1
+	move entity cam2train by [0, 0, -64] over 6.5 seconds signaling sig2
+	wait for all clearing sig, sig1, sig2
+	animate entity hero performing action IDLE3_ANIMATION repeating for 15 times
+	wait 1.0 seconds
+	//animate entity watcher performing action IDLE_ANIMATION
+	use entity cam2
+
+// Corvus is tired of the blather.	
+	use entity cam3
+	wait .5 seconds
+	dolly3.movetype = PHYSICSTYPE_NOCLIP
+	animate entity hero performing action WALK2_ANIMATION by moving [96, 0, 0] by turning [0, 0, 0]
+	print 156 captioned
+	play sound "cinematics/watcher/35-33.wav" for entity watcher
+	wait .4 seconds
+	animate entity watcher performing action ACTION2_ANIMATION
+	move entity cam3train by [0, 128, 0] over 10.4 seconds signaling sig
+	wait for all clearing sig
+	move entity cam3train by [0, 65, 32] over 10 seconds signaling sig
+	move entity dolly3 by [0, 0, 48] over 10 seconds signaling sig1
+	wait for all clearing sig, sig1
+	animate entity watcher performing action IDLE2_ANIMATION
+	use entity cam3
+
+//Switching back
+
+player1.origin = hero.origin	// Put player where Cinematic corvus is
+player1.p_origin = hero.origin	// Put player where Cinematic corvus is
+set view angles of entity player1 to hero.angles
+hero.modelindex = 0		// Turn off the cinematic corvus model
+hero.solid = SOLID_NOT		// Make him  not solid
+
+//Switching Watcher
+
+monster.origin = watcher.origin	// Put Monster where Cinematic Watcher is
+monster.angles = watcher.angles	// Make Monster angles like Cinematic Watcher
+monster.solid = SOLID_SOLID	// Make the monster solid
+watcher.modelindex = 0		// Turn off the cinematic Watcher model
+watcher.solid = SOLID_NOT		// Make him  not solid
+
+disable cinematics
+
+
+	

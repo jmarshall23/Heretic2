@@ -1,0 +1,132 @@
+// Big honkin' door!
+ 
+#include "../common/header.ds"
+
+output "r:/base/ds/cloud"
+
+local entity toplf
+local entity toprt
+local entity topup
+local entity topdn
+local entity midupout
+local entity midupin
+local entity middnout
+local entity middnin
+local entity botup
+local entity botdn
+local entity bar1
+local entity bar2
+local entity bar3
+local entity bar4
+local entity bar5
+local entity bar6
+local entity bar7
+local entity bar8
+local entity portal
+local entity doorcam
+
+local int sig1
+local int sig2
+local int sig3
+local int sig4
+local int sig5
+local int sig6
+local int sig7
+local int sig8
+
+toplf = find entity with targetname "toplf"
+toprt = find entity with targetname "toprt"
+topup = find entity with targetname "topup"
+topdn = find entity with targetname "topdn"
+midupout = find entity with targetname "midupout"
+midupin = find entity with targetname "midupin"
+middnout = find entity with targetname "middnout"
+middnin = find entity with targetname "middnin"
+botup = find entity with targetname "botup"
+botdn = find entity with targetname "botdn"
+bar1 = find entity with targetname "bar1"
+bar2 = find entity with targetname "bar2"
+bar3 = find entity with targetname "bar3"
+bar4 = find entity with targetname "bar4"
+bar5 = find entity with targetname "bar5"
+bar6 = find entity with targetname "bar6"
+bar7 = find entity with targetname "bar7"
+bar8 = find entity with targetname "bar8"
+portal = find entity with targetname "portal"
+doorcam = find entity with targetname "doorcam"
+label weee
+
+use entity doorcam
+
+use entity portal
+
+wait .5 seconds
+
+play sound "doors/kchunk5.wav" for entity bar1 on channel 10
+play sound "doors/kchunk5.wav" for entity bar3 on channel 10
+
+move entity bar1 by [16,0,0] at 50 speed signaling sig1
+move entity bar2 by [16,0,0] at 50 speed signaling sig2
+move entity bar3 by [16,0,0] at 50 speed signaling sig3
+move entity bar4 by [16,0,0] at 50 speed signaling sig4
+move entity bar5 by [-16,0,0] at 50 speed signaling sig5
+move entity bar6 by [-16,0,0] at 50 speed signaling sig6
+move entity bar7 by [-16,0,0] at 50 speed signaling sig7
+move entity bar8 by [-16,0,0] at 50 speed signaling sig8
+
+wait for all clearing sig1, sig2, sig3, sig4, sig5, sig6, sig7, sig8
+
+wait .5 seconds
+
+play sound "objects/gearsmove.wav" for entity bar1 on channel 10
+play sound "objects/gearsmove.wav" for entity bar3 on channel 10
+
+move entity bar1 by [0,160,0] at 50 speed signaling sig1
+move entity bar2 by [0,-96,0] at 50 speed signaling sig2
+move entity bar3 by [0,96,0] at 50 speed signaling sig3
+move entity bar4 by [0,-160,0] at 50 speed signaling sig4
+move entity bar5 by [0,160,0] at 50 speed signaling sig5
+move entity bar6 by [0,-96,0] at 50 speed signaling sig6
+move entity bar7 by [0,96,0] at 50 speed signaling sig7
+move entity bar8 by [0,-160,0] at 50 speed signaling sig8
+
+wait for all clearing sig1, sig2, sig3, sig4, sig5, sig6, sig7, sig8
+
+play sound "doors/thud4.wav" for entity bar1 on channel 10
+play sound "doors/thud4.wav" for entity bar3 on channel 10
+
+wait 2 seconds
+
+move entity botdn by [0,0,-64] at 30 speed
+move entity botup by [0,0,-64] at 30 speed
+move entity middnout by [0,-64,0] at 30 speed
+move entity midupout by [0,64,0] at 30 speed
+move entity middnin by [0,-120,0] at 60 speed
+move entity midupin by [0,120,0] at 60 speed
+move entity topup by [0,112,0] at 40 speed
+move entity topdn by [0,-112,0] at 40 speed
+move entity toprt by [0,0,112] at 40 speed
+move entity toplf by [0,0,112] at 40 speed
+
+play sound "doors/stonestart.wav" for entity botup on channel 10
+play sound "doors/stonestart.wav" for entity botdn on channel 10
+
+wait.5 seconds
+
+play sound "doors/stoneloop.wav" for entity botup on channel 10
+play sound "doors/stoneloop.wav" for entity botdn on channel 10
+
+wait 1.5 seconds
+
+play sound "doors/stoneend.wav" for entity botup on channel 10
+play sound "doors/stoneend.wav" for entity botdn on channel 10
+
+wait .5 seconds
+
+use entity doorcam
+
+exit
+
+//suspend
+
+//goto weee

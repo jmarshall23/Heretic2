@@ -1,0 +1,149 @@
+// The Frist time Corvus encounters the High Priestess. 
+
+#include "../common/header.ds"
+
+output "r:/base/ds/hive"
+
+local entity oneshot
+local entity onetarget
+local entity cam1a
+local entity cam2a
+local entity cam3a
+local entity base1a
+local entity cam3target
+local entity testcam
+
+local entity fallen1
+local entity corvus1
+local entity player1
+local entity monster
+
+local int sig
+local int sig1
+
+oneshot = find entity with targetname "oneshot"
+onetarget = find entity with targetname "t175"
+testcam = find entity with targetname "testcam"
+cam1a = find entity with targetname "camera1a"
+cam2a = find entity with targetname "camera2a"
+cam3a = find entity with targetname "camera3a"
+base1a = find entity with targetname "cam1abase"
+cam3target = find entity with targetname "t131"
+fallen1 = find entity with targetname "fallen1"
+corvus1 = find entity with targetname "corvus1"
+monster = find entity with targetname "monster"
+
+//Switching player
+
+player1 = get entity activator  	// Get player who set off trigger
+copy player attributes from entity player1 to entity corvus1  	// copies players appearance
+//corvus1.modelindex = corvus1.count	// Turn on cinematic corvus
+corvus1.solid = SOLID_NOT		// Make him block
+corvus1.movetype = PHYSICSTYPE_STEP
+
+fallen1.yaw_speed = .5
+
+enable cinematics
+cache sound "cinematics/first priestess/92-448.wav"
+cache sound "cinematics/first priestess/93-445.wav" 
+cache sound "cinematics/first priestess/94-447.wav"
+cache sound "cinematics/first priestess/95-448.wav"
+cache sound "cinematics/first priestess/96-446.wav" 
+cache sound "cinematics/first priestess/97-446.wav"
+cache sound "cinematics/first priestess/98-447.wav"
+
+//Opening shot of Corvus walking into scene.
+
+	use entity oneshot
+
+	wait .1 seconds
+
+//	corvus1.modelindex = corvus1.count	// Turn on cinematic corvus
+	onetarget.movetype = PHYSICSTYPE_PUSH
+	move entity onetarget by [0, 72, 0] over 3 seconds signaling sig
+	animate entity corvus1 performing action WALK3_ANIMATION by moving [72, 0, 0] signaling sig1
+	wait for all clearing sig1
+	animate entity corvus1 performing action IDLE2_ANIMATION 
+	wait for all clearing sig
+
+	use entity oneshot
+
+//Cam1a, behind corvus1 looking at fallen1 as she walks toward him.
+
+	use entity cam1a
+	
+	wait 1 seconds	
+	print 229 captioned 
+	play sound "cinematics/first priestess/92-448.wav" for entity fallen1
+	animate entity fallen1 performing action ACTION1_ANIMATION signaling sig
+	animate entity corvus1 performing action ACTION17_ANIMATION
+	wait for all clearing sig
+	print 230 captioned 
+	play sound "cinematics/first priestess/93-445.wav" for entity corvus1
+	animate entity corvus1 performing action ACTION18_ANIMATION signaling sig
+	animate entity fallen1 performing action ACTION2_ANIMATION signaling sig1
+	wait for all clearing sig, sig1
+	animate entity corvus1 performing action ACTION17_ANIMATION 
+	print 231 captioned 
+	play sound "cinematics/first priestess/94-447.wav" for entity fallen1
+	animate entity fallen1 performing action ACTION3_ANIMATION by turning [-20, 0, 0] signaling sig
+	wait for all clearing sig
+
+	use entity cam1a
+	
+//Cam2a, low on the left of corvus1 looking up at the fallen1 as she walks around him.
+
+	use entity cam2a
+
+	move entity base1a by [80, -112, 0] over 21 seconds
+	print 232 captioned 
+	play sound "cinematics/first priestess/95-448.wav" for entity corvus1
+	animate entity corvus1 performing action ACTION19_ANIMATION signaling sig
+	animate entity fallen1 performing action ACTION4_ANIMATION by turning [20, 0, 0] signaling sig1
+	wait for all clearing sig, sig1
+	animate entity corvus1 performing action ACTION17_ANIMATION
+
+	fallen1.yaw_speed = 2
+	print 233 captioned
+	play sound "cinematics/first priestess/96-446.wav" for entity fallen1
+	animate entity fallen1 performing action ACTION5_ANIMATION by turning [-180, 0, 0] signaling sig
+	wait for all clearing sig
+	
+	fallen1.yaw_speed = 2
+	print 234 captioned
+	play sound "cinematics/first priestess/97-446.wav" for entity corvus1
+	animate entity corvus1 performing action ACTION20_ANIMATION signaling sig
+	animate entity fallen1 performing action ACTION6_ANIMATION by turning [-200, 0, 0] signaling sig1
+	wait for all clearing sig, sig1
+	animate entity corvus1 performing action ACTION17_ANIMATION	
+
+//Cam3a, close up of corvus.
+
+	//use entity cam3a
+	
+	fallen1.yaw_speed = 1
+	print 235 captioned 
+	play sound "cinematics/first priestess/98-447.wav" for entity fallen1
+	animate entity fallen1 performing action ACTION7_ANIMATION by turning [100, 0, 0] signaling sig
+	animate entity corvus1 performing action ACTION17_ANIMATION
+	wait for all clearing sig
+
+	//use entity cam3a
+	use entity cam2a
+
+//Switching back
+
+player1.origin = corvus1.origin		// Put player where Cinematic corvus is
+player1.p_origin = corvus1.origin		// Put player where Cinematic corvus is set view angles of entity player1 to hero.angles
+corvus1.modelindex = 0			// Turn off the cinematic corvus model
+corvus1.solid = SOLID_NOT		// Make him not solid
+
+//Switching Priestess
+
+monster.origin = fallen1.origin		// Put Monster where Cinematic Priestess is
+monster.angles = fallen1.angles		// Make Monster angles like Cinematic Watcher
+monster.solid = SOLID_SOLID		// Make the monster solid
+fallen1.modelindex = 0			// Turn off the cinematic Priestess model
+fallen1.solid = SOLID_NOT		// Make her not solid
+
+disable cinematics

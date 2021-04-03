@@ -1,0 +1,131 @@
+// The Diamond thing falls down and goes boom.
+
+#include "../common/header.ds"
+
+output "r:/base/ds/andoria"
+
+local entity piece1
+local entity piece2
+local entity piece3
+local entity break
+
+local int sig
+local int sig1
+local int sig2
+local int sig3
+local int sig4
+local int sig5
+local int b1
+local int b2
+
+piece1 = find entity with targetname "d1"
+piece2 = find entity with targetname "d2"
+piece3 = find entity with targetname "d3"
+break = find entity with targetname "break"
+
+
+
+// in the begining
+
+	break.movetype = PHYSICSTYPE_PUSH
+
+	move entity piece1 by [0, 10, 5] at 300 speed signaling sig
+	move entity piece2 by [0, 10, 5] at 300 speed signaling sig1
+	move entity piece3 by [0, 10, 5] at 300 speed signaling sig2
+	move entity break by [0, 10, 5] at 300 speed signaling b1
+	wait for all clearing sig, sig1, sig2, b1
+
+//-------------
+
+	move entity piece1 by [0, 10, -20] at 300 speed signaling sig
+	move entity piece2 by [0, 10, -20] at 300 speed signaling sig1
+	move entity piece3 by [0, 10, -20] at 300 speed signaling sig2
+	move entity break by [0, 10, -20] at 300 speed signaling b1
+	wait for all clearing sig, sig1, sig2, b1
+
+//-------------
+
+	rotate entity piece1 by [-45, 0, 0] at 300 speed signaling sig
+	move entity piece1 by [0, 50, 0] at 300 speed signaling sig3
+
+	rotate entity piece2 by [-45, 0, 0] at 300 speed signaling sig1
+	move entity piece2 by [0, 50, 0] at 300 speed signaling sig4
+
+	rotate entity piece3 by [-45, 0, 0] at 300 speed signaling sig2
+	move entity piece3 by [0, 50, 0] at 300 speed signaling sig5
+
+	rotate entity break by [-45, 0, 0] at 300 speed signaling b1
+	move entity break by [0, 50, 0] at 300 speed signaling b2
+	wait for all clearing sig, sig1, sig2, sig3, sig4, sig5, b1, b2
+
+//--------------
+
+	rotate entity piece1 to [0, 45, -90] at 300 speed signaling sig
+	move entity piece1 by [20, 10, 15] at 300 speed signaling sig3
+
+	rotate entity piece2 to [0, 45, -90] at 300 speed signaling sig1
+	move entity piece2 by [20, 10, 15] at 300 speed signaling sig4
+
+	rotate entity piece3 to [0, 45, -90] at 300 speed signaling sig2
+	move entity piece3 by [20, 10, 15] at 300 speed signaling sig5
+
+	rotate entity break to [0, 45, -90] at 300 speed signaling b1
+	move entity break by [20, 10, 15] at 300 speed signaling b2
+	wait for all clearing sig, sig1, sig2, sig3, sig4, sig5, b1, b2
+
+//---------------
+
+	move entity piece1 by [30, 75, -255] at 500 speed signaling sig
+	move entity piece2 by [30, 75, -255] at 500 speed signaling sig1
+	move entity piece3 by [30, 75, -255] at 500 speed signaling sig2
+	move entity break by [30, 75, -255] at 500 speed signaling b1
+	wait for all clearing sig, sig1, sig2, b1
+
+	use entity break
+
+	play sound "misc/breakstone.wav" for entity piece1
+
+//----------------
+
+	move entity piece1 by [0, 10, 10] at 300 speed signaling sig
+	move entity piece2 by [-10, 0, 10] at 300 speed signaling sig1
+	move entity piece3 by [0, -10, 10] at 300 speed signaling sig2
+	wait for all clearing sig, sig1, sig2
+
+//----------------
+
+	move entity piece1 by [0, 10, -10] at 300 speed signaling sig
+	move entity piece2 by [-10, 0, -10] at 300 speed signaling sig1
+	move entity piece3 by [0, -10, -10] at 300 speed signaling sig2
+	wait for all clearing sig, sig1, sig2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

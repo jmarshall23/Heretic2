@@ -1,0 +1,24 @@
+// the elf turning on a stick in the docks
+
+
+#include "../common/header.ds"
+
+output "r:/base/ds/silverspring"
+
+local entity ralf
+
+local int sig
+
+field vector "movetype"
+field vector "angle_velocity"
+
+ralf = find entity with targetname "ralf"
+
+// lets get cooking
+
+	ralf.movetype = PHYSICSTYPE_PUSH
+  	ralf.angles = [0, 0, 90]
+	ralf.angle_velocity = [50, 0, 0]
+
+//	rotate entity ralf by [0, 360, 0] over 10 seconds signaling sig
+//	wait for all clearing sig

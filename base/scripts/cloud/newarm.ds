@@ -1,0 +1,55 @@
+// The fantabulous rotating lab table!
+
+#include "../common/header.ds"
+
+output "r:/base/ds/cloud"
+
+local entity table
+local entity kill
+local entity light
+local entity flame
+local entity flame1
+local entity lever
+
+local int sig
+local int sig1
+
+lever = find entity with targetname "lablever"
+table = find entity with targetname "newtable"
+kill = find entity with targetname "kill"
+light = find entity with targetname "strike"
+flame = find entity with targetname "burn"
+flame = find entity with targetname "burn1"
+
+//CRANK IT UP!!!!
+
+//use entity light
+//play sound "Weapons/lightning.wav" for entity lever
+
+//wait .25 seconds
+
+//use entity kill
+
+suspend
+
+label loop
+
+play sound "doors/elevatorstop.wav" for entity table on channel 10
+wait 1 seconds
+move entity table by [0, 0, 440] at 60 speed signaling sig
+play sound "objects/hugewheel.wav" for entity table on channel 10
+wait for all clearing sig
+play sound "objects/piston.wav" for entity table on channel 10
+
+wait 5 seconds
+
+play sound "doors/elevatorstop.wav" for entity table on channel 10
+wait 1 seconds
+move entity table by [0, 0, -440] at 60 speed signaling sig
+play sound "objects/hugewheel.wav" for entity table on channel 10
+wait for all clearing sig
+play sound "objects/piston.wav" for entity table on channel 10
+
+wait 5 seconds
+
+goto loop
