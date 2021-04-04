@@ -504,8 +504,8 @@ void R_DrawParticles(int num_particles, particle_t* particles, int type)
 
 	for (p = particles, i = 0; i < num_particles; i++, p++)
 	{
-		VectorScale(vup, 1.5, up);
-		VectorScale(vright, -1.5, right);
+		VectorScale(vup, p->scale, up);
+		VectorScale(vright, -p->scale, right);
 
 		color[0] = p->color.r;
 		color[1] = p->color.g;

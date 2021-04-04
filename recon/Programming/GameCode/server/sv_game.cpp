@@ -469,6 +469,12 @@ int	SV_CreatePersistantEffect(entity_state_t* ent, int type, int flags, vec3_t o
 		return -1;
 	}	
 
+	if (type == FX_FIRE)
+	{
+		ent = NULL;
+		flags &= CEF_OWNERS_ORIGIN;
+	}
+
 	PerEffectsBuffer_t* effect = &SV_Persistant_Effects[effectID];
 	effect->freeBlock = 0;
 	effect->bufSize = 192;
