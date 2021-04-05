@@ -1,0 +1,185 @@
+// ----
+// Sprites required by various spell effects.
+// ----
+
+$sprdir Spells
+
+// ********************************************************************
+// Spell change effects, i.e. readying the various spells.
+// ********************************************************************
+
+$spritename 	spark_red
+$load 		art/gfx/sprites/spark_red.pcx
+$spriteframe 	0	0	16	16
+
+$spritename 	spark_blue
+$load 		art/gfx/sprites/spark_blue.pcx
+$spriteframe 	0	0	16	16
+
+$spritename 	spark_green
+$load 		art/gfx/sprites/spark_green.pcx
+$spriteframe 	0	0	16	16
+
+$spritename 	spark_yellow
+$load 		art/gfx/sprites/spark_yellow.pcx
+$spriteframe 	0	0	16	16
+
+$spritename 	spark_cyan
+$load 		art/gfx/sprites/spark_cyan.pcx
+$spriteframe 	0	0	16	16
+
+$spritename 	spark_mag
+$load 		art/gfx/sprites/spark_mag.pcx
+$spriteframe 	0	0	16	16
+
+$spritename 	spark_ind
+$load 		art/gfx/sprites/spark_ind.pcx
+$spriteframe 	0	0	16	16
+
+
+
+// ********************************************************************
+// Spell trail effects.
+// ********************************************************************
+
+// Flying-fist.
+
+$spritename 	flyingfist
+$load           art/gfx/sprites/s_flyingfist2.pcx
+$spriteframe	0	0	64	64
+
+// Magic-missile.
+
+$spritename 	halo_ind
+$load 		art/gfx/sprites/s_halo_ind.pcx
+$spriteframe	0	0	64	64
+$load 		art/gfx/sprites/s_halo_ind2.pcx
+$spriteframe	0	0	64	64
+
+$spritename	indigostreak
+$load 		art/gfx/sprites/l_indigostreak.pcx
+$spriteframe	0	0	16	64
+
+
+// Ring Of Repulsion.
+
+$spritename	bluering
+$load 		art/gfx/sprites/s_star.pcx
+$spriteframe  	0	0	64	64
+
+// Meteor-barrier.
+
+$spritename	meteorbarrier
+$load 		art/gfx/sprites/s_meteorbarrier.pcx
+$spriteframe	0	0	64	64
+
+// Sphere Of Annihlation - the sphere itself.
+
+$spritename 	bluball
+$load 		art/gfx/sprites/s_bluball.pcx
+$spriteframe	0	0	64	64
+
+// Sphere Of Annihlation - the pulsating flare around the sphere.
+
+$spritename	shboom
+$load		art/gfx/sprites/s_shboom.pcx
+$spriteframe	0	0	64	64
+
+// Sphere Of Annihlation - the glowing white balls.
+
+$spritename	glowball
+$load		art/gfx/sprites/s_glowball.pcx
+$spriteframe	0	0	16	16
+
+// Sphere Of Annihlation - beam graphic
+
+$spritename     glowbeam
+$load           art/gfx/sprites/s_anhpower.pcx
+$spriteframe    0       0       64      64
+
+
+// Firewall
+
+$spritename 	wflame
+$load           art/gfx/sprites/s_nflame.pcx
+$spriteframe    0       0      128   128
+
+$spritename     wflame2
+$load           art/gfx/sprites/s_nflame2.pcx
+$spriteframe    0       0      64    64
+
+$spritename     wflamepillar
+$load           art/gfx/sprites/s_fwallpower.pcx
+$spriteframe    0       0       64      64
+
+
+// Teleport.
+
+$spritename	teleport_1
+$load 		art/gfx/sprites/s_tele1.pcx
+$spriteframe  	0	0	64	64
+
+$spritename	teleport_2
+$load 		art/gfx/sprites/s_tele2.pcx
+$spriteframe  	0	0	64	64
+
+// ********************************************************************
+// Hell-staff.
+// ********************************************************************
+
+$spritename	hellstafproj
+$load		art/gfx/sprites/hellstafproj1.pcx
+$spriteframe	0	0	32	32
+$load		art/gfx/sprites/hellstafproj2.pcx
+$spriteframe	0	0	32	32
+	
+// ********************************************************************
+// Spellhands trail effects, i.e. left by the player's hands etc. when
+// casting spells.
+// ********************************************************************
+
+// A red-orange trail.
+
+$spritename	spellhands_red
+$load		art/gfx/sprites/s_spellhands_red.pcx
+$spriteframe	0	0	32	32
+
+// A blueish trail.
+
+$spritename	spellhands_blue
+$load		art/gfx/sprites/s_spellhands_blue.pcx
+$spriteframe	0	0	32	32
+
+// ********************************************************************
+// Weapon trail effects, i.e. left by the player's weapons like the
+// spear-staff and hell-staff.
+// ********************************************************************
+
+$spritename	patball
+$load		art/gfx/sprites/s_patball_1.pcx
+$spriteframe	0	0	64	64
+$load		art/gfx/sprites/s_patball_2.pcx
+$spriteframe	0	0	64	64
+
+// Phoenix comes out of the phoenix arrow explosion
+$spritename	phoenix
+$load		art/gfx/sprites/s_phoenix.pcx
+$spriteframe 	0	0	128	128
+$load		art/gfx/sprites/s_phoenix2.pcx
+$spriteframe 	0	0	128	128
+
+
+
+// Rather than tinted steam-- For red rain
+$spritename		rsteam
+$load			art/gfx/sprites/s_rsteam.pcx
+$spriteframe	0	0	32	32
+// Magenta steam for powered up red rain
+$load			art/gfx/sprites/s_rsteam2.pcx
+$spriteframe	0	0	32	32
+
+
+
+$spritename		maceball
+$load 			art/gfx/sprites/maceball.tga
+$spriteframe	0	0	64	64

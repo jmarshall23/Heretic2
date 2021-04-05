@@ -1,0 +1,1 @@
+paker -extract ..\..\base\Htic2-0.pak textures ..\..\base\

@@ -1,0 +1,9 @@
+$fm_cd objects\chandelier\chan1
+$fm_origin 0 0 0
+$fm_base base skin
+$fm_skin skin
+$fm_scale 1
+
+//
+$fm_frame poly         
+

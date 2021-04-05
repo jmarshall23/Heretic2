@@ -1,0 +1,634 @@
+$fm_cd player/corvette
+$fm_origin 0 0 0
+$fm_skeleton 5
+$fm_cluster cluster
+$fm_referenced 0 elf_Lhandroot elf_Rhandroot elf_Rfootroot elf_Lfootroot elf_Bstaffroot elf_bladeroot elf_hellroot
+// elf_head elf_eyes - not used
+
+$fm_basest base skin stbase
+$fm_node_order base2 _back _StOff _BOff _Armor _RArm _RhandHi _StafActv _bladstf _helstf _LArm _LhandHi _BowActv _Rleg _Lleg _head
+$fm_skin skin
+$fm_scale 1
+
+
+//
+$fm_frame partfly      
+
+//
+$fm_frame 180turn1     180turn2     180turn3     180turn4     180turn5     
+$fm_frame 180turn6     180turn7     180turn8     180turn9     
+
+//
+$fm_frame 4swim1       4swim2       4swim3       4swim4       4swim5       
+$fm_frame 4swim6       4swim7       4swim8       4swim9       4swim10      
+
+//
+$fm_frame asscrtch1    asscrtch2    asscrtch3    asscrtch4    asscrtch5    
+$fm_frame asscrtch6    asscrtch7    asscrtch8    asscrtch9    asscrtch10   
+$fm_frame asscrtch11   asscrtch12   asscrtch13   asscrtch14   asscrtch15   
+$fm_frame asscrtch16   asscrtch17   asscrtch18   asscrtch19   asscrtch20   
+$fm_frame asscrtch21   asscrtch22   asscrtch23   asscrtch24   asscrtch25   
+
+//
+$fm_frame backroll1    backroll2    backroll3    backroll4    backroll5    
+$fm_frame backroll6    backroll7    backroll8    backroll9    
+
+//
+$fm_frame ballspell1   ballspell2   ballspell3   ballspell4   ballspell5   
+$fm_frame ballspell6   ballspell7   ballspell8   
+
+//
+$fm_frame bkflip1      bkflip2      bkflip3      bkflip4      bkflip5
+$fm_frame bkflip6      bkflip7      bkflip8      bkflip9      bkflip10
+$fm_frame bkflip11     bkflip12     bkflip13     bkflip14     bkflip15
+$fm_frame bkflip16     bkflip17     bkflip18     bkflip19     bkflip20
+$fm_frame bkflip21     bkflip22     bkflip23     bkflip24     bkflip25
+
+//
+$fm_frame bkswim1      bkswim2      bkswim3      bkswim4      bkswim5      
+$fm_frame bkswim6      bkswim7      
+
+//
+$fm_frame blowback1    blowback2    blowback3    blowback4    blowback5    
+$fm_frame blowback6    blowback7    blowback8    blowback9    blowback10   
+$fm_frame blowback11   blowback12   blowback13   blowback14   blowback15   
+$fm_frame blowback16   blowback17   blowback18   blowback19   blowback20   
+$fm_frame blowback21   blowback22   blowback23   blowback24   
+
+//
+$fm_frame breath1      breath2      breath3      breath4      breath5      
+$fm_frame breath6      breath7      breath8      breath9      breath10     
+$fm_frame breath11     breath12     breath13     breath14     breath15     
+$fm_frame breath16     breath17     breath18     breath19     breath20     
+$fm_frame breath21     breath22     breath23     
+
+//
+$fm_frame burning1     burning2     burning3     burning4     burning5     
+$fm_frame burning6     burning7     burning8     burning9     burning10    
+$fm_frame burning11    burning12    burning13    burning14    burning15    
+$fm_frame burning16    burning17    burning18    burning19    burning20    
+$fm_frame burning21    burning22    burning23    burning24    burning25    
+$fm_frame burning26    burning27    burning28    burning29    burning30    
+$fm_frame burning31    burning32    burning33    burning34    burning35    
+
+//
+$fm_frame chngsplA1    chngsplA2    chngsplA3    chngsplA4    chngsplA5    
+$fm_frame chngsplA6    chngsplA7    chngsplA8    chngsplA9    
+
+//
+$fm_frame choking1     choking2     choking3     choking4     choking5     
+$fm_frame choking6     choking7     choking8     choking9     choking10    
+$fm_frame choking11    choking12    choking13    choking14    choking15    
+$fm_frame choking16    choking17    choking18    choking19    choking20    
+$fm_frame choking21    choking22    choking23    choking24    choking25    
+$fm_frame choking26    choking27    choking28    choking29    choking30    
+$fm_frame choking31    choking32    choking33    choking34    choking35    
+
+//
+$fm_frame conjure1     conjure2     conjure3     conjure4     conjure5     
+$fm_frame conjure6     conjure7     conjure8     conjure9     conjure10    
+$fm_frame conjure11    conjure12    conjure13    conjure14    conjure15    
+// $fm_frame conjure16    
+
+//
+$fm_frame creep1       creep2       creep3       creep4       creep5
+$fm_frame creep6       creep7       creep8       creep9       creep10
+$fm_frame creep11      creep12
+
+//
+$fm_frame creepL1      creepL2      creepL3      creepL4      creepL5
+$fm_frame creepL6      creepL7      creepL8      creepL9      creepL10
+$fm_frame creepL11     creepL12
+
+//
+$fm_frame creepR1      creepR2      creepR3      creepR4      creepR5
+$fm_frame creepR6      creepR7      creepR8      creepR9      creepR10
+$fm_frame creepR11     creepR12
+
+//
+$fm_frame crepbak1     crepbak2     crepbak3     crepbak4     crepbak5     
+$fm_frame crepbak6     crepbak7     crepbak8     crepbak9     crepbak10    
+$fm_frame crepbak11    crepbak12    
+
+//
+$fm_frame crhpvt1      crhpvt2      crhpvt3      crhpvt4      
+
+//
+$fm_frame deathA1      deathA2      deathA3      deathA4      deathA5      
+$fm_frame deathA6      deathA7      deathA8      deathA9      deathA10     
+$fm_frame deathA11     deathA12     deathA13     deathA14     
+
+//
+$fm_frame draw1        draw2        draw3        draw4        draw5        
+
+//
+$fm_frame drop1        drop2        drop3        drop4        
+
+//
+$fm_frame drown1       drown2       drown3       drown4       drown5
+$fm_frame drown6       drown7       drown8       drown9       drown10
+$fm_frame drown11      drown12      drown13      drown14      drown15
+$fm_frame drown16      drown17      drown18      drown19      drown20
+$fm_frame drown21      drown22      drown23      drown24      drown25
+$fm_frame drown26      drown27      drown28      drown29      drown30
+$fm_frame drown31      drown32      drown33      drown34      drown35
+$fm_frame drown36      drown37      drown38      drown39      drown40
+
+//
+$fm_frame drownidle1   drownidle2   drownidle3   drownidle4   drownidle5   
+$fm_frame drownidle6   drownidle7   drownidle8   drownidle9   drownidle10  
+$fm_frame drownidle11  drownidle12  drownidle13  drownidle14  drownidle15  
+$fm_frame drownidle16  drownidle17  drownidle18  drownidle19  drownidle20  
+$fm_frame drownidle21  drownidle22  drownidle23  drownidle24  drownidle25  
+$fm_frame drownidle26  drownidle27  drownidle28  drownidle29  drownidle30  
+$fm_frame drownidle31  drownidle32
+
+//
+$fm_frame faceplant1   faceplant2   faceplant3   faceplant4   faceplant5   
+$fm_frame faceplant6   faceplant7   faceplant8   faceplant9   faceplant10  
+$fm_frame faceplant11  faceplant12  faceplant13  faceplant14  faceplant15  
+$fm_frame faceplant16  faceplant17  faceplant18  faceplant19  faceplant20  
+$fm_frame faceplant21  faceplant22  faceplant23  faceplant24  
+
+//
+$fm_frame falling1     falling2     falling3     falling4     falling5     
+$fm_frame falling6     falling7     falling8     falling9     falling10    
+$fm_frame falling11    falling12    falling13    falling14    falling15    
+
+//
+$fm_frame fastleft1    fastleft2    fastleft3    fastleft4    fastleft5    
+$fm_frame fastleft6    fastleft7    fastleft8    
+
+//
+$fm_frame fastrite1    fastrite2    fastrite3    fastrite4    fastrite5    
+$fm_frame fastrite6    fastrite7    fastrite8    
+
+//
+$fm_frame getbow1      getbow2      getbow3      getbow4      getbow5      
+$fm_frame getbow6      getbow7      getbow8      getbow9      
+
+//
+$fm_frame getstaff1    getstaff2    getstaff3    getstaff4    getstaff5    
+$fm_frame getstaff6    getstaff7    getstaff8    
+
+//
+$fm_frame gofast1      gofast2      gofast3      gofast4      
+
+//
+$fm_frame gorun1       gorun2       gorun3       
+
+//
+$fm_frame grab1        grab2        grab3        grab4        grab5
+$fm_frame grab6        grab7        grab8
+
+//
+$fm_frame grabrope1    grabrope2    grabrope3    grabrope4   grabrope5
+$fm_frame grabrope6    grabrope7       
+
+//
+$fm_frame helstf1      helstf2      helstf3      helstf4      helstf5      
+$fm_frame helstf6      helstf7      
+
+//
+$fm_frame idlswm1      idlswm2      idlswm3      idlswm4      idlswm5      
+$fm_frame idlswm6      idlswm7      idlswm8      idlswm9      idlswm10     
+$fm_frame idlswm11     idlswm12     idlswm13     idlswm14     idlswm15     
+
+//
+$fm_frame idlundr1     idlundr2     idlundr3     idlundr4     idlundr5     
+$fm_frame idlundr6     idlundr7     idlundr8     idlundr9     idlundr10    
+$fm_frame idlundr11    idlundr12    idlundr13    idlundr14    idlundr15    
+$fm_frame idlundr16    idlundr17    idlundr18    idlundr19    idlundr20    
+
+//
+$fm_frame jog1         jog2         jog3         jog4         jog5
+$fm_frame jog6         jog7         jog8
+
+//
+$fm_frame jogback1     jogback2     jogback3     jogback4     jogback5 
+$fm_frame jogback6
+
+//
+$fm_frame jump1        jump2        jump3        jump4        jump5
+$fm_frame jump6        jump7        jump8        jump9        jump10
+$fm_frame jump11       jump12       jump13       jump14       jump15
+$fm_frame jump16       jump17       jump18       jump19       jump20
+$fm_frame jump21
+
+//
+$fm_frame jumpback1    jumpback2    jumpback3    jumpback4    jumpback5
+$fm_frame jumpback6    jumpback7    jumpback8    jumpback9    jumpback10
+$fm_frame jumpback11   jumpback12   jumpback13   jumpback14   jumpback15
+$fm_frame jumpback16   jumpback17   jumpback18   jumpback19   jumpback20
+$fm_frame jumpback21   jumpback22   jumpback23   jumpback24
+
+//
+$fm_frame jumpleft1    jumpleft2    jumpleft3    jumpleft4    jumpleft5
+$fm_frame jumpleft6    jumpleft7    jumpleft8    jumpleft9    jumpleft10
+$fm_frame jumpleft11   jumpleft12   jumpleft13   jumpleft14   jumpleft15
+$fm_frame jumpleft16   jumpleft17   jumpleft18   jumpleft19   jumpleft20
+$fm_frame jumpleft21   jumpleft22   jumpleft23   jumpleft24
+
+//
+$fm_frame jumprite1    jumprite2    jumprite3    jumprite4    jumprite5
+$fm_frame jumprite6    jumprite7    jumprite8    jumprite9    jumprite10
+$fm_frame jumprite11   jumprite12   jumprite13   jumprite14   jumprite15
+$fm_frame jumprite16   jumprite17   jumprite18   jumprite19   jumprite20
+$fm_frame jumprite21   jumprite22   jumprite23   jumprite24
+
+//
+$fm_frame kodown1      kodown2      kodown3      kodown4      kodown5      
+$fm_frame kodown6      kodown7      kodown8      kodown9      kodown10     
+$fm_frame kodown11     kodown12     kodown13     kodown14     kodown15     
+$fm_frame kodown16     kodown17     kodown18     kodown19     kodown20     
+$fm_frame kodown21     kodown22     
+
+//
+$fm_frame Lclimb1      Lclimb2      Lclimb3      Lclimb4      
+
+//
+$fm_frame Lclmbstrt1   Lclmbstrt2   Lclmbstrt3   
+
+//
+$fm_frame Lcrepbck1    Lcrepbck2    Lcrepbck3    Lcrepbck4    Lcrepbck5    
+$fm_frame Lcrepbck6    Lcrepbck7    Lcrepbck8    Lcrepbck9    Lcrepbck10   
+$fm_frame Lcrepbck11   Lcrepbck12   
+
+//
+$fm_frame Letgo1       Letgo2       Letgo3       Letgo4       Letgo5       
+
+//
+$fm_frame Lflip1       Lflip2       Lflip3       Lflip4       Lflip5       
+$fm_frame Lflip6       Lflip7       Lflip8       Lflip9       Lflip10      
+$fm_frame Lflip11      Lflip12      Lflip13      Lflip14      
+
+//
+$fm_frame lftflip1     lftflip2     lftflip3     lftflip4     lftflip5     
+$fm_frame lftflip6     lftflip7     lftflip8     lftflip9     
+
+//
+$fm_frame Lhndset1     Lhndset2     Lhndset3     Lhndset4     Lhndset5     
+
+//
+$fm_frame Lhop1        Lhop2        Lhop3        
+
+//
+$fm_frame Lidle1       Lidle2       Lidle3       Lidle4       Lidle5       
+$fm_frame Lidle6       Lidle7       Lidle8       Lidle9       Lidle10      
+$fm_frame Lidle11      Lidle12      Lidle13      Lidle14      Lidle15      
+$fm_frame Lidle16      Lidle17      Lidle18      Lidle19      Lidle20      
+$fm_frame Lidle21      
+
+//
+$fm_frame Ljogback1    Ljogback2    Ljogback3    Ljogback4    Ljogback5    
+$fm_frame Ljogback6    
+
+//
+$fm_frame lklft1       lklft2       lklft3       lklft4       lklft5       
+$fm_frame lklft6       lklft7       lklft8       lklft9       lklft10      
+$fm_frame lklft11      lklft12      lklft13      lklft14      lklft15      
+$fm_frame lklft16      lklft17      lklft18      lklft19      lklft20      
+$fm_frame lklft21      lklft22      
+
+//
+$fm_frame lkrt1        lkrt2        lkrt3        lkrt4        lkrt5        
+$fm_frame lkrt6        lkrt7        lkrt8        lkrt9        lkrt10       
+$fm_frame lkrt11       lkrt12       lkrt13       lkrt14       lkrt15       
+$fm_frame lkrt16       lkrt17       lkrt18       lkrt19       lkrt20       
+$fm_frame lkrt21       lkrt22       
+
+//
+$fm_frame lookbck1     lookbck2     lookbck3     lookbck4     lookbck5     
+$fm_frame lookbck6     lookbck7     lookbck8     lookbck9     lookbck10    
+$fm_frame lookbck11    lookbck12    lookbck13    lookbck14    lookbck15    
+$fm_frame lookbck16    lookbck17    lookbck18    lookbck19    lookbck20    
+$fm_frame lookbck21    lookbck22    lookbck23    lookbck24    lookbck25    
+$fm_frame lookbck26    lookbck27    lookbck28    lookbck29    
+
+//
+$fm_frame Lpivot1      Lpivot2      Lpivot3      Lpivot4      
+
+//
+$fm_frame Lsprint1     Lsprint2     Lsprint3     Lsprint4     Lsprint5     
+$fm_frame Lsprint6     
+
+//
+$fm_frame Lstair1      Lstair2      Lstair3      Lstair4      
+
+//
+$fm_frame Lstep1       Lstep2       Lstep3       Lstep4       Lstep5       
+
+//
+$fm_frame Lstrafe1     Lstrafe2     Lstrafe3     Lstrafe4     Lstrafe5     
+$fm_frame Lstrafe6     Lstrafe7     Lstrafe8     
+
+//
+$fm_frame LswichL2R1   LswichL2R2   LswichL2R3   LswichL2R4   LswichL2R5   
+$fm_frame LswichL2R6   LswichL2R7   
+
+//
+$fm_frame LswichR2L1   LswichR2L2   LswichR2L3   LswichR2L4   LswichR2L5   
+$fm_frame LswichR2L6   LswichR2L7   
+
+//
+$fm_frame newspin1     newspin2     newspin3     newspin4     newspin5     
+$fm_frame newspin6     newspin7     newspin8
+
+//
+$fm_frame ovrhang1     ovrhang2     ovrhang3     ovrhang4     ovrhang5     
+$fm_frame ovrhang6     ovrhang7     ovrhang8     ovrhang9     ovrhang10    
+$fm_frame ovrhang11    ovrhang12    ovrhang13    ovrhang14    ovrhang15    
+$fm_frame ovrhang16    ovrhang17    ovrhang18    
+
+//
+$fm_frame pestA1       pestA2       pestA3       pestA4       pestA5       
+$fm_frame pestA6       pestA7       pestA8       pestA9       pestA10      
+$fm_frame pestA11      pestA12      pestA13      pestA14      
+
+//
+$fm_frame pestB1       pestB2       pestB3       pestB4       pestB5       
+$fm_frame pestB6       pestB7       pestB8       pestB9       pestB10      
+$fm_frame pestB11      pestB12      pestB13      pestB14      pestB15      
+$fm_frame pestB16      pestB17      pestB18      pestB19      pestB20      
+$fm_frame pestB21      pestB22      
+
+//
+$fm_frame phbuton1     phbuton2     phbuton3     phbuton4     phbuton5     
+$fm_frame phbuton6     phbuton7     phbuton8     phbuton9     
+
+//
+$fm_frame pullup1      pullup2      pullup3      pullup4      pullup5      
+$fm_frame pullup6      pullup7      pullup8      pullup9      pullup10     
+$fm_frame pullup11     pullup12     
+
+//
+$fm_frame Rclimb1      Rclimb2      Rclimb3      Rclimb4      
+
+//
+$fm_frame Rclmbstrt1   Rclmbstrt2   Rclmbstrt3   
+
+//
+$fm_frame Rcrepbck1    Rcrepbck2    Rcrepbck3    Rcrepbck4    Rcrepbck5    
+$fm_frame Rcrepbck6    Rcrepbck7    Rcrepbck8    Rcrepbck9    Rcrepbck10   
+$fm_frame Rcrepbck11   Rcrepbck12   
+
+//
+$fm_frame ready1       ready2       ready3       ready4       ready5       
+$fm_frame ready6       ready7       ready8       ready9       ready10      
+$fm_frame ready11      ready12      ready13      ready14      ready15      
+$fm_frame ready16      ready17      ready18      ready19      ready20      
+$fm_frame ready21      ready22      ready23      ready24      ready25      
+$fm_frame ready26      
+
+//
+$fm_frame recover1     recover2     recover3     recover4     recover5     
+$fm_frame recover6     recover7     
+
+//
+$fm_frame redybow1     redybow2     redybow3     redybow4     redybow5     
+
+//
+$fm_frame resurf1      resurf2      resurf3      resurf4      resurf5      
+
+//
+$fm_frame Retgo1       Retgo2       Retgo3       Retgo4       Retgo5       
+
+//
+$fm_frame Rflip1       Rflip2       Rflip3       Rflip4       Rflip5       
+$fm_frame Rflip6       Rflip7       Rflip8       Rflip9       Rflip10      
+$fm_frame Rflip11      Rflip12      Rflip13      Rflip14      
+
+//
+$fm_frame ritflip1     ritflip2     ritflip3     ritflip4     ritflip5     
+$fm_frame ritflip6     ritflip7     ritflip8     ritflip9     
+
+//
+$fm_frame Rhndset1     Rhndset2     Rhndset3     
+
+//
+$fm_frame Rhop1        Rhop2        Rhop3        Rhop4        Rhop5        
+$fm_frame Rhop6        Rhop7        
+
+//
+$fm_frame Ridle1       Ridle2       Ridle3       Ridle4       Ridle5       
+$fm_frame Ridle6       Ridle7       Ridle8       Ridle9       Ridle10      
+$fm_frame Ridle11      Ridle12      Ridle13      Ridle14      Ridle15      
+$fm_frame Ridle16      Ridle17      Ridle18      Ridle19      Ridle20      
+$fm_frame Ridle21      
+
+//
+$fm_frame Rjogback1    Rjogback2    Rjogback3    Rjogback4    Rjogback5    
+$fm_frame Rjogback6    
+
+//
+$fm_frame rollA1       rollA10      rollA11      rollA12      rollA13      
+$fm_frame rollA14      rollA15      rollA2       rollA3       rollA4       
+$fm_frame rollA5       rollA6       rollA7       rollA8       rollA9       
+$fm_frame roll1        roll2        roll3        roll4        roll5        
+$fm_frame roll6        roll7        roll8        roll9        
+
+//
+$fm_frame Rsprint1     Rsprint2     Rsprint3     Rsprint4     Rsprint5     
+$fm_frame Rsprint6     
+
+//
+$fm_frame Rstair1      Rstair2      Rstair3      Rstair4      
+
+//
+$fm_frame Rstep1       Rstep2       Rstep3       Rstep4       Rstep5       
+
+//
+$fm_frame Rstrafe1     Rstrafe2     Rstrafe3     Rstrafe4     Rstrafe5     
+$fm_frame Rstrafe6     Rstrafe7     Rstrafe8     
+
+//
+$fm_frame RswichL2R1   RswichL2R2   RswichL2R3   RswichL2R4   RswichL2R5   
+$fm_frame RswichL2R6   RswichL2R7   
+
+//
+$fm_frame RswichR2L1   RswichR2L2   RswichR2L3   RswichR2L4   RswichR2L5   
+$fm_frame RswichR2L6   RswichR2L7   
+
+//
+$fm_frame run1         run2         run3         run4         run5         
+$fm_frame run6         
+
+//
+$fm_frame shoot1       shoot2       shoot3       shoot4       shoot5       
+
+//
+$fm_frame shrine1      shrine2      shrine3      shrine4      shrine5      
+$fm_frame shrine6      shrine7      shrine8      shrine9      shrine10     
+
+//
+$fm_frame slid4d1      slid4d2      slid4d3      slid4d4      slid4d5      
+$fm_frame slid4d6      slid4d7      slid4d8      slid4d9      slid4d10     
+$fm_frame slid4d11     slid4d12
+
+//
+$fm_frame slidbak1     slidbak2     slidbak3     slidbak4     slidbak5     
+$fm_frame slidbak6     slidbak7     slidbak8     slidbak9     slidbak10    
+$fm_frame slidbak11    slidbak12
+
+//
+$fm_frame smlpna1      smlpna2      smlpna3      smlpna4      
+
+//
+$fm_frame smlpnb1      smlpnb2      smlpnb3      smlpnb4      
+
+//
+$fm_frame spining1     spining2     spining3     spining4     spining5     
+$fm_frame spining6     spining7     
+
+//
+$fm_frame subckswm1    subckswm2    subckswm3    subckswm4    subckswm5    
+$fm_frame subckswm6    subckswm7    
+
+//
+$fm_frame subdive1     subdive2     subdive3     subdive4     subdive5     
+$fm_frame subdive6     subdive7     subdive8     subdive9     
+
+//
+$fm_frame swcharo1     swcharo2     swcharo3     swcharo4     swcharo5     
+$fm_frame swcharo6     swcharo7     
+
+//
+$fm_frame swimL1       swimL2       swimL3       swimL4       swimL5       
+
+//
+$fm_frame swimR1       swimR2       swimR3       swimR4       swimR5       
+
+//
+$fm_frame swipeA1      swipeA2      swipeA3      swipeA4      swipeA5      
+$fm_frame swipeA6      swipeA7      swipeA8      swipeA9      swipeA10     
+$fm_frame swipeA11     
+
+//
+$fm_frame swipeB1      swipeB2      swipeB3      swipeB4      swipeB5      
+$fm_frame swipeB6      swipeB7      swipeB8      swipeB9      swipeB10     
+$fm_frame swipeB11     swipeB12     
+
+//
+$fm_frame swmfast1     swmfast2     swmfast3     swmfast4     swmfast5     
+$fm_frame swmfast6     swmfast7     
+
+//
+$fm_frame swmgrab1     swmgrab2     swmgrab3     swmgrab4     swmgrab5     
+$fm_frame swmgrab6     swmgrab7     swmgrab8     swmgrab9     swmgrab10    
+$fm_frame swmgrab11    
+
+//
+$fm_frame swmL1        swmL2        swmL3        swmL4        swmL5        
+$fm_frame swmL6        swmL7        swmL8        swmL9        
+
+//
+$fm_frame swmR1        swmR2        swmR3        swmR4        swmR5        
+$fm_frame swmR6        swmR7        swmR8        swmR9        
+
+//
+$fm_frame t4swim1      t4swim2      
+
+//
+$fm_frame tbswim1      tbswim2      tbswim3      tbswim4      tbswim5      
+
+//
+$fm_frame throw1       throw2       throw3       throw4       throw5       
+$fm_frame throw6       throw7       throw8       throw9       throw10      
+$fm_frame throw11      
+
+//
+$fm_frame tnsubckswm1  tnsubckswm2  
+
+//
+$fm_frame trnshrine1   trnshrine2   trnshrine3   
+
+//
+$fm_frame trnswmL1     trnswmL2     
+
+//
+$fm_frame trnswmR1     trnswmR2     
+
+//
+$fm_frame tswimL1      tswimL2      tswimL3      tswimL4      
+
+//
+$fm_frame tswimR1      tswimR2      tswimR3      tswimR4      
+
+//
+$fm_frame undrswmA1    undrswmA2    undrswmA3    undrswmA4    undrswmA5    
+$fm_frame undrswmA6    undrswmA7    undrswmA8    undrswmA9    undrswmA10   
+$fm_frame undrswmA11   
+
+//
+$fm_frame unstff1      unstff2      unstff3      unstff4      unstff5      
+$fm_frame unstff6      
+
+//
+$fm_frame vault1       vault2       vault3       vault4       vault5       
+$fm_frame vault6       vault7       vault8       vault9       vault10      
+$fm_frame vault11      vault12      vault13      vault14      vault15      
+$fm_frame vault16      vault17      
+
+//
+$fm_frame wipebrow1    wipebrow2    wipebrow3    wipebrow4    wipebrow5    
+$fm_frame wipebrow6    wipebrow7    wipebrow8    wipebrow9    wipebrow10   
+$fm_frame wipebrow11   wipebrow12   wipebrow13   wipebrow14   wipebrow15   
+$fm_frame wipebrow16   wipebrow17   wipebrow18   wipebrow19   
+
+// 
+// ***NOTE I GOTTA RELEASE THESE EVEN IF THEY'RE NOT USED!  THEY'RE COOL!
+
+// NEW STAFF MOVES
+//
+$fm_frame roundbck1    roundbck2    roundbck3    roundbck4    roundbck5
+$fm_frame roundbck6    roundbck7    roundbck8
+
+//
+$fm_frame spikedwn1    spikedwn2    spikedwn3    spikedwn4    spikedwn5
+$fm_frame spikedwn6    spikedwn7    spikedwn8
+
+//
+$fm_frame pullout1     pullout2     pullout3     pullout4     pullout5
+$fm_frame pullout6     pullout7     pullout8     pullout9     pullout10
+$fm_frame pullout11
+
+// FLYING ANIMS
+//
+$fm_frame strtfly1     strtfly2     strtfly3     strtfly4     strtfly5
+$fm_frame strtfly6     strtfly7     strtfly8     strtfly9     strtfly10
+
+//
+$fm_frame flydle1      flydle2      flydle3      flydle4      flydle5
+$fm_frame flydle6      flydle7      flydle8      flydle9      flydle10
+$fm_frame flydle11     flydle12
+
+// 
+$fm_frame t4fly1       t4fly2       t4fly3
+
+//
+$fm_frame 4fly1        4fly2
+
+//
+$fm_frame stp4fly1     stp4fly2     stp4fly3     stp4fly4     stp4fly5
+$fm_frame stp4fly6     stp4fly7     stp4fly8     stp4fly9
+
+//
+$fm_frame t2flydle1    t2flydle2    t2flydle3    t2flydle4
+
+//
+$fm_frame bckfly1      bckfly2
+
+
+
+// OLD USUSED ANIMS
+//
+//$fm_frame H2OpainA1    
+
+//
+//$fm_frame H2OpainB1    
+
+//
+//$fm_frame trnsbksprg1  trnsbksprg2  trnsbksprg3  
+
+
+

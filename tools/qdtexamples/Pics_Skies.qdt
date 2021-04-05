@@ -1,0 +1,156 @@
+// ------------------------------------
+// Skies
+// ------------------------------------
+
+$picdir Skies
+//-------------------------------------
+// ANDORIA SKY
+//-------------------------------------
+$load 				art/gfx/env/andortownbk.pcx
+$pic  andoriabk  	0	0	256	256
+
+$load 				art/gfx/env/andortowndn.pcx
+$pic  andoriadn  	0	0	256	256
+
+$load 				art/gfx/env/andortownft.pcx
+$pic  andoriaft  	0	0	256	256
+
+$load 				art/gfx/env/andortownlf.pcx
+$pic  andorialf  	0	0	256	256
+
+$load 				art/gfx/env/andortownrt.pcx
+$pic  andoriart  	0	0	256	256
+
+$load 				art/gfx/env/andortownup.pcx
+$pic  andoriaup  	0	0	256	256
+
+//-------------------------------------
+// SWAMP SKY
+//-------------------------------------
+$load 				art/gfx/env/newswampbk.pcx
+$pic  swampbk  	0	0	256	256
+
+$load 				art/gfx/env/newswampdn.pcx
+$pic  swampdn  	0	0	256	256
+
+$load 				art/gfx/env/newswampft.pcx
+$pic  swampft  	0	0	256	256
+
+$load 				art/gfx/env/newswamplf.pcx
+$pic  swamplf  	0	0	256	256
+
+$load 				art/gfx/env/newswamprt.pcx
+$pic  swamprt  	0	0	256	256
+
+$load 				art/gfx/env/newswampup.pcx
+$pic  swampup  	0	0	256	256
+
+//-------------------------------------
+// TOWN SKY
+//-------------------------------------
+$load 				art/gfx/env/townbk.pcx
+$pic  townbk  	0	0	256	256
+
+$load 				art/gfx/env/towndn.pcx
+$pic  towndn  	0	0	256	256
+
+$load 				art/gfx/env/townft.pcx
+$pic  townft  	0	0	256	256
+
+$load 				art/gfx/env/townlf.pcx
+$pic  townlf  	0	0	256	256
+
+$load 				art/gfx/env/townrt.pcx
+$pic  townrt  	0	0	256	256
+
+$load 				art/gfx/env/townup.pcx
+$pic  townup  	0	0	256	256
+
+//-------------------------------------
+// HIVE SKY
+//-------------------------------------
+$load 				art/gfx/env/newnightbk.pcx
+$pic  hivebk  	0	0	256	256
+
+$load 				art/gfx/env/newnightdn.pcx
+$pic  hivedn  	0	0	256	256
+
+$load 				art/gfx/env/newnightft.pcx
+$pic  hiveft  	0	0	256	256
+
+$load 				art/gfx/env/newnightlf.pcx
+$pic  hivelf  	0	0	256	256
+
+$load 				art/gfx/env/newnightrt.pcx
+$pic  hivert  	0	0	256	256
+
+$load 				art/gfx/env/newnightup.pcx
+$pic  hiveup  	0	0	256	256
+
+//-------------------------------------
+// CLOUDHUB SKY
+//-------------------------------------
+
+$load 				art/gfx/env/darkstormbk.pcx
+$pic  stormbk  	0	0	256	256
+
+$load 				art/gfx/env/darkstormdn.pcx
+$pic  stormdn  	0	0	256	256
+
+$load 				art/gfx/env/darkstormft.pcx
+$pic  stormft  	0	0	256	256
+
+$load 				art/gfx/env/darkstormlf.pcx
+$pic  stormlf  	0	0	256	256
+
+$load 				art/gfx/env/darkstormrt.pcx
+$pic  stormrt  	0	0	256	256
+
+$load 				art/gfx/env/darkstormup.pcx
+$pic  stormup  	0	0	256	256
+
+//-------------------------------------
+// DOCKS SKY
+//-------------------------------------
+
+$load 				art/gfx/env/shitdocksbk.pcx
+$pic  sky1bk  	0	0	256	256
+
+$load 				art/gfx/env/shitdocksdn.pcx
+$pic  sky1dn  	0	0	256	256
+
+$load 				art/gfx/env/shitdocksft.pcx
+$pic  sky1ft  	0	0	256	256
+
+$load 				art/gfx/env/shitdockslf.pcx
+$pic  sky1lf  	0	0	256	256
+
+$load 				art/gfx/env/shitdocksrt.pcx
+$pic  sky1rt  	0	0	256	256
+
+$load 				art/gfx/env/shitdocksup.pcx
+$pic  sky1up  	0	0	256	256
+
+//-------------------------------------
+// DESERT SKY
+//-------------------------------------
+
+$load 				art/gfx/env/canyonbk.pcx
+$pic  desertbk  	0	0	256	256
+
+$load 				art/gfx/env/canyondn.pcx
+$pic  desertdn  	0	0	256	256
+
+$load 				art/gfx/env/canyonft.pcx
+$pic  desertft  	0	0	256	256
+
+$load 				art/gfx/env/canyonlf.pcx
+$pic  desertlf  	0	0	256	256
+
+$load 				art/gfx/env/canyonrt.pcx
+$pic  desertrt  	0	0	256	256
+
+$load 				art/gfx/env/canyonup.pcx
+$pic  desertup  	0	0	256	256
+
+

@@ -1,0 +1,145 @@
+$fm_cd monsters\plaguelf
+$fm_origin 0 0 0
+$fm_basest base skin stbase
+$fm_skin skin
+$fm_skin skindmg
+$fm_skin skin1
+$fm_skin skin1dmg
+$fm_skin skin2
+$fm_skin skin2dmg
+$fm_scale 1
+
+//
+$fm_frame partfly      
+
+//
+$fm_frame torsooff     
+
+//
+$fm_frame attckA1      attckA2      attckA3      attckA4      attckA5      
+$fm_frame attckA6      attckA7      
+
+//
+$fm_frame attckB1      attckB2      attckB3      attckB4      attckB5      
+$fm_frame attckB6      attckB7      attckB8      attckB9      
+
+//
+$fm_frame crazyA1      crazyA2      crazyA3      crazyA4      crazyA5      
+$fm_frame crazyA6      crazyA7      crazyA8      crazyA9      crazyA10     
+$fm_frame crazyA11     crazyA12     
+
+//
+$fm_frame crazyB1      crazyB2      crazyB3      crazyB4      crazyB5      
+$fm_frame crazyB6      crazyB7      crazyB8      crazyB9      crazyB10     
+$fm_frame crazyB11     crazyB12     
+
+//
+$fm_frame cursing1     cursing2     cursing3     cursing4     cursing5     
+$fm_frame cursing6     cursing7     cursing8     cursing9     cursing10    
+$fm_frame cursing11    cursing12    cursing13    cursing14    cursing15    
+$fm_frame cursing16    cursing17    cursing18    cursing19    cursing20    
+$fm_frame cursing21    cursing22    cursing23    cursing24    cursing25    
+$fm_frame cursing26    cursing27    cursing28    cursing29    cursing30    
+$fm_frame cursing31    cursing32    cursing33    cursing34    cursing35    
+$fm_frame cursing36    cursing37    cursing38    cursing39    cursing40    
+$fm_frame cursing41    cursing42    cursing43    cursing44    cursing45    
+$fm_frame cursing46    cursing47    cursing48    cursing49    cursing50    
+$fm_frame cursing51    cursing52    cursing53    cursing54    cursing55    
+$fm_frame cursing56    cursing57    cursing58    cursing59    cursing60    
+$fm_frame cursing61    cursing62    cursing63    cursing64    
+
+//
+$fm_frame deathb1      deathb10     deathb11     deathb12     deathb13     
+$fm_frame deathb2      deathb3      deathb4      deathb5      
+$fm_frame deathb6      deathb7      deathb8      deathb9      deathc1      
+$fm_frame deathc10     deathc11     deathc12     deathc13     
+$fm_frame deathc2      deathc3      deathc4      deathc5      deathc6      
+$fm_frame deathc7      deathc8      deathc9      deathd1      deathd10     
+$fm_frame deathd11     deathd12     deathd13     deathd2      
+$fm_frame deathd3      deathd4      deathd5      deathd6      deathd7      
+$fm_frame deathd8      deathd9      death1       death2       death3       
+$fm_frame death4       death5       death6       death7       death8       
+$fm_frame death9       death10      death11      death12      death13      
+$fm_frame death14      
+
+//
+$fm_frame fist1        fist2        fist3        fist4        fist5        
+$fm_frame fist6        fist7        
+
+//
+$fm_frame handslid1    handslid2    handslid3    handslid4    handslid5    
+$fm_frame handslid6    handslid7    handslid8    
+
+//
+$fm_frame lean1        lean2        lean3        lean4        lean5        
+$fm_frame lean6        lean7        lean8        lean9        lean10       
+$fm_frame lean11       lean12       lean13       lean14       lean15       
+$fm_frame lean16       lean17       lean18       lean19       lean20       
+$fm_frame lean21       lean22       lean23       lean24       lean25       
+$fm_frame lean26       lean27       lean28       lean29       lean30       
+$fm_frame lean31       lean32       lean33       lean34       
+
+//
+$fm_frame painA1       painA2       painA3       painA4       painA5       
+$fm_frame painA6       painA7       
+
+//
+$fm_frame point1       point2       point3       point4       point5       
+$fm_frame point6       point7       point8       point9       point10      
+$fm_frame point11      point12      point13      point14      point15      
+$fm_frame point16      point17      point18      point19      point20      
+$fm_frame point21      point22      point23      point24      point25      
+$fm_frame point26      point27      point28      point29      point30      
+
+//
+$fm_frame runatk1      runatk2      runatk3      runatk4      runatk5      
+$fm_frame runatk6      runatk7      runatk8      runA1        runA2        
+$fm_frame runA3        runA4        runA5        runA6        runA7        
+$fm_frame runA8        
+
+//
+$fm_frame scared1      scared2      scared3      scared4      scared5      
+$fm_frame scared6      scared7      scared8      scared9      scared10     
+$fm_frame scared11     scared12     scared13     scared14     scared15     
+$fm_frame scared16     scared17     scared18     scared19     scared20     
+$fm_frame scared21     scared22     scared23     scared24     scared25     
+$fm_frame scared26     scared27     scared28     scared29     scared30     
+$fm_frame scared31     scared32     scared33     scared34     scared35     
+$fm_frame scared36     scared37     scared38     scared39     
+
+//
+$fm_frame shake1       shake2       shake3       shake4       shake5       
+$fm_frame shake6       shake7       shake8       shake9       shake10      
+$fm_frame shake11      shake12      shake13      shake14      shake15      
+$fm_frame shake16      shake17      shake18      shake19      shake20      
+$fm_frame shake21      shake22      shake23      shake24      shake25      
+
+//
+$fm_frame walkA1       walkA2       walkA3       walkA4       walkA5       
+$fm_frame walkA6       walkA7       walkA8       walkA9       walkA10      
+$fm_frame walkA11      walkA12      
+
+$fm_frame death13end deathb13end  deathc13end  deathd13end
+
+$fm_frame skewered
+
+$fm_frame jump1  jump2  jump3  jump4  jump5  jump6  jump7  jump8  jump9  jump10
+$fm_frame jump11  jump12  jump13  jump14  jump15  jump16  jump17  jump18  jump19  jump20
+
+$fm_frame recover1  recover2  recover3  recover4  recover5
+
+
+$fm_frame fetal1  fetal2  fetal3  fetal4  fetal5  fetal6  fetal7  fetal8  fetal9  fetal10
+$fm_frame fetal11 fetal12 fetal13 fetal14 fetal15 fetal16 fetal17 fetal18 fetal19 fetal20
+$fm_frame fetal21 fetal22 fetal23 fetal24 fetal25 fetal26
+
+$fm_frame reach1  reach2  reach3  reach4  reach5
+$fm_frame reach6  reach7  reach8  reach9  reach10
+$fm_frame reach11 reach12 reach13 reach14 reach15
+$fm_frame reach16 reach17 reach18 reach19 reach20
+$fm_frame reach21 reach22 reach23 reach24 reach25
+$fm_frame reach26 reach27 reach28 reach29 reach30
+$fm_frame reach31 reach32 reach33 reach34 reach35
+$fm_frame reach36 reach37 reach38
+
+

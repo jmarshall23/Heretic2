@@ -1,0 +1,105 @@
+// ------------------------------------
+// Icons for the status bar
+// ------------------------------------
+
+$picdir icons
+
+$load 				art/gfx/pics/i_firewall.pcx
+$pic  i_fwall  	0	0	32	32
+
+$load 				art/gfx/pics/i_flying-fist.pcx
+$pic  i_fball  	0	0	32	32
+
+$load 				art/gfx/pics/i_health.pcx
+$pic  i_health  	0	0	32	32
+
+$load 				art/gfx/pics/i_health2.pcx
+$pic  i_health2  	0	0	32	32
+
+$load 				art/gfx/pics/i_hell-staff.pcx
+$pic  i_hell 	0	0	32	32
+
+$load 				art/gfx/pics/i_mace-balls.pcx
+$pic  i_mace 	0	0	32	32
+
+$load 				art/gfx/pics/i_magic-missile.pcx
+$pic  i_array  	0	0	32	32
+
+$load 				art/gfx/pics/i_meteor-barrier.PCX
+$pic  i_meteor  	0	0	32	32
+
+$load 				art/gfx/pics/i_phoenix-bow.pcx
+$pic  i_phoen  	0	0	32	32
+
+$load 				art/gfx/pics/i_player.pcx
+$pic  i_player  	0	0	32	32
+
+$load 				art/gfx/pics/i_polymorph.pcx
+$pic  i_morph  	0	0	32	32
+
+$load 				art/gfx/pics/i_red-rain-bow.pcx
+$pic  i_rain  	0	0	32	32
+
+$load 				art/gfx/pics/i_ring-of-repulsion.pcx
+$pic  i_ring  	0	0	32	32
+
+$load 				art/gfx/pics/i_sphere-of-annihilation.pcx
+$pic  i_sphere	0	0	32	32
+
+$load 				art/gfx/pics/i_sword-staff.pcx
+$pic  i_staff  	0	0	32	32
+
+$load 				art/gfx/pics/i_tome-of-power.pcx
+$pic  i_tome  	0	0	32	32
+
+$load 				art/gfx/pics/i_teleport.pcx
+$pic  i_tele  	0	0	32	32
+
+$load 				art/gfx/pics/i_tornado.pcx
+$pic  i_tornado  	0	0	32	32
+
+$load 				art/gfx/pics/i_lightning-shield.pcx
+$pic  i_shield  	0	0	32	32
+
+$load 				art/gfx/pics/green-mana.pcx
+$pic  green-mana  	0	0	16	8
+
+$load 				art/gfx/pics/green-mana2.pcx
+$pic  green-mana2  	0	0	16	64
+
+$load 				art/gfx/pics/blue-mana.pcx
+$pic  blue-mana  	0	0	16	8
+
+$load 				art/gfx/pics/blue-mana2.pcx
+$pic  blue-mana2  	0	0	16	64
+
+$load 				art/gfx/pics/i_ammo-phoen.pcx
+$pic  i_ammo-phoen  	0	0	32	32
+
+$load 				art/gfx/pics/i_ammo-hellstaff.pcx
+$pic  i_ammo-hellstaff 	0	0	32	32
+
+$load 				art/gfx/pics/i_ammo-redrain.pcx
+$pic  i_ammo-redrain  	0	0	32	32
+
+$load 				art/gfx/pics/h2o_breathing.pcx
+$pic  breath 	 	0	0	8	16
+
+$load 				art/gfx/pics/h2o_breathing2.pcx
+$pic  breath2 	 	0	0	64	16
+
+$load 				art/gfx/pics/powerup_bar.pcx
+$pic  powerup 	 	0	0	8	16
+
+$load 				art/gfx/pics/powerup_bar2.pcx
+$pic  powerup2  	0	0	64	16
+
+$load                           art/gfx/pics/lifebar_back.pcx
+$pic  lifebar_back      0       0       8       16
+
+$load				art/gfx/pics/arm_silver.tga
+$pic  arm_silver		0	0	32	32
+	
+$load				art/gfx/pics/arm_gold.tga
+$pic  arm_gold		0	0	32	32
+

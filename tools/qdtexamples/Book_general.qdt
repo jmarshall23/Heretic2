@@ -1,0 +1,23 @@
+// ------------------------------------
+// Generic gfx required by the book dll
+// ------------------------------------
+
+$bookdir Back
+
+$load 				art/gfx/book/b_conback.pcx
+$book  b_conback8  	0	0	640	480
+
+$load                           art/gfx/book/book_map.pcx
+$book  b_worldmap  	0	0	640	480
+
+$load                           art/gfx/book/book_ss.pcx
+$book  b_ssmap  	0	0	640	480
+
+$load                           art/gfx/book/book_and.pcx
+$book  b_andmap  	0	0	640	480
+
+$load                           art/gfx/book/book_hive.pcx
+$book  b_hivemap  	0	0	640	480
+
+
+// end

@@ -1,0 +1,55 @@
+// ----
+// Lens flares
+// ----
+// Ordered
+
+$sprdir lens
+
+$spritename             flare1
+$load                   art/gfx/sprites/flares/flare5.pcx
+$spriteframe    0       0      128     128
+
+$spritename             flare2
+$load                   art/gfx/sprites/flares/flare4.pcx
+$spriteframe    0       0      64     64
+
+$spritename             flare3
+$load                   art/gfx/sprites/flares/flare3.pcx
+$spriteframe    0       0      16     16
+
+$spritename             flare4
+$load                   art/gfx/sprites/flares/flare6.pcx
+$spriteframe    0       0      32     32
+
+$spritename             flare5
+$load                   art/gfx/sprites/flares/flare1.pcx
+$spriteframe    0       0      64     64
+
+$spritename             flare6
+$load                   art/gfx/sprites/flares/shine8.pcx
+$spriteframe    0       0       128      128
+
+$spritename             blind1
+$load                   art/gfx/sprites/flares/blind1.pcx
+$spriteframe    0       0       64      64
+
+$spritename             halo1
+$load                   art/gfx/sprites/flares/halo.pcx
+$spriteframe    0       0       64      64
+
+$spritename             halo2
+$load                   art/gfx/sprites/flares/halo2.pcx
+$spriteframe    0       0       32      32
+
+$spritename             halo3
+$load                   art/gfx/sprites/flares/halo3.pcx
+$spriteframe    0       0       64      64
+
+$spritename             test_flare1
+$load                   art/gfx/sprites/flares/test_flare1.pcx
+$spriteframe    0       0       64      64
+
+$spritename             test_flare2
+$load                   art/gfx/sprites/flares/test_flare2.pcx
+$spriteframe    0       0       32      32
+

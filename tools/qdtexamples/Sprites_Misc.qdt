@@ -1,0 +1,304 @@
+// ----
+// Sprites required by misc. world effects.
+// ----
+
+$sprdir fx
+
+$spritename		puff
+$load			art/gfx/sprites/s_puff_0.pcx
+$spriteframe	0	0	48	48
+$load			art/gfx/sprites/s_puff_1.pcx
+$spriteframe	0	0	48	48
+$load			art/gfx/sprites/s_puff_2.pcx
+$spriteframe	0	0	48	48
+$load			art/gfx/sprites/s_puff_3.pcx
+$spriteframe	0	0	48	48
+$load			art/gfx/sprites/s_puff_4.pcx
+$spriteframe	0	0	48	48
+
+$spritename		wfall
+$load			art/gfx/sprites/s_wfall_0.pcx
+$spriteframe	0	0	64	64
+$load			art/gfx/sprites/s_wfall_1.pcx
+$spriteframe	0	0	64	64
+
+$spritename 		mist
+$load 			art/gfx/sprites/s_mist_0.pcx
+$spriteframe	0	0	128	64
+
+$spritename		steam
+$load			art/gfx/sprites/s_steam_0.pcx
+$spriteframe	0	0	32	32
+
+$spritename		steam_add
+$load			art/gfx/sprites/s_steam_add.pcx
+$spriteframe	0	0	32	32
+
+$spritename		steamhalf
+$load			art/gfx/sprites/s_steamhalf_0.pcx
+$spriteframe	0	0	32	16
+
+$spritename		waterentryripple
+$load			art/gfx/sprites/s_waterentryripple.tga
+$spriteframe	0	0	64	64
+
+$spritename		ripple_add
+$load			art/gfx/sprites/s_ripple_add.pcx
+$spriteframe	0	0	64	64
+
+$spritename		waterwake
+$load			art/gfx/sprites/s_waterwake.pcx
+$spriteframe	0	0	64	64
+
+$spritename		wake_add
+;$load			art/gfx/sprites/s_wake_add.pcx
+$load			art/gfx/sprites/s_waterwake_a.pcx
+$spriteframe	0	0	64	64
+
+$spritename		scorchmark
+$load			art/gfx/sprites/s_scorchmark.pcx
+$spriteframe	0	0	32	32
+
+$spritename		spoo
+$load                   art/gfx/sprites/s_spoo3.tga
+$spriteframe    0       0       16      16
+
+$spritename		spoo2
+$load                   art/gfx/sprites/s_spoo4.tga
+$spriteframe    0       0       16      16
+
+$spritename		shadow
+$load			art/gfx/sprites/shadow.pcx
+$spriteframe	0	0	32	32
+
+$spritename		relect
+$load			art/gfx/sprites/relect_shrine.tga
+$spriteframe	0	0	64	64
+//
+
+$spritename 	nflame
+$load 		art/gfx/sprites/s_nflame.pcx
+$spriteframe	0	0	128	128
+$spriteframe	0	0	128	128
+
+// Lens flares.
+
+$spritename		halo
+$load			art/gfx/sprites/s_halo_1.pcx
+$spriteframe	0	0	64	64
+$load			art/gfx/sprites/s_halo_2.pcx
+$spriteframe	0	0	64	64
+$load			art/gfx/sprites/s_halo_3.pcx
+$spriteframe	0	0	64	64
+
+$spritename             haloblue
+$load                   art/gfx/sprites/s_haloblue.pcx
+$spriteframe	0	0	64	64
+
+$spritename             halored
+$load                   art/gfx/sprites/s_halored.pcx
+$spriteframe	0	0	64	64
+
+$spritename             halogreen
+$load			art/gfx/sprites/s_halo_4.pcx
+$spriteframe	0	0	64	64
+
+$spritename 		fire
+$load			art/gfx/sprites/s_fire1.pcx
+$spriteframe	0	0	32	32
+$load			art/gfx/sprites/s_fire2.pcx
+$spriteframe	0	0	32	32
+$load			art/gfx/sprites/s_fire3.pcx
+$spriteframe	0	0	32	32
+
+$spritename		bubble
+$load			art/gfx/sprites/bubble.tga
+$spriteframe	0	0	32	32
+$load			art/gfx/sprites/beerbub.tga
+$spriteframe	0	0	32	32
+$load			art/gfx/sprites/bludbub.tga
+$spriteframe	0	0	32	32
+
+$spritename		abubble
+$load			art/gfx/sprites/abubble.pcx
+$spriteframe	0	0	32	32
+
+$spritename		waterdrop
+$load			art/gfx/sprites/jbubble2.tga
+$spriteframe	0	0	32	32
+
+
+; Line segment textures
+$spritename		redraindrop
+$load			art/gfx/sprites/l_redraindrop.pcx
+$spriteframe	0	0	16	64
+$load			art/gfx/sprites/l_magraindrop.pcx
+$spriteframe	0	0	32	128
+
+$spritename             segment_rope
+$load                   art/gfx/sprites/l_segment_rope.tga
+$spriteframe	0	0	16	64
+
+$spritename		lightning
+$load			art/gfx/sprites/l_lightning.pcx
+$spriteframe	0	0	16	64
+$load			art/gfx/sprites/l_lightning_2.pcx
+$spriteframe	0	0	16	64
+
+$spritename		rlightning
+$load			art/gfx/sprites/l_rlightning.pcx
+$spriteframe	0	0	16	64
+$load			art/gfx/sprites/l_rlightning_2.pcx
+$spriteframe	0	0	16	64
+
+$spritename		plightning
+$load			art/gfx/sprites/l_plightning.pcx
+$spriteframe	0	0	32	128
+$load			art/gfx/sprites/l_plightning_2.pcx
+$spriteframe	0	0	32	128
+
+$spritename		neon
+$load			art/gfx/sprites/l_neon.pcx
+$spriteframe	0	0	16	64
+$load			art/gfx/sprites/l_neon2.pcx
+$spriteframe	0	0	16	64
+$load			art/gfx/sprites/l_neon3.pcx
+$spriteframe	0	0	16	64
+
+$spritename             segment_chain
+$load                   art/gfx/sprites/l_segment_chain.tga
+$spriteframe	0	0	16	64
+
+$spritename             segment_vine
+$load                   art/gfx/sprites/l_segment_vine.tga
+$spriteframe	0	0	16	64
+
+$spritename             segment_tendril
+$load                   art/gfx/sprites/l_segment_tendril.tga
+$spriteframe	0	0	16	64
+
+$spritename             hpproj1_1
+$load                   art/gfx/sprites/s_hpproj1_1.tga
+$spriteframe    0       0       32      32
+
+$spritename             hpproj1_2
+$load                   art/gfx/sprites/s_hpproj1_2.tga
+$spriteframe    0       0       32      32
+
+$spritename             segment_trail
+$load                   art/gfx/sprites/l_segment_trail.tga
+$spriteframe	0	0	16	64
+
+$spritename             hp_halo
+$load                   art/gfx/sprites/s_hphalo.pcx
+$spriteframe	0	0	64	64
+
+$spritename             segment_trail_w
+$load                   art/gfx/sprites/l_segment_trail_w.tga
+$spriteframe    0       0       16      64
+
+$spritename             segment_trail_wt
+$load                   art/gfx/sprites/l_segment_trail_wt.tga
+$spriteframe    0       0       16      64
+
+$spritename             segment_trail_y
+$load                   art/gfx/sprites/l_segment_trail_y.tga
+$spriteframe	0	0	16	64
+
+$spritename		helllaser
+$load			art/gfx/sprites/l_helllaser.pcx
+$spriteframe 	0	0	16	64
+$load			art/gfx/sprites/l_helllaser2.pcx
+$spriteframe 	0	0	16	64
+
+// Some effects for hit graphics
+// Firey line with cool head
+$spritename		firestreak
+$load			art/gfx/sprites/l_firestreak.pcx
+$spriteframe 	0	0	16	64
+// Blue sparky line with cool head
+$spritename		bluestreak
+$load			art/gfx/sprites/l_bluestreak.pcx
+$spriteframe 	0	0	16	64
+// Blue star-like line for long fx
+$spritename		bluestar
+$load			art/gfx/sprites/l_bluestar.pcx
+$spriteframe 	0	0	16	64
+
+// Line effects for magic missile
+$spritename 		greenlines
+$load			art/gfx/sprites/l_greenarray1.pcx
+$spriteframe 	0	0	16	64
+$load			art/gfx/sprites/l_greenarray2.pcx
+$spriteframe 	0	0	16	64
+
+// Line effects for firewave (firewall)
+$spritename		fireline
+$load			art/gfx/sprites/l_fireline.pcx
+$spriteframe	0	0	32	128
+
+// Line effects for ripper ball (unpowered mace ball)
+$spritename		ballstreak
+$load			art/gfx/sprites/l_ballstreak1.pcx
+$spriteframe	0	0	16	64
+$load			art/gfx/sprites/l_ballstreak2.pcx
+$spriteframe	0	0	16	64
+
+$spritename		redexpl
+$load			art/gfx/sprites/boom1_0.pcx
+$spriteframe	0	0	128	128
+$load			art/gfx/sprites/boom1_1.pcx
+$spriteframe	0	0	128	128
+$load			art/gfx/sprites/boom1_2.pcx
+$spriteframe	0	0	128	128
+$load			art/gfx/sprites/boom1_3.pcx
+$spriteframe	0	0	128	128
+$load			art/gfx/sprites/boom1_4.pcx
+$spriteframe	0	0	128	128
+$load			art/gfx/sprites/boom1_5.pcx
+$spriteframe	0	0	128	128
+$load			art/gfx/sprites/boom1_6.pcx
+$spriteframe	0	0	128	128
+$load			art/gfx/sprites/boom1_7.pcx
+$spriteframe	0	0	128	128
+$load			art/gfx/sprites/boom1_8.pcx
+$spriteframe	0	0	128	128
+$load			art/gfx/sprites/boom1_9.pcx
+$spriteframe	0	0	128	128
+$load			art/gfx/sprites/boom1_10.pcx
+$spriteframe	0	0	128	128
+$load			art/gfx/sprites/boom1_11.pcx
+$spriteframe	0	0	128	128
+
+$spritename             core_b
+$load                   art/gfx/sprites/halob.pcx
+$spriteframe    0      0        64      64
+
+$spritename             hp_light
+$load                   art/gfx/sprites/s_hplight.tga
+$spriteframe    0      0        64      64
+
+$spritename             hp_lightning
+$load                   art/gfx/sprites/hp_lightning.tga
+$spriteframe	0	0	16	64
+
+$spritename             blood_splat
+$load                   art/gfx/sprites/blood_splat.tga
+$spriteframe    0       0       64      64
+
+$spritename             crosshair
+$load                   art/gfx/sprites/crosshair1.pcx
+$spriteframe    0       0       32	32
+$load                   art/gfx/sprites/crosshair2.pcx
+$spriteframe    0       0       32	32
+$load                   art/gfx/sprites/crosshair3.pcx
+$spriteframe    0       0       32	32
+
+$spritename             segment_trail_buoy
+$load                   art/gfx/sprites/l_segment_buoy.tga
+$spriteframe	0	0	16	64
+
+$spritename             morc_halo
+$load                   art/gfx/sprites/s_m_halo.pcx
+$spriteframe	0	0	64	64
+

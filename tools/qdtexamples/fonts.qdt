@@ -1,0 +1,9 @@
+// ------------------------------------
+// Font creation
+// ------------------------------------
+
+$texturemix art\gfx\pics\fontset1\font1.tmx
+
+$texturemix art\gfx\pics\fontset2\font2.tmx
+
+// end

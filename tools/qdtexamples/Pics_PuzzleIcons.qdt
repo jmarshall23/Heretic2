@@ -1,0 +1,85 @@
+// ------------------------------------
+// Icons for the status bar
+// ------------------------------------
+
+$picdir icons
+
+$load 				art/gfx/pics/puzzle/p_cloudkey.pcx
+$pic  p_cloudkey  	0	0	32	32
+
+$load 				art/gfx/pics/puzzle/p_dungeonkey.pcx
+$pic  p_dungeonkey  	0	0	32	32
+
+$load 				art/gfx/pics/puzzle/p_hiveidol.pcx
+$pic  p_hiveidol  	0	0	32	32
+
+$load 				art/gfx/pics/puzzle/p_hivekey.pcx
+$pic  p_hivekey  	0	0	32	32
+
+
+$load 				art/gfx/pics/puzzle/p_jugfill.pcx
+$pic  p_jugfill  	0	0	32	32
+
+
+$load 				art/gfx/pics/puzzle/p_orerefined.pcx
+$pic  p_orerefined  	0	0	32	32
+
+
+$load 				art/gfx/pics/puzzle/p_oreunrefined.pcx
+$pic  p_oreunrefined  	0	0	32	32
+
+$load 				art/gfx/pics/puzzle/p_plazajug.pcx
+$pic  p_plazajug  	0	0	32	32
+
+
+$load 				art/gfx/pics/puzzle/p_queenkey.pcx
+$pic  p_queenkey  	0	0	32	32
+
+
+$load 				art/gfx/pics/puzzle/p_shield.pcx
+$pic  p_shield  	0	0	32	32
+
+
+$load 				art/gfx/pics/puzzle/p_spear.pcx
+$pic  p_spear  		0	0	32	32
+
+
+
+$load 				art/gfx/pics/puzzle/p_tcheckrikbust.pcx
+$pic  p_tcheckrikbust	0	0	32	32
+
+
+$load 				art/gfx/pics/puzzle/p_tcheckrikgem.pcx
+$pic  p_tcheckrikgem	0	0	32	32
+
+
+$load 				art/gfx/pics/puzzle/p_townkey.pcx
+$pic  p_townkey		0	0	32	32
+
+
+$load 				art/gfx/pics/puzzle/p_wheel.pcx
+$pic  p_wheel		0	0	32	32
+
+$load 				art/gfx/pics/puzzle/p_tomepower.pcx
+$pic  p_tomepower		0	0	32	32
+
+
+$load 				art/gfx/pics/puzzle/p_cog.pcx
+$pic  p_cog			0	0	32	32
+
+
+$load 				art/gfx/pics/puzzle/p_tavernkey.pcx
+$pic  p_tavernkey		0	0	32	32
+
+$load 				art/gfx/pics/puzzle/p_potion.pcx
+$pic  p_potion			0	0	32	32
+
+
+$load 				art/gfx/pics/puzzle/p_crystal.pcx
+$pic  p_crystal			0	0	32	32
+
+
+$load 				art/gfx/pics/puzzle/p_canyonkey.pcx
+$pic  p_canyonkey			0	0	32	32
+
+

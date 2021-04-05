@@ -1,0 +1,70 @@
+// ------------------------------------
+// Images for the menu
+// ------------------------------------
+
+$picdir menu
+
+$load 				art/gfx/pics/num_neg.tga
+$pic  num_neg  	0	0	8	16
+
+$load 				art/gfx/pics/num_0.tga
+$pic  num_0  	0	0	8	16
+
+$load 				art/gfx/pics/num_1.tga
+$pic  num_1  	0	0	8	16
+
+$load 				art/gfx/pics/num_2.tga
+$pic  num_2  	0	0	8	16
+
+$load 				art/gfx/pics/num_3.tga
+$pic  num_3  	0	0	8	16
+
+$load 				art/gfx/pics/num_4.tga
+$pic  num_4  	0	0	8	16
+
+$load 				art/gfx/pics/num_5.tga
+$pic  num_5  	0	0	8	16
+
+$load 				art/gfx/pics/num_6.tga
+$pic  num_6  	0	0	8	16
+
+$load 				art/gfx/pics/num_7.tga
+$pic  num_7  	0	0	8	16
+
+$load 				art/gfx/pics/num_8.tga
+$pic  num_8  	0	0	8	16
+
+$load 				art/gfx/pics/num_9.tga
+$pic  num_9  	0	0	8	16
+
+$load 				art/gfx/pics/num_red0.tga
+$pic  num_red0  	0	0	8	16
+
+$load 				art/gfx/pics/num_red1.tga
+$pic  num_red1  	0	0	8	16
+
+$load 				art/gfx/pics/num_red2.tga
+$pic  num_red2  	0	0	8	16
+
+$load 				art/gfx/pics/num_red3.tga
+$pic  num_red3  	0	0	8	16
+
+$load 				art/gfx/pics/num_red4.tga
+$pic  num_red4  	0	0	8	16
+
+$load 				art/gfx/pics/num_red5.tga
+$pic  num_red5  	0	0	8	16
+
+$load 				art/gfx/pics/num_red6.tga
+$pic  num_red6  	0	0	8	16
+
+$load 				art/gfx/pics/num_red7.tga
+$pic  num_red7  	0	0	8	16
+
+$load 				art/gfx/pics/num_red8.tga
+$pic  num_red8  	0	0	8	16
+
+$load 				art/gfx/pics/num_red9.tga
+$pic  num_red9  	0	0	8	16
+
+// end

@@ -1,0 +1,53 @@
+// ------------------------------------
+// Miscellaneous pics
+// ------------------------------------
+
+$picdir misc
+
+$load 				art/gfx/pics/font/font.tga
+$pic  font 	  	0	0	256	256
+
+$load 				art/gfx/pics/particle.tga
+$pic  particle  	0	0	128	128
+
+$load 				art/gfx/pics/aparticle.pcx
+$pic  aparticle  	0	0	128	128
+
+$load				art/gfx/pics/turtle.pcx
+$pic  turtle		0	0	32	32
+
+$load				art/gfx/pics/backtile.pcx
+$pic  backtile		0	0	128	128
+
+$load				art/gfx/pics/conback.pcx
+$pic  conback		0	0	256	256
+
+$load				art/gfx/pics/conchars.tga
+$pic  conchars	  	0	0	128	128
+
+$load 				art/gfx/pics/loading.pcx
+$pic  loading	  	0	0	64	16
+
+$load 				art/gfx/pics/pause.pcx
+$pic  pause		  	0	0	128	32
+
+$load 				art/gfx/pics/reflect.tga
+$pic  reflect		  	0	0	128	128
+
+$load 				art/gfx/pics/pausedback.tga
+$pic  textback		  	0	0	128	64
+
+$load 				art/gfx/pics/net.pcx
+$pic  net		  	0	0	32	32
+
+$load 				art/gfx/pics/bigdot.tga
+$pic  dot		  	0	0	8	8
+
+$load 				art/gfx/pics/biggerdot.tga
+$pic  bigdot		  	0	0	16	16
+
+
+// TEMPORARY
+$load				art/gfx/temp/ddlogo.pcx
+$pic  ddlogo			0	0	256	256
+

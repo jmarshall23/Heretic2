@@ -1,0 +1,166 @@
+$fm_cd monsters\gorgon
+$fm_origin 0 0 16
+$fm_basest base skin stbase
+$fm_skin skin
+$fm_skin skindmg
+$fm_scale 1
+
+//
+$fm_frame atka1        atka2        atka3        atka4        
+
+//
+$fm_frame atkb1        atkb2        atkb3        atkb4        
+
+//
+$fm_frame atkc1        atkc2        atkc3        atkc4        
+
+//
+$fm_frame atkd1        atkd2        atkd3        atkd4        
+
+//
+$fm_frame atke1        atke2        atke3        atke4        
+
+//
+$fm_frame deatha1      deatha10     deatha11     deatha12     deatha13     
+$fm_frame deatha14     deatha15     deatha16     deatha17     deatha18     
+$fm_frame deatha19     deatha2      deatha3      deatha4      deatha5      
+$fm_frame deatha6      deatha7      deatha8      deatha9      death1       
+$fm_frame death2       death3       death4       death5       death6       
+$fm_frame death7       death8       death9       death10      death11      
+$fm_frame death12      death13      death14      death15      death16      
+$fm_frame death17      death18      death19      
+
+//
+$fm_frame eatinga1     eatinga2     eatinga3     eatinga4     eatinga5     
+$fm_frame eatinga6     eatinga7     eatinga8     eatinga9     eatinga10    
+
+//
+$fm_frame eatingb1     eatingb2     eatingb3     eatingb4     eatingb5     
+$fm_frame eatingb6     eatingb7     eatingb8     eatingb9     eatingb10    
+$fm_frame eatingb11    eatingb12    eatingb13    eatingb14    eatingb15    
+$fm_frame eatingb16    eatingb17    eatingb18    eatingb19    eatingb20    
+$fm_frame eatingb21    
+
+//
+$fm_frame hit1         hit2         hit3         hit4         hit5         
+$fm_frame hit6         hit7         hit8         hit9         hit10        
+$fm_frame hit11        hit12        
+
+//
+$fm_frame hop1         hop2         hop3         hop4         hop5         
+$fm_frame hop6         hop7         hop8         hop9         hop10        
+
+//
+$fm_frame idleb1       idleb2       idleb3       idleb4       idleb5       
+$fm_frame idleb6       idleb7       idleb8       idleb9       idleb10      
+$fm_frame idleb11      idleb12      idleb13      idleb14      idleb15      
+$fm_frame idleb16      idleb17      idleb18      idleb19      idleb20      
+$fm_frame idleb21      
+
+//
+$fm_frame jumpa1       jumpa2       jumpa3       jumpa4       jumpa5       
+$fm_frame jumpa6       jumpa7       jumpa8       jumpa9       jumpa10      
+$fm_frame jumpa11      jumpa12      jumpa13      jumpa14      jumpa15      
+$fm_frame jumpa16      jumpa17      
+
+//
+$fm_frame jumpb1       jumpb2       jumpb3       jumpb4       jumpb5       
+$fm_frame jumpb6       jumpb7       jumpb8       jumpb9       jumpb10      
+$fm_frame jumpb11      jumpb12      jumpb13      jumpb14      jumpb15      
+$fm_frame jumpb16      jumpb17      jumpb18      jumpb19      
+
+//
+$fm_frame loklft1      loklft2      loklft3      loklft4      loklft5      
+$fm_frame loklft6      loklft7      loklft8      loklft9      loklft10     
+$fm_frame loklft11     loklft12     loklft13     loklft14     loklft15     
+$fm_frame loklft16     loklft17     loklft18     loklft19     loklft20     
+$fm_frame loklft21     loklft22     
+
+//
+$fm_frame lokrt1       lokrt2       lokrt3       lokrt4       lokrt5       
+$fm_frame lokrt6       lokrt7       lokrt8       lokrt9       lokrt10      
+$fm_frame lokrt11      lokrt12      lokrt13      lokrt14      lokrt15      
+$fm_frame lokrt16      lokrt17      lokrt18      lokrt19      lokrt20      
+
+//
+$fm_frame oldbase3     
+
+//
+$fm_frame painb1       painb2       painb3       painb4       painb5       
+$fm_frame painc1       painc2       painc3       painc4       painc5       
+$fm_frame pain1        pain2        pain3        pain4        pain5        
+$fm_frame pain6        pain7        pain8        pain9        
+
+//
+$fm_frame react1       react2       react3       react4       react5       
+$fm_frame react6       react7       react8       react9       react10      
+
+//
+$fm_frame rollover1    rollover2    rollover3    rollover4    rollover5        
+
+//
+$fm_frame runatk1      runatk2      runatk3      runatk4      runatk5      
+$fm_frame runatk6      runatk7      runatk8      run1         run2         
+$fm_frame run3         run4         run5         run6         run7         
+$fm_frame run8         
+
+//
+$fm_frame slide1       slide2       slide3       slide4       slide5       
+$fm_frame slide6       slide7       slide8       slide9       slide10      
+$fm_frame slide11      slide12      slide13      slide14      slide15      
+$fm_frame slide16      slide17      slide18      slide19      slide20      
+$fm_frame slide21      slide22      slide23      slide24      slide25      
+$fm_frame slide26      slide27      slide28      slide29      slide30      
+$fm_frame slide31
+
+//
+$fm_frame snap1        snap2        snap3        snap4        snap5        
+$fm_frame snap6        snap7        
+
+//
+$fm_frame speak1       speak2       speak3       speak4       speak5       
+$fm_frame speak6       speak7       speak8       speak9       speak10      
+$fm_frame speak11      speak12      speak13      speak14      speak15      
+$fm_frame speak16      speak17      speak18      speak19      
+
+//
+$fm_frame swim1       swim2       swim3       swim4       swim5       
+$fm_frame swim6       swim7       swim8       swim9       swim10      
+$fm_frame swim11      swim12      swim13      swim14      swim15      
+$fm_frame swim16      swim17      swim18      swim19      
+
+//
+$fm_frame swimata1       swimata2       swimata3       swimata4       swimata5       
+$fm_frame swimata6       swimata7       swimata8       swimata9       swimata10      
+$fm_frame swimata11      swimata12      swimata13      swimata14
+
+//
+$fm_frame swimatb1       swimatb2       swimatb3       swimatb4       swimatb5       
+$fm_frame swimatb6       swimatb7       swimatb8       swimatb9       swimatb10      
+$fm_frame swimatb11      swimatb12      swimatb13      swimatb14
+
+//
+$fm_frame twitch       
+
+//
+$fm_frame twitch_1     twitch_2     
+
+//
+$fm_frame wait1        wait2        wait3        wait4        wait5        
+$fm_frame wait6        wait7        wait8        
+
+//
+$fm_frame walk1        walk2        walk3        walk4        walk5        
+$fm_frame walk6        walk7        walk8        walk9        walk10       
+$fm_frame walk11       walk12       
+
+//
+$fm_frame wlklft1      wlklft2      wlklft3      wlklft4      wlklft5      
+$fm_frame wlklft6      wlklft7      wlklft8      wlklft9      wlklft10     
+$fm_frame wlklft11     wlklft12     
+
+//
+$fm_frame wlkrt1       wlkrt2       wlkrt3       wlkrt4       wlkrt5       
+$fm_frame wlkrt6       wlkrt7       wlkrt8       wlkrt9       wlkrt10      
+$fm_frame wlkrt11      wlkrt12      
+

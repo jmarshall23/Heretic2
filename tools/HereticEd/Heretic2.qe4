@@ -1,0 +1,55 @@
+{
+// maps will be loaded and saved from <basepath>/maps
+"basepath"             "d:\games\Heretic II\base"
+
+// you are using your local machine to bsp, set rshcmd to ""
+// and remotebasebath to the same thing as basepath.
+// if you are using a remote unix host, remotebasepath
+// will usually be different.
+//
+//
+"rshcmd"                "d:\games\Heretic II\Toolkit\Designer\HereticEd\batch\"
+
+"remotebasepath"        "d:\games\Heretic II\base"
+
+
+
+// the entity classes are found by parsing through
+// all the files in <entitypath>, looking for
+// /*QUAKED comments
+
+"entitypath"            "d:\games\Heretic II\Toolkit\Programming\GameCode\game\*.c"
+
+// the "textures" menu is filled with all of the directories
+// found under <texturepath>.  All texture references from maps
+// have <texturepath> implicitly prepended.
+// The textures directory can be duplicated on a local harddrive
+// for better performance.
+
+"texturepath"           "d:\games\Heretic II\base\textures"
+
+// every five minutes, the editor will autosave a map if it is dirty.
+// this should be on a local drive, so multiple people editing
+// maps don't collide
+
+"autosave"                      "d:\games\Heretic II\base\maps\autosave.map"
+
+// the "bsp" menu in QuakeEd is filled with the following bsp_* commands
+// when selected, the value string will be expanded then executed in the
+// background.
+// ! will be replaced with <rshcmd>
+// $ will be replaced with <remotebasepath>/maps/<currentmap>
+// @ is changed to a quote(in case you need one in the command line)
+
+"bsp_Relight_Qrad"                      "!relight.bat $"
+"bsp_novis"                             "!novis.bat $"
+"bsp_Entities"                          "!onlyents.bat $"
+"bsp_FullVis (nowater)"                 "!fullvisw.bat $"
+"bsp_FullVis"                           "!fullvis.bat $"
+"bsp_FullVis (no qrad)"                 "!fullvisnoq.bat $"
+"bsp_FullVis (qrad -extra)"             "!fullvisxq.bat $"
+"bsp_FullVis (nodetail, qrad -extra)"   "!fullvisnodetail.bat $"
+"bsp_FastVis"                           "!fastvis.bat $"
+"bsp_FastVis (nowater)"                 "!fastvisnowater.bat $"
+}
+

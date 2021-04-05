@@ -1,0 +1,13 @@
+// ----
+// temp
+// ----
+
+$sprdir fx
+
+$spritename		neon
+$load			art/gfx/sprites/l_neon.pcx
+$spriteframe	0	0	16	64
+$load			art/gfx/sprites/l_neon2.pcx
+$spriteframe	0	0	16	64
+$load			art/gfx/sprites/l_neon3.pcx
+$spriteframe	0	0	16	64

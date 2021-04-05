@@ -1,0 +1,122 @@
+qMView ver 1.5 Work Log (c) 1998, Josh Weier
+----------------------------------------------
+
+TODO:
+----------------------------------------------
+
+	ground plane
+	axis
+	drag and drop frame placement (insert before / after)
+	scale (scoped)
+	translate (scoped)
+	rotate (scoped)
+	file save (Quake)
+	file save (Quake2)
+	model bitfield editing
+	label editing (frame)
+	undo / redo
+	import frame (3DS / DXF / COB)
+	export frame (3DS / DXF / COB)
+	export skin  (BMP / PCX / RAW)
+	skin view
+	on model painting
+	dodge tool
+	burn tool
+	on skin page painting
+	palette swatches
+	other paint tools
+	dynamic interpolation
+	frame rate locking (clamping / acceling)
+	preferences dialog
+	palette on status bar
+	on the fly frame import and model colallation
+	optimize Quake2 frame updates (vert paths)
+	add tri-outline skin
+	frame sequencing
+	snap to vertex
+
+----------------------------------------------
+
+[1/24/98]
+	
+	* surrenders processor time when not active (minimized, not visible)
+	* 'z' spin toggle
+	* fix model loading error
+	* fix Quake models
+	* frame rate display (in status bar)
+	* updated to DirectX v5.0 (SDK / End User)
+		- Fixed ambient light problem
+		- Fixed transparency error (has palette error now)
+		- Minor speed increase
+	* ambient lighting mode
+	* removed Quake2 model light normal calculations (4 FPS opt)
+	* re-added frame interpolation (manditory 4 IFPF)
+
+
+[1/25/98]
+
+	* added interpolation toggle to menu and toolbar
+
+[1/26/98]
+
+	* fix Quake texture vertex loss bug
+	* fix palette import bug
+
+[1/29/98]
+
+	* Models are loadable from command line or double click
+	* fix Quake model scale bug
+	* fix Quake frame group bug
+	* fix interpolation error (interpolating to next frame in full list)
+	* moved to version 1.4ß
+	* tweaked splash screen
+
+[1/31/98]
+
+	* really fixed z-spin
+	* re-did dialog bar
+
+[2/14/98]
+
+	* spent Valentine's day coding
+	* added multi-selection
+	* fixed Quake model mirroring
+
+[2/20/98]
+	
+	* fixed Quake model Skin import
+	* fixed ping-pong in punch select
+	* added normal ping-pong
+	* fixed scaling system
+	* fixed SHIFT and CTRL key captures (unless focus to treectrl)
+	* add smooth scale
+	* hacked workable tree updates
+	* fixed Z rotation (really!)
+	* added tweaks to throw code to prevent slow moving
+	* hack fixed Microsoft's weird texture transparency problem
+
+[2/21/98]
+	
+	* made h2 palette the default
+	* fixed up Quake model preset positions
+
+[2/22/98]
+
+	* added multi-skin support
+	* added icon art
+	* optimized skin loading
+	* added group filling to multi-select frames
+	* FIXME! Don't group select backwards!
+	* FIXME! Don't think about doing it with Quake2!
+	* FIXME! Don't switch internal skins after loading a new one!
+	* fixed keydown capture on skin tree
+
+[3/17/98]
+
+	* Hexen2 MP finished up, added qMView to SourceSafe
+
+[2/23/98]
+
+	* Basic FM support
+	* Load M8 as a skin
+	* Added double click disk load to skin tree

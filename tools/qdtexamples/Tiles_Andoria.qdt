@@ -1,0 +1,742 @@
+$load art/gfx/gamepal.lbm
+$mippal
+$mipdir Andoria
+
+;=================================================
+;FLOORS
+;=================================================
+
+$load art/gfx/textures/Andoria/final/pondbed.pcx
+$mip	pond	0	0	128	128
+
+$load art/gfx/textures/Andoria/final/newtrans.pcx
+$mip	newgr3	0	0	128	128
+
+$load art/gfx/textures/Andoria/final/newrock.pcx
+$mip	newgr2	0	0	128	128
+
+$load art/gfx/textures/Andoria/final/newgrass.pcx
+$mip	newgr1		0	0	128	128
+
+$load art/gfx/textures/Andoria/final/4_15grastransc.pcx
+$mip	slumgr10	0	0	128	128
+
+$load art/gfx/textures/Andoria/final/4_15grastransb.pcx
+$mip	slumgr9	0	0	128	128
+
+$load art/gfx/textures/Andoria/final/4_15grastransa.pcx
+$mip	slumgr8	0	0	128	128
+
+$load art/gfx/textures/Andoria/final/4_15dirtgrassb.pcx
+$mip	slumgr7	0	0	128	128
+
+$load art/gfx/textures/Andoria/final/4_15dirtgrassa.pcx
+$mip	slumgr6	0	0	128	128
+
+$load art/gfx/textures/Andoria/final/4_13grassc.pcx
+$mip	slumgr5	0	0	128	128
+
+$load art/gfx/textures/Andoria/final/4_13grassb.pcx
+$mip	slumgr4	0	0	128	128
+
+$load art/gfx/textures/Andoria/final/4_13grassa.pcx
+$mip	slumgr3	0	0	128	128
+
+$load art/gfx/textures/Andoria/final/4_13slumgrasb.pcx
+$mip	slumgr2	0	0	128	128
+
+$load art/gfx/textures/Andoria/final/4_13slumgrasa.pcx
+$mip	slumgr1	0	0	128	128
+
+$load art/gfx/textures/Andoria/final/tile4a.pcx
+$mip	floor1	0	0	64	64	stone
+
+;=================================================
+; WALLS
+;=================================================
+
+$load art/gfx/textures/Andoria/final/5_29rock.pcx
+$mip	wall26	0	0	64	64	stone
+
+$load art/gfx/textures/Andoria/final/4_15brick3.pcx
+$mip	wall25	0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/4_15brick2.pcx
+$mip	wall24	0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/4_15brick1.pcx
+$mip	wall23	0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/3_23tile.pcx
+$mip	wall22	0	0	64	64	stone
+
+$load art/gfx/textures/Andoria/final/3_10fossilgray.pcx
+$mip	wall21	0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/3_6grockwallmoss.pcx
+$mip	wall20	0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/sstonea.pcx
+$mip	wall19	0	0	128	128	stone	
+
+$load art/gfx/textures/Andoria/final/marbflr2a.pcx
+$mip	wall18	0	0	64	64	stone
+
+$load art/gfx/textures/Andoria/final/granite5h.pcx
+$mip	wall17	0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/granite5c.pcx
+$mip	wall16	0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/granite5.pcx
+$mip	wall15	0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/rockface4d.pcx
+$mip	wall14	0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/rockface4c.pcx
+$mip	wall13	0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/rockface2e.pcx
+$mip	wall12	0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/rockface2b.pcx
+$mip	wall11	0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/3_13relief2.pcx
+$mip	wall10	0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/3_13relief1.pcx
+$mip	wall9	0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/3_13cvwall2.pcx
+$mip	wal8	0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/3_13cvwall.pcx
+$mip	wall7	0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/3_12trim6.pcx
+$mip	wall6	0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/3_12trim5.pcx
+$mip	wall5	0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/3_12natrock2.pcx
+$mip	wall4	0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/3_12natrock.pcx
+$mip	wall3	0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/rockwall1d.pcx
+$mip	wall2	0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/rockwall1b.pcx
+$mip	wall1	0	0	128	128	stone
+
+;=================================================
+; FISHWALLS
+;=================================================
+
+$load art/gfx/textures/Andoria/final/fishwall4.pcx
+$mip	fishwall4	0	0	128	64	stone
+
+$load art/gfx/textures/Andoria/final/fishwall3.pcx
+$mip	fishwall3	0	0	128	64	stone	
+
+$load art/gfx/textures/Andoria/final/fishwall2.pcx
+$mip	fishwall2	0	0	128	64	stone
+
+$load art/gfx/textures/Andoria/final/fishwall1.pcx
+$mip	fishwall1	0	0	128	64	stone
+
+$load art/gfx/textures/Andoria/final/fishtrim4.pcx
+$mip	fishtrim4	0	0	64	32	stone
+
+$load art/gfx/textures/Andoria/final/fishtrim3.pcx
+$mip	fishtrim3	0	0	64	32	stone
+
+$load art/gfx/textures/Andoria/final/fishtrim2.pcx
+$mip	fishtrim2	0	0	64	32	stone
+
+$load art/gfx/textures/Andoria/final/fishtrim1.pcx
+$mip	fishtrim1	0	0	64	32	stone
+
+;=================================================
+; MURALS
+;=================================================
+
+$load art/gfx/textures/Andoria/final/7_27andooria1.pcx
+$mip	mural11	0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/7_22gandssithra1.pcx
+$mip	mural10	0	0	128	256	stone
+
+$load art/gfx/textures/Andoria/final/7_21gandssithra2.pcx
+$mip	mural9	0	0	128	256	stone
+
+$load art/gfx/textures/Andoria/final/2relief3b.pcx
+$mip	mural8	0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/2relief3a.pcx
+$mip	mural7	0	0	128	64	stone
+
+$load art/gfx/textures/Andoria/final/petroglyphs1.pcx
+$mip	mural6	0	0	128	64	stone
+
+$load art/gfx/textures/Andoria/final/muraledged.pcx
+$mip	mural5	0	0	64	128	stone
+
+$load art/gfx/textures/Andoria/final/mural2edged.pcx
+$mip	mural4	0	0	64	128	stone
+
+$load art/gfx/textures/Andoria/final/6_1tilehuntblu.pcx
+$mip	mural3	0	0	128	64	stone
+
+$load art/gfx/textures/Andoria/final/6_1tilehunt2.pcx
+$mip	mural2	0	0	128	64	stone
+
+$load art/gfx/textures/Andoria/final/6_1tilehunt.pcx
+$mip	mural1	0	0	128	64	stone
+
+;=================================================
+; BRICKS AND STONES
+;=================================================
+
+$load art/gfx/textures/Andoria/final/3_11i2brickb.pcx
+$mip	lbrick1	0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/3_11i2brickb3.pcx
+$mip	lbrick2	0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/3_11i2brickb9.pcx
+$mip	lbrick3	0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/3_9rock.pcx
+$mip	newrock3	0	0	64	64	stone
+
+$load art/gfx/textures/Andoria/final/2slate.pcx
+$mip	blslate	0	0	64	64	stone
+
+$load art/gfx/textures/Andoria/final/3_10floora1.pcx
+$mip	brk-floor1	0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/3_10floora2.pcx
+$mip	brk-floor2	0	0	64	64	stone
+
+$load art/gfx/textures/Andoria/final/3_10floorb1.pcx
+$mip	brk-floor3	0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/3_10floorb2.pcx
+$mip	brk-floor4	0	0	64	64	stone
+
+$load art/gfx/textures/Andoria/final/3_10floorc1.pcx
+$mip	brk-floor5	0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/3_10floorc2.pcx
+$mip	brk-floor5	0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/3_10flr2.pcx
+$mip	brk-floor6	0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/3_10flr4.pcx
+$mip	brk-floor7	0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/3_10pattrn1.pcx
+$mip	newwall4	0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/3_10pattrn2.pcx
+$mip	newwall5	0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/3_10quarry1.pcx
+$mip	quarry1	0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/3_10quarry2.pcx
+$mip	quarry2	0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/3_10maynbrk.pcx
+$mip	newbrick9	0	0	64	64	stone
+
+$load art/gfx/textures/Andoria/final/3_6relfbrk2.pcx
+$mip	newbrick4	0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/3_6relfbrk1.pcx
+$mip	newbrick5	0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/3_9hedsblu.pcx
+$mip	newbrick6	0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/3_9hedsdrk.pcx
+$mip	newbrick7	0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/3_9hedslite.pcx
+$mip	newbrick8	0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/3_9shale1A.pcx
+$mip	shale1 		0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/3_9shale3b.pcx
+$mip	shale2		0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/3_9shale3c.pcx
+$mip	shale3	0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/3_9bigblock.pcx
+$mip	bigblock1	0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/3_9smllblock.pcx
+$mip	smblock1	0	0	64	64	stone
+
+$load art/gfx/textures/Andoria/final/3_5grbrick3.pcx
+$mip	newbrick1	0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/3_5grbrick4.pcx
+$mip	newbrick2	0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/3_5grbrick6.pcx
+$mip	newbrick3	0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/3_6altblck.pcx
+$mip	newblock1	0	0	64	64	stone
+
+$load art/gfx/textures/Andoria/final/3_6anwall4D.pcx
+$mip	newwall1	0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/3_6anwall4F.pcx
+$mip	newwall2	0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/3_6anwall5A.pcx
+$mip	newwall3	0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/GRock2blue.pcx
+$mip	newrock1	0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/GRock2blugrn.pcx
+$mip	newrock2	0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/testgrbrick.pcx
+$mip	gbrick		0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/testgrbrick2.pcx
+$mip	gbrick2		0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/tile7m.pcx
+$mip	tile7m		0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/bri2.pcx
+$mip	bri2		0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/bri2-2.pcx
+$mip	bri2-2		0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/bri1.pcx
+$mip	bri1		0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/bri1-1.pcx
+$mip	bri1-1		0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/2bgscles.pcx
+$mip	2bgscles	0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/sndblok2.pcx
+$mip	sndblok2	0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/sndblok1.pcx
+$mip	sndblok1	0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/tile6.pcx
+$mip	tile6		0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/tile5.pcx
+$mip	tile5		0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/tile4.pcx
+$mip	tile4		0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/tile3.pcx
+$mip	tile3		0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/tile2.pcx
+$mip	tile2		0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/tile1.pcx
+$mip	tile1		0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/tile9.pcx
+$mip	tile9		0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/tile8.pcx
+$mip	tile8		0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/tile7.pcx
+$mip	tile7		0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/sstone3.pcx
+$mip	sstone3		0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/sstone2.pcx
+$mip	sstone2		0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/sstone1.pcx
+$mip	sstone1		0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/sstone.pcx
+$mip	sstone		0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/blk128.pcx
+$mip	blk128		0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/marbflr.pcx
+$mip	marb-flr	0	0	64	64	stone
+
+$load art/gfx/textures/Andoria/final/marbflr2.pcx
+$mip	marb-flr2	0	0	64	64	stone
+
+$load art/gfx/textures/Andoria/final/marbflr3.pcx
+$mip	marb-flr3	0	0	64	64	stone
+
+$load art/gfx/textures/Andoria/final/marble2.pcx
+$mip	marble2  	0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/brick1b.pcx
+$mip	brick1b  	0	0	32	32	stone
+
+$load art/gfx/textures/Andoria/final/brick1a.pcx
+$mip	brick1a  	0	0	64	64	stone
+
+$load art/gfx/textures/Andoria/final/tile1a.pcx
+$mip	tile1a  	0	0	64	64	stone
+
+$load art/gfx/textures/Andoria/final/tile1b.pcx
+$mip	tile1b  	0	0	64	64	stone
+
+$load art/gfx/textures/Andoria/final/tile1c.pcx
+$mip	tile1c  	0	0	64	64	stone
+
+$load art/gfx/textures/Andoria/final/tile2a.pcx
+$mip	tile2a  	0	0	64	64	stone
+
+$load art/gfx/textures/Andoria/final/tile2b.pcx
+$mip	tile2b  	0	0	64	64	stone
+
+$load art/gfx/textures/Andoria/final/tile2c.pcx
+$mip	tile2c  	0	0	64	64	stone
+
+$load art/gfx/textures/Andoria/final/sanpat1e.pcx
+$mip	stone1b   	0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/sanpat1f.pcx
+$mip	stone2b   	0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/fishtil5.pcx
+$mip	detail2   	0	0	256	256	stone
+
+;=================================================
+
+
+
+;=================================================
+; WATER(S)
+;=================================================
+
+$load art/gfx/textures/Andoria/final/water1b.pcx
+$mip	water4   	0	0	128	128	water	warping	trans66
+
+$load art/gfx/textures/Andoria/final/water1f.pcx
+$mip	water3   	0	0	128	128	water	warping	trans66
+
+$load art/gfx/textures/Andoria/final/water2a.pcx
+$mip	water2   	0	0	128	128	water	warping	trans66	
+
+$load art/gfx/textures/Andoria/final/watera.pcx
+$mip	water1   	0	0	128	128	water	warping	trans66
+
+;=================================================
+
+
+
+;=================================================
+; TRIM / DECORATIONS / DETAILS
+;=================================================
+
+$load art/gfx/textures/Andoria/final/5_27blslatetrim7.pcx
+$mip	bltrim7	0	0	64	64	stone
+
+$load art/gfx/textures/Andoria/final/5_27blslatetrim6.pcx
+$mip	bltrim6	0	0	64	64	stone
+
+$load art/gfx/textures/Andoria/final/5_27blslatetrim5.pcx
+$mip	bltrim5	0	0	64	64	stone
+
+$load art/gfx/textures/Andoria/final/5_27blslatetrim4.pcx
+$mip	bltrim4	0	0	64	64	stone
+
+$load art/gfx/textures/Andoria/final/5_27blslatetrim3.pcx
+$mip	bltrim3	0	0	64	64	stone
+
+$load art/gfx/textures/Andoria/final/5_27blslatetrim2.pcx
+$mip	bltrim2	0	0	64	64	stone
+
+$load art/gfx/textures/Andoria/final/5_27blslatetrim1.pcx
+$mip	bltrim1	0	0	64	64	stone
+
+$load art/gfx/textures/Andoria/final/9_1door5.pcx
+$mip	door6	0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/8_28door4.pcx
+$mip	door5	0	0	128	32	stone
+
+$load art/gfx/textures/Andoria/final/8_28door3.pcx
+$mip	door4	0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/8_28door2.pcx
+$mip	door3	0	0	64	128	stone
+
+$load art/gfx/textures/Andoria/final/8_28door1.pcx
+$mip	door2	0	0	64	128	stone
+
+$load art/gfx/textures/Andoria/final/tomsdoor2.pcx
+$mip	door1	0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/d_bricktrim3.pcx
+$mip	brtrim3	0	0	32	32	stone
+
+$load art/gfx/textures/Andoria/final/d_brickktrim2.pcx
+$mip	brtrim2	0	0	32	32	stone
+
+$load art/gfx/textures/Andoria/final/d_bricktrim.pcx
+$mip	brtrim1	0	0	32	32	stone
+
+$load art/gfx/textures/Andoria/final/borderc2.pcx
+$mip	newbord4	0	0	64	32	stone
+
+$load art/gfx/textures/Andoria/final/4_20borderc.pcx
+$mip	newbord3	0	0	64	32	stone
+
+$load art/gfx/textures/Andoria/final/bordera2.pcx
+$mip	newbord2	0	0	64	32	stone
+
+$load art/gfx/textures/Andoria/final/4_20bordera.pcx
+$mip	newbord1	0	0	64	32	stone	
+
+$load art/gfx/textures/Andoria/final/3_25tunltrim.pcx
+$mip	tuntrim1	0	0	64	64	stone
+
+$load art/gfx/textures/Andoria/final/3_11shltrim1e.pcx
+$mip	shell6	0	0	128	64	stone
+
+$load art/gfx/textures/Andoria/final/3_11shltrim1d.pcx
+$mip	shell5	0	0	128	64	stone
+
+$load art/gfx/textures/Andoria/final/3_11shltrim1b.pcx
+$mip	shell4	0	0	128	64	stone
+
+$load art/gfx/textures/Andoria/final/3_11shltrim1a.pcx
+$mip	shell3	0	0	128	64	stone
+
+$load art/gfx/textures/Andoria/final/3_11shelltrim1n.pcx
+$mip	shell2	0	0	256	128	stone
+
+$load art/gfx/textures/Andoria/final/3_11shelltrim1m.pcx
+$mip	shell1	0	0	256	128	stone
+
+$load art/gfx/textures/Andoria/final/sqtrimc2.pcx
+$mip	rune	0	0	128	64	stone
+
+$load art/gfx/textures/Andoria/final/3_11trim3.pcx
+$mip	snaketrm1	0	0	128	64	stone
+
+$load art/gfx/textures/Andoria/final/3_11trim4.pcx
+$mip	fishhead1	0	0	64	64	stone
+
+$load art/gfx/textures/Andoria/final/3_12trim1.pcx
+$mip	coiltrm1	0	0	128	64	stone
+
+$load art/gfx/textures/Andoria/final/3_12trim1a.pcx
+$mip	coiltrm2	0	0	128	64	stone
+
+$load art/gfx/textures/Andoria/final/3_12trim2.pcx
+$mip	coiltrm3	0	0	64	32	stone
+
+$load art/gfx/textures/Andoria/final/3_12trim2a.pcx
+$mip	coiltrm4	0	0	64	32	stone
+
+$load art/gfx/textures/Andoria/final/3_9rckorn12a.pcx
+$mip	rck-orn2	0	0	64	64	stone
+
+$load art/gfx/textures/Andoria/final/3_10trim1.pcx
+$mip	trim7		0	0	64	32	stone
+
+$load art/gfx/textures/Andoria/final/3_10fishtrim1c.pcx
+$mip	fishtrim1	0	0	64	64	stone
+
+$load art/gfx/textures/Andoria/final/3_10fishtrim1e.pcx
+$mip	fishtrim2	0	0	64	64	stone
+
+$load art/gfx/textures/Andoria/final/3_10fishtrim1f.pcx
+$mip	fishtrim3	0	0	64	64	stone
+
+$load art/gfx/textures/Andoria/final/3_10trim2.pcx
+$mip	trim8		0	0	64	64	stone
+
+$load art/gfx/textures/Andoria/final/3_10trim3.pcx
+$mip	trim9		0	0	128	64	stone
+
+$load art/gfx/textures/Andoria/final/3_11trim1.pcx
+$mip	trim10		0	0	32	16	stone
+
+$load art/gfx/textures/Andoria/final/lipwav2.pcx
+$mip	lipwave2	0	0	64	64	stone
+
+$load art/gfx/textures/Andoria/final/lipwav.pcx
+$mip	lipwave		0	0	64	64	stone
+
+$load art/gfx/textures/Andoria/final/cola.pcx
+$mip	col		0	0	32	256	stone
+
+$load art/gfx/textures/Andoria/final/bordg.pcx
+$mip	border7		0	0	32	128	stone
+
+$load art/gfx/textures/Andoria/final/bordf.pcx
+$mip	border6		0	0	32	128	stone
+
+$load art/gfx/textures/Andoria/final/borde.pcx
+$mip	border5		0	0	32	128	stone
+
+$load art/gfx/textures/Andoria/final/bordd.pcx
+$mip	border4		0	0	32	128	stone
+
+$load art/gfx/textures/Andoria/final/bordb.pcx
+$mip	border2		0	0	128	32	stone
+
+$load art/gfx/textures/Andoria/final/wavytrim2.pcx
+$mip	wavytrim2	0	0	64	32	stone
+
+$load art/gfx/textures/Andoria/final/wavytrim.pcx
+$mip	wavytrim	0	0	128	64	stone
+
+$load art/gfx/textures/Andoria/final/star3.pcx
+$mip	star3		0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/star2.pcx
+$mip	star2		0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/star1.pcx
+$mip	star1		0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/rckorn.pcx
+$mip	rck-orn		0	0	64	64	stone
+
+$load art/gfx/textures/Andoria/final/rckorn1.pcx
+$mip	rck-orn1	0	0	64	64	stone
+
+$load art/gfx/textures/Andoria/final/walltrim.pcx
+$mip	walltrim	0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/shells2.pcx
+$mip	shells2		0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/trim1a.pcx
+$mip	trim1a  	0	0	128	64	stone
+
+$load art/gfx/textures/Andoria/final/trim2.pcx
+$mip	trim2   	0	0	128	64	stone
+
+$load art/gfx/textures/Andoria/final/trim3.pcx
+$mip	trim3   	0	0	128	64	stone
+
+$load art/gfx/textures/Andoria/final/seashl5.pcx
+$mip	detail1   	0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/bordera.pcx
+$mip	trim5   	0	0	64	32	stone
+
+$load art/gfx/textures/Andoria/final/borderc.pcx
+$mip	trim6   	0	0	64	32	stone
+
+;=================================================
+
+
+
+;=================================================
+; MISC.
+;=================================================
+
+$load art/gfx/textures/Andoria/final/9_7pushblock1.pcx
+$mip	pushpull   	0	0	64	64	stone
+
+$load art/gfx/textures/Andoria/final/6_3bridge1.pcx
+$mip	bridge2   	0	0	128	128	stone	
+
+$load art/gfx/textures/Andoria/final/6_3bridge.pcx
+$mip	bridge1   	0	0	128	128	stone	
+
+$load art/gfx/textures/Andoria/final/pilarfrnt.pcx
+$mip	pilfront   	0	0	64	128	stone	
+
+$load art/gfx/textures/Andoria/final/pilarfrnttop.pcx
+$mip	pilfronttop   	0	0	64	128	stone
+
+$load art/gfx/textures/Andoria/final/pilarhed2.pcx
+$mip	pilhead2   	0	0	64	64	stone
+
+$load art/gfx/textures/Andoria/final/pilarmouth.pcx
+$mip	pilmouth   	0	0	64	64	stone
+
+$load art/gfx/textures/Andoria/final/pilarside2.pcx
+$mip	pilside2   	0	0	64	128	stone
+
+$load art/gfx/textures/Andoria/final/pilartop.pcx
+$mip	piltop   	0	0	64	128	stone
+
+$load art/gfx/textures/Andoria/final/pilartopside.pcx
+$mip	piltopside   	0	0	32	128	stone
+
+$load art/gfx/textures/Andoria/final/pilrback.pcx
+$mip	pilback   	0	0	64	128	stone
+
+$load art/gfx/textures/Andoria/final/pilarplain.pcx
+$mip	fishpillar   	0	0	128	128	stone
+
+$load art/gfx/textures/Andoria/final/litetxtr.pcx
+$mip	litetex   	0	0	64	64	stone
+
+;=================================================
+
+;=================================================
+; BUTTONS and other animated
+;=================================================
+
+$load art/gfx/textures/Andoria/final/rune4.pcx
+$mip	rune6	  	0	0	128	64	stone	anim rune1
+
+$load art/gfx/textures/Andoria/final/rune5.pcx
+$mip	rune5	  	0	0	128	64	stone	anim rune6
+
+$load art/gfx/textures/Andoria/final/rune6.pcx
+$mip	rune4	  	0	0	128	64	stone	anim rune5
+
+$load art/gfx/textures/Andoria/final/rune5.pcx
+$mip	rune3	  	0	0	128	64	stone	anim rune4
+
+$load art/gfx/textures/Andoria/final/rune4.pcx
+$mip	rune2	  	0	0	128	64	stone	anim rune3
+
+$load art/gfx/textures/Andoria/final/rune3.pcx
+$mip	rune1	  	0	0	128	64	stone	anim rune2	animspeed 12
+
+$load art/gfx/textures/Andoria/final/button7a.pcx
+$mip	+0button3   	0	0	32	32	anim +1button3
+
+$load art/gfx/textures/Andoria/final/button7b.pcx
+$mip	+1button3   	0	0	32	32	anim +0button3
+
+$load art/gfx/textures/Andoria/final/eelbuttona.pcx
+$mip	+0button4   	0	0	32	32	anim +1button4
+
+$load art/gfx/textures/Andoria/final/eelbuttonb.pcx
+$mip	+1button4   	0	0	32	32	anim +0button4
+;=================================================
+
+
+
+
