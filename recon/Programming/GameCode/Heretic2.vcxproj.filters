@@ -1065,6 +1065,9 @@
     <ClCompile Include="server\sv_world.cpp">
       <Filter>server</Filter>
     </ClCompile>
+    <ClCompile Include="client\cl_string.cpp">
+      <Filter>client</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Player\p_actions.h">

@@ -262,12 +262,13 @@ void SCR_DrawCenterString (void)
 
 	scr_erase_center = 0;
 	start = scr_centerstring;
-
-	if (scr_center_lines <= 4)
-		y = viddef.height*0.35;
-	else
-		y = 48;
-
+// jmarshall
+	//if (scr_center_lines <= 4)
+	//	
+	//else
+	//	y = 48;
+	y = viddef.height * 0.9f;
+// jmarshall end
 	do	
 	{
 	// scan the width of the line

@@ -330,8 +330,40 @@ Init the game subsystem for a new map
 */
 void SCR_DebugGraph (float value, int color);
 
+/*
+==============
+SV_BCaption
+==============
+*/
 void SV_BCaption(int printlevel, short stringid) {
+	client_t* cl;
+	int			i;
 
+	for (i = 0, cl = svs.clients; i < maxclients->value; i++, cl++)
+	{
+		if (cl->state != cs_spawned)
+			continue;
+		MSG_WriteByte(&cl->netchan.message, svc_captionprint);
+		MSG_WriteShort(&cl->netchan.message, stringid);
+	}
+}
+
+/*
+==============
+SV_LevelMsgCenterPrintf
+==============
+*/
+void	SV_LevelMsgCenterPrintf(edict_t* ent, short msg) {
+	client_t* cl;
+	int			i;
+
+	for (i = 0, cl = svs.clients; i < maxclients->value; i++, cl++)
+	{
+		if (cl->state != cs_spawned)
+			continue;
+		MSG_WriteByte(&cl->netchan.message, svc_centerprint);
+		MSG_WriteShort(&cl->netchan.message, msg);
+	}
 }
 
 void SV_BroadcastObituary(int printlevel, short stringid, short client1, short client2) {
@@ -341,7 +373,6 @@ void SV_BroadcastObituary(int printlevel, short stringid, short client1, short c
 void	SV_CreateEffectEvent (byte EventId, entity_state_t* ent, int type, int flags, vec3_t origin, char* format, ...) { }
 void	SV_RemoveEffectsEvent(byte EventId, entity_state_t* ent, int type) { }
 void	SV_GameMsgCenterPrintf(edict_t* ent, short msg) { }
-void	SV_LevelMsgCenterPrintf(edict_t* ent, short msg) { }
 void	SV_MsgVarCenterPrintf(edict_t* ent, short msg, int vari) { }
 void	SV_MsgDualCenterPrintf(edict_t* ent, short msg1, short msg2) { }
 void	SV_CaptionPrintf(edict_t* ent, short msg) { }

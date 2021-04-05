@@ -662,9 +662,17 @@ void CL_ParseServerMessage (void)
 			Com_Printf ("%s", MSG_ReadString (&net_message));
 			//con.ormask = 0;
 			break;
-			
+
+		case svc_captionprint:
+			i = MSG_ReadShort(&net_message);
+			SCR_CenterPrint(CL_GetLevelString(i));
+			S_StartLocalSound(CL_GetLevelWav(i));
+			break;
+
 		case svc_centerprint:
-			SCR_CenterPrint (MSG_ReadString (&net_message));
+			i = MSG_ReadShort(&net_message);
+			SCR_CenterPrint(CL_GetLevelString(i));
+			S_StartLocalSound(CL_GetLevelWav(i));
 			break;
 			
 		case svc_stufftext:
