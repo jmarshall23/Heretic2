@@ -751,6 +751,17 @@ void Key_Event (int key, qboolean down, unsigned time)
 		return;
 	}
 
+	if (CIN_IsCinematicRunning())
+	{	
+		// skip the rest of the cinematic
+		if (key == K_ESCAPE || key == '`' || key == '~')
+		{
+			SCR_FinishCinematic();
+		}
+
+		return;
+	}
+
 	// update auto-repeat status
 	if (down)
 	{

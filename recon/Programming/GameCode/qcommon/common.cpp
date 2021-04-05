@@ -1524,7 +1524,7 @@ void Qcommon_Init (int argc, char **argv)
 	if (!Cbuf_AddLateCommands ())
 	{	// if the user didn't give any commands, run default action
 		if (!dedicated->value)
-			Cbuf_AddText ("d1\n");
+			Cbuf_AddText("demo_loop\n");
 		else
 			Cbuf_AddText ("dedicated_start\n");
 		Cbuf_Execute ();
@@ -1535,7 +1535,7 @@ void Qcommon_Init (int argc, char **argv)
 		SCR_EndLoadingPlaque ();
 	}
 
-	Com_Printf ("====== Quake2 Initialized ======\n\n");	
+	Com_Printf ("====== Heretic II fully initialized ======\n\n");	
 }
 
 /*

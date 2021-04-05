@@ -1752,7 +1752,6 @@ void CL_Frame (int msec)
 	// advance local effects for next frame
 	CL_RunDLights ();
 	CL_RunLightStyles ();
-	SCR_RunCinematic ();
 	SCR_RunConsole ();
 
 	cls.framecount++;
@@ -1811,7 +1810,7 @@ void CL_Init (void)
 	M_Init ();	
 	
 	SCR_Init ();
-	cls.disable_screen = true;	// don't draw yet
+	cls.disable_screen = false;	// don't draw yet
 
 	CDAudio_Init ();
 	CL_InitLocal ();

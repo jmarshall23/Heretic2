@@ -40,4 +40,5 @@ qboolean SCR_DrawCinematic (void);
 void SCR_RunCinematic (void);
 void SCR_FinishCinematic (void);
 void SCR_StopCinematic();
+bool CIN_IsCinematicRunning(void);
 

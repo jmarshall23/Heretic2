@@ -43,6 +43,12 @@
     <Filter Include="win32">
       <UniqueIdentifier>{5f7c0a9b-8c64-4418-a458-c2bec47b0451}</UniqueIdentifier>
     </Filter>
+    <Filter Include="external">
+      <UniqueIdentifier>{0823b3a5-93c5-48f4-bff7-e70089d837e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="external\libsmacker">
+      <UniqueIdentifier>{42842a31-5d9c-4251-a1b5-2bd04ffc0d32}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="game\ds.cpp">
@@ -1068,6 +1074,15 @@
     <ClCompile Include="client\cl_string.cpp">
       <Filter>client</Filter>
     </ClCompile>
+    <ClCompile Include="external\libsmacker\smacker.c">
+      <Filter>external\libsmacker</Filter>
+    </ClCompile>
+    <ClCompile Include="external\libsmacker\smk_bitstream.c">
+      <Filter>external\libsmacker</Filter>
+    </ClCompile>
+    <ClCompile Include="external\libsmacker\smk_hufftree.c">
+      <Filter>external\libsmacker</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Player\p_actions.h">
@@ -1756,6 +1771,18 @@
     </ClInclude>
     <ClInclude Include="win32\resource.h">
       <Filter>win32</Filter>
+    </ClInclude>
+    <ClInclude Include="external\libsmacker\smacker.h">
+      <Filter>external\libsmacker</Filter>
+    </ClInclude>
+    <ClInclude Include="external\libsmacker\smk_bitstream.h">
+      <Filter>external\libsmacker</Filter>
+    </ClInclude>
+    <ClInclude Include="external\libsmacker\smk_hufftree.h">
+      <Filter>external\libsmacker</Filter>
+    </ClInclude>
+    <ClInclude Include="external\libsmacker\smk_malloc.h">
+      <Filter>external\libsmacker</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

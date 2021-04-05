@@ -261,6 +261,9 @@
     <ClCompile Include="client\menu.cpp" />
     <ClCompile Include="client\qmenu.cpp" />
     <ClCompile Include="client\x86.cpp" />
+    <ClCompile Include="external\libsmacker\smacker.c" />
+    <ClCompile Include="external\libsmacker\smk_bitstream.c" />
+    <ClCompile Include="external\libsmacker\smk_hufftree.c" />
     <ClCompile Include="game\buoy.cpp" />
     <ClCompile Include="game\c_ai.cpp" />
     <ClCompile Include="game\c_corvus1.cpp" />
@@ -625,6 +628,10 @@
     <ClInclude Include="client\ref.h" />
     <ClInclude Include="client\screen.h" />
     <ClInclude Include="client\vid.h" />
+    <ClInclude Include="external\libsmacker\smacker.h" />
+    <ClInclude Include="external\libsmacker\smk_bitstream.h" />
+    <ClInclude Include="external\libsmacker\smk_hufftree.h" />
+    <ClInclude Include="external\libsmacker\smk_malloc.h" />
     <ClInclude Include="game\buoy.h" />
     <ClInclude Include="game\c_ai.h" />
     <ClInclude Include="game\c_corvus1.h" />

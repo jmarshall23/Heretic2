@@ -136,20 +136,11 @@ void Draw_GetPicSize (int *w, int *h, char *pic)
 
 /*
 =============
-Draw_StretchPic
+Draw_Image
 =============
 */
-void Draw_StretchPic (int x, int y, int w, int h, char *pic, float alpha, qboolean scale)
+void Draw_Image(int x, int y, int w, int h, float alpha, qboolean scale, image_t *gl)
 {
-	image_t *gl;
-
-	gl = Draw_FindPic (pic);
-	if (!gl)
-	{
-		//ri.Con_Printf (PRINT_ALL, "Can't find pic: %s\n", pic);
-		return;
-	}
-
 	if (scale)
 	{
 		float scaled_width, scaled_height, scaled_x, scaled_y;
@@ -167,25 +158,44 @@ void Draw_StretchPic (int x, int y, int w, int h, char *pic, float alpha, qboole
 	}
 
 	if (scrap_dirty)
-		Scrap_Upload ();
+		Scrap_Upload();
 
-	if ( ( ( gl_config.renderer == GL_RENDERER_MCD ) || ( gl_config.renderer & GL_RENDERER_RENDITION ) ) && !gl->has_alpha)
-		glDisable (GL_ALPHA_TEST);
+	if (((gl_config.renderer == GL_RENDERER_MCD) || (gl_config.renderer & GL_RENDERER_RENDITION)) && !gl->has_alpha || alpha == -1.0f)
+		glDisable(GL_ALPHA_TEST);
 
-	GL_Bind (gl->texnum);
-	glBegin (GL_QUADS);
-	glTexCoord2f (gl->sl, gl->tl);
-	glVertex2f (x, y);
-	glTexCoord2f (gl->sh, gl->tl);
-	glVertex2f (x+w, y);
-	glTexCoord2f (gl->sh, gl->th);
-	glVertex2f (x+w, y+h);
-	glTexCoord2f (gl->sl, gl->th);
-	glVertex2f (x, y+h);
-	glEnd ();
+	GL_Bind(gl->texnum);
+	glBegin(GL_QUADS);
+	glTexCoord2f(gl->sl, gl->tl);
+	glVertex2f(x, y);
+	glTexCoord2f(gl->sh, gl->tl);
+	glVertex2f(x + w, y);
+	glTexCoord2f(gl->sh, gl->th);
+	glVertex2f(x + w, y + h);
+	glTexCoord2f(gl->sl, gl->th);
+	glVertex2f(x, y + h);
+	glEnd();
 
-	if ( ( ( gl_config.renderer == GL_RENDERER_MCD ) || ( gl_config.renderer & GL_RENDERER_RENDITION ) ) && !gl->has_alpha)
-		glEnable (GL_ALPHA_TEST);
+	if (((gl_config.renderer == GL_RENDERER_MCD) || (gl_config.renderer & GL_RENDERER_RENDITION)) && !gl->has_alpha || alpha == -1)
+		glEnable(GL_ALPHA_TEST);
+}
+
+/*
+=============
+Draw_StretchPic
+=============
+*/
+void Draw_StretchPic (int x, int y, int w, int h, char *pic, float alpha, qboolean scale)
+{
+	image_t *gl;
+
+	gl = Draw_FindPic (pic);
+	if (!gl)
+	{
+		//ri.Con_Printf (PRINT_ALL, "Can't find pic: %s\n", pic);
+		return;
+	}
+
+	Draw_Image(x, y, w, h, alpha, scale, gl);
 }
 
 

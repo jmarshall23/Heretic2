@@ -310,6 +310,7 @@ char	*va(char *format, ...);
 
 void COM_StripExtension (char *in, char *out);
 
+void    Draw_Image(int x, int y, int w, int h, float alpha, qboolean scale, image_t* gl);
 void	Draw_GetPicSize (int *w, int *h, char *name);
 void	Draw_Pic (int x, int y, char *name);
 void	Draw_StretchPic (int x, int y, int w, int h, char *pic, float alpha, qboolean scale);

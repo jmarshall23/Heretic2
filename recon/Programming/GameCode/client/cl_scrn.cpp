@@ -1403,6 +1403,8 @@ void SCR_UpdateScreen (void)
 			M_Draw ();
 
 			SCR_DrawLoading ();
+
+			SCR_RunCinematic();
 		}
 	}
 	re.EndFrame();
