@@ -73,13 +73,20 @@ sfx_t *S_FindName(char *name, qboolean create) {
 
 	// Load in the file from the disk.
 	void *wavFileBuffer = nullptr;
-	if (name[0] == '*')
+	if (strstr(name, "music/") == nullptr)
 	{
-		sprintf(sndName, "sound/player/%s", name + 1);
+		if (name[0] == '*')
+		{
+			sprintf(sndName, "sound/player/%s", name + 1);
+		}
+		else
+		{
+			sprintf(sndName, "sound/%s", name);
+		}
 	}
 	else
 	{
-		sprintf(sndName, "sound/%s", name);
+		sprintf(sndName, "%s", name);
 	}
 	int wavFileSize = FS_LoadFile(sndName, &wavFileBuffer);
 	if(wavFileBuffer == nullptr || wavFileSize <= 0) {
@@ -269,7 +276,11 @@ void S_Update(vec3_t quake_origin, vec3_t forward, vec3_t right, vec3_t up)
 void S_PlayMusic(int track, int looping)
 {
 	char filename[512];
-	sprintf(filename, "music/Track%d.wav", track - 1);
+
+	if(track < 10)
+		sprintf(filename, "music/Track0%d.wav", track);
+	else
+		sprintf(filename, "music/Track%d.wav", track);
 	
 	sfx_t *music = S_FindName(filename, true);
 	if (!music)
