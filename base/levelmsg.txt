@@ -1,0 +1,314 @@
+// # signifies a .wav file
+Silverspring Docks
+Silverspring Warehouses
+The Town of Silverspring
+Silverspring Palace
+Darkmire Swamps
+Andoria Healer's Tower
+Andoria Slums
+Andoria Plaza
+Andoria Academic Quarters
+Kell Caves
+Katlit'k Canyon
+K'Chekrik Hive
+K'Chekrik Hive 2
+The Gauntlet
+The Trial Pit
+Lair of the Mothers
+Ogle Mines
+Ogle Mines 2
+Morcalavin's Dungeon
+Cloud Fortress
+Cloud Fortress Labs
+Cloud Living Quarters
+Morcalavin's Inner Sanctum
+Heretic II Training Level
+;
+This isn't right.  Where is everyone?#corvus\isnt_right.wav
+What ails him?  He looks to be diseased.#corvus\what_ails.wav
+What has befallen my people?#corvus\befallen.wav
+The Raven -- @it is the symbol of my people.#corvus\the_raven.wav 
+My brethren are insane with bloodlust!#corvus\bloodlust.wav
+A statue... of me?#corvus\statue_of_me.wav
+Season of the Sun.#corvus\season_of_sun.wav  
+Constellations, seasons? @What is the meaning of all this?#corvus\constellations.wav 
+The Celestial Watcher must be near.#corvus\watcher_near.wav 
+The Andoria Gates are sealed.  @I'll have to find another way inside.#corvus\andoria_gates.wav 
+At last, inside the city.#corvus\at_last_inside.wav
+This should hold the Earthblood.#corvus\hold_earthblood.wav
+That must be the Sea Crystal.#corvus\sea_crystal.wav  
+There...is the Earthblood pool.#corvus\earthblood_pool.wav
+By the Gods!#corvus\bythegods.wav
+;
+Locked.#corvus\locked.wav
+It's locked.#corvus\its_locked.wav
+I'll have to open this elsewhere.#corvus\open_elsewhere.wav
+Jammed.#corvus\jammed.wav
+It's Jammed.#corvus\its_jammed.wav
+It won't open.#corvus\wont_open.wav
+I'll never get through here.#corvus\never_through.wav
+No#corvus\no.wav
+No.#corvus\no_denial.wav
+No#corvus\no_disbelief.wav
+Noooo!#corvus\no_anger1.wav
+No!#corvus\no_anger2.wav
+;
+;(spoken when he finds an object/puzzle item)
+It's out of power.#corvus\out_of_power.wav
+A refinery.#corvus\refinery.wav
+Ore...but not refined.#corvus\ore.wav
+A suitable power source.#corvus\suitable_power.wav
+Hmmm, something's...missing.#corvus\missing.wav
+The Warrior's amulet.#corvus\amulet.wav
+Hmmm, a cog piece.#corvus\cog_piece.wav
+I need the cog piece.#corvus\need_cog.wav
+It's missing a wheel.#corvus\missing_wheel.wav
+A mine cart wheel.#corvus\mine_cart.wav
+;
+;TOME OF POWER
+;
+The Ssithra are a peaceful people. @They must be infected as well.#tome\sithra_peaceful.wav
+Ogles.  They are being @enslaved by the Seraphs.#tome\ogles_enslaved.wav
+There is Morcalavin and my sister tomes.@And a Tome I have never seen before.@That is why the spell failed.@Only the seven original Tomes of Power@can be used.@Quickly, we are nearer to our goal.#tome\sister_tomes.wav
+Sidhe shrines are scattered throughout@Parthoris.@You can pray at them for aid.#tome\sidhe_shrines.wav
+Corvus, the effects of the plague are@getting worse.  I will ward it off as@long as I can, but you must@continue on.#tome\corvus_continue.wav
+Corvus, you have cancelled the power@from all the Tomes.  But one False Tome@remains.  Carry me in my book@form and place it over the false Tome.@Only then will the spell be completed.#tome\place_tomes.wav
+Walk into low ledges to@automatically climb onto them.
+Press ACTION or JUMP@to climb taller walls.
+Aim down and press FORWARD to submerge@in water, aim up and FORWARD to surface.
+Surface, then swim to the ledge@to climb out of the water.
+JUMP or press ACTION@while next to a rope to grab onto it.
+Press FORWARD or BACK@to climb up or down rope.
+Strafe LEFT or RIGHT,@or ATTACK to swing on ropes.@@Press jump to leap off of ropes.
+Press JUMP while on rope to jump off.
+Press ACTION to use buttons and levers.
+CREEP to the ledge, then JUMP forward@to reach the other side.@@You won't fall off a ledge,@when you CREEP to it.
+Press ACTION to use puzzle items.@Walk to the door and use the town key.
+To get the puzzle piece, climb the@small crate, then press forward and@hold JUMP to perform a forward flip.
+Press ATTACK while running with staff@to perform spinning staff attack.
+To pole vault over longer distances,@ready the staff, then RUN and JUMP.
+Press JUMP then@LEFT/RIGHT/FORWARD/BACKWARD@to perform a jump flip.
+Press CROUCH then@any direction to roll.
+Forward jump into wall to perform@backflip off wall.
+Congratulations!@You've successfully completed the tutorial.@Walk through the portal to exit.
+Swim through the tunnel@to reach the rest of the level.
+;OBJECTIVES
+;
+The Harbormaster has informed me of a mind-altering plague that has infected my people.  Their madness makes them attack anyone in sight.  He also spoke of a cure found by a Ssithra healer in the nearby city of Andoria.  In order for me to retrieve the cure from Andoria, $I must make my way to the palace and defeat our village leader, the Celestial Watcher.%  Dranor said that the Watcher is insane by the plague and has used his magic to seal everyone inside the city.
+I have been overcome by the plague.  The Tome of Power that I possess has magic that will ward off the effects for the time being; besides my people, I now have to save myself from this wretched disease.  $I have to journey through the swamps to Andoria.  Once there I have to find the Ssithra healer who has the cure.%  A road through the swamps once connected our two cities.  It was destroyed during the reign of D’sparil.  My travels will not be easy; the water of the swamp is like quicksand.  I must stay out of this muck at all costs or its deadly grip will pull me under.
+Siernan has told me that the plague was created by someone named Morcalavin. His minions wander Parthoris, spreading his foul creation.  Still, I am close to obtaining the cure.  Siernan can make more, but $I have to retrieve the ingredients for him.  One ingredient is a sea crystal, found in the Great Library in the Acedemic Quarter.  The other is pure liquid Earthblood which can be found in the slums.%  Most of Siernan's lab was ruined, so $I will need to find a receptacle to carry the Earthblood in.% 
+I returned to Siernan's tower just in time; Morcalavin’s minions were attacking him. One of them was a plague spreader and the other a Carthorian Assassin.  Morcalavin must be powerful if he has the Carthorian’s working for him.  Siernan is infected and badly hurt. $Now I must go to the lab and use these ingredients to make the potion myself.  I shall return to help Siernan once it is made.% 
+The cure was concocted for the Ssithra, but it won’t work for my people, or me.  Siernan spoke about the High Priestess of K’chekrik.  She may be able to use her magic to cure the plague.  He sent a scout to find out the fate of the T’chekrik people.  The scout never returned.  I pray my luck is better than his, for $I have to travel to the hive city of K’chekrik% if I am to find a cure to save us all. First my people, then me, now the Ssithra as well. Has this plague infected everyone on Parthoris?
+The scout died, telling me what he has learned.  It appears that the T’chekrik are immune to the plague, but the High Priestess is commanding her warriors to kill all who enter the hive, for fear of spreading the plague.  He mentioned the gauntlet, a passage that leads to where the females live in the hive.  But $I need an Amulet in order to gain entry to the gauntlet.  The Amulet is hidden in the Warrior’s Tomb.% I have a feeling it won’t be easy to find.
+The T’chekrik are a tenacious and xenophobic lot. If it weren’t for the Tome’s translation, they would have surely killed me. By finding the amulet, and returning it to it’s rightful spot, I have earned the right to see the High Priestess.  But, now $I must prove myself worthy to enter the female home, where the Priestess lives.  What kinds of tests await me now?% 
+Morcalavin was controlling The Priestess through some sort of magic, but our battle broke her free from his grasp.  She told me that Morcalavin is a Seraph. The Seraphs were my people’s ancestors. They are an ancient and powerful race.  It was their power that caused this horror.  Morcalavin wasn’t out to destroy the land; he only wanted to elevate himself and his people to immortality.  He tried to cast a Spell of Ascension, but he failed.  Only he became immortal, but the side effect made him evil and twisted.  The Priestess believes that if the spell can be completed, the plague can be brought to an end. She teleported me to the Mines below his Fortress.  $I have to make my way to the Fortress,% if I am to confront Morcalavin and save all the people of Parthoris. 
+$I must return to the Inner Sanctum, and use the Tome that I carry with me to complete the spell of Ascension.  All I need to do is place it over the false Tome.%  I don’t think it will be that easy. 
+The Tomes of Power were used for the Spell of Ascension.  It appears that Morcalavin’s Spell required all of the seven Tomes of Power, but because I possess one of them, he only had access to six.  To complete the spell, he created a false Tome to replace the seventh.  The substitute corrupted the spell, and it brought about everything that has befallen my people.  $I must find a way to deactivate the power of the six true tomes.%  If I do so, Morcalavin's magic will be weakened enough that I can confront him.
+;
+;
+;
+;
+PUZZLE PIECES
+;
+K'Chekrik Gate Key
+Quarters Key
+Cog Piece
+Sea Crystal
+Inner Sanctum Key
+Priestess Key
+Symbol of the High Priestess
+Warrior's Amulet
+Statuary Gem
+Hero's Spear
+Mine Cart Wheel
+Unrefined Ore
+Empty Container
+Potion of Siernan
+Refined Ore
+Shield of Ssithra
+Earthblood Container
+Town Key
+;
+;GUARDIAN
+Only those who are pure of heart@or possess the Warrior's Shield@may pass.#cinematics/statue/47-327.wav
+
+aaaaaaahhhhhhhhhhhhhhh.......#player/falldeath1.wav
+; IN GAME CINEMATICS
+; DRANOR
+Go!  Or suffer the same... You...@you are Corvus?  Forgive me.
+You know of me?
+The slayer of D'sparil.@A hero's tale travels far.
+Who are you?  What has happened --@to Silverspring, and our people?
+I was once the Harbormaster.@I am Dranor.  The people -- they hide.@At least those who've been spared.
+Spared?
+From the plague.  The infected --@they are consumed by insanity.@They attack anyone in sight.@Thousands have died.
+But you -- you can save us once again.@There's talk that a Ssithra healer has@found a cure...across the swamps@in Andoria.  You must go there.
+It is not my destiny to be a hero.
+The lands of Parthoris are battlefields!@Soon we will join the infected@or die at their feet!@You must go to Andoria- you must.
+But first...you'll have to break@free from the city.
+The Celestial Watcher has used magic to@seal everyone inside and secure himself@in the palace.  Crush him -- and@you can cross the swamps to the cure.
+Stay, and we'll suffer a fate@worse than the Serpent Rider.
+I will go.@Parthoris will not be taken again.
+Corvus, be warned.  The lands are@filled with those who spread the@plague.  They carry globes that contain@ the deadly mist...
+; CELESTIAL WATCHER
+Corvus.  Perhaps I owe you.  Killing@D'sparil saved this city from@certain doom -@allowing me to become ruler.
+You helped build this city and lead its@people through wretched times.  And now@you have turned all of it into a prison.@The plague has become ruler.
+You should not have returned, Corvus.@You might have survived outside the city.@Your fight has been in vain.
+; SEWER
+Ooohhhh.  The Watcher?...
+His body was so infested with the plague@that once dead it could@no longer hold its form.
+You are strong again.
+I have recovered from opening the world@ripple but not in full.  
+Corvus, you must listen to me@-- you have been infected...
+No, Not now!@I will not fall to this... 
+Corvus, I can protect you for now.@But we must hurry across the swamps to@Andoria and find the healer.
+It will take most of my strength to@fend off the madness.@I am uncertain how long my@power will hold.
+You needn't fear.@I will move quickly.
+; FIRST SIERNAN
+I haven't any cure!  Go!
+I mean you no harm.@I seek the healer.
+Your skin -- you have the plague yet...@you have your wits.  How?  Tell me.  
+I am protected... by a Tome of Power.@But its power will not last.  I need@a cure.  Can you help me? 
+Ahh, the Heretic.  You are Corvus.    
+I know who I am.@Are you the Healer?@Will you help me?
+Yes, I am Siernan the healer, but I@cannot help you.  I would need another@Sea Crystal and vial of pure Earthblood@to make the cure.@
+But Andoria - it is ravaged@by the infected.  I am too old@and weak to fight.  
+A trade.@I'll retrieve the ingredients in@exchange for your help.
+Mmm, a fair trade, fair indeed.
+There is a Sea Crystal in the heart of@the Great Library in the Academic Quarter@but you may be unable to enter -- it was@constructed solely for the Ssithra. 
+As for the other -- go to the slums.@You'll find a pool of pure Earthblood.@It was used to create the plague and is@therefore part of its cure.@
+Be sure to find a suitable@container to carry it back.  
+The plague -- it was created?
+Such evil is not born of nature --@only magic.  Morcalavin.  I know nothing@of him, other than he created the plague@and the twisted denizens who spread it.  
+Watch for the infected.@I'll help you when you return.  
+; SIERNAN W/O INGREDIENTS
+You have the crystal,@and the Earthblood?
+No.
+I need another Sea Crystal,@and vial of pure Earthblood@to make the cure.
+; SIERNAN W INGREDIENTS
+Who were they?
+Minions... of Morcalavin.  He must know@of the cure.  Hurry, no time.  The@madness will fall upon me quickly.@You have the crystal and the Earthblood?
+I do.
+Go to my lab.  I've prepared the cure.@Just add a sliver of the crystal@and four drops of Earthblood.  Go!
+; FINAL SIERNAN
+Yes, yes.@It heals, just as before.
+The potion, it's not...@Why are you healed and not me?@Why? 
+I feared this.  Ssithra are not like@the Sidhe... as you know.  Our anatomies@are very different.  The cure must be@incompatible with your kind.
+Can it be fashioned for the Sidhe?
+Not in time to save you.@But don't give in to fate just yet.
+The High Priestess of K'chekrik is very@wise in the arts of magic.  She may be@able to conjure a cure.@Fight magic with magic.
+K'chekrik?!... it's too far.@I would have to travel around@the Kell Mountains.
+No.  No, there are caves under@the mountains.  We use them@as passage in dire times.
+The route is menacing but your need@surpasses the danger.  Enter this portal@it is a gateway into the caves.
+Are the T'chekrik infected as well?
+I do not know.  I dispatched a scout@several weeks ago to learn of their@condition, but he never returned.      
+Remember, tell them you need to speak@with the High Priestess.@They will not deny you this right.
+I am grateful for your help.@Should I survive, I will repay you.
+You already have.  With another lot of@the cure, I can save many more of my@people.  Now, enough.  Go to the High@Priestess.  Find a means to save us all.  
+; SCOUT
+You are the scout.@Sent by Siernan to K'chekrik?  
+He cured me.  And now I lie here...@facing death.  Unable to tell him... 
+Are the T'chekrik infected?
+They seem immune.  But still they@attacked when I reached the city.@The High Priestess... 
+she could be fearful of outsiders,@thinking they all carry the plague.@Sending the warriors to kill anyone@who isn't part of the hive. 
+My journey has been for nothing.
+No.  She may listen to you... if you@can gain entry.  But the amulet -- you@need it to cross into the warrior's@gauntlet.  This is...
+The gauntlet is the only passage into@the female home.  The amulet... it is@hidden in the Warrior's Tomb.@Tell Siernan I...
+; CAPTURED BY BUGS
+Tktktktk chektithskdhit.
+Tktktk skhitchektit.
+Translate.  Quickly. 
+You have trespassed in a T'chekrik city@and are to be punished.@You will be consumed by the hive.
+Tell them I have retrieved the amulet.@I need to see the High Priestess.@Tell them!
+As you wish.  
+Tktktk tchiktethskid tktth.
+Tchskhit titht.
+Because you have returned the Warrior's@Amulet, you will be granted permission@to earn the right to see@the High Priestess.
+Challenge accepted.
+; FIRST HIGH PRIESTESS
+I can grant your wish.
+My wish?
+To rid yourself of the plague.@I can grant your wish.@But are you willing to leave behind@all for which you have fought?
+I will pay no cost.@Parthoris should band together@and fight the plague as one. 
+Heroic...@like the tales of your battles.@Often one's traits remain in the hive@after being consumed.
+Your kind is immune.@Help me bring an end@to this scourge.  
+Foolish Elf.  I am helping you.@When you are one with the hive,@only then will you be free.
+; FALLEN PRIESTESS
+A cure -- that is all I seek!@I did not come here to fight you.@But--
+But you had no choice.@Truth be told, I am grateful to you.@The madness has disappeared...@for now it seems.
+Madness?@I thought the T'chekrik@were unaffected.
+Not fully.@Morcalavin's magic is powerful.@He uses a unique strain of the plague@to control anyone he wishes.
+Myself, your Celestial Watcher...@even his own people.@We have all become part of his army.
+There must be a cure.@One that can break Parthoris@free from his grasp.
+Indeed, I believe the plague@can be stopped.@But not by a cure.
+I do not understand.
+Morcalavin is a Seraph...
+A lie!@A Seraph would never unleash such evil.  
+I understand your devotion to@the Seraphs -- they are your ancestors.@But I speak the truth.
+Although it was not his intention@to create the plague,@Morcalavin is to blame.
+Seraphs do not act without discretion.@They are near gods.  
+Exactly.  It was out of this arrogance@that Morcalavin tried to cast@the Spell of Ascension.
+He sought to elevate himself and the@other Seraphs to immortality.@But the spell failed.  He alone became@immortal... and twisted beyond reason.
+But there is hope.  If the spell@is righted, it could bring an end@to Morcalavin's reign...@and the plague.
+It seems you have no choice,@but to fulfill your destiny --@that of a hero.
+What must I do?
+Confront Morcalavin.@He has constructed a stronghold in the@World's End Mountains.  
+I can teleport you into@the mines beneath.@But once there, you are on your own.
+Send me... now.@I will bring an end to this storm --@once and for all.
+; SSITHRA VICTIM
+Hold easy.@I will help you.   
+Too late for me.@You've come for Morcalavin.@Good.  Continue from where I've fallen.@Take this.
+It will...it will gain you entrance@to the Inner Sanctum.  I lacked@the strength, but... Must complete...
+; MORCALAVIN
+My compliments to you.@Few have shared your perseverance.
+You seem bewildered.@Do not be afraid to accept the truth.@I am a Seraph --@one of your forefathers.
+You may have been a Seraph once,@but are no more.
+You have slain the mighty Serpent Rider.@I suppose you intend the same for me?
+If it has to come to that.
+You must know that even with your Tome,@you stand no chance of victory.
+We shall see...
+
+; -- Strings for the first tutorial level -- (leave the above line blank, please.  Bob will hurt you bad.)
+;
+Welcome to the first part of the@tutorial.  Walk to the books to@receive instructions.
+In the first part of this tutorial,@you will be introduced to the interface.
+In the lower left corner of the screen@is a green bar that represents green@magic, or Mana, which is the power source@for your offensive spells.
+Next to the green bar is an icon that@represents your currently selected@offensive spell or weapon.
+Press the 1 key.@@Notice how the icon changed to show@your new selected weapon.
+Press the 2 key to select@your fireball spell.@@Using your attack button, cast the@fireball spell to shoot and destroy@a barrel...
+Notice how your mana bar decreases@as you use the power.
+The floating green gems are pure green@mana that power your offensive spells.@@Walk into them to pick them up...
+Notice how the green mana bar@increases in power.
+Destroy all the barrels, then walk@through the open door to the next room.
+;
+Besides offensive spells, you can carry@offensive weapons.@@In the middle of the room is the@Hellstaff weapon; Walk over it to@pick it up.
+You will notice two things.  The icon@next to the green mana bar changes to@represent the hellstaff.  A new icon now@appears next to the selected weapon icon.
+This new icon represents ammunition for@the Hellstaff.  Because the hellstaff@is a weapon and not a spell it uses@ammunition, not Mana.
+Weapons that use ammunition will have@this icon displayed, with the@respective ammo indicated.
+Using the fire button, shoot the@hellstaff at a barrel, destroying it.
+The floating red skulls or HellOrbs,@represent ammo for the hellstaff.@@Walk over them to pick them up and watch@your ammo icon increase in number.
+Destroy all the barrels,@and exit through the open door.
+;
+In the lower right corner of the screen@is a blue bar that represents blue@magic, or Mana, which is the power@source for your defensive spells.
+Next to the blue bar is an icon that@represents your currently selected@defensive spell.
+The icon is of the Tome of Power which@Corvus carries with him.
+The Tome of Power, when used, enhances@all your offensive spells and weapons.
+Pick up all the blue gems floating in@the room.  they are pure blue mana that@power the defensive spells.
+Notice how the blue mana bar@increases in power.
+Now you should have enough blue mana@to use your defensive spell;@the Tome of Power.
+Press the defend key (default is enter)@to cast the selected defensive spell.@A red bar will appear at the top right@of the screen.
+This is the power-up meter showing how@much time you have left before this@spell runs out.
+Now start attacking the barrels using@all your offensive spells and weapons;@notice how all of them act differently@when powered up.
+Destroy all barrels, then exit the room.
+;
+Pick up the object in the middle of@the room.  It is a defensive spell.
+You now possess the ability to cast a@new defensive spell.  Press the next@defense key (default is ']').
+Notice how the defensive spell icon@changed to show a graphic of the @Ring of Repulsion spell.
+The Next and Previous Defense keys@cycle through the selection of the@defensive spells
+Select the Ring of Repulsion defensive@spell, then press the defend key.
+Cool, huh?  You had enough defensive@mana to cast the spell.  All spells use@different amounts of mana.
+Lastly, located next to the defensive@spell icon, is the Health icon which@indicates your health numerically;@0 being dead.
+This concludes the interface@introduction.  Walk down the long@hallway and step through the door to@reach the next area of the tutorial.
+;
+Press the Inventory key (default is "i")@to see the puzzle pieces that you currently have.
+To shorten your jump distance,@press backward during jump.@@To drift sidewards during jump,@press the respective strafe keys.

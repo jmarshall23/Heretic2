@@ -449,6 +449,10 @@ void Mod_LoadFlexModel(struct model_s *mod, void *model_buffer, int filesize)
 
 	// Load in our skins.
 	mod->skins[0] = GL_FindImage(fmodel->skin_names, it_pic);
+	if (mod->skins[0] == nullptr)
+	{
+		ri.Con_Printf(PRINT_ALL, "GL_FindImage: failed to load %s\n", fmodel->skin_names);
+	}
 
 	mod->type = mod_flex;
 	mod->mins[0] = -32;
@@ -682,7 +686,11 @@ void R_DrawFlexModel(entity_t *e)
 	R_LightPoint(e->origin, lightColor);
 	glColor3f(lightColor[0] * 3, lightColor[1] * 3, lightColor[2] * 3);
 
-	GL_Bind(e->model[0]->skins[0]->texnum);
+
+	if (e->model[0]->skins[0])
+	{
+		GL_Bind(e->model[0]->skins[0]->texnum);
+	}
 	R_RenderFlexModel(e->model[0]->fmodel, e->fmnodeinfo, e->frame, e->oldframe, e->oldorigin, e->origin, e->angles, e->backlerp);
 
 	GL_EnableMultitexture(false);

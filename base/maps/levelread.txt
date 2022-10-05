@@ -1,0 +1,110 @@
+Following is a synopsis of the included new deathmatch maps. This 1.05 version of the EP DM Maps includes both the Christmas 98 maps and the 1.04 EP DM Maps.
+********************************************************************************************
+Name of Map -			dmcitadel
+Full Name -			Citadelic
+Created By -			Greg Barr
+Title - 			Designer, Soldier of Fortune
+Ideal Number of Players -	1 on 1, or 3-4 Free for All
+Blurb -				A Dungeon themed level featuring a full loadout of offensive and defensive weapons with the exception of the Iron Doom. Neither the teleports or the shrines are random, this should allow players to learn the layout and predict/intercept opponents moves. Tricky jumps and sound cues are suited to 1 on 1 play rather than ffa but that doesn't exclude playing it for a quick bloodbath with more players.
+********************************************************************************************
+Name of Map -			rendm
+Full Name -			Blade Pit
+Created By -			Mike Renner
+Title - 			Designer, Heretic II
+Ideal Number of Players -	4 for fast action; more for total carnage
+Blurb -				Created with the Hive textures.  This is a big circular pit that tends to be a fast paced, fast action, high intensity map.  I wanted a staff only deathmatch with a twist.  I added the chicken hole to break up the action.  I made a staff only deathmatch for those who enjoy removing someone's limb and hunting them down.  If you cannot handle yourself with the blade staff, this would be a good place to learn.
+********************************************************************************************
+Name of Map -			dmbloodfeud
+Full Name -			Blood Feud
+Created By -			Scott McNutt
+Title - 			Designer, Soldier of Fortune
+Ideal Number of Players -	6 to 8
+Blurb -				Blood Feud is a dark and gloomy place to feed your slaughtering frenzies.
+********************************************************************************************
+Name of Map -			DMLava
+Full Name -			The Lava Palace
+Created By -			Jeremy Statz (IRC: Terata)
+Title -				Tomato gatherer, second circle, rank Journeyman
+Ideal Number of players -  	5-12
+Blurb:				This map is a port of a HexenWorld DM map I made a while ago, with a few areas added/changed and some secrets modified.  The lava is either nastier or easier to deal with, depending on who you ask, but it's still around.  Had to remove the secret room through the lava tunnel, unfortunately, because of the way H2's lava works.  Besides that, though, it converted pretty well and makes for a fun free-for-all DM.
+********************************************************************************************
+Name of Map -			dmstonehenge	
+Full Name -			<same>	
+Created By -			Matt Pinkston	
+Title - 			Designer, Heretic II	
+Ideal Number of Players - 	6 or more
+Blurb -				The Andoria tile set is what I chose for this particular level.  
+There should be enough ups and downs, plenty of verticality, and lots of fun places for staff 
+combat.  If you can’t figure out how to get the IronDoom, then start thinking like a chicken... 
+bak bak bak.
+********************************************************************************************
+Name of Map - 			dmoz
+Full Name - 			Blood Orgy of the Damned
+Created By - 			Mike "Oz" Schulenberg
+Title -				Designer, Project 3
+Number of Players - 		8 to 16
+Blurb -				I wrought this cataclysmic bloodfest of hopeless despair using 
+primarily the Dungeon texture set, supplementing it with other textures as necessary.  This map 
+has plenty of weapons scattered about, including a Phoenix bow and an Iron Doom.  A large 
+portion of it is rather symetrical, but it’s broken up with some other, unique areas.  I think 
+it turned out pretty cool and I hope you do too.
+********************************************************************************************
+Name of Map -			DMDarkness
+Full Name -			Darkness
+Created By -	 		Jeremy Statz (IRC: Terata)
+Title -				Designer, Heretic II, Soldier of Fortune
+Ideal Number of Players -  	2-6
+Blurb -				This map is dark.  Like, really dark.  It started out as an 
+experiment to see if I could keep everything in silhouette by lighting stuff in the distance, 
+but nothing in the middle of rooms and such, but didn't really end up that way.  The darkness 
+of it turned out pretty cool, though, as it kind of encourages you to be paranoid and sneak 
+around a bit.  I put a water channel in the lower area, and a metal surface on the highest 
+catwalk to allow good use of audio cues, also.  There are also a couple nice shortcuts should 
+you be good at wall-flipping.
+********************************************************************************************
+Name of Map -			dmlight
+Full Name -			Light..
+Created By - 			Jeremy Statz
+Title -				Designer, Heretic II, Soldier of Fortune
+Ideal Number of Players -	2-6
+********************************************************************************************
+Name of Map -			dmtorture
+Full Name -			Got Torture?
+Created By -			Jon Zuk
+Title - 			Lead Designer, Heretic II
+Ideal Number of Players - 	6 or more
+Blurb -				I created this level with the dungeon tile set.  This is a 
+fairly straightforward deathmatch map with enough loops and over/under levels to keep people 
+close to each other, and the action fast.  I didn't include the Iron Doom as I thought this map 
+was too small for that weapon.  I made each room unique so you can quickly become familiar with 
+the map.  Hope you enjoy it!
+********************************************************************************************
+Name of Map - 			dmjersey
+Full Name - 			Corridor of Chameleons
+Created By - 			Jim Hughes
+Title - 			Designer, Soldier of Fortune 
+Ideal Number of Players - 	4 or more
+Blurb -  			This is a small deathmatch map that was done using the Cloudhub 
+Texture set.  There are 2 main atrium style rooms with lots of different height variations 
+connected in various ways.  I tried to keep the vertical element strong in the map since it 
+is fun to fire downwards at unsuspecting enemies.  Have fun.
+********************************************************************************************
+Name of Map -			dmtower
+Full Name -			Silverspring Tower
+Created By -			Michael Raymond-Judy
+Title -				Designer, Heretic II
+Ideal Number of Players -	6 or more
+Blurb -				This map was designed with a fairly large crowd in mind. There 
+are only a couple of really good hiding places, only one really secret place, but there are 
+lots of ways to escape when you’re low on health or ammo. Weapons and defensive spells are 
+spread fairly evenly, but the "best" shrines are all on the outside main level - the rest of 
+the shrines are random ones. While this is not technically a "king of the hill" map, the 
+people who control the high ground (in this case the outside walks of the tower and the top 
+area by the Phoenix Bow) have a tremendous advantage. It’s always good to be on top!
+********************************************************************************************
+Name of Map - 			dmoutpost
+Full Name - 			Darkmire Outpost
+Created By - 			Matt Pinkston
+Title - 			Designer, Heretic II 
+Ideal Number of Players - 	4 or more
+ 			

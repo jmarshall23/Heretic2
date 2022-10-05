@@ -1,0 +1,323 @@
+;SHRINE TEXT
+;
+Chaos Shrine - Spirit
+Chaos Shrine - Mana
+Chaos Shrine - Silver Armor
+Chaos Shrine - Reflection
+Chaos Shrine - Powerup
+Chaos Shrine - Gold Armor
+Chaos Shrine - Blade
+Chaos Shrine - Ghost
+Chaos Shrine - Feet of Wings
+Mana Shrine
+Spirit Shrine
+Silver Armor Shrine
+Light of the Seraph Shrine
+Power Shrine
+Blade Shrine
+Ghost Shrine
+Reflection Shrine
+Lungs of the Ssithra Shrine
+Gold Armor Shrine
+Boots of Speed Shrine
+; 
+; AQUIRING ITEMS TEXT
+;
+;
+The HELLSTAFF.
+The THUNDER BLAST spell.
+The STORM BOW.
+The SPHERE OF ANNIHILATION spell.
+The PHOENIX BOW.
+The IRON DOOM spell.
+The FIREWALL spell.
+The TOME is yours.
+The RING OF REPULSION defensive spell.
+The LIGHTNING SHIELD defensive spell.
+The TELEPORT defensive spell.
+The MORPH OVUM defensive spell.
+The METEOR SWARM defensive spell.
+Small, OFFENSIVE MANA.
+Big, OFFENSIVE MANA.
+Small DEFENSIVE MANA.
+Big, DEFENSIVE MANA.
+COMBO MANA.
+COMBO MANA.
+STORM ARROWS.
+PHOENIX ARROWS.
+HELLORB.
+HEALTH VIAL.
+HEALTH POTION.
+You found a TOWN KEY.
+The COG piece is yours.
+You found the Warrior's Shield.
+The vial of POTION is yours.
+You found an empty CONTAINER.
+The CONTAINER is now full of Earthblood.
+A piece of the SEA CRYSTAL is yours.
+The HIVE KEY is yours.
+You acquired the WARRIOR'S AMULET.
+You possess the SPEAR of the Warrior.
+The T'chekrik HEART GEM.
+A MINE CART WHEEL.
+UNREFINED ORE.
+The ORE has been REFINED.
+You found a DUNGEON KEY.
+A FORTRESS KEY.
+You found a KEY.
+You aquired the T'chekrik IDOL.
+The TOME is now in your inventory.
+You picked up the TAVERN KEY.
+;
+; Sorry messages
+;
+You don't posses HELLSTAFF.
+You don't know the THUNDER BLAST spell.
+You don't have the STORM BOW.
+You don't have the SPHERE OF ANNIHILATION spell.
+You don't have the PHOENIX BOW.
+The IRON DOOM spell is still a mystery.
+You cannot cast the FIREWALL spell.
+No TOME to use.
+You haven't learned to cast the RING OF REPULSION.
+The SHIELD spell is beyond your power.
+You can't cast TELEPORT yet.
+You have not acquired the MORPH OVUM.
+You have not learned the METEOR SWARM spell.
+You need the TOWN KEY.
+You need the COG.
+You need the SHIELD.
+You need the POTION.
+You need the CONTAINER.
+You need the FULL CONTAINER.
+You need the SEA CRYSTAL.
+You need the HIVE KEY.
+You need the WARRIOR'S AMULET.
+You need the SPEAR of the WARRIOR.
+You need the HEART GEM.
+You need the MINECART WHEEL.
+You need the ORE.
+You need the REFINED ORE.
+You need the DUNGEON KEY.
+You need the CLOUD KEY.
+You need the KEY.
+You need the IDOL.
+You need the TOME.
+You need the TAVERN KEY.
+;
+; Misc messages
+;
+This Item is not useable.
+Run the server with '+set cheats 1' to enable this command.
+You are out of this item.
+Sorry, Not enough Mana to use this spell. 
+Sorry, Out of Ammo for this weapon.
+You completed the sequence!
+Find 1 more...
+Find 2 more...
+Find 3 more...
+Find 4 more...
+Find 5 more...
+Find 6 more...
+Find 7 more...
+Find 8 more...
+Find 9 more...
+Find 10 more...
+A new OBJECTIVE has been written.
+;
+%1 killed self.
+%1 died.
+%1 was killed by %2.
+%1 has entered the game.
+Time limit hit.
+Frag limit hit.
+%1 exited the level.
+%1 disconnected.
+%1 was KICKED from the game.
+%1 was BANNED from the server.
+You were kicked.
+You are banned.
+%1 timed out.
+%1 overflowed.
+Cinematic pending - waiting for other players to join.@
+Cinematic in progress - waiting for end.@
+;
+; Regular weapon obituaries
+;
+%1 was chopped to hamburger by %2.
+%2 made a kebab out of %1.
+%2 sliced %1 into chunky salsa.
+%1 was hot slapped by %2 fireball.
+%1 was fireballed by %2.
+%2 got blasted by %1.
+%1 was blasted by %2.		  
+%2 blasted %1 into oblivion.
+%1 was missiled by %2.
+%1 was totally annihilated by %2's Big Blue Sphere of Death.
+%1 was annihilated by %2's Sphere.
+%2's sphere helped %1 to the floor.
+%1 almost avoided %2's Sphere of Annihlation.
+%1 almost avoided %2's Sphere of Annihlation.
+%1 almost avoided %2's Sphere of Annihlation.
+%1 was ripped a new one by %2's Iron Doom.
+%1 got shredded by the Iron Doom of %2.
+%1 bowed to the might of %2's Iron Doom.
+%1 was incinerated by %2's Firewall.
+%2's Firewall nicely toasted %1.
+%2 is offering BBQ'd %1.
+%2 rained on %1's parade.
+%2 ruined %1's picnic.
+%1 got stormed by %2's bad weather.
+%1 got his goose cooked by %2's Phoenix Arrow.
+%2 will not rise from the ashes of %1's Phoenix.
+%2 gave %1 the bird.
+%1 almost dodged %2's Phoenix Arrow.
+%1 almost dodged %2's Phoenix Arrow.
+%1 almost dodged %2's Phoenix Arrow.
+%1 was sent to hell by %2's Hellstaff.
+%2's Hellbolt got the best of %1.
+%2 shared a little hellfire with %1.
+;
+; Powered up weapons
+;
+%1 was cut to ribbons by %2.
+%2 got %1's staff infection
+%2 dismembered %1 into little tiny pieces.
+%1 was rocked by %2 powered up fireball.
+%1 was fireballed by %2.
+%2 got blasted by %1.
+%1 was thunder struck by %2.		  
+%2 called down the thunder on %1.
+%1 was missiled by %2.
+%1 was flatlined by %2's powered up Sphere.
+%1 was annihilated by %2's Sphere.
+%2's powered up sphere wiped %1 out of exsistance.
+%1 almost avoided %2's Sphere of Annihlation.
+%1 almost avoided %2's Sphere of Annihlation.
+%1 almost avoided %2's Sphere of Annihlation.
+%1 couldn't catch %2's beachball.
+%1 taunted %2's Happy Fun Ball.
+%1 was turned to sweadish meat by %2's Iron Doom ball.
+%1 was flame broiled by %2's Firewall.
+%2 lit a fire under %1's dead ass.
+%2 is now serving blackened %1.
+%2's rain drops kept falling on %1's head.
+%2 forecast called for %1's demise.
+%1 was used by %2 as a lightning rod.
+%1 ended %2's bird watching days.
+%2 is now Phoenix lickin' good because of %1.
+%2 Bird stuffed %1.
+%1 almost dodged %2's firey Phoenix.
+%1 almost dodged %2's Phoenix Arrow.
+%1 almost dodged %2's Phoenix Arrow.
+%1 was redeamed by %2's Hellstaff.
+%2's laser from Hell scorched %1.
+%2 pointed his hellfire beam at %1.
+;
+; Suicides/misc deaths
+;
+%1 was killed by unknown.
+%1 was killed by unknown.
+%1 was killed by unknown.
+%1 killed himself.
+%1 is an ex-parrot.
+%1 got tired of living.
+%1 tasted %2's shoe leather.
+%1 was dealt a savage beating by %2.
+%1 got the stuffing knocked out of him by %2.
+%1 saw stars from %2's Meteors.
+%1 is a crater from the Meteors of %2.
+%2's Meteor Barrier found %1.
+%1 felt the power of %2's thunder.
+%1 got permanently repulsed by %2.
+With %2's ring, %1 thee dreads.
+%1 was shocked to death by %2's Lightning Shield.
+%1 was zapped by %2's electric personality.
+%1 shouldn't stick his fingers in %2's light socket.
+%1 was henpecked by %2.
+%1 fell to the deadly beak of %2.
+%1 met with a pathetic end by the chicken %2.
+%1 tried to invade %2's personal space.
+%1 picked the wrong place to stand when %2 teleported.
+%1 tried to invade %2's personal space.
+%1 drinks like a fish.
+%1 drowned.
+%1 sucked down too much water.
+%1 CANNOT breathe liquid.
+%1 couldn't hold his breath any longer.
+%1 gulps it down.
+%1 ended up a chicken dinner.
+%1 took a nice hot bath.
+%1 got a little hot under the collar.
+%1 was mashed to squelchy bits.
+%1 turned into mincemeat.
+%1 now fits in a small jar.
+%1 cratered.
+%1 became a pavement pizza.
+%1 ended up all over the floor.
+%1 got bored with life.
+%1 couldn't stand life anymore.
+%1 needed to cheer up.
+%1 had blew eyes.
+%1 nuked.
+%1 exploded like a blood sausage.
+%1 tried to be all he could be.
+%1 found a way out.
+%1 attempted to escape.
+%1 shuffled off this mortal coil.
+%1 is pushing up the daisies.
+%1 has gone to a better place.
+%1 bled to death.
+%1 needed a blood bank.
+%1 squirted blood a little too liberally.
+%1 kebab.
+A large spike skewered %1.
+%1 was impaled.
+%1 burnt to death.
+Fried %1, to go.
+%1 thought it was better to burn out, than to fade away!
+%1 needs to be more careful with exploding things.
+%1 blew himself up.
+%1 exploded into a thousand pieces.
+;
+; messages used by the tutorial
+;
+Yipee!@You did %d damage to me!@Hit me again!@
+Top!@You did %d damage to me!@Hit me again!@
+Smashing!@You did %d damage to me!@Hit me again!@
+Tallyho!@You did %d damage to me!@Hit me again!@
+Fair Play!@You did %d damage to me!@Hit me again!@
+Booyah!@You did %d damage to me!@Hit me again!@
+Smack!@You did %d damage to me!@Hit me again!@
+Oh, thine elbow thou didst bring down upon me!@You did %d damage to me!@ Hit me again!@
+That's marvelous!@You did %d damage to me!@Hit me again!@
+Rock!@You did %d damage to me!@Hit me again!@
+No, no, that's not right, try again!@
+Ow!  That got me!  Bargain!  Now try another@
+Right on!  You have completed all your tests!@You may now beat me about the neck and@beak vigorously at your leisure.@Don't worry, I like it!@
+@STAFF SWING:@Simply swing your staff at me and whack me good!@
+@SPINNING STAFF SWING:@While running forward, attack with your staff@to knock me right good with a spinning staff attack!@
+@POLE VAULT JUMP KICK:@Run at me with the staff readied and jump@to kick me square in the crest!@
+@FLYING FIST:@Ready your Flying Fist spell and see if you can hit me!@
+G'Day, Mate!@I'm Sir Nate, your whacking bird!@Feel free to practice your attacks upon me!@
+Let's get started, shall we?@First, prepare your staff and get ready to pummel@my helpless limp body dangling from this rope which@is so pleasantly chafing my delicate claws!@
+Cheers, mate, now use the your fireball and shoot@the two buttons on the wall@to end the level...
+
+You cannot talk for %d seconds.
+Name change not allowed again for %d seconds.
+Suicide not allowed again for %d seconds.
+Searching for local servers@This could take up to a minute@Please be patient
+Saving Personalised Config
+Restarting the Sound System@This could take up to a minute@Please be patient
+
+The map for Kellcaves was lost during the battle of D'Sparil.
+The Darkmire Swamp has never been mapped.
+No map has ever been made for the Katlit`k Canyon.
+The mines have never been mapped.
+No map, for no one knew the dungeons even existed.
+The Cloud Fortress is a mystery to all !
+	
+$Helpful Key Commands%@@Esc = Menu@~ = Console@Tab = Lookaround@s = Say/Talk@+ = Increase screen size@- = Decrease screen size@@F1 = Help menu@F5 = Quicksave@F6 = Quickload@F9 = Return from drop camera@F10 = Drop camera@F12 = Quit / Exit@@
+$Info%@@P = Map of Parthoris@U = City Map@I = Inventory@O = Objectives@@$Weapons%@@Offensive = 1-9 keys@Defensive = @Q = Power-up@W = Ring of Repulsion@E = Meteor swarm@R = Morph ovum@T = Teleport@Y = Lightning shield@
+
+

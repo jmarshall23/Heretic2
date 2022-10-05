@@ -161,6 +161,11 @@ ALuint S_FindFreeVoice(void) {
 }
 
 void S_PlayNoPositionSound(ALuint voice, sfx_t *localSound) {
+	if (localSound == nullptr)
+	{
+		return;
+	}
+
 	alSourcei(voice, AL_BUFFER, localSound->buffer);
 	alSource3i(voice, AL_AUXILIARY_SEND_FILTER, (ALint)sndGlobal.reverb_aux_slot, 0, AL_FILTER_NULL);
 	alSourcei(voice, AL_SOURCE_RELATIVE, AL_FALSE);
