@@ -44,6 +44,7 @@ typedef struct entity_s
 
 	float				oldorigin[3];	
 	int					oldframe;
+	int					olderframe;
 
 	float				backlerp;				// 0.0 = current, 1.0 = old
 

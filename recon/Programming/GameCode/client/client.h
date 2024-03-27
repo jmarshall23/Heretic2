@@ -43,6 +43,7 @@ typedef struct
 	qboolean		valid;						// cleared if delta parsing was invalid
 	int				serverframe;
 	int				servertime;					// server time the message is valid for (msec)
+	int				prevservertime;
 	int				deltaframe;
 	byte			areabits[MAX_MAP_AREAS/8];	// portalarea visibility bits
 	player_state_t	playerstate;
@@ -178,6 +179,7 @@ typedef struct
 	// The time value that the client is rendering at. This is always <= cls.realtime.
 
 	int			time;
+	int			prevtime;
 
 	// Between oldframe and frame.
 

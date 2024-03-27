@@ -465,16 +465,40 @@ void Mod_LoadFlexModel(struct model_s *mod, void *model_buffer, int filesize)
 
 /*
 =============
+Clamp
+=============
+*/
+float clamp(float x, float lowerlimit, float upperlimit) {
+	if (x < lowerlimit) x = lowerlimit;
+	else if (x > upperlimit) x = upperlimit;
+	return x;
+}
+
+/*
+=============
+SmoothStep Easing
+=============
+*/
+float SmoothStep(float edge0, float edge1, float x) {
+	x = clamp((x - edge0) / (edge1 - edge0), 0.0, 1.0);
+	return x * x * x * (x * (x * 6 - 15) + 10);
+}
+
+/*
+=============
 R_LerpFrameVertexes
 =============
 */
 
 void R_LerpFrameVertexes(vec3_t newPoint, vec3_t oldPoint, vec3_t interpolatedPoint, float backlerp)
 {
+	backlerp = SmoothStep(0.0f, 1.0f, backlerp);
+
 	interpolatedPoint[0] = newPoint[0] + backlerp * (oldPoint[0] - newPoint[0]);
 	interpolatedPoint[1] = newPoint[1] + backlerp * (oldPoint[1] - newPoint[1]);
 	interpolatedPoint[2] = newPoint[2] + backlerp * (oldPoint[2] - newPoint[2]);
 }
+
 /*
 =============
 R_RenderFlexNode

@@ -854,6 +854,8 @@ typedef struct entity_state_s
 
 	short			frame;
 
+	int				olderframe;
+
 	// Model's position and orientation  in the world.
 
 	vec3_t			origin;

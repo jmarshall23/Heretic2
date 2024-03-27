@@ -753,14 +753,16 @@ void CL_ParseFrame (void)
 	int			len;
 	frame_t		*old;
 
+	int prevtime = cl.frame.servertime;
 	memset (&cl.frame, 0, sizeof(cl.frame));
+	cl.frame.prevservertime = prevtime;
 
 #if 0
 	CL_ClearProjectiles(); // clear projectiles for new frame
 #endif
-
+	
 	cl.frame.serverframe = MSG_ReadLong (&net_message);
-	cl.frame.deltaframe = MSG_ReadLong (&net_message);
+	cl.frame.deltaframe = MSG_ReadLong (&net_message);	
 	cl.frame.servertime = cl.frame.serverframe*100;
 
 	// BIG HACK to let old demos continue to work
@@ -1132,9 +1134,11 @@ void CL_AddEntities (void)
 	}
 	else
 		cl.lerpfrac = 1.0 - (cl.frame.servertime - cl.time) * 0.01;
-
+	
 	if (cl_timedemo->value)
 		cl.lerpfrac = 1.0;
+
+
 
 //	CL_AddPacketEntities (&cl.frame);
 //	CL_AddTEnts ();
